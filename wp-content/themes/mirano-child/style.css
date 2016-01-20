@@ -1,0 +1,27 @@
+/*
+ Theme Name:   Mirano Child
+ Theme URI:    http://example.com/twenty-fourteen-child/
+ Description:  A <a href='http://codex.wordpress.org/Child_Themes'>Child Theme</a> for the Mirano Wordpress Theme. If you plan to do a lot of file modifications we recommend to use this Theme instead of the original Theme. Updating will be much easier then.
+ Author:       Mirano
+ Author URI:   http://www.roadthemes.com
+ Template:     mirano
+ Version:      1.0
+ Tags: two-columns, left-sidebar, right-sidebar, custom-menu, full-width-template, theme-options, translation-ready
+ Text Domain:  mirano-child
+*/
+
+
+
+@import url("../mirano/style.css");
+
+/* =Theme customization starts here
+-------------------------------------------------------------- */
+#user-submitted-posts input[type="text"], textarea, select {
+    background: none repeat scroll 0 0 #eee !important;
+    border: medium none !important;
+    display: block;
+    padding: 15px !important;
+    width: 100%;
+}
+
+

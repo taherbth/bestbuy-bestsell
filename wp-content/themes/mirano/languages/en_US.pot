@@ -1,0 +1,5019 @@
+# Copyright (C) 2014 the WordPress team
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Mirano 1.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tags/roadthemes\n"
+"POT-Creation-Date: 2015-10-22 06:29+0700\n"
+"PO-Revision-Date: 2015-10-22 06:29+0700\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.7.5\n"
+"X-Poedit-KeywordsList: _e;_n;__;_x;_ex;esc_html__;esc_html_e\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../brize/404.php:27
+msgid "This is not the web page you are looking for"
+msgstr ""
+
+#: ../brize/404.php:28
+msgid "Please try one of the following pages "
+msgstr ""
+
+#: ../brize/404.php:29 ../heajy/404.php:20
+msgid "home page"
+msgstr ""
+
+#: ../brize/archive.php:61 ../brize/author.php:56 ../brize/category.php:56
+#: ../brize/image.php:51 ../brize/index.php:62 ../brize/search.php:49
+#: ../brize/single.php:49 ../brize/tag.php:56 ../brize/theme-config.php:1022
+#: ../heajy/archive.php:58 ../heajy/author.php:52 ../heajy/category.php:52
+#: ../heajy/image.php:50 ../heajy/index.php:60 ../heajy/search.php:48
+#: ../heajy/single.php:47 ../heajy/tag.php:52 ../heajy/theme-config.php:1008
+#: ../mirano/image.php:51 ../mirano/theme-config.php:995
+#: ../saharan/archive.php:61 ../saharan/author.php:55
+#: ../saharan/category.php:55 ../saharan/image.php:52 ../saharan/index.php:59
+#: ../saharan/search.php:51 ../saharan/single.php:25 ../saharan/tag.php:55
+#: ../saharan/theme-config.php:879 ../sozo/archive.php:58
+#: ../sozo/author.php:52 ../sozo/category.php:52 ../sozo/image.php:50
+#: ../sozo/index.php:60 ../sozo/search.php:48 ../sozo/single.php:47
+#: ../sozo/tag.php:52 ../sozo/theme-config.php:989 ../vanesa/archive.php:58
+#: ../vanesa/author.php:53 ../vanesa/category.php:53 ../vanesa/image.php:51
+#: ../vanesa/index.php:58 ../vanesa/search.php:49 ../vanesa/single.php:48
+#: ../vanesa/tag.php:53 ../vanesa/theme-config.php:980
+msgid "Blog"
+msgstr ""
+
+#: ../brize/archive.php:77 ../heajy/archive.php:73 ../mirano/archive.php:69
+#: ../saharan/archive.php:76 ../sozo/archive.php:73
+#: ../twentyfourteen/archive.php:31 ../twentythirteen/archive.php:29
+#: ../vanesa/archive.php:74
+#, php-format
+msgid "Daily Archives: %s"
+msgstr ""
+
+#: ../brize/archive.php:79 ../heajy/archive.php:75 ../mirano/archive.php:71
+#: ../saharan/archive.php:78 ../sozo/archive.php:75
+#: ../twentyfourteen/archive.php:34 ../twentythirteen/archive.php:31
+#: ../vanesa/archive.php:76
+#, php-format
+msgid "Monthly Archives: %s"
+msgstr ""
+
+#: ../brize/archive.php:79 ../heajy/archive.php:75 ../mirano/archive.php:71
+#: ../saharan/archive.php:78 ../sozo/archive.php:75
+#: ../twentyfourteen/archive.php:34 ../twentythirteen/archive.php:31
+#: ../vanesa/archive.php:76
+msgid "F Y"
+msgstr ""
+
+#: ../brize/archive.php:81 ../heajy/archive.php:77 ../mirano/archive.php:73
+#: ../saharan/archive.php:80 ../sozo/archive.php:77
+#: ../twentyfourteen/archive.php:37 ../twentythirteen/archive.php:33
+#: ../vanesa/archive.php:78
+#, php-format
+msgid "Yearly Archives: %s"
+msgstr ""
+
+#: ../brize/archive.php:81 ../heajy/archive.php:77 ../mirano/archive.php:73
+#: ../saharan/archive.php:80 ../sozo/archive.php:77
+#: ../twentyfourteen/archive.php:37 ../twentythirteen/archive.php:33
+#: ../vanesa/archive.php:78
+msgid "Y"
+msgstr ""
+
+#: ../brize/archive.php:83 ../heajy/archive.php:79 ../mirano/archive.php:75
+#: ../saharan/archive.php:82 ../sozo/archive.php:79
+#: ../twentyfourteen/archive.php:40
+#: ../twentyfourteen/taxonomy-post_format.php:51
+#: ../twentythirteen/archive.php:35 ../vanesa/archive.php:80
+msgid "Archives"
+msgstr ""
+
+#: ../brize/author.php:81 ../heajy/author.php:74 ../mirano/author.php:70
+#: ../saharan/author.php:76 ../sozo/author.php:74 ../vanesa/author.php:76
+#, php-format
+msgid "Author Archives: %s"
+msgstr ""
+
+#: ../brize/author.php:110 ../heajy/author.php:103 ../mirano/author.php:99
+#: ../saharan/author.php:105 ../sozo/author.php:103
+#: ../twentythirteen/author-bio.php:26 ../vanesa/author.php:105
+#, php-format
+msgid "About %s"
+msgstr ""
+
+#: ../brize/category.php:73 ../heajy/category.php:66 ../mirano/category.php:62
+#: ../saharan/category.php:68 ../sozo/category.php:66
+#: ../twentyfourteen/category.php:20 ../twentythirteen/category.php:19
+#: ../vanesa/category.php:68
+#, php-format
+msgid "Category Archives: %s"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:333 ../brize/functions.php:1226
+#: ../heajy/class-tgm-plugin-activation.php:161 ../heajy/functions.php:1197
+#: ../mirano/class-tgm-plugin-activation.php:333 ../mirano/functions.php:1266
+#: ../saharan/class-tgm-plugin-activation.php:333
+#: ../saharan/functions.php:1135 ../sozo/class-tgm-plugin-activation.php:333
+#: ../sozo/functions.php:1190 ../vanesa/class-tgm-plugin-activation.php:161
+#: ../vanesa/functions.php:1217
+msgid "Install Required Plugins"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:334 ../brize/functions.php:1227
+#: ../heajy/class-tgm-plugin-activation.php:162 ../heajy/functions.php:1198
+#: ../mirano/class-tgm-plugin-activation.php:334 ../mirano/functions.php:1267
+#: ../saharan/class-tgm-plugin-activation.php:334
+#: ../saharan/functions.php:1136 ../sozo/class-tgm-plugin-activation.php:334
+#: ../sozo/functions.php:1191 ../vanesa/class-tgm-plugin-activation.php:162
+#: ../vanesa/functions.php:1218
+msgid "Install Plugins"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:335 ../brize/functions.php:1228
+#: ../heajy/class-tgm-plugin-activation.php:163 ../heajy/functions.php:1199
+#: ../mirano/class-tgm-plugin-activation.php:335 ../mirano/functions.php:1268
+#: ../saharan/class-tgm-plugin-activation.php:335
+#: ../saharan/functions.php:1137 ../sozo/class-tgm-plugin-activation.php:335
+#: ../sozo/functions.php:1192 ../vanesa/class-tgm-plugin-activation.php:163
+#: ../vanesa/functions.php:1219
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:336 ../brize/functions.php:1229
+#: ../heajy/functions.php:1200 ../mirano/class-tgm-plugin-activation.php:336
+#: ../mirano/functions.php:1269 ../saharan/class-tgm-plugin-activation.php:336
+#: ../saharan/functions.php:1138 ../sozo/class-tgm-plugin-activation.php:336
+#: ../sozo/functions.php:1193 ../vanesa/functions.php:1220
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:397 ../brize/functions.php:1240
+#: ../heajy/class-tgm-plugin-activation.php:175 ../heajy/functions.php:1211
+#: ../mirano/class-tgm-plugin-activation.php:397 ../mirano/functions.php:1280
+#: ../saharan/class-tgm-plugin-activation.php:397
+#: ../saharan/functions.php:1149 ../sozo/class-tgm-plugin-activation.php:397
+#: ../sozo/functions.php:1204 ../vanesa/class-tgm-plugin-activation.php:175
+#: ../vanesa/functions.php:1231
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:398
+#: ../heajy/class-tgm-plugin-activation.php:176
+#: ../mirano/class-tgm-plugin-activation.php:398
+#: ../saharan/class-tgm-plugin-activation.php:398
+#: ../sozo/class-tgm-plugin-activation.php:398
+#: ../vanesa/class-tgm-plugin-activation.php:176
+msgid "Return to the dashboard"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:399
+#: ../brize/class-tgm-plugin-activation.php:3029 ../brize/functions.php:1241
+#: ../heajy/class-tgm-plugin-activation.php:177
+#: ../heajy/class-tgm-plugin-activation.php:1956 ../heajy/functions.php:1212
+#: ../mirano/class-tgm-plugin-activation.php:399
+#: ../mirano/class-tgm-plugin-activation.php:3029 ../mirano/functions.php:1281
+#: ../saharan/class-tgm-plugin-activation.php:399
+#: ../saharan/class-tgm-plugin-activation.php:3029
+#: ../saharan/functions.php:1150 ../sozo/class-tgm-plugin-activation.php:399
+#: ../sozo/class-tgm-plugin-activation.php:3029 ../sozo/functions.php:1205
+#: ../vanesa/class-tgm-plugin-activation.php:177
+#: ../vanesa/class-tgm-plugin-activation.php:1956 ../vanesa/functions.php:1232
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:400
+#: ../brize/class-tgm-plugin-activation.php:2832
+#: ../heajy/class-tgm-plugin-activation.php:178
+#: ../heajy/class-tgm-plugin-activation.php:1644
+#: ../mirano/class-tgm-plugin-activation.php:400
+#: ../mirano/class-tgm-plugin-activation.php:2832
+#: ../saharan/class-tgm-plugin-activation.php:400
+#: ../saharan/class-tgm-plugin-activation.php:2832
+#: ../sozo/class-tgm-plugin-activation.php:400
+#: ../sozo/class-tgm-plugin-activation.php:2832
+#: ../vanesa/class-tgm-plugin-activation.php:178
+#: ../vanesa/class-tgm-plugin-activation.php:1644
+msgid "The following plugin was activated successfully:"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:401
+#: ../mirano/class-tgm-plugin-activation.php:401
+#: ../saharan/class-tgm-plugin-activation.php:401
+#: ../sozo/class-tgm-plugin-activation.php:401
+#, php-format
+msgid "No action taken. Plugin %1$s was already active."
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:402
+#: ../mirano/class-tgm-plugin-activation.php:402
+#: ../saharan/class-tgm-plugin-activation.php:402
+#: ../sozo/class-tgm-plugin-activation.php:402
+#, php-format
+msgid ""
+"Plugin not activated. A higher version of %s is needed for this theme. "
+"Please update the plugin."
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:403
+#: ../heajy/class-tgm-plugin-activation.php:179
+#: ../mirano/class-tgm-plugin-activation.php:403
+#: ../saharan/class-tgm-plugin-activation.php:403
+#: ../sozo/class-tgm-plugin-activation.php:403
+#: ../vanesa/class-tgm-plugin-activation.php:179
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:404
+#: ../heajy/class-tgm-plugin-activation.php:180
+#: ../mirano/class-tgm-plugin-activation.php:404
+#: ../saharan/class-tgm-plugin-activation.php:404
+#: ../sozo/class-tgm-plugin-activation.php:404
+#: ../vanesa/class-tgm-plugin-activation.php:180
+msgid "Dismiss this notice"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:405
+#: ../mirano/class-tgm-plugin-activation.php:405
+#: ../saharan/class-tgm-plugin-activation.php:405
+#: ../sozo/class-tgm-plugin-activation.php:405
+msgid "Please contact the administrator of this site for help."
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:521
+#: ../mirano/class-tgm-plugin-activation.php:521
+#: ../saharan/class-tgm-plugin-activation.php:521
+#: ../sozo/class-tgm-plugin-activation.php:521
+msgid "Update Required"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:635
+#: ../mirano/class-tgm-plugin-activation.php:635
+#: ../saharan/class-tgm-plugin-activation.php:635
+msgid "Set the parent_slug config variable instead."
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:828
+#: ../brize/class-tgm-plugin-activation.php:3438
+#: ../heajy/class-tgm-plugin-activation.php:532
+#: ../heajy/class-tgm-plugin-activation.php:2173
+#: ../mirano/class-tgm-plugin-activation.php:828
+#: ../mirano/class-tgm-plugin-activation.php:3438
+#: ../saharan/class-tgm-plugin-activation.php:828
+#: ../saharan/class-tgm-plugin-activation.php:3438
+#: ../vanesa/class-tgm-plugin-activation.php:532
+#: ../vanesa/class-tgm-plugin-activation.php:2173
+msgid "Return to the Dashboard"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:935
+#: ../mirano/class-tgm-plugin-activation.php:935
+#: ../saharan/class-tgm-plugin-activation.php:935
+msgid ""
+"The remote plugin package does not contain a folder with the desired slug "
+"and renaming did not work."
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:935
+#: ../brize/class-tgm-plugin-activation.php:938
+#: ../mirano/class-tgm-plugin-activation.php:935
+#: ../mirano/class-tgm-plugin-activation.php:938
+#: ../saharan/class-tgm-plugin-activation.php:935
+#: ../saharan/class-tgm-plugin-activation.php:938
+msgid ""
+"Please contact the plugin provider and ask them to package their plugin "
+"according to the WordPress guidelines."
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:938
+#: ../mirano/class-tgm-plugin-activation.php:938
+#: ../saharan/class-tgm-plugin-activation.php:938
+msgid ""
+"The remote plugin package consists of more than one file, but the files are "
+"not packaged in a folder."
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:1881
+#: ../mirano/class-tgm-plugin-activation.php:1881
+#: ../saharan/class-tgm-plugin-activation.php:1881
+#: ../sozo/class-tgm-plugin-activation.php:1881
+#, php-format
+msgid "TGMPA v%s"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:2167
+#: ../heajy/class-tgm-plugin-activation.php:1178
+#: ../mirano/class-tgm-plugin-activation.php:2167
+#: ../saharan/class-tgm-plugin-activation.php:2167
+#: ../sozo/class-tgm-plugin-activation.php:2167
+#: ../vanesa/class-tgm-plugin-activation.php:1178
+msgid "Required"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:2170
+#: ../heajy/class-tgm-plugin-activation.php:1178
+#: ../mirano/class-tgm-plugin-activation.php:2170
+#: ../saharan/class-tgm-plugin-activation.php:2170
+#: ../sozo/class-tgm-plugin-activation.php:2170
+#: ../vanesa/class-tgm-plugin-activation.php:1178
+msgid "Recommended"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:2186
+#: ../heajy/class-tgm-plugin-activation.php:1175
+#: ../mirano/class-tgm-plugin-activation.php:2186
+#: ../saharan/class-tgm-plugin-activation.php:2186
+#: ../sozo/class-tgm-plugin-activation.php:2186
+#: ../vanesa/class-tgm-plugin-activation.php:1175
+msgid "WordPress Repository"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:2189
+#: ../mirano/class-tgm-plugin-activation.php:2189
+#: ../saharan/class-tgm-plugin-activation.php:2189
+#: ../sozo/class-tgm-plugin-activation.php:2189
+msgid "External Source"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:2192
+#: ../heajy/class-tgm-plugin-activation.php:1170
+#: ../heajy/class-tgm-plugin-activation.php:1351
+#: ../mirano/class-tgm-plugin-activation.php:2192
+#: ../saharan/class-tgm-plugin-activation.php:2192
+#: ../sozo/class-tgm-plugin-activation.php:2192
+#: ../vanesa/class-tgm-plugin-activation.php:1170
+#: ../vanesa/class-tgm-plugin-activation.php:1351
+msgid "Pre-Packaged"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:2209
+#: ../heajy/class-tgm-plugin-activation.php:1181
+#: ../mirano/class-tgm-plugin-activation.php:2209
+#: ../saharan/class-tgm-plugin-activation.php:2209
+#: ../sozo/class-tgm-plugin-activation.php:2209
+#: ../vanesa/class-tgm-plugin-activation.php:1181
+msgid "Not Installed"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:2213
+#: ../heajy/class-tgm-plugin-activation.php:1183
+#: ../mirano/class-tgm-plugin-activation.php:2213
+#: ../saharan/class-tgm-plugin-activation.php:2213
+#: ../sozo/class-tgm-plugin-activation.php:2213
+#: ../vanesa/class-tgm-plugin-activation.php:1183
+msgid "Installed But Not Activated"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:2215
+#: ../mirano/class-tgm-plugin-activation.php:2215
+#: ../saharan/class-tgm-plugin-activation.php:2215
+#: ../sozo/class-tgm-plugin-activation.php:2215
+msgid "Active"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:2221
+#: ../mirano/class-tgm-plugin-activation.php:2221
+#: ../saharan/class-tgm-plugin-activation.php:2221
+#: ../sozo/class-tgm-plugin-activation.php:2221
+msgid "Required Update not Available"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:2224
+#: ../mirano/class-tgm-plugin-activation.php:2224
+#: ../saharan/class-tgm-plugin-activation.php:2224
+#: ../sozo/class-tgm-plugin-activation.php:2224
+msgid "Requires Update"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:2227
+#: ../mirano/class-tgm-plugin-activation.php:2227
+#: ../saharan/class-tgm-plugin-activation.php:2227
+#: ../sozo/class-tgm-plugin-activation.php:2227
+msgid "Update recommended"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:2235
+#: ../mirano/class-tgm-plugin-activation.php:2235
+#: ../saharan/class-tgm-plugin-activation.php:2235
+#: ../sozo/class-tgm-plugin-activation.php:2235
+#, php-format
+msgid "%1$s, %2$s"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:2283
+#: ../mirano/class-tgm-plugin-activation.php:2283
+#: ../saharan/class-tgm-plugin-activation.php:2283
+#: ../sozo/class-tgm-plugin-activation.php:2283
+#, php-format
+msgid "To Install <span class=\"count\">(%s)</span>"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:2286
+#: ../mirano/class-tgm-plugin-activation.php:2286
+#: ../saharan/class-tgm-plugin-activation.php:2286
+#: ../sozo/class-tgm-plugin-activation.php:2286
+#, php-format
+msgid "Update Available <span class=\"count\">(%s)</span>"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:2289
+#: ../mirano/class-tgm-plugin-activation.php:2289
+#: ../saharan/class-tgm-plugin-activation.php:2289
+#: ../sozo/class-tgm-plugin-activation.php:2289
+#, php-format
+msgid "To Activate <span class=\"count\">(%s)</span>"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:2371
+#: ../mirano/class-tgm-plugin-activation.php:2371
+#: ../saharan/class-tgm-plugin-activation.php:2371
+#: ../sozo/class-tgm-plugin-activation.php:2371
+msgid "unknown"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:2379
+#: ../mirano/class-tgm-plugin-activation.php:2379
+#: ../saharan/class-tgm-plugin-activation.php:2379
+#: ../sozo/class-tgm-plugin-activation.php:2379
+msgid "Installed version:"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:2387
+#: ../mirano/class-tgm-plugin-activation.php:2387
+#: ../saharan/class-tgm-plugin-activation.php:2387
+#: ../sozo/class-tgm-plugin-activation.php:2387
+msgid "Minimum required version:"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:2399
+#: ../mirano/class-tgm-plugin-activation.php:2399
+#: ../saharan/class-tgm-plugin-activation.php:2399
+#: ../sozo/class-tgm-plugin-activation.php:2399
+msgid "Available version:"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:2422
+#: ../mirano/class-tgm-plugin-activation.php:2422
+#: ../saharan/class-tgm-plugin-activation.php:2422
+#: ../sozo/class-tgm-plugin-activation.php:2422
+#, php-format
+msgid ""
+"No plugins to install, update or activate. <a href=\"%1$s\">Return to the "
+"Dashboard</a>"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:2436
+#: ../heajy/class-tgm-plugin-activation.php:1388
+#: ../mirano/class-tgm-plugin-activation.php:2436
+#: ../saharan/class-tgm-plugin-activation.php:2436
+#: ../sozo/class-tgm-plugin-activation.php:2436
+#: ../vanesa/class-tgm-plugin-activation.php:1388
+msgid "Plugin"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:2437
+#: ../heajy/class-tgm-plugin-activation.php:1389
+#: ../mirano/class-tgm-plugin-activation.php:2437
+#: ../saharan/class-tgm-plugin-activation.php:2437
+#: ../sozo/class-tgm-plugin-activation.php:2437
+#: ../vanesa/class-tgm-plugin-activation.php:1389
+msgid "Source"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:2438
+#: ../heajy/class-tgm-plugin-activation.php:1390
+#: ../mirano/class-tgm-plugin-activation.php:2438
+#: ../saharan/class-tgm-plugin-activation.php:2438
+#: ../sozo/class-tgm-plugin-activation.php:2438
+#: ../vanesa/class-tgm-plugin-activation.php:1390
+msgid "Type"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:2442
+#: ../mirano/class-tgm-plugin-activation.php:2442
+#: ../saharan/class-tgm-plugin-activation.php:2442
+#: ../sozo/class-tgm-plugin-activation.php:2442
+msgid "Version"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:2443
+#: ../brize/woocommerce/myaccount/my-orders.php:34
+#: ../brize/woocommerce/myaccount/my-orders.php:55
+#: ../heajy/class-tgm-plugin-activation.php:1391
+#: ../heajy/woocommerce/myaccount/my-orders.php:34
+#: ../heajy/woocommerce/myaccount/my-orders.php:55
+#: ../mirano/class-tgm-plugin-activation.php:2443
+#: ../mirano/woocommerce/myaccount/my-orders.php:34
+#: ../mirano/woocommerce/myaccount/my-orders.php:55
+#: ../saharan/class-tgm-plugin-activation.php:2443
+#: ../saharan/woocommerce/myaccount/my-orders.php:34
+#: ../saharan/woocommerce/myaccount/my-orders.php:55
+#: ../sozo/class-tgm-plugin-activation.php:2443
+#: ../sozo/woocommerce/myaccount/my-orders.php:34
+#: ../sozo/woocommerce/myaccount/my-orders.php:55
+#: ../vanesa/class-tgm-plugin-activation.php:1391
+#: ../vanesa/woocommerce/myaccount/my-orders.php:34
+#: ../vanesa/woocommerce/myaccount/my-orders.php:55
+msgid "Status"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:2491
+#: ../mirano/class-tgm-plugin-activation.php:2491
+#: ../saharan/class-tgm-plugin-activation.php:2491
+#: ../sozo/class-tgm-plugin-activation.php:2491
+#, php-format
+msgid "Install %2$s"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:2495
+#: ../mirano/class-tgm-plugin-activation.php:2495
+#: ../saharan/class-tgm-plugin-activation.php:2495
+#: ../sozo/class-tgm-plugin-activation.php:2495
+#, php-format
+msgid "Update %2$s"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:2500
+#: ../mirano/class-tgm-plugin-activation.php:2500
+#: ../saharan/class-tgm-plugin-activation.php:2500
+#: ../sozo/class-tgm-plugin-activation.php:2500
+#, php-format
+msgid "Activate %2$s"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:2570
+#: ../mirano/class-tgm-plugin-activation.php:2570
+#: ../saharan/class-tgm-plugin-activation.php:2570
+msgid "Upgrade message from the plugin author:"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:2603
+#: ../heajy/class-tgm-plugin-activation.php:1288
+#: ../heajy/class-tgm-plugin-activation.php:1409
+#: ../mirano/class-tgm-plugin-activation.php:2603
+#: ../saharan/class-tgm-plugin-activation.php:2603
+#: ../sozo/class-tgm-plugin-activation.php:2603
+#: ../vanesa/class-tgm-plugin-activation.php:1288
+#: ../vanesa/class-tgm-plugin-activation.php:1409
+msgid "Install"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:2609
+#: ../mirano/class-tgm-plugin-activation.php:2609
+#: ../saharan/class-tgm-plugin-activation.php:2609
+#: ../sozo/class-tgm-plugin-activation.php:2609
+msgid "Update"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:2612
+#: ../heajy/class-tgm-plugin-activation.php:1312
+#: ../heajy/class-tgm-plugin-activation.php:1410
+#: ../mirano/class-tgm-plugin-activation.php:2612
+#: ../saharan/class-tgm-plugin-activation.php:2612
+#: ../sozo/class-tgm-plugin-activation.php:2612
+#: ../vanesa/class-tgm-plugin-activation.php:1312
+#: ../vanesa/class-tgm-plugin-activation.php:1410
+msgid "Activate"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:2643
+#: ../mirano/class-tgm-plugin-activation.php:2643
+#: ../saharan/class-tgm-plugin-activation.php:2643
+#: ../sozo/class-tgm-plugin-activation.php:2643
+msgid "No plugins were selected to be installed. No action taken."
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:2645
+#: ../mirano/class-tgm-plugin-activation.php:2645
+#: ../saharan/class-tgm-plugin-activation.php:2645
+#: ../sozo/class-tgm-plugin-activation.php:2645
+msgid "No plugins were selected to be updated. No action taken."
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:2681
+#: ../mirano/class-tgm-plugin-activation.php:2681
+#: ../saharan/class-tgm-plugin-activation.php:2681
+#: ../sozo/class-tgm-plugin-activation.php:2681
+msgid "No plugins are available to be installed at this time."
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:2683
+#: ../mirano/class-tgm-plugin-activation.php:2683
+#: ../saharan/class-tgm-plugin-activation.php:2683
+#: ../sozo/class-tgm-plugin-activation.php:2683
+msgid "No plugins are available to be updated at this time."
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:2788
+#: ../mirano/class-tgm-plugin-activation.php:2788
+#: ../saharan/class-tgm-plugin-activation.php:2788
+msgid "No plugins were selected to be activated. No action taken."
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:2814
+#: ../mirano/class-tgm-plugin-activation.php:2814
+#: ../saharan/class-tgm-plugin-activation.php:2814
+msgid "No plugins are available to be activated at this time."
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:3028
+#: ../heajy/class-tgm-plugin-activation.php:1955
+#: ../mirano/class-tgm-plugin-activation.php:3028
+#: ../saharan/class-tgm-plugin-activation.php:3028
+#: ../sozo/class-tgm-plugin-activation.php:3028
+#: ../vanesa/class-tgm-plugin-activation.php:1955
+msgid "Plugin activation failed."
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:3362
+#: ../mirano/class-tgm-plugin-activation.php:3362
+#: ../saharan/class-tgm-plugin-activation.php:3362
+#: ../sozo/class-tgm-plugin-activation.php:3362
+#, php-format
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:3364
+#: ../heajy/class-tgm-plugin-activation.php:2077
+#: ../mirano/class-tgm-plugin-activation.php:3364
+#: ../saharan/class-tgm-plugin-activation.php:3364
+#: ../sozo/class-tgm-plugin-activation.php:3364
+#: ../vanesa/class-tgm-plugin-activation.php:2077
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:3365
+#: ../heajy/class-tgm-plugin-activation.php:2078
+#: ../mirano/class-tgm-plugin-activation.php:3365
+#: ../saharan/class-tgm-plugin-activation.php:3365
+#: ../sozo/class-tgm-plugin-activation.php:3365
+#: ../vanesa/class-tgm-plugin-activation.php:2078
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:3369
+#: ../heajy/class-tgm-plugin-activation.php:2069
+#: ../mirano/class-tgm-plugin-activation.php:3369
+#: ../saharan/class-tgm-plugin-activation.php:3369
+#: ../sozo/class-tgm-plugin-activation.php:3369
+#: ../vanesa/class-tgm-plugin-activation.php:2069
+msgid ""
+"The installation and activation process is starting. This process may take a "
+"while on some hosts, so please be patient."
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:3370
+#: ../heajy/class-tgm-plugin-activation.php:2070
+#: ../mirano/class-tgm-plugin-activation.php:3370
+#: ../saharan/class-tgm-plugin-activation.php:3370
+#: ../sozo/class-tgm-plugin-activation.php:3370
+#: ../vanesa/class-tgm-plugin-activation.php:2070
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:3370
+#: ../brize/class-tgm-plugin-activation.php:3376
+#: ../heajy/class-tgm-plugin-activation.php:2070
+#: ../heajy/class-tgm-plugin-activation.php:2079
+#: ../mirano/class-tgm-plugin-activation.php:3370
+#: ../mirano/class-tgm-plugin-activation.php:3376
+#: ../saharan/class-tgm-plugin-activation.php:3370
+#: ../saharan/class-tgm-plugin-activation.php:3376
+#: ../vanesa/class-tgm-plugin-activation.php:2070
+#: ../vanesa/class-tgm-plugin-activation.php:2079
+msgid "Show Details"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:3370
+#: ../brize/class-tgm-plugin-activation.php:3376
+#: ../heajy/class-tgm-plugin-activation.php:2070
+#: ../heajy/class-tgm-plugin-activation.php:2079
+#: ../mirano/class-tgm-plugin-activation.php:3370
+#: ../mirano/class-tgm-plugin-activation.php:3376
+#: ../saharan/class-tgm-plugin-activation.php:3370
+#: ../saharan/class-tgm-plugin-activation.php:3376
+#: ../vanesa/class-tgm-plugin-activation.php:2070
+#: ../vanesa/class-tgm-plugin-activation.php:2079
+msgid "Hide Details"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:3371
+#: ../heajy/class-tgm-plugin-activation.php:2071
+#: ../mirano/class-tgm-plugin-activation.php:3371
+#: ../saharan/class-tgm-plugin-activation.php:3371
+#: ../sozo/class-tgm-plugin-activation.php:3371
+#: ../vanesa/class-tgm-plugin-activation.php:2071
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:3372
+#: ../heajy/class-tgm-plugin-activation.php:2072
+#: ../mirano/class-tgm-plugin-activation.php:3372
+#: ../saharan/class-tgm-plugin-activation.php:3372
+#: ../sozo/class-tgm-plugin-activation.php:3372
+#: ../vanesa/class-tgm-plugin-activation.php:2072
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:3375
+#: ../heajy/class-tgm-plugin-activation.php:2076
+#: ../mirano/class-tgm-plugin-activation.php:3375
+#: ../saharan/class-tgm-plugin-activation.php:3375
+#: ../sozo/class-tgm-plugin-activation.php:3375
+#: ../vanesa/class-tgm-plugin-activation.php:2076
+msgid ""
+"The installation process is starting. This process may take a while on some "
+"hosts, so please be patient."
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:3376
+#: ../heajy/class-tgm-plugin-activation.php:2079
+#: ../mirano/class-tgm-plugin-activation.php:3376
+#: ../saharan/class-tgm-plugin-activation.php:3376
+#: ../vanesa/class-tgm-plugin-activation.php:2079
+#, php-format
+msgid "%1$s installed successfully."
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:3377
+#: ../heajy/class-tgm-plugin-activation.php:2080
+#: ../mirano/class-tgm-plugin-activation.php:3377
+#: ../saharan/class-tgm-plugin-activation.php:3377
+#: ../sozo/class-tgm-plugin-activation.php:3377
+#: ../vanesa/class-tgm-plugin-activation.php:2080
+msgid "All installations have been completed."
+msgstr ""
+
+#: ../brize/class-tgm-plugin-activation.php:3378
+#: ../heajy/class-tgm-plugin-activation.php:2081
+#: ../mirano/class-tgm-plugin-activation.php:3378
+#: ../saharan/class-tgm-plugin-activation.php:3378
+#: ../sozo/class-tgm-plugin-activation.php:3378
+#: ../vanesa/class-tgm-plugin-activation.php:2081
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: ../brize/comments.php:31 ../brize/functions.php:1049
+#: ../heajy/comments.php:31 ../heajy/functions.php:1021
+#: ../mirano/comments.php:31 ../mirano/functions.php:1070
+#: ../mirano/functions.php:1108 ../saharan/comments.php:31
+#: ../saharan/functions.php:945 ../sozo/comments.php:31
+#: ../sozo/functions.php:1036 ../vanesa/comments.php:31
+#: ../vanesa/functions.php:1041
+msgid "1 comment"
+msgstr ""
+
+#: ../brize/comments.php:51 ../heajy/comments.php:51 ../mirano/comments.php:51
+#: ../saharan/comments.php:51 ../sozo/comments.php:51
+#: ../twentyfifteen/comments.php:53 ../twentyfourteen/comments.php:59
+#: ../twentythirteen/comments.php:52 ../vanesa/comments.php:51
+msgid "Comments are closed."
+msgstr ""
+
+#: ../brize/content-audio.php:78 ../brize/content-gallery.php:60
+#: ../brize/content-image.php:76 ../brize/content-video.php:61
+#: ../brize/content.php:78 ../heajy/content-audio.php:62
+#: ../heajy/content-gallery.php:59 ../heajy/content-image.php:63
+#: ../heajy/content-video.php:59 ../heajy/content.php:63
+#: ../mirano/content-audio.php:57 ../mirano/content-gallery.php:53
+#: ../mirano/content-image.php:55 ../mirano/content-video.php:53
+#: ../mirano/content.php:53 ../saharan/content-audio.php:60
+#: ../saharan/content-gallery.php:48 ../saharan/content-image.php:54
+#: ../saharan/content-video.php:46 ../saharan/content.php:54
+#: ../sozo/content-audio.php:60 ../sozo/content-gallery.php:58
+#: ../sozo/content-image.php:61 ../sozo/content-video.php:58
+#: ../sozo/content.php:62 ../twentyfourteen/inc/widgets.php:127
+#: ../twentyfourteen/inc/widgets.php:172 ../vanesa/content-audio.php:63
+#: ../vanesa/content-gallery.php:60 ../vanesa/content-image.php:64
+#: ../vanesa/content-video.php:60 ../vanesa/content.php:64
+msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: ../brize/content-audio.php:79 ../brize/content-gallery.php:61
+#: ../brize/content-image.php:77 ../brize/content-page.php:20
+#: ../brize/content-video.php:62 ../brize/content.php:79
+#: ../brize/image.php:120 ../heajy/content-audio.php:63
+#: ../heajy/content-gallery.php:60 ../heajy/content-image.php:64
+#: ../heajy/content-page.php:20 ../heajy/content-video.php:60
+#: ../heajy/content.php:64 ../heajy/image.php:119
+#: ../mirano/content-audio.php:58 ../mirano/content-gallery.php:54
+#: ../mirano/content-image.php:56 ../mirano/content-page.php:22
+#: ../mirano/content-video.php:54 ../mirano/content.php:54
+#: ../mirano/image.php:120 ../saharan/content-audio.php:61
+#: ../saharan/content-gallery.php:49 ../saharan/content-image.php:55
+#: ../saharan/content-page.php:20 ../saharan/content-video.php:47
+#: ../saharan/content.php:55 ../saharan/image.php:120
+#: ../saharan/page-templates/contact-page.php:127 ../sozo/content-audio.php:61
+#: ../sozo/content-gallery.php:59 ../sozo/content-image.php:62
+#: ../sozo/content-page.php:20 ../sozo/content-video.php:59
+#: ../sozo/content.php:63 ../sozo/image.php:119
+#: ../twentyfifteen/content-link.php:36 ../twentyfifteen/content-page.php:25
+#: ../twentyfifteen/content.php:38 ../twentyfifteen/image.php:59
+#: ../twentyfourteen/content-aside.php:53
+#: ../twentyfourteen/content-audio.php:53
+#: ../twentyfourteen/content-gallery.php:53
+#: ../twentyfourteen/content-image.php:53
+#: ../twentyfourteen/content-link.php:53 ../twentyfourteen/content-page.php:22
+#: ../twentyfourteen/content-quote.php:53
+#: ../twentyfourteen/content-video.php:53 ../twentyfourteen/content.php:61
+#: ../twentyfourteen/image.php:54 ../twentythirteen/content-aside.php:20
+#: ../twentythirteen/content-audio.php:31
+#: ../twentythirteen/content-chat.php:30
+#: ../twentythirteen/content-gallery.php:31
+#: ../twentythirteen/content-image.php:30
+#: ../twentythirteen/content-link.php:31
+#: ../twentythirteen/content-quote.php:20
+#: ../twentythirteen/content-status.php:20
+#: ../twentythirteen/content-video.php:30 ../twentythirteen/content.php:48
+#: ../twentythirteen/image.php:70 ../twentythirteen/page.php:35
+#: ../vanesa/content-audio.php:64 ../vanesa/content-gallery.php:61
+#: ../vanesa/content-image.php:65 ../vanesa/content-page.php:20
+#: ../vanesa/content-video.php:61 ../vanesa/content.php:65
+#: ../vanesa/image.php:119
+msgid "Pages:"
+msgstr ""
+
+#: ../brize/content-audio.php:86 ../brize/content-gallery.php:67
+#: ../brize/content-image.php:83 ../brize/content-video.php:68
+#: ../brize/content.php:85 ../mirano/content-audio.php:63
+#: ../mirano/content-gallery.php:59 ../mirano/content-image.php:61
+#: ../mirano/content-video.php:59 ../mirano/content.php:59
+#: ../saharan/content-audio.php:68 ../saharan/content-gallery.php:56
+#: ../saharan/content-image.php:61 ../saharan/content-video.php:54
+#: ../saharan/content.php:61 ../vanesa/content-audio.php:71
+#: ../vanesa/content-gallery.php:67 ../vanesa/content-image.php:71
+#: ../vanesa/content-video.php:67 ../vanesa/content.php:71
+msgid "Read more"
+msgstr ""
+
+#: ../brize/content-audio.php:106 ../brize/content-gallery.php:87
+#: ../brize/content-image.php:103 ../brize/content-video.php:88
+#: ../brize/content.php:105 ../heajy/content-audio.php:89
+#: ../heajy/content-gallery.php:85 ../heajy/content-image.php:89
+#: ../heajy/content-video.php:85 ../heajy/content.php:89
+#: ../mirano/content-audio.php:80 ../mirano/content-gallery.php:75
+#: ../mirano/content-image.php:78 ../mirano/content-video.php:75
+#: ../mirano/content.php:76 ../saharan/content-audio.php:85
+#: ../saharan/content-gallery.php:73 ../saharan/content-image.php:80
+#: ../saharan/content-video.php:71 ../saharan/content.php:80
+#: ../sozo/content-audio.php:87 ../sozo/content-gallery.php:84
+#: ../sozo/content-image.php:87 ../sozo/content-video.php:84
+#: ../sozo/content.php:88 ../vanesa/content-audio.php:91
+#: ../vanesa/content-gallery.php:87 ../vanesa/content-image.php:91
+#: ../vanesa/content-video.php:87 ../vanesa/content.php:91
+msgid "About the Author: <a href=\""
+msgstr ""
+
+#: ../brize/content-none.php:13 ../brize/index.php:105 ../brize/search.php:80
+#: ../heajy/content-none.php:13 ../heajy/index.php:101 ../heajy/search.php:78
+#: ../mirano/index.php:91 ../mirano/search.php:76
+#: ../saharan/content-none.php:13 ../saharan/index.php:101
+#: ../saharan/search.php:81 ../sozo/content-none.php:13 ../sozo/index.php:101
+#: ../sozo/search.php:78 ../twentyfifteen/content-none.php:15
+#: ../twentyfourteen/content-none.php:12 ../twentythirteen/content-none.php:12
+#: ../vanesa/content-none.php:13 ../vanesa/index.php:100
+#: ../vanesa/search.php:80
+msgid "Nothing Found"
+msgstr ""
+
+#: ../brize/content-none.php:17 ../brize/index.php:109
+#: ../heajy/content-none.php:17 ../heajy/index.php:105
+#: ../mirano/content-none.php:13 ../mirano/index.php:95
+#: ../saharan/content-none.php:17 ../saharan/index.php:105
+#: ../sozo/content-none.php:17 ../sozo/index.php:105
+#: ../vanesa/content-none.php:17 ../vanesa/index.php:104
+msgid ""
+"Apologies, but no results were found. Perhaps searching will help find a "
+"related post."
+msgstr ""
+
+#: ../brize/content-page.php:23 ../brize/functions.php:1018
+#: ../brize/image.php:147 ../brize/woocommerce/myaccount/my-address.php:45
+#: ../heajy/functions.php:991 ../heajy/image.php:146
+#: ../heajy/woocommerce/myaccount/my-address.php:45
+#: ../mirano/content-page.php:25 ../mirano/functions.php:1030
+#: ../mirano/image.php:147 ../mirano/woocommerce/myaccount/my-address.php:45
+#: ../saharan/content-page.php:23 ../saharan/functions.php:915
+#: ../saharan/image.php:147 ../saharan/page-templates/contact-page.php:130
+#: ../saharan/woocommerce/myaccount/my-address.php:45
+#: ../sozo/functions.php:1006 ../sozo/image.php:146
+#: ../sozo/woocommerce/myaccount/my-address.php:45
+#: ../twentyfifteen/content-link.php:56 ../twentyfifteen/content-page.php:35
+#: ../twentyfifteen/content-search.php:28
+#: ../twentyfifteen/content-search.php:33 ../twentyfifteen/content.php:57
+#: ../twentyfifteen/image.php:71 ../twentyfourteen/content-aside.php:40
+#: ../twentyfourteen/content-audio.php:40
+#: ../twentyfourteen/content-gallery.php:40
+#: ../twentyfourteen/content-image.php:40
+#: ../twentyfourteen/content-link.php:40 ../twentyfourteen/content-page.php:28
+#: ../twentyfourteen/content-quote.php:40
+#: ../twentyfourteen/content-video.php:40 ../twentyfourteen/content.php:42
+#: ../twentyfourteen/image.php:34
+#: ../twentyfourteen/page-templates/contributors.php:35
+#: ../twentythirteen/content-aside.php:27
+#: ../twentythirteen/content-aside.php:35
+#: ../twentythirteen/content-audio.php:38
+#: ../twentythirteen/content-chat.php:36
+#: ../twentythirteen/content-gallery.php:46
+#: ../twentythirteen/content-image.php:42
+#: ../twentythirteen/content-link.php:19
+#: ../twentythirteen/content-quote.php:32
+#: ../twentythirteen/content-status.php:26
+#: ../twentythirteen/content-video.php:42 ../twentythirteen/content.php:31
+#: ../twentythirteen/image.php:44 ../twentythirteen/page.php:39
+#: ../vanesa/content-page.php:23 ../vanesa/functions.php:1011
+#: ../vanesa/image.php:146 ../vanesa/woocommerce/myaccount/my-address.php:45
+msgid "Edit"
+msgstr ""
+
+#: ../brize/functions.php:154 ../brize/functions.php:167
+#: ../brize/functions.php:173 ../brize/functions.php:177
+#: ../heajy/functions.php:159 ../heajy/functions.php:172
+#: ../heajy/functions.php:178 ../heajy/functions.php:182
+#: ../mirano/functions.php:201 ../mirano/functions.php:214
+#: ../mirano/functions.php:220 ../mirano/functions.php:224
+#: ../saharan/functions.php:157 ../saharan/functions.php:170
+#: ../saharan/functions.php:176 ../saharan/functions.php:180
+#: ../sozo/functions.php:163 ../sozo/functions.php:176
+#: ../sozo/functions.php:182 ../sozo/functions.php:186
+#: ../vanesa/functions.php:168 ../vanesa/functions.php:181
+#: ../vanesa/functions.php:187 ../vanesa/functions.php:191
+msgid "Search..."
+msgstr ""
+
+#: ../brize/functions.php:193 ../brize/functions.php:206
+#: ../brize/functions.php:212 ../brize/functions.php:216
+#: ../heajy/functions.php:198 ../heajy/functions.php:211
+#: ../heajy/functions.php:217 ../heajy/functions.php:221
+#: ../mirano/functions.php:111 ../mirano/functions.php:124
+#: ../mirano/functions.php:130 ../mirano/functions.php:134
+#: ../saharan/functions.php:120 ../saharan/functions.php:133
+#: ../saharan/functions.php:139 ../saharan/functions.php:143
+#: ../sozo/functions.php:202 ../sozo/functions.php:215
+#: ../sozo/functions.php:221 ../sozo/functions.php:225
+#: ../vanesa/functions.php:207 ../vanesa/functions.php:220
+#: ../vanesa/functions.php:226 ../vanesa/functions.php:230
+msgid "Search product..."
+msgstr ""
+
+#: ../brize/functions.php:380 ../heajy/functions.php:372
+#: ../mirano/functions.php:434 ../saharan/functions.php:332
+#: ../sozo/functions.php:376 ../twentyfifteen/functions.php:85
+#: ../twentyfourteen/header.php:52 ../vanesa/functions.php:423
+msgid "Primary Menu"
+msgstr ""
+
+#: ../brize/functions.php:381 ../heajy/functions.php:374
+#: ../mirano/functions.php:435 ../saharan/functions.php:333
+#: ../sozo/functions.php:379 ../vanesa/functions.php:424
+msgid "Mobile Menu"
+msgstr ""
+
+#: ../brize/functions.php:604 ../heajy/functions.php:612
+#: ../mirano/functions.php:650 ../saharan/functions.php:535
+#: ../sozo/functions.php:630 ../vanesa/functions.php:636
+msgid "Blog Sidebar"
+msgstr ""
+
+#: ../brize/functions.php:606 ../heajy/functions.php:614
+#: ../mirano/functions.php:652 ../saharan/functions.php:537
+#: ../sozo/functions.php:632 ../vanesa/functions.php:638
+msgid "Sidebar on blog page"
+msgstr ""
+
+#: ../brize/functions.php:614 ../heajy/functions.php:632
+#: ../mirano/functions.php:660 ../saharan/functions.php:545
+#: ../vanesa/functions.php:646
+msgid "Category Sidebar"
+msgstr ""
+
+#: ../brize/functions.php:616 ../mirano/functions.php:662
+#: ../saharan/functions.php:547 ../vanesa/functions.php:648
+msgid "Sidebar on product category page"
+msgstr ""
+
+#: ../brize/functions.php:624 ../heajy/functions.php:652
+#: ../mirano/functions.php:680 ../saharan/functions.php:565
+#: ../sozo/functions.php:650 ../vanesa/functions.php:656
+msgid "Pages Sidebar"
+msgstr ""
+
+#: ../brize/functions.php:626 ../heajy/functions.php:654
+#: ../mirano/functions.php:682 ../saharan/functions.php:567
+#: ../sozo/functions.php:652 ../vanesa/functions.php:658
+msgid "Sidebar on content pages"
+msgstr ""
+
+#: ../brize/functions.php:642 ../heajy/functions.php:688
+#: ../mirano/functions.php:707 ../saharan/functions.php:601
+#: ../sozo/functions.php:686 ../vanesa/functions.php:681
+msgid "Post featured content"
+msgstr ""
+
+#: ../brize/functions.php:660 ../heajy/functions.php:673
+#: ../mirano/functions.php:725 ../saharan/functions.php:590
+#: ../sozo/functions.php:671 ../vanesa/functions.php:699
+msgid ""
+"This content will be used to replace the featured image, use shortcode here"
+msgstr ""
+
+#: ../brize/functions.php:801 ../mirano/functions.php:392
+#: ../vanesa/functions.php:381
+msgid "In stock"
+msgstr ""
+
+#: ../brize/functions.php:803 ../mirano/functions.php:394
+#: ../vanesa/functions.php:383
+msgid "Out of stock"
+msgstr ""
+
+#: ../brize/functions.php:922 ../heajy/functions.php:878
+#: ../mirano/functions.php:933 ../saharan/functions.php:802
+#: ../sozo/functions.php:893 ../twentyfifteen/functions.php:161
+#: ../twentyfifteen/functions.php:169 ../twentyfifteen/functions.php:177
+#: ../twentyfourteen/functions.php:213 ../twentythirteen/functions.php:128
+#: ../twentythirteen/functions.php:134 ../vanesa/functions.php:897
+msgid "on"
+msgstr ""
+
+#: ../brize/functions.php:940 ../brize/single.php:68
+#: ../heajy/functions.php:915 ../heajy/single.php:66
+#: ../mirano/functions.php:951 ../mirano/single.php:63
+#: ../saharan/functions.php:839 ../saharan/single.php:42
+#: ../sozo/functions.php:930 ../sozo/single.php:66
+#: ../twentyfourteen/inc/template-tags.php:85
+#: ../twentythirteen/functions.php:300 ../vanesa/functions.php:934
+#: ../vanesa/single.php:66
+msgid "Post navigation"
+msgstr ""
+
+#: ../brize/functions.php:941 ../heajy/functions.php:916
+#: ../mirano/functions.php:952 ../saharan/functions.php:840
+#: ../sozo/functions.php:931 ../twentythirteen/functions.php:270
+#: ../vanesa/functions.php:935
+msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
+msgstr ""
+
+#: ../brize/functions.php:942 ../heajy/functions.php:917
+#: ../mirano/functions.php:953 ../saharan/functions.php:841
+#: ../sozo/functions.php:932 ../twentythirteen/functions.php:274
+#: ../vanesa/functions.php:936
+msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: ../brize/functions.php:958 ../heajy/functions.php:932
+#: ../mirano/functions.php:969 ../saharan/functions.php:856
+#: ../sozo/functions.php:947 ../twentyfifteen/single.php:36
+#: ../twentyfourteen/functions.php:258 ../vanesa/functions.php:951
+msgid "Previous"
+msgstr ""
+
+#: ../brize/functions.php:959 ../heajy/functions.php:933
+#: ../mirano/functions.php:970 ../saharan/functions.php:857
+#: ../sozo/functions.php:948 ../twentyfifteen/single.php:33
+#: ../twentyfourteen/functions.php:259 ../vanesa/functions.php:952
+msgid "Next"
+msgstr ""
+
+#: ../brize/functions.php:981 ../heajy/functions.php:954
+#: ../mirano/functions.php:993 ../saharan/functions.php:878
+#: ../sozo/functions.php:969 ../vanesa/functions.php:974
+msgid "Pingback:"
+msgstr ""
+
+#: ../brize/functions.php:981 ../heajy/functions.php:954
+#: ../mirano/functions.php:993 ../saharan/functions.php:878
+#: ../sozo/functions.php:969 ../vanesa/functions.php:974
+msgid "(Edit)"
+msgstr ""
+
+#: ../brize/functions.php:1000 ../heajy/functions.php:973
+#: ../mirano/functions.php:1012 ../saharan/functions.php:897
+#: ../sozo/functions.php:988 ../vanesa/functions.php:993
+msgid "Post author"
+msgstr ""
+
+#: ../brize/functions.php:1005 ../heajy/functions.php:978
+#: ../mirano/functions.php:1017 ../saharan/functions.php:902
+#: ../sozo/functions.php:993 ../vanesa/functions.php:998
+#, php-format
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: ../brize/functions.php:1009 ../heajy/functions.php:982
+#: ../mirano/functions.php:1021 ../saharan/functions.php:906
+#: ../sozo/functions.php:997 ../vanesa/functions.php:1002
+msgid "Reply"
+msgstr ""
+
+#: ../brize/functions.php:1013 ../heajy/functions.php:986
+#: ../mirano/functions.php:1025 ../saharan/functions.php:910
+#: ../sozo/functions.php:1001 ../vanesa/functions.php:1006
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: ../brize/functions.php:1039 ../brize/functions.php:1062
+#: ../heajy/functions.php:1011 ../heajy/functions.php:1033
+#: ../mirano/functions.php:1052 ../mirano/functions.php:1060
+#: ../saharan/functions.php:935 ../sozo/functions.php:1026
+#: ../sozo/functions.php:1048 ../twentyfifteen/inc/template-tags.php:91
+#: ../twentyfifteen/inc/template-tags.php:99
+#: ../twentyfourteen/content-aside.php:17
+#: ../twentyfourteen/content-audio.php:17
+#: ../twentyfourteen/content-featured-post.php:28
+#: ../twentyfourteen/content-gallery.php:17
+#: ../twentyfourteen/content-image.php:17
+#: ../twentyfourteen/content-link.php:17
+#: ../twentyfourteen/content-quote.php:17
+#: ../twentyfourteen/content-video.php:17 ../twentyfourteen/content.php:19
+#: ../twentythirteen/functions.php:328 ../twentythirteen/functions.php:334
+#: ../vanesa/functions.php:1031 ../vanesa/functions.php:1054
+msgid ", "
+msgstr ""
+
+#: ../brize/functions.php:1045 ../heajy/functions.php:1017
+#: ../mirano/functions.php:1066 ../mirano/functions.php:1104
+#: ../saharan/functions.php:941 ../sozo/functions.php:1032
+#: ../vanesa/functions.php:1037
+msgid "0 comments"
+msgstr ""
+
+#: ../brize/functions.php:1047 ../brize/functions.php:1091
+#: ../heajy/functions.php:1019 ../heajy/functions.php:1061
+#: ../mirano/functions.php:1068 ../mirano/functions.php:1106
+#: ../mirano/functions.php:1144 ../saharan/functions.php:943
+#: ../saharan/functions.php:995 ../sozo/functions.php:1034
+#: ../sozo/functions.php:1076 ../vanesa/functions.php:1039
+#: ../vanesa/functions.php:1082
+msgid " comments"
+msgstr ""
+
+#: ../brize/functions.php:1054 ../vanesa/functions.php:1046
+#, php-format
+msgid "/ %1$s / Tags: %2$s"
+msgstr ""
+
+#: ../brize/functions.php:1066 ../heajy/functions.php:1037
+#: ../mirano/functions.php:1056 ../saharan/functions.php:954
+#: ../saharan/functions.php:970 ../sozo/functions.php:1052
+#: ../twentyfifteen/author-bio.php:34 ../twentythirteen/functions.php:343
+#: ../vanesa/functions.php:1058
+#, php-format
+msgid "View all posts by %s"
+msgstr ""
+
+#: ../brize/functions.php:1070 ../vanesa/functions.php:1062
+#, php-format
+msgid "/ Posted by %1$s / %2$s"
+msgstr ""
+
+#: ../brize/functions.php:1089 ../heajy/functions.php:1059
+#: ../mirano/functions.php:1142 ../saharan/functions.php:993
+#: ../sozo/functions.php:1074 ../vanesa/functions.php:1080
+msgid "<span>0</span> comments"
+msgstr ""
+
+#: ../brize/functions.php:1093 ../heajy/functions.php:1063
+#: ../mirano/functions.php:1146 ../saharan/functions.php:997
+#: ../sozo/functions.php:1078 ../vanesa/functions.php:1084
+msgid "<span>1</span> comment"
+msgstr ""
+
+#: ../brize/functions.php:1098 ../heajy/functions.php:1068
+#: ../mirano/functions.php:1151 ../saharan/functions.php:1002
+#: ../sozo/functions.php:1083 ../vanesa/functions.php:1089
+#, php-format
+msgid "%1$s"
+msgstr ""
+
+#: ../brize/functions.php:1242 ../heajy/functions.php:1213
+#: ../mirano/functions.php:1282 ../saharan/functions.php:1151
+#: ../sozo/functions.php:1206 ../vanesa/functions.php:1233
+#, php-format
+msgid "All plugins installed and activated successfully. %s"
+msgstr ""
+
+#: ../brize/image.php:136 ../heajy/image.php:135 ../mirano/image.php:136
+#: ../saharan/image.php:136 ../sozo/image.php:135 ../vanesa/image.php:135
+#, php-format
+msgid ""
+"<span class=\"meta-prep meta-prep-entry-date\">Published </span> <span class="
+"\"entry-date\"><time class=\"entry-date\" datetime=\"%1$s\">%2$s</time></"
+"span> at <a href=\"%3$s\" title=\"Link to full-size image\">%4$s &times; "
+"%5$s</a> in <a href=\"%6$s\" title=\"Return to %7$s\" rel=\"gallery\">%8$s</"
+"a>."
+msgstr ""
+
+#: ../brize/image.php:157 ../heajy/image.php:156 ../mirano/image.php:157
+#: ../saharan/image.php:157 ../twentyfourteen/inc/template-tags.php:50
+#: ../vanesa/image.php:156
+msgid "&larr; Previous"
+msgstr ""
+
+#: ../brize/image.php:158 ../heajy/image.php:157 ../mirano/image.php:158
+#: ../saharan/image.php:158 ../twentyfourteen/inc/template-tags.php:51
+#: ../vanesa/image.php:157
+msgid "Next &rarr;"
+msgstr ""
+
+#: ../brize/include/roadwidgets.php:8 ../heajy/include/roadwidgets.php:8
+#: ../mirano/include/roadwidgets.php:8 ../saharan/include/roadwidgets.php:8
+#: ../sozo/include/roadwidgets.php:8 ../vanesa/include/roadwidgets.php:8
+msgid "Road Widgets"
+msgstr ""
+
+#: ../brize/include/roadwidgets.php:11 ../heajy/include/roadwidgets.php:11
+#: ../mirano/include/roadwidgets.php:11 ../saharan/include/roadwidgets.php:11
+#: ../sozo/include/roadwidgets.php:11 ../vanesa/include/roadwidgets.php:11
+msgid "Display recent posts, comments, popular posts"
+msgstr ""
+
+#: ../brize/include/roadwidgets.php:120 ../heajy/include/roadwidgets.php:104
+#: ../mirano/include/roadwidgets.php:120
+#: ../saharan/include/roadwidgets.php:120 ../sozo/include/roadwidgets.php:120
+#: ../vanesa/include/roadwidgets.php:105
+msgid "says"
+msgstr ""
+
+#: ../brize/include/roadwidgets.php:159 ../heajy/include/roadwidgets.php:134
+#: ../mirano/include/roadwidgets.php:159
+#: ../saharan/include/roadwidgets.php:159 ../sozo/include/roadwidgets.php:159
+#: ../twentyfourteen/inc/widgets.php:255 ../vanesa/include/roadwidgets.php:135
+msgid "Title:"
+msgstr ""
+
+#: ../brize/include/roadwidgets.php:163 ../heajy/include/roadwidgets.php:138
+#: ../mirano/include/roadwidgets.php:163
+#: ../saharan/include/roadwidgets.php:163 ../sozo/include/roadwidgets.php:163
+#: ../vanesa/include/roadwidgets.php:139
+msgid "Amount:"
+msgstr ""
+
+#: ../brize/include/roadwidgets.php:167 ../heajy/include/roadwidgets.php:142
+#: ../mirano/include/roadwidgets.php:167
+#: ../saharan/include/roadwidgets.php:167 ../sozo/include/roadwidgets.php:167
+#: ../vanesa/include/roadwidgets.php:143
+msgid "Widget Type:"
+msgstr ""
+
+#: ../brize/include/roadwidgets.php:169 ../heajy/include/roadwidgets.php:144
+#: ../mirano/include/roadwidgets.php:169
+#: ../saharan/include/roadwidgets.php:169 ../sozo/include/roadwidgets.php:169
+#: ../vanesa/include/roadwidgets.php:145
+msgid "Recent Posts"
+msgstr ""
+
+#: ../brize/include/roadwidgets.php:170 ../heajy/include/roadwidgets.php:145
+#: ../mirano/include/roadwidgets.php:170
+#: ../saharan/include/roadwidgets.php:170 ../sozo/include/roadwidgets.php:170
+#: ../vanesa/include/roadwidgets.php:146
+msgid "Popular Posts"
+msgstr ""
+
+#: ../brize/include/roadwidgets.php:171 ../heajy/include/roadwidgets.php:146
+#: ../mirano/include/roadwidgets.php:171
+#: ../saharan/include/roadwidgets.php:171 ../sozo/include/roadwidgets.php:171
+#: ../vanesa/include/roadwidgets.php:147
+msgid "Recent Comments"
+msgstr ""
+
+#: ../brize/include/shortcodes.php:9 ../brize/theme-config.php:737
+#: ../heajy/include/shortcodes.php:9 ../heajy/theme-config.php:735
+#: ../mirano/include/shortcodes.php:9 ../mirano/theme-config.php:701
+#: ../saharan/include/shortcodes.php:35 ../saharan/theme-config.php:642
+#: ../sozo/include/shortcodes.php:9 ../sozo/theme-config.php:716
+#: ../vanesa/include/shortcodes.php:9 ../vanesa/theme-config.php:702
+msgid "Brand Logos"
+msgstr ""
+
+#: ../brize/include/shortcodes.php:12 ../brize/include/shortcodes.php:21
+#: ../brize/include/shortcodes.php:58 ../brize/include/shortcodes.php:84
+#: ../brize/include/shortcodes.php:110 ../brize/include/shortcodes.php:118
+#: ../brize/include/shortcodes.php:128
+msgid "Brize_Theme"
+msgstr ""
+
+#: ../brize/include/shortcodes.php:18 ../heajy/include/shortcodes.php:18
+#: ../mirano/include/shortcodes.php:30 ../saharan/include/shortcodes.php:57
+#: ../sozo/include/shortcodes.php:18 ../vanesa/include/shortcodes.php:18
+msgid "Latest posts"
+msgstr ""
+
+#: ../brize/include/shortcodes.php:27 ../heajy/include/shortcodes.php:27
+#: ../mirano/include/shortcodes.php:39 ../saharan/include/shortcodes.php:66
+#: ../sozo/include/shortcodes.php:27 ../vanesa/include/shortcodes.php:27
+msgid "Number of posts"
+msgstr ""
+
+#: ../brize/include/shortcodes.php:29 ../heajy/include/shortcodes.php:29
+#: ../mirano/include/shortcodes.php:41 ../saharan/include/shortcodes.php:68
+#: ../sozo/include/shortcodes.php:29 ../vanesa/include/shortcodes.php:29
+msgid "5"
+msgstr ""
+
+#: ../brize/include/shortcodes.php:35 ../heajy/include/shortcodes.php:35
+#: ../mirano/include/shortcodes.php:47 ../saharan/include/shortcodes.php:74
+#: ../sozo/include/shortcodes.php:35 ../vanesa/include/shortcodes.php:35
+msgid "Image scale"
+msgstr ""
+
+#: ../brize/include/shortcodes.php:46 ../heajy/include/shortcodes.php:46
+#: ../mirano/include/shortcodes.php:58 ../saharan/include/shortcodes.php:85
+#: ../sozo/include/shortcodes.php:46 ../vanesa/include/shortcodes.php:46
+msgid "Excerpt length"
+msgstr ""
+
+#: ../brize/include/shortcodes.php:48 ../heajy/include/shortcodes.php:48
+#: ../mirano/include/shortcodes.php:60 ../saharan/include/shortcodes.php:87
+#: ../sozo/include/shortcodes.php:48 ../vanesa/include/shortcodes.php:48
+msgid "20"
+msgstr ""
+
+#: ../brize/include/shortcodes.php:55 ../brize/theme-config.php:1094
+#: ../heajy/include/shortcodes.php:55 ../heajy/theme-config.php:1078
+#: ../mirano/include/shortcodes.php:67 ../saharan/include/shortcodes.php:94
+#: ../sozo/include/shortcodes.php:55 ../vanesa/include/shortcodes.php:55
+#: ../vanesa/theme-config.php:1052
+msgid "Testimonials"
+msgstr ""
+
+#: ../brize/include/shortcodes.php:64 ../heajy/include/shortcodes.php:64
+#: ../mirano/include/shortcodes.php:76 ../saharan/include/shortcodes.php:103
+#: ../sozo/include/shortcodes.php:64 ../vanesa/include/shortcodes.php:64
+msgid "Number of testimonial"
+msgstr ""
+
+#: ../brize/include/shortcodes.php:66 ../heajy/include/shortcodes.php:66
+#: ../mirano/include/shortcodes.php:78 ../saharan/include/shortcodes.php:105
+#: ../sozo/include/shortcodes.php:66 ../vanesa/include/shortcodes.php:66
+msgid "10"
+msgstr ""
+
+#: ../brize/include/shortcodes.php:72 ../heajy/include/shortcodes.php:72
+#: ../mirano/include/shortcodes.php:84 ../saharan/include/shortcodes.php:111
+#: ../sozo/include/shortcodes.php:72 ../vanesa/include/shortcodes.php:72
+msgid "Image size"
+msgstr ""
+
+#: ../brize/include/shortcodes.php:74 ../heajy/include/shortcodes.php:74
+#: ../mirano/include/shortcodes.php:86 ../saharan/include/shortcodes.php:113
+#: ../sozo/include/shortcodes.php:74 ../vanesa/include/shortcodes.php:74
+msgid "120"
+msgstr ""
+
+#: ../brize/include/shortcodes.php:81 ../brize/include/shortcodes.php:92
+#: ../heajy/include/shortcodes.php:81 ../heajy/include/shortcodes.php:92
+#: ../mirano/include/shortcodes.php:93 ../mirano/include/shortcodes.php:104
+#: ../vanesa/include/shortcodes.php:81 ../vanesa/include/shortcodes.php:92
+msgid "Skill"
+msgstr ""
+
+#: ../brize/include/shortcodes.php:90 ../heajy/include/shortcodes.php:90
+#: ../mirano/include/shortcodes.php:102 ../vanesa/include/shortcodes.php:90
+msgid "Skill title"
+msgstr ""
+
+#: ../brize/include/shortcodes.php:98 ../heajy/include/shortcodes.php:98
+#: ../mirano/include/shortcodes.php:110 ../vanesa/include/shortcodes.php:98
+msgid "Percent"
+msgstr ""
+
+#: ../brize/include/shortcodes.php:100 ../heajy/include/shortcodes.php:100
+#: ../mirano/include/shortcodes.php:112 ../vanesa/include/shortcodes.php:100
+msgid "100"
+msgstr ""
+
+#: ../brize/include/shortcodes.php:107 ../heajy/include/shortcodes.php:107
+#: ../mirano/include/shortcodes.php:119 ../saharan/include/shortcodes.php:120
+#: ../sozo/include/shortcodes.php:82 ../vanesa/include/shortcodes.php:107
+msgid "Rotating tweets"
+msgstr ""
+
+#: ../brize/include/shortcodes.php:116 ../heajy/include/shortcodes.php:116
+#: ../mirano/include/shortcodes.php:128 ../saharan/include/shortcodes.php:129
+#: ../sozo/include/shortcodes.php:91 ../vanesa/include/shortcodes.php:116
+msgid "Twitter user name"
+msgstr ""
+
+#: ../brize/include/shortcodes.php:125 ../brize/include/shortcodes.php:134
+#: ../heajy/include/shortcodes.php:125 ../heajy/include/shortcodes.php:134
+#: ../mirano/include/shortcodes.php:137 ../mirano/include/shortcodes.php:146
+#: ../saharan/include/shortcodes.php:138 ../saharan/include/shortcodes.php:147
+#: ../vanesa/include/shortcodes.php:125 ../vanesa/include/shortcodes.php:134
+msgid "FontAwesome Icon"
+msgstr ""
+
+#: ../brize/include/shortcodes.php:135 ../heajy/include/shortcodes.php:135
+#: ../mirano/include/shortcodes.php:147 ../saharan/include/shortcodes.php:148
+#: ../vanesa/include/shortcodes.php:135
+msgid ""
+"<a href=\"http://fortawesome.github.io/Font-Awesome/cheatsheet/\" target="
+"\"_blank\">Go here</a> to get icon class. Example: fa-search"
+msgstr ""
+
+#: ../brize/include/shortcodes.php:137 ../heajy/include/shortcodes.php:137
+#: ../mirano/include/shortcodes.php:149 ../saharan/include/shortcodes.php:150
+#: ../vanesa/include/shortcodes.php:137
+msgid "fa-search"
+msgstr ""
+
+#: ../brize/include/wooajax.php:121 ../brize/woocommerce/cart/mini-cart.php:24
+#: ../heajy/include/wooajax.php:101 ../heajy/woocommerce/cart/mini-cart.php:21
+#: ../saharan/include/wooajax.php:112
+#: ../saharan/woocommerce/cart/mini-cart.php:23
+#: ../sozo/include/wooajax.php:121
+#, php-format
+msgid "%d"
+msgstr ""
+
+#: ../brize/include/wooajax.php:138 ../heajy/include/wooajax.php:118
+#: ../mirano/include/wooajax.php:129 ../saharan/include/wooajax.php:129
+#: ../sozo/include/wooajax.php:138 ../vanesa/include/wooajax.php:118
+msgid "Product is added to cart"
+msgstr ""
+
+#: ../brize/include/wooajax.php:166 ../brize/woocommerce/cart/mini-cart.php:78
+#: ../heajy/include/wooajax.php:129 ../heajy/woocommerce/cart/mini-cart.php:74
+#: ../mirano/include/wooajax.php:148
+#: ../mirano/woocommerce/cart/mini-cart.php:78
+#: ../saharan/include/wooajax.php:148
+#: ../saharan/woocommerce/cart/mini-cart.php:78
+#: ../sozo/include/wooajax.php:166 ../sozo/woocommerce/cart/mini-cart.php:74
+#: ../vanesa/include/wooajax.php:129
+#: ../vanesa/woocommerce/cart/mini-cart.php:78
+msgid "View Cart"
+msgstr ""
+
+#: ../brize/index.php:94 ../heajy/index.php:90 ../mirano/index.php:80
+#: ../saharan/index.php:90 ../sozo/index.php:90 ../vanesa/index.php:89
+msgid "No posts to display"
+msgstr ""
+
+#: ../brize/index.php:98 ../heajy/index.php:94 ../mirano/index.php:84
+#: ../saharan/index.php:94 ../sozo/index.php:94 ../vanesa/index.php:93
+#, php-format
+msgid "Ready to publish your first post? <a href=\"%s\">Get started here</a>."
+msgstr ""
+
+#: ../brize/projects/archive-project.php:21
+#: ../brize/projects/content-single-project.php:20
+#: ../brize/theme-config.php:852 ../heajy/projects/archive-project.php:24
+#: ../heajy/projects/content-single-project.php:23
+#: ../heajy/theme-config.php:845 ../saharan/projects/archive-project.php:19
+#: ../saharan/projects/content-single-project.php:18
+#: ../sozo/projects/archive-project.php:21
+#: ../sozo/projects/content-single-project.php:20 ../sozo/theme-config.php:826
+#: ../vanesa/projects/archive-project.php:21
+#: ../vanesa/projects/content-single-project.php:19
+#: ../vanesa/theme-config.php:817
+msgid "Portfolio"
+msgstr ""
+
+#: ../brize/projects/archive-project.php:76
+#: ../heajy/projects/archive-project.php:76
+#: ../mirano/woocommerce/archive-product.php:80
+#: ../saharan/projects/archive-project.php:72
+#: ../sozo/projects/archive-project.php:74
+#: ../vanesa/projects/archive-project.php:72
+#: ../vanesa/woocommerce/archive-product.php:80
+msgid "All"
+msgstr ""
+
+#: ../brize/search.php:64 ../heajy/search.php:62 ../mirano/search.php:58
+#: ../saharan/search.php:65 ../sozo/search.php:62
+#: ../twentyfifteen/search.php:18 ../twentyfourteen/search.php:18
+#: ../twentythirteen/search.php:18 ../vanesa/search.php:64
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: ../brize/search.php:84 ../heajy/search.php:82 ../mirano/search.php:80
+#: ../saharan/search.php:85 ../sozo/search.php:82 ../vanesa/search.php:84
+msgid ""
+"Sorry, but nothing matched your search criteria. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: ../brize/single.php:69 ../heajy/single.php:67 ../mirano/single.php:64
+#: ../saharan/single.php:43 ../sozo/single.php:67 ../vanesa/single.php:67
+msgid "&larr;"
+msgstr ""
+
+#: ../brize/single.php:70 ../heajy/single.php:68 ../mirano/single.php:65
+#: ../saharan/single.php:44 ../sozo/single.php:68 ../vanesa/single.php:68
+msgid "&rarr;"
+msgstr ""
+
+#: ../brize/tag.php:71 ../heajy/tag.php:66 ../mirano/tag.php:62
+#: ../saharan/tag.php:68 ../sozo/tag.php:66 ../twentyfourteen/tag.php:22
+#: ../twentythirteen/tag.php:21 ../vanesa/tag.php:67
+#, php-format
+msgid "Tag Archives: %s"
+msgstr ""
+
+#: ../brize/theme-config.php:94 ../heajy/theme-config.php:114
+#: ../mirano/theme-config.php:96 ../saharan/theme-config.php:94
+#: ../sozo/theme-config.php:96 ../vanesa/theme-config.php:114
+msgid "Section via hook"
+msgstr ""
+
+#: ../brize/theme-config.php:95 ../heajy/theme-config.php:115
+#: ../mirano/theme-config.php:97 ../saharan/theme-config.php:95
+#: ../sozo/theme-config.php:97 ../vanesa/theme-config.php:115
+msgid ""
+"<p class=\"description\">This is a section created by adding a filter to the "
+"sections array. Can be used by child themes to add/remove sections from the "
+"options.</p>"
+msgstr ""
+
+#: ../brize/theme-config.php:173 ../heajy/theme-config.php:193
+#: ../mirano/theme-config.php:175 ../saharan/theme-config.php:173
+#: ../sozo/theme-config.php:175 ../vanesa/theme-config.php:193
+#, php-format
+msgid "Customize &#8220;%s&#8221;"
+msgstr ""
+
+#: ../brize/theme-config.php:190 ../heajy/theme-config.php:210
+#: ../mirano/theme-config.php:192 ../saharan/theme-config.php:190
+#: ../sozo/theme-config.php:192 ../vanesa/theme-config.php:210
+#, php-format
+msgid "By %s"
+msgstr ""
+
+#: ../brize/theme-config.php:191 ../heajy/theme-config.php:211
+#: ../mirano/theme-config.php:193 ../saharan/theme-config.php:191
+#: ../sozo/theme-config.php:193 ../vanesa/theme-config.php:211
+#, php-format
+msgid "Version %s"
+msgstr ""
+
+#: ../brize/theme-config.php:192 ../heajy/theme-config.php:212
+#: ../mirano/theme-config.php:194 ../saharan/theme-config.php:192
+#: ../sozo/theme-config.php:194 ../twentyfifteen/inc/template-tags.php:102
+#: ../vanesa/theme-config.php:212
+msgid "Tags"
+msgstr ""
+
+#: ../brize/theme-config.php:197 ../heajy/theme-config.php:217
+#: ../mirano/theme-config.php:199 ../saharan/theme-config.php:197
+#: ../sozo/theme-config.php:199 ../vanesa/theme-config.php:217
+#, php-format
+msgid "This <a href=\"%1$s\">child theme</a> requires its parent theme, %2$s."
+msgstr ""
+
+#: ../brize/theme-config.php:197 ../heajy/theme-config.php:217
+#: ../mirano/theme-config.php:199 ../saharan/theme-config.php:197
+#: ../sozo/theme-config.php:199 ../vanesa/theme-config.php:217
+msgid "http://codex.wordpress.org/Child_Themes"
+msgstr ""
+
+#: ../brize/theme-config.php:220 ../heajy/theme-config.php:240
+#: ../mirano/theme-config.php:215 ../saharan/theme-config.php:213
+#: ../sozo/theme-config.php:215 ../vanesa/theme-config.php:240
+msgid "General"
+msgstr ""
+
+#: ../brize/theme-config.php:221 ../heajy/theme-config.php:241
+#: ../mirano/theme-config.php:216 ../saharan/theme-config.php:214
+#: ../sozo/theme-config.php:216 ../vanesa/theme-config.php:241
+msgid "General theme options"
+msgstr ""
+
+#: ../brize/theme-config.php:228 ../heajy/theme-config.php:248
+#: ../mirano/theme-config.php:223 ../saharan/theme-config.php:221
+#: ../sozo/theme-config.php:223 ../vanesa/theme-config.php:248
+msgid "Logo"
+msgstr ""
+
+#: ../brize/theme-config.php:231 ../heajy/theme-config.php:251
+#: ../heajy/theme-config.php:418 ../mirano/theme-config.php:226
+#: ../mirano/theme-config.php:376 ../saharan/theme-config.php:224
+#: ../sozo/theme-config.php:226 ../sozo/theme-config.php:436
+#: ../vanesa/theme-config.php:251
+msgid "Upload logo here."
+msgstr ""
+
+#: ../brize/theme-config.php:236 ../heajy/theme-config.php:256
+#: ../mirano/theme-config.php:231 ../saharan/theme-config.php:229
+#: ../sozo/theme-config.php:231 ../vanesa/theme-config.php:256
+msgid "Favicon"
+msgstr ""
+
+#: ../brize/theme-config.php:239 ../heajy/theme-config.php:259
+#: ../mirano/theme-config.php:234 ../saharan/theme-config.php:232
+#: ../sozo/theme-config.php:234 ../vanesa/theme-config.php:259
+msgid "Upload favicon here."
+msgstr ""
+
+#: ../brize/theme-config.php:244 ../mirano/theme-config.php:239
+#: ../saharan/theme-config.php:237 ../vanesa/theme-config.php:264
+msgid "Image 404"
+msgstr ""
+
+#: ../brize/theme-config.php:245 ../vanesa/theme-config.php:265
+msgid "Image for error 404 page"
+msgstr ""
+
+#: ../brize/theme-config.php:252
+msgid "Logo 404"
+msgstr ""
+
+#: ../brize/theme-config.php:255
+msgid "Upload logo 404 here."
+msgstr ""
+
+#: ../brize/theme-config.php:260
+msgid "Logo footer"
+msgstr ""
+
+#: ../brize/theme-config.php:263
+msgid "Upload logo footer here."
+msgstr ""
+
+#: ../brize/theme-config.php:269 ../heajy/theme-config.php:265
+#: ../mirano/theme-config.php:248 ../saharan/theme-config.php:247
+#: ../sozo/theme-config.php:240 ../vanesa/theme-config.php:273
+msgid "Background"
+msgstr ""
+
+#: ../brize/theme-config.php:270 ../heajy/theme-config.php:266
+#: ../mirano/theme-config.php:249 ../saharan/theme-config.php:248
+#: ../sozo/theme-config.php:241 ../vanesa/theme-config.php:274
+msgid "Use this section to upload background images, select background color"
+msgstr ""
+
+#: ../brize/theme-config.php:277 ../heajy/theme-config.php:274
+#: ../mirano/theme-config.php:257 ../saharan/theme-config.php:256
+#: ../sozo/theme-config.php:249 ../vanesa/theme-config.php:281
+msgid "Body Background"
+msgstr ""
+
+#: ../brize/theme-config.php:278 ../heajy/theme-config.php:275
+#: ../mirano/theme-config.php:258 ../saharan/theme-config.php:257
+#: ../sozo/theme-config.php:250 ../vanesa/theme-config.php:282
+msgid "Body background with image, color. Only work with box layout"
+msgstr ""
+
+#: ../brize/theme-config.php:285
+msgid "Page 404 background"
+msgstr ""
+
+#: ../brize/theme-config.php:292 ../heajy/theme-config.php:289
+#: ../mirano/theme-config.php:265 ../saharan/theme-config.php:264
+#: ../sozo/theme-config.php:257 ../vanesa/theme-config.php:310
+msgid "Colors"
+msgstr ""
+
+#: ../brize/theme-config.php:293 ../heajy/theme-config.php:290
+#: ../mirano/theme-config.php:266 ../saharan/theme-config.php:265
+#: ../sozo/theme-config.php:258 ../vanesa/theme-config.php:311
+msgid "Color options"
+msgstr ""
+
+#: ../brize/theme-config.php:299 ../heajy/theme-config.php:296
+#: ../mirano/theme-config.php:272 ../saharan/theme-config.php:271
+#: ../sozo/theme-config.php:264 ../vanesa/theme-config.php:317
+msgid "Primary Color"
+msgstr ""
+
+#: ../brize/theme-config.php:300
+msgid "Pick a color for primary color (default: #1ccdca)."
+msgstr ""
+
+#: ../brize/theme-config.php:310 ../heajy/theme-config.php:307
+#: ../mirano/theme-config.php:282 ../saharan/theme-config.php:282
+#: ../sozo/theme-config.php:275 ../vanesa/theme-config.php:328
+msgid "Sale Label BG Color"
+msgstr ""
+
+#: ../brize/theme-config.php:311
+msgid "Pick a color for bg sale label (default: #ed1c24)."
+msgstr ""
+
+#: ../brize/theme-config.php:321 ../heajy/theme-config.php:318
+#: ../mirano/theme-config.php:293 ../saharan/theme-config.php:293
+#: ../sozo/theme-config.php:286 ../vanesa/theme-config.php:339
+msgid "Sale Label Text Color"
+msgstr ""
+
+#: ../brize/theme-config.php:322 ../vanesa/theme-config.php:340
+msgid "Pick a color for sale label text (default: #ffffff)."
+msgstr ""
+
+#: ../brize/theme-config.php:332 ../heajy/theme-config.php:329
+#: ../mirano/theme-config.php:304 ../saharan/theme-config.php:304
+#: ../sozo/theme-config.php:297 ../vanesa/theme-config.php:350
+msgid "Rating Star Color"
+msgstr ""
+
+#: ../brize/theme-config.php:333
+msgid "Pick a color for star of rating (default: #555555)."
+msgstr ""
+
+#: ../brize/theme-config.php:343 ../heajy/theme-config.php:340
+#: ../mirano/theme-config.php:315 ../saharan/theme-config.php:315
+#: ../sozo/theme-config.php:308 ../vanesa/theme-config.php:361
+msgid "Header"
+msgstr ""
+
+#: ../brize/theme-config.php:344 ../heajy/theme-config.php:341
+#: ../mirano/theme-config.php:316 ../saharan/theme-config.php:316
+#: ../sozo/theme-config.php:309 ../vanesa/theme-config.php:362
+msgid "Header options"
+msgstr ""
+
+#: ../brize/theme-config.php:351 ../heajy/theme-config.php:348
+#: ../mirano/theme-config.php:323 ../saharan/theme-config.php:323
+#: ../sozo/theme-config.php:316 ../vanesa/theme-config.php:369
+msgid "Header Layout"
+msgstr ""
+
+#: ../brize/theme-config.php:368 ../heajy/functions.php:373
+#: ../mirano/theme-config.php:345 ../saharan/theme-config.php:336
+#: ../sozo/functions.php:378 ../sozo/theme-config.php:350
+#: ../vanesa/theme-config.php:395
+msgid "Top Menu"
+msgstr ""
+
+#: ../brize/theme-config.php:369 ../brize/theme-config.php:536
+#: ../brize/theme-config.php:543 ../brize/theme-config.php:550
+#: ../brize/theme-config.php:557 ../brize/theme-config.php:564
+#: ../heajy/theme-config.php:366 ../heajy/theme-config.php:373
+#: ../heajy/theme-config.php:564 ../heajy/theme-config.php:571
+#: ../heajy/theme-config.php:578 ../heajy/theme-config.php:585
+#: ../heajy/theme-config.php:592 ../mirano/theme-config.php:346
+#: ../mirano/theme-config.php:514 ../mirano/theme-config.php:521
+#: ../mirano/theme-config.php:528 ../saharan/theme-config.php:337
+#: ../saharan/theme-config.php:492 ../saharan/theme-config.php:499
+#: ../sozo/theme-config.php:351 ../sozo/theme-config.php:559
+#: ../sozo/theme-config.php:566 ../sozo/theme-config.php:573
+#: ../vanesa/theme-config.php:396 ../vanesa/theme-config.php:536
+#: ../vanesa/theme-config.php:543 ../vanesa/theme-config.php:550
+#: ../vanesa/theme-config.php:557
+msgid "Select a menu"
+msgstr ""
+
+#: ../brize/theme-config.php:374 ../heajy/theme-config.php:378
+#: ../mirano/theme-config.php:337 ../saharan/theme-config.php:349
+#: ../sozo/theme-config.php:409 ../vanesa/theme-config.php:401
+msgid "Mobile menu label"
+msgstr ""
+
+#: ../brize/theme-config.php:375 ../heajy/theme-config.php:379
+#: ../mirano/theme-config.php:338 ../saharan/theme-config.php:350
+#: ../sozo/theme-config.php:410 ../vanesa/theme-config.php:402
+msgid "The label for mobile menu (example: Menu, Go to..."
+msgstr ""
+
+#: ../brize/theme-config.php:383 ../heajy/theme-config.php:394
+#: ../mirano/theme-config.php:352 ../saharan/theme-config.php:358
+#: ../sozo/theme-config.php:425 ../vanesa/theme-config.php:410
+msgid "Footer"
+msgstr ""
+
+#: ../brize/theme-config.php:384 ../heajy/theme-config.php:395
+#: ../mirano/theme-config.php:353 ../saharan/theme-config.php:359
+#: ../sozo/theme-config.php:426 ../vanesa/theme-config.php:411
+msgid "Footer options"
+msgstr ""
+
+#: ../brize/theme-config.php:390 ../heajy/theme-config.php:435
+#: ../mirano/theme-config.php:381 ../saharan/theme-config.php:366
+#: ../sozo/theme-config.php:441 ../vanesa/theme-config.php:418
+msgid "Copyright information"
+msgstr ""
+
+#: ../brize/theme-config.php:391 ../heajy/theme-config.php:436
+#: ../mirano/theme-config.php:382 ../saharan/theme-config.php:367
+#: ../sozo/theme-config.php:442 ../vanesa/theme-config.php:419
+msgid "HTML tags allowed: a, br, em, strong"
+msgstr ""
+
+#: ../brize/theme-config.php:402 ../heajy/theme-config.php:447
+#: ../mirano/theme-config.php:393 ../saharan/theme-config.php:378
+#: ../sozo/theme-config.php:453 ../vanesa/theme-config.php:430
+msgid "Payment icons"
+msgstr ""
+
+#: ../brize/theme-config.php:403 ../heajy/theme-config.php:448
+#: ../mirano/theme-config.php:394 ../mirano/theme-config.php:973
+#: ../saharan/theme-config.php:379 ../sozo/theme-config.php:454
+#: ../vanesa/theme-config.php:431
+msgid "HTML tags allowed: a, img"
+msgstr ""
+
+#: ../brize/theme-config.php:415 ../heajy/theme-config.php:485
+#: ../mirano/include/shortcodes.php:155 ../mirano/theme-config.php:407
+#: ../mirano/theme-config.php:966 ../saharan/theme-config.php:441
+#: ../sozo/theme-config.php:466 ../vanesa/theme-config.php:443
+msgid "Newsletter"
+msgstr ""
+
+#: ../brize/theme-config.php:421 ../heajy/theme-config.php:491
+#: ../saharan/theme-config.php:447 ../sozo/theme-config.php:472
+#: ../vanesa/theme-config.php:449
+msgid "Newsletter title"
+msgstr ""
+
+#: ../brize/theme-config.php:427 ../heajy/theme-config.php:497
+#: ../mirano/theme-config.php:413 ../mirano/theme-config.php:984
+#: ../saharan/theme-config.php:453 ../sozo/theme-config.php:478
+#: ../vanesa/theme-config.php:455
+msgid "Newsletter form ID"
+msgstr ""
+
+#: ../brize/theme-config.php:428 ../heajy/theme-config.php:498
+#: ../mirano/theme-config.php:414 ../mirano/theme-config.php:985
+#: ../saharan/theme-config.php:454 ../sozo/theme-config.php:479
+#: ../vanesa/theme-config.php:456
+msgid "The form ID of MailPoet plugin."
+msgstr ""
+
+#: ../brize/theme-config.php:437 ../brize/theme-config.php:444
+#: ../heajy/theme-config.php:507 ../heajy/theme-config.php:519
+#: ../mirano/theme-config.php:436 ../mirano/theme-config.php:443
+#: ../saharan/theme-config.php:392 ../saharan/theme-config.php:404
+#: ../sozo/theme-config.php:488 ../sozo/theme-config.php:495
+#: ../vanesa/theme-config.php:465 ../vanesa/theme-config.php:472
+msgid "Social Icons"
+msgstr ""
+
+#: ../brize/theme-config.php:445 ../heajy/theme-config.php:520
+#: ../mirano/theme-config.php:444 ../saharan/theme-config.php:405
+#: ../sozo/theme-config.php:496 ../vanesa/theme-config.php:473
+msgid "Enter social links"
+msgstr ""
+
+#: ../brize/theme-config.php:446 ../heajy/theme-config.php:521
+#: ../mirano/theme-config.php:445 ../saharan/theme-config.php:406
+#: ../sozo/theme-config.php:497 ../vanesa/theme-config.php:474
+msgid "Drag/drop to re-arrange"
+msgstr ""
+
+#: ../brize/theme-config.php:479 ../brize/theme-config.php:491
+msgid "Openning Time"
+msgstr ""
+
+#: ../brize/theme-config.php:485
+msgid "Openning Time title"
+msgstr ""
+
+#: ../brize/theme-config.php:492
+msgid "HTML tags allowed: a, img, br, span, em, strong, p, ul, li"
+msgstr ""
+
+#: ../brize/theme-config.php:499 ../brize/theme-config.php:505
+#: ../sozo/theme-config.php:532 ../sozo/theme-config.php:538
+#: ../vanesa/theme-config.php:508 ../vanesa/theme-config.php:520
+msgid "Contact Us"
+msgstr ""
+
+#: ../brize/theme-config.php:506 ../mirano/theme-config.php:492
+#: ../saharan/theme-config.php:343 ../sozo/theme-config.php:357
+#: ../sozo/theme-config.php:539 ../vanesa/theme-config.php:521
+msgid "HTML tags allowed: a, img, br, em, strong, p, ul, li"
+msgstr ""
+
+#: ../brize/theme-config.php:514
+msgid "Blog Shortcode"
+msgstr ""
+
+#: ../brize/theme-config.php:520
+msgid "Blog title"
+msgstr ""
+
+#: ../brize/theme-config.php:528 ../heajy/theme-config.php:556
+#: ../mirano/theme-config.php:506 ../saharan/theme-config.php:484
+#: ../sozo/theme-config.php:551 ../vanesa/theme-config.php:528
+msgid "Menus"
+msgstr ""
+
+#: ../brize/theme-config.php:535 ../heajy/theme-config.php:563
+#: ../mirano/theme-config.php:513 ../saharan/theme-config.php:491
+#: ../sozo/theme-config.php:558 ../vanesa/theme-config.php:535
+msgid "Menu #1"
+msgstr ""
+
+#: ../brize/theme-config.php:542 ../heajy/theme-config.php:570
+#: ../mirano/theme-config.php:520 ../saharan/theme-config.php:498
+#: ../sozo/theme-config.php:565 ../vanesa/theme-config.php:542
+msgid "Menu #2"
+msgstr ""
+
+#: ../brize/theme-config.php:549 ../heajy/theme-config.php:577
+#: ../mirano/theme-config.php:527 ../sozo/theme-config.php:572
+#: ../vanesa/theme-config.php:549
+msgid "Menu #3"
+msgstr ""
+
+#: ../brize/theme-config.php:556 ../heajy/theme-config.php:584
+msgid "Menu #4"
+msgstr ""
+
+#: ../brize/theme-config.php:563
+msgid "Menu #5"
+msgstr ""
+
+#: ../brize/theme-config.php:571 ../heajy/theme-config.php:599
+#: ../mirano/theme-config.php:535 ../saharan/theme-config.php:506
+#: ../sozo/theme-config.php:580 ../vanesa/theme-config.php:564
+msgid "Fonts"
+msgstr ""
+
+#: ../brize/theme-config.php:572 ../heajy/theme-config.php:600
+#: ../mirano/theme-config.php:536 ../saharan/theme-config.php:507
+#: ../sozo/theme-config.php:581 ../vanesa/theme-config.php:565
+msgid "Fonts options"
+msgstr ""
+
+#: ../brize/theme-config.php:579 ../heajy/theme-config.php:607
+#: ../mirano/theme-config.php:543 ../saharan/theme-config.php:514
+#: ../sozo/theme-config.php:588 ../vanesa/theme-config.php:572
+msgid "Body font"
+msgstr ""
+
+#: ../brize/theme-config.php:596 ../heajy/theme-config.php:624
+#: ../mirano/theme-config.php:560 ../saharan/theme-config.php:531
+#: ../sozo/theme-config.php:605 ../vanesa/theme-config.php:589
+msgid "Main body font."
+msgstr ""
+
+#: ../brize/theme-config.php:608 ../heajy/theme-config.php:637
+#: ../mirano/theme-config.php:572 ../saharan/theme-config.php:543
+#: ../sozo/theme-config.php:618 ../vanesa/theme-config.php:601
+msgid "Heading font"
+msgstr ""
+
+#: ../brize/theme-config.php:625 ../heajy/theme-config.php:654
+#: ../mirano/theme-config.php:589 ../saharan/theme-config.php:560
+#: ../sozo/theme-config.php:635 ../vanesa/theme-config.php:618
+msgid "Heading font."
+msgstr ""
+
+#: ../brize/theme-config.php:636 ../heajy/theme-config.php:665
+#: ../mirano/theme-config.php:600 ../saharan/theme-config.php:571
+#: ../sozo/theme-config.php:646 ../vanesa/theme-config.php:629
+msgid "Menu font"
+msgstr ""
+
+#: ../brize/theme-config.php:653 ../heajy/theme-config.php:682
+#: ../mirano/theme-config.php:617 ../saharan/theme-config.php:588
+#: ../sozo/theme-config.php:663 ../vanesa/theme-config.php:646
+msgid "Menu font."
+msgstr ""
+
+#: ../brize/theme-config.php:664 ../mirano/theme-config.php:628
+msgid "Price font"
+msgstr ""
+
+#: ../brize/theme-config.php:681 ../mirano/theme-config.php:645
+msgid "Price font."
+msgstr ""
+
+#: ../brize/theme-config.php:694 ../heajy/theme-config.php:696
+#: ../mirano/theme-config.php:658 ../saharan/theme-config.php:601
+#: ../sozo/theme-config.php:677 ../twentyfourteen/inc/customizer.php:56
+#: ../vanesa/theme-config.php:659
+msgid "Layout"
+msgstr ""
+
+#: ../brize/theme-config.php:695 ../heajy/theme-config.php:697
+#: ../mirano/theme-config.php:659 ../saharan/theme-config.php:602
+#: ../sozo/theme-config.php:678 ../vanesa/theme-config.php:660
+msgid "Select page layout: Box or Full Width"
+msgstr ""
+
+#: ../brize/theme-config.php:702 ../heajy/theme-config.php:704
+#: ../mirano/theme-config.php:666 ../saharan/theme-config.php:609
+#: ../sozo/theme-config.php:685 ../vanesa/theme-config.php:667
+msgid "Page Layout"
+msgstr ""
+
+#: ../brize/theme-config.php:712 ../heajy/theme-config.php:714
+#: ../mirano/theme-config.php:676 ../saharan/theme-config.php:619
+#: ../sozo/theme-config.php:695 ../vanesa/theme-config.php:677
+msgid "Preset"
+msgstr ""
+
+#: ../brize/theme-config.php:713 ../heajy/theme-config.php:715
+#: ../mirano/theme-config.php:677 ../saharan/theme-config.php:620
+#: ../sozo/theme-config.php:696 ../vanesa/theme-config.php:678
+msgid "Select a preset to quickly apply pre-defined colors and fonts"
+msgstr ""
+
+#: ../brize/theme-config.php:728 ../heajy/theme-config.php:726
+#: ../mirano/theme-config.php:692 ../saharan/theme-config.php:633
+#: ../sozo/theme-config.php:707 ../vanesa/theme-config.php:693
+msgid "Show Style Switcher"
+msgstr ""
+
+#: ../brize/theme-config.php:729 ../heajy/theme-config.php:727
+#: ../mirano/theme-config.php:693 ../saharan/theme-config.php:634
+#: ../sozo/theme-config.php:708 ../vanesa/theme-config.php:694
+msgid "The style switcher is only for preview on front-end"
+msgstr ""
+
+#: ../brize/theme-config.php:738 ../heajy/theme-config.php:736
+#: ../mirano/theme-config.php:702 ../saharan/theme-config.php:643
+#: ../sozo/theme-config.php:717 ../vanesa/theme-config.php:703
+msgid "Upload brand logos and links"
+msgstr ""
+
+#: ../brize/theme-config.php:744 ../mirano/theme-config.php:708
+#: ../vanesa/theme-config.php:709
+msgid "Brand title"
+msgstr ""
+
+#: ../brize/theme-config.php:750 ../heajy/theme-config.php:742
+#: ../mirano/theme-config.php:714 ../sozo/theme-config.php:723
+#: ../vanesa/theme-config.php:715
+msgid "Number of logos per page"
+msgstr ""
+
+#: ../brize/theme-config.php:751 ../heajy/theme-config.php:743
+#: ../mirano/theme-config.php:715 ../sozo/theme-config.php:724
+#: ../vanesa/theme-config.php:716
+msgid "Number of logos per page, default value: 6"
+msgstr ""
+
+#: ../brize/theme-config.php:761 ../brize/theme-config.php:1107
+#: ../heajy/theme-config.php:753 ../heajy/theme-config.php:1085
+#: ../mirano/theme-config.php:725 ../saharan/theme-config.php:661
+#: ../sozo/theme-config.php:734 ../vanesa/theme-config.php:726
+#: ../vanesa/theme-config.php:1059
+msgid "Auto scroll"
+msgstr ""
+
+#: ../brize/theme-config.php:767 ../heajy/theme-config.php:759
+#: ../mirano/theme-config.php:731 ../saharan/theme-config.php:667
+#: ../sozo/theme-config.php:740 ../vanesa/theme-config.php:732
+msgid "Scroll amount"
+msgstr ""
+
+#: ../brize/theme-config.php:768 ../heajy/theme-config.php:760
+#: ../mirano/theme-config.php:732 ../saharan/theme-config.php:668
+#: ../sozo/theme-config.php:741 ../vanesa/theme-config.php:733
+msgid "Number of logos to scroll one time, default value: 2"
+msgstr ""
+
+#: ../brize/theme-config.php:778 ../brize/theme-config.php:1070
+#: ../brize/theme-config.php:1113 ../heajy/theme-config.php:770
+#: ../heajy/theme-config.php:1054 ../heajy/theme-config.php:1091
+#: ../mirano/theme-config.php:742 ../mirano/theme-config.php:1036
+#: ../saharan/theme-config.php:678 ../saharan/theme-config.php:926
+#: ../sozo/theme-config.php:751 ../sozo/theme-config.php:1035
+#: ../vanesa/theme-config.php:743 ../vanesa/theme-config.php:1028
+#: ../vanesa/theme-config.php:1065
+msgid "Pause in (seconds)"
+msgstr ""
+
+#: ../brize/theme-config.php:779 ../brize/theme-config.php:1071
+#: ../brize/theme-config.php:1114 ../heajy/theme-config.php:771
+#: ../heajy/theme-config.php:1055 ../heajy/theme-config.php:1092
+#: ../mirano/theme-config.php:743 ../mirano/theme-config.php:1037
+#: ../saharan/theme-config.php:679 ../saharan/theme-config.php:927
+#: ../sozo/theme-config.php:752 ../sozo/theme-config.php:1036
+#: ../vanesa/theme-config.php:744 ../vanesa/theme-config.php:1029
+#: ../vanesa/theme-config.php:1066
+msgid "Pause time, default value: 3000"
+msgstr ""
+
+#: ../brize/theme-config.php:789 ../brize/theme-config.php:1081
+#: ../brize/theme-config.php:1124 ../heajy/theme-config.php:781
+#: ../heajy/theme-config.php:1065 ../heajy/theme-config.php:1102
+#: ../mirano/theme-config.php:753 ../mirano/theme-config.php:1047
+#: ../saharan/theme-config.php:689 ../saharan/theme-config.php:937
+#: ../sozo/theme-config.php:762 ../sozo/theme-config.php:1046
+#: ../vanesa/theme-config.php:754 ../vanesa/theme-config.php:1039
+#: ../vanesa/theme-config.php:1076
+msgid "Animate in (seconds)"
+msgstr ""
+
+#: ../brize/theme-config.php:790 ../brize/theme-config.php:1082
+#: ../brize/theme-config.php:1125 ../heajy/theme-config.php:782
+#: ../heajy/theme-config.php:1066 ../heajy/theme-config.php:1103
+#: ../mirano/theme-config.php:754 ../mirano/theme-config.php:1048
+#: ../saharan/theme-config.php:690 ../saharan/theme-config.php:938
+#: ../sozo/theme-config.php:763 ../sozo/theme-config.php:1047
+#: ../vanesa/theme-config.php:755 ../vanesa/theme-config.php:1040
+#: ../vanesa/theme-config.php:1077
+msgid "Animate time, default value: 2000"
+msgstr ""
+
+#: ../brize/theme-config.php:800 ../heajy/theme-config.php:792
+#: ../mirano/theme-config.php:764 ../saharan/theme-config.php:700
+#: ../sozo/theme-config.php:773 ../vanesa/theme-config.php:765
+msgid "Logos"
+msgstr ""
+
+#: ../brize/theme-config.php:801 ../heajy/theme-config.php:793
+#: ../mirano/theme-config.php:765 ../saharan/theme-config.php:701
+#: ../sozo/theme-config.php:774 ../vanesa/theme-config.php:766
+msgid "Upload logo image and enter logo link."
+msgstr ""
+
+#: ../brize/theme-config.php:803
+#: ../brize/woocommerce/class-wc-widget-cart.php:30
+#: ../heajy/theme-config.php:795
+#: ../heajy/woocommerce/class-wc-widget-cart.php:30
+#: ../mirano/theme-config.php:767
+#: ../mirano/woocommerce/class-wc-widget-cart.php:30
+#: ../saharan/theme-config.php:703
+#: ../saharan/woocommerce/class-wc-widget-cart.php:30
+#: ../sozo/theme-config.php:776
+#: ../sozo/woocommerce/class-wc-widget-cart.php:30
+#: ../vanesa/theme-config.php:768
+#: ../vanesa/woocommerce/class-wc-widget-cart.php:30
+msgid "Title"
+msgstr ""
+
+#: ../brize/theme-config.php:804 ../heajy/theme-config.php:796
+#: ../mirano/theme-config.php:768 ../saharan/theme-config.php:704
+#: ../sozo/theme-config.php:777 ../vanesa/theme-config.php:769
+msgid "Description"
+msgstr ""
+
+#: ../brize/theme-config.php:805 ../heajy/theme-config.php:797
+#: ../mirano/theme-config.php:769 ../saharan/theme-config.php:705
+#: ../sozo/theme-config.php:778 ../vanesa/theme-config.php:770
+msgid "Link"
+msgstr ""
+
+#: ../brize/theme-config.php:813 ../heajy/theme-config.php:805
+#: ../mirano/theme-config.php:777 ../saharan/theme-config.php:713
+#: ../sozo/theme-config.php:786 ../vanesa/theme-config.php:778
+msgid "Sidebar"
+msgstr ""
+
+#: ../brize/theme-config.php:814 ../heajy/theme-config.php:806
+#: ../mirano/theme-config.php:778 ../saharan/theme-config.php:714
+#: ../sozo/theme-config.php:787 ../vanesa/theme-config.php:779
+msgid "Sidebar options"
+msgstr ""
+
+#: ../brize/theme-config.php:820 ../mirano/theme-config.php:784
+#: ../saharan/theme-config.php:720 ../vanesa/theme-config.php:785
+msgid "Main Sidebar Position"
+msgstr ""
+
+#: ../brize/theme-config.php:821 ../mirano/theme-config.php:785
+#: ../saharan/theme-config.php:721 ../vanesa/theme-config.php:786
+msgid "Sidebar on category page"
+msgstr ""
+
+#: ../brize/theme-config.php:830 ../heajy/theme-config.php:823
+#: ../mirano/theme-config.php:794 ../saharan/theme-config.php:730
+#: ../sozo/theme-config.php:804 ../vanesa/theme-config.php:795
+msgid "Secondary Sidebar Position"
+msgstr ""
+
+#: ../brize/theme-config.php:831 ../heajy/theme-config.php:824
+#: ../mirano/theme-config.php:795 ../saharan/theme-config.php:731
+#: ../sozo/theme-config.php:805 ../vanesa/theme-config.php:796
+msgid "Sidebar on pages"
+msgstr ""
+
+#: ../brize/theme-config.php:840 ../heajy/theme-config.php:833
+#: ../mirano/theme-config.php:804 ../saharan/theme-config.php:740
+#: ../sozo/theme-config.php:814 ../vanesa/theme-config.php:805
+msgid "Blog Sidebar Position"
+msgstr ""
+
+#: ../brize/theme-config.php:841 ../heajy/theme-config.php:834
+#: ../mirano/theme-config.php:805 ../saharan/theme-config.php:741
+#: ../sozo/theme-config.php:815 ../vanesa/theme-config.php:806
+msgid "Sidebar on Blog pages"
+msgstr ""
+
+#: ../brize/theme-config.php:853 ../heajy/theme-config.php:846
+#: ../sozo/theme-config.php:827 ../vanesa/theme-config.php:818
+msgid "Use this section to select options for portfolio"
+msgstr ""
+
+#: ../brize/theme-config.php:860
+msgid "Portfolio header background"
+msgstr ""
+
+#: ../brize/theme-config.php:866 ../heajy/theme-config.php:852
+#: ../sozo/theme-config.php:833 ../vanesa/theme-config.php:824
+msgid "Portfolio Columns"
+msgstr ""
+
+#: ../brize/theme-config.php:876 ../heajy/theme-config.php:862
+#: ../sozo/theme-config.php:843 ../vanesa/theme-config.php:834
+msgid "Projects per page"
+msgstr ""
+
+#: ../brize/theme-config.php:877 ../heajy/theme-config.php:863
+#: ../sozo/theme-config.php:844 ../vanesa/theme-config.php:835
+msgid "Amount of projects per page on portfolio page"
+msgstr ""
+
+#: ../brize/theme-config.php:887 ../heajy/theme-config.php:873
+#: ../sozo/theme-config.php:854 ../vanesa/theme-config.php:845
+msgid "Related projects title"
+msgstr ""
+
+#: ../brize/theme-config.php:895 ../brize/woocommerce/cart/cart.php:26
+#: ../brize/woocommerce/checkout/review-order.php:17
+#: ../heajy/theme-config.php:881 ../heajy/woocommerce/cart/cart.php:26
+#: ../heajy/woocommerce/checkout/review-order.php:17
+#: ../mirano/theme-config.php:826 ../mirano/woocommerce/cart/cart.php:26
+#: ../mirano/woocommerce/checkout/review-order.php:17
+#: ../saharan/theme-config.php:752 ../saharan/woocommerce/cart/cart.php:26
+#: ../saharan/woocommerce/checkout/review-order.php:17
+#: ../sozo/theme-config.php:862 ../sozo/woocommerce/cart/cart.php:26
+#: ../sozo/woocommerce/checkout/review-order.php:17
+#: ../vanesa/theme-config.php:853 ../vanesa/woocommerce/cart/cart.php:26
+#: ../vanesa/woocommerce/checkout/review-order.php:17
+#: ../vanesa/woocommerce/order/order-details.php:21
+msgid "Product"
+msgstr ""
+
+#: ../brize/theme-config.php:896 ../heajy/theme-config.php:882
+#: ../mirano/theme-config.php:827 ../saharan/theme-config.php:753
+#: ../sozo/theme-config.php:863 ../vanesa/theme-config.php:854
+msgid "Use this section to select options for product"
+msgstr ""
+
+#: ../brize/theme-config.php:902 ../heajy/theme-config.php:888
+#: ../mirano/theme-config.php:833 ../saharan/theme-config.php:759
+#: ../sozo/theme-config.php:869 ../vanesa/theme-config.php:860
+msgid "Shop Layout"
+msgstr ""
+
+#: ../brize/theme-config.php:913 ../heajy/theme-config.php:899
+#: ../mirano/theme-config.php:844 ../saharan/theme-config.php:770
+#: ../sozo/theme-config.php:880 ../vanesa/theme-config.php:871
+msgid "Shop default view"
+msgstr ""
+
+#: ../brize/theme-config.php:924 ../heajy/theme-config.php:910
+#: ../mirano/theme-config.php:855 ../saharan/theme-config.php:781
+#: ../sozo/theme-config.php:891 ../vanesa/theme-config.php:882
+msgid "Products per page"
+msgstr ""
+
+#: ../brize/theme-config.php:925 ../heajy/theme-config.php:911
+#: ../mirano/theme-config.php:856 ../saharan/theme-config.php:782
+#: ../sozo/theme-config.php:892 ../vanesa/theme-config.php:883
+msgid "Amount of products per page on category page"
+msgstr ""
+
+#: ../brize/theme-config.php:935 ../heajy/theme-config.php:921
+#: ../mirano/theme-config.php:866 ../saharan/theme-config.php:792
+#: ../sozo/theme-config.php:902 ../vanesa/theme-config.php:893
+msgid "Product columns"
+msgstr ""
+
+#: ../brize/theme-config.php:936 ../heajy/theme-config.php:922
+#: ../mirano/theme-config.php:867 ../saharan/theme-config.php:793
+#: ../sozo/theme-config.php:903 ../vanesa/theme-config.php:894
+msgid "Amount of product columns on category page"
+msgstr ""
+
+#: ../brize/theme-config.php:937 ../brize/theme-config.php:949
+#: ../heajy/theme-config.php:923 ../heajy/theme-config.php:935
+#: ../mirano/theme-config.php:868 ../mirano/theme-config.php:880
+#: ../saharan/theme-config.php:794 ../saharan/theme-config.php:806
+#: ../sozo/theme-config.php:904 ../sozo/theme-config.php:916
+#: ../vanesa/theme-config.php:895 ../vanesa/theme-config.php:907
+msgid "Only works with: 1, 2, 3, 4, 6"
+msgstr ""
+
+#: ../brize/theme-config.php:947 ../heajy/theme-config.php:933
+#: ../mirano/theme-config.php:878 ../saharan/theme-config.php:804
+#: ../sozo/theme-config.php:914 ../vanesa/theme-config.php:905
+msgid "Product columns on full width shop"
+msgstr ""
+
+#: ../brize/theme-config.php:948 ../heajy/theme-config.php:934
+#: ../mirano/theme-config.php:879 ../saharan/theme-config.php:805
+#: ../sozo/theme-config.php:915 ../vanesa/theme-config.php:906
+msgid "Amount of product columns on full width category page"
+msgstr ""
+
+#: ../brize/theme-config.php:959 ../heajy/theme-config.php:945
+#: ../mirano/theme-config.php:890 ../saharan/theme-config.php:816
+#: ../sozo/theme-config.php:926 ../vanesa/theme-config.php:917
+msgid "Use secondary product image"
+msgstr ""
+
+#: ../brize/theme-config.php:965 ../heajy/theme-config.php:951
+#: ../mirano/theme-config.php:896 ../saharan/theme-config.php:822
+#: ../sozo/theme-config.php:932 ../vanesa/theme-config.php:923
+msgid "Related products title"
+msgstr ""
+
+#: ../brize/theme-config.php:971 ../heajy/theme-config.php:957
+#: ../mirano/theme-config.php:902 ../saharan/theme-config.php:828
+#: ../sozo/theme-config.php:938 ../vanesa/theme-config.php:929
+msgid "Number of related products"
+msgstr ""
+
+#: ../brize/theme-config.php:981 ../heajy/theme-config.php:967
+#: ../mirano/theme-config.php:913 ../saharan/theme-config.php:838
+#: ../sozo/theme-config.php:948 ../vanesa/theme-config.php:939
+msgid "Up-Sells title"
+msgstr ""
+
+#: ../brize/theme-config.php:987 ../heajy/theme-config.php:973
+#: ../mirano/theme-config.php:930 ../saharan/theme-config.php:844
+#: ../sozo/theme-config.php:954 ../vanesa/theme-config.php:945
+msgid "Cross-Sells title"
+msgstr ""
+
+#: ../brize/theme-config.php:993 ../heajy/theme-config.php:979
+#: ../mirano/theme-config.php:936 ../saharan/theme-config.php:850
+#: ../sozo/theme-config.php:960 ../vanesa/theme-config.php:951
+msgid "View details text"
+msgstr ""
+
+#: ../brize/theme-config.php:999 ../heajy/theme-config.php:985
+#: ../mirano/theme-config.php:942 ../saharan/theme-config.php:856
+#: ../sozo/theme-config.php:966 ../vanesa/theme-config.php:957
+msgid "View all features text"
+msgstr ""
+
+#: ../brize/theme-config.php:1000 ../heajy/theme-config.php:986
+#: ../mirano/theme-config.php:943 ../saharan/theme-config.php:857
+#: ../sozo/theme-config.php:967 ../vanesa/theme-config.php:958
+msgid "This is the text on quick view box"
+msgstr ""
+
+#: ../brize/theme-config.php:1006 ../heajy/theme-config.php:992
+#: ../mirano/theme-config.php:949 ../saharan/theme-config.php:863
+#: ../sozo/theme-config.php:973 ../vanesa/theme-config.php:964
+msgid "ShareThis/AddThis head tag"
+msgstr ""
+
+#: ../brize/theme-config.php:1007 ../heajy/theme-config.php:993
+#: ../mirano/theme-config.php:950 ../saharan/theme-config.php:864
+#: ../sozo/theme-config.php:974 ../vanesa/theme-config.php:965
+msgid "Paste your ShareThis or AddThis head tag here"
+msgstr ""
+
+#: ../brize/theme-config.php:1013 ../heajy/theme-config.php:999
+#: ../mirano/theme-config.php:956 ../saharan/theme-config.php:870
+#: ../sozo/theme-config.php:980 ../vanesa/theme-config.php:971
+msgid "ShareThis/AddThis code"
+msgstr ""
+
+#: ../brize/theme-config.php:1014 ../heajy/theme-config.php:1000
+#: ../mirano/theme-config.php:957 ../saharan/theme-config.php:871
+#: ../sozo/theme-config.php:981 ../vanesa/theme-config.php:972
+msgid "Paste your ShareThis or AddThis code here"
+msgstr ""
+
+#: ../brize/theme-config.php:1023 ../heajy/theme-config.php:1009
+#: ../mirano/theme-config.php:996 ../saharan/theme-config.php:880
+#: ../sozo/theme-config.php:990 ../vanesa/theme-config.php:981
+msgid "Use this section to select options for blog"
+msgstr ""
+
+#: ../brize/theme-config.php:1030 ../heajy/theme-config.php:1015
+#: ../saharan/theme-config.php:898 ../sozo/theme-config.php:996
+#: ../vanesa/theme-config.php:988
+msgid "Blog header text"
+msgstr ""
+
+#: ../brize/theme-config.php:1036 ../heajy/theme-config.php:1021
+#: ../mirano/theme-config.php:1003 ../saharan/theme-config.php:886
+#: ../sozo/theme-config.php:1002 ../vanesa/theme-config.php:994
+msgid "Blog Layout"
+msgstr ""
+
+#: ../brize/theme-config.php:1048 ../heajy/theme-config.php:1032
+#: ../mirano/theme-config.php:1014 ../saharan/theme-config.php:904
+#: ../sozo/theme-config.php:1013 ../vanesa/theme-config.php:1006
+msgid "Read more text"
+msgstr ""
+
+#: ../brize/theme-config.php:1054 ../heajy/theme-config.php:1038
+#: ../mirano/theme-config.php:1020 ../saharan/theme-config.php:910
+#: ../sozo/theme-config.php:1019 ../vanesa/theme-config.php:1012
+msgid "Excerpt length on blog page"
+msgstr ""
+
+#: ../brize/theme-config.php:1064 ../heajy/theme-config.php:1048
+#: ../mirano/theme-config.php:1030 ../saharan/theme-config.php:920
+#: ../sozo/theme-config.php:1029 ../vanesa/theme-config.php:1022
+msgid "Latest posts auto scroll"
+msgstr ""
+
+#: ../brize/theme-config.php:1095 ../heajy/theme-config.php:1079
+#: ../vanesa/theme-config.php:1053
+msgid "Use this section to select options for Testimonials"
+msgstr ""
+
+#: ../brize/theme-config.php:1101
+msgid "Testimonials title"
+msgstr ""
+
+#: ../brize/theme-config.php:1137 ../heajy/theme-config.php:1115
+#: ../mirano/theme-config.php:1060 ../saharan/include/shortcodes.php:46
+#: ../saharan/theme-config.php:950 ../sozo/theme-config.php:1059
+#: ../vanesa/theme-config.php:1089
+msgid "Contact Map"
+msgstr ""
+
+#: ../brize/theme-config.php:1138 ../heajy/theme-config.php:1116
+#: ../mirano/theme-config.php:1061 ../saharan/theme-config.php:951
+#: ../sozo/theme-config.php:1060 ../vanesa/theme-config.php:1090
+msgid "Use this section to select options for Google Map on contact page"
+msgstr ""
+
+#: ../brize/theme-config.php:1144 ../heajy/theme-config.php:1122
+#: ../mirano/theme-config.php:1067 ../saharan/theme-config.php:957
+#: ../sozo/theme-config.php:1066 ../vanesa/theme-config.php:1096
+msgid "Show map"
+msgstr ""
+
+#: ../brize/theme-config.php:1145 ../heajy/theme-config.php:1123
+#: ../mirano/theme-config.php:1068 ../saharan/theme-config.php:958
+#: ../sozo/theme-config.php:1067 ../vanesa/theme-config.php:1097
+msgid "Show map on contact page"
+msgstr ""
+
+#: ../brize/theme-config.php:1151 ../heajy/theme-config.php:1129
+#: ../mirano/theme-config.php:1074 ../saharan/theme-config.php:964
+#: ../sozo/theme-config.php:1073 ../vanesa/theme-config.php:1103
+msgid "Locate by"
+msgstr ""
+
+#: ../brize/theme-config.php:1152 ../heajy/theme-config.php:1130
+#: ../mirano/theme-config.php:1075 ../saharan/theme-config.php:965
+#: ../sozo/theme-config.php:1074 ../vanesa/theme-config.php:1104
+msgid "Locate marker by address or coordinate"
+msgstr ""
+
+#: ../brize/theme-config.php:1162 ../heajy/theme-config.php:1140
+#: ../mirano/theme-config.php:1085 ../saharan/theme-config.php:975
+#: ../sozo/theme-config.php:1084 ../vanesa/theme-config.php:1114
+msgid "Map description"
+msgstr ""
+
+#: ../brize/theme-config.php:1163 ../heajy/theme-config.php:1141
+#: ../mirano/theme-config.php:1086 ../saharan/theme-config.php:976
+#: ../sozo/theme-config.php:1085 ../vanesa/theme-config.php:1115
+msgid "The text on map popup"
+msgstr ""
+
+#: ../brize/theme-config.php:1174 ../vanesa/theme-config.php:1126
+msgid "Custom text"
+msgstr ""
+
+#: ../brize/theme-config.php:1175 ../vanesa/theme-config.php:1127
+msgid "The custom text under the map"
+msgstr ""
+
+#: ../brize/theme-config.php:1186 ../heajy/theme-config.php:1152
+#: ../mirano/theme-config.php:1097 ../saharan/theme-config.php:987
+#: ../sozo/theme-config.php:1096 ../vanesa/theme-config.php:1138
+msgid "Latitude"
+msgstr ""
+
+#: ../brize/theme-config.php:1192 ../heajy/theme-config.php:1158
+#: ../mirano/theme-config.php:1103 ../saharan/theme-config.php:993
+#: ../sozo/theme-config.php:1102 ../vanesa/theme-config.php:1144
+msgid "Longtitude"
+msgstr ""
+
+#: ../brize/theme-config.php:1198 ../heajy/theme-config.php:1164
+#: ../mirano/theme-config.php:1109 ../saharan/theme-config.php:999
+#: ../sozo/theme-config.php:1108 ../vanesa/theme-config.php:1150
+msgid "Address"
+msgstr ""
+
+#: ../brize/theme-config.php:1204 ../heajy/theme-config.php:1170
+#: ../mirano/theme-config.php:1115 ../saharan/theme-config.php:1005
+#: ../sozo/theme-config.php:1114 ../vanesa/theme-config.php:1156
+msgid "Zoom level"
+msgstr ""
+
+#: ../brize/theme-config.php:1214 ../heajy/theme-config.php:1180
+#: ../mirano/theme-config.php:1125 ../saharan/theme-config.php:1015
+#: ../sozo/theme-config.php:1124 ../vanesa/theme-config.php:1166
+msgid "Marker"
+msgstr ""
+
+#: ../brize/theme-config.php:1217 ../heajy/theme-config.php:1183
+#: ../mirano/theme-config.php:1128 ../saharan/theme-config.php:1018
+#: ../sozo/theme-config.php:1127 ../vanesa/theme-config.php:1169
+msgid "Upload marker image here, the image size is 32x47 pixels."
+msgstr ""
+
+#: ../brize/theme-config.php:1224 ../heajy/theme-config.php:1190
+#: ../mirano/theme-config.php:1135 ../saharan/theme-config.php:1025
+#: ../sozo/theme-config.php:1134 ../vanesa/theme-config.php:1176
+msgid "Custom CSS"
+msgstr ""
+
+#: ../brize/theme-config.php:1225 ../heajy/theme-config.php:1191
+#: ../mirano/theme-config.php:1136 ../saharan/theme-config.php:1026
+#: ../sozo/theme-config.php:1135 ../vanesa/theme-config.php:1177
+msgid "Add your Custom CSS code"
+msgstr ""
+
+#: ../brize/theme-config.php:1231 ../heajy/theme-config.php:1197
+#: ../mirano/theme-config.php:1142 ../saharan/theme-config.php:1032
+#: ../sozo/theme-config.php:1141 ../vanesa/theme-config.php:1183
+msgid "CSS Code"
+msgstr ""
+
+#: ../brize/theme-config.php:1232 ../heajy/theme-config.php:1198
+#: ../mirano/theme-config.php:1143 ../saharan/theme-config.php:1033
+#: ../sozo/theme-config.php:1142 ../vanesa/theme-config.php:1184
+msgid "Paste your CSS code here."
+msgstr ""
+
+#: ../brize/theme-config.php:1242 ../heajy/theme-config.php:1208
+#: ../mirano/theme-config.php:1153 ../saharan/theme-config.php:1043
+#: ../sozo/theme-config.php:1152 ../vanesa/theme-config.php:1194
+msgid "Less Compiler"
+msgstr ""
+
+#: ../brize/theme-config.php:1243 ../heajy/theme-config.php:1209
+#: ../mirano/theme-config.php:1154 ../saharan/theme-config.php:1044
+#: ../sozo/theme-config.php:1153 ../vanesa/theme-config.php:1195
+msgid ""
+"Turn on this option to apply all theme options. Turn of when you have "
+"finished changing theme options and your site is ready."
+msgstr ""
+
+#: ../brize/theme-config.php:1249 ../heajy/theme-config.php:1215
+#: ../mirano/theme-config.php:1160 ../saharan/theme-config.php:1050
+#: ../sozo/theme-config.php:1159 ../vanesa/theme-config.php:1201
+msgid "Enable Less Compiler"
+msgstr ""
+
+#: ../brize/theme-config.php:1256 ../heajy/theme-config.php:1222
+#: ../mirano/theme-config.php:1167 ../saharan/theme-config.php:1057
+#: ../sozo/theme-config.php:1166 ../vanesa/theme-config.php:1208
+msgid "<strong>Theme URL:</strong> "
+msgstr ""
+
+#: ../brize/theme-config.php:1257 ../heajy/theme-config.php:1223
+#: ../mirano/theme-config.php:1168 ../saharan/theme-config.php:1058
+#: ../sozo/theme-config.php:1167 ../vanesa/theme-config.php:1209
+msgid "<strong>Author:</strong> "
+msgstr ""
+
+#: ../brize/theme-config.php:1258 ../heajy/theme-config.php:1224
+#: ../mirano/theme-config.php:1169 ../saharan/theme-config.php:1059
+#: ../sozo/theme-config.php:1168 ../vanesa/theme-config.php:1210
+msgid "<strong>Version:</strong> "
+msgstr ""
+
+#: ../brize/theme-config.php:1262 ../heajy/theme-config.php:1228
+#: ../mirano/theme-config.php:1173 ../saharan/theme-config.php:1063
+#: ../sozo/theme-config.php:1172 ../vanesa/theme-config.php:1214
+msgid "<strong>Tags:</strong> "
+msgstr ""
+
+#: ../brize/theme-config.php:1267 ../heajy/theme-config.php:1233
+#: ../mirano/theme-config.php:1178 ../saharan/theme-config.php:1068
+#: ../sozo/theme-config.php:1177 ../vanesa/theme-config.php:1219
+msgid "Import / Export"
+msgstr ""
+
+#: ../brize/theme-config.php:1268 ../heajy/theme-config.php:1234
+#: ../mirano/theme-config.php:1179 ../saharan/theme-config.php:1069
+#: ../sozo/theme-config.php:1178 ../vanesa/theme-config.php:1220
+msgid "Import and Export your Redux Framework settings from file, text or URL."
+msgstr ""
+
+#: ../brize/theme-config.php:1283 ../heajy/theme-config.php:1249
+#: ../mirano/theme-config.php:1194 ../saharan/theme-config.php:1084
+#: ../sozo/theme-config.php:1193 ../vanesa/theme-config.php:1235
+msgid "Theme Information"
+msgstr ""
+
+#: ../brize/theme-config.php:1300 ../heajy/theme-config.php:1266
+#: ../mirano/theme-config.php:1211 ../saharan/theme-config.php:1101
+#: ../sozo/theme-config.php:1210 ../vanesa/theme-config.php:1252
+msgid "Theme Information 1"
+msgstr ""
+
+#: ../brize/theme-config.php:1301 ../brize/theme-config.php:1307
+#: ../heajy/theme-config.php:1267 ../heajy/theme-config.php:1273
+#: ../mirano/theme-config.php:1212 ../mirano/theme-config.php:1218
+#: ../saharan/theme-config.php:1102 ../saharan/theme-config.php:1108
+#: ../sozo/theme-config.php:1211 ../sozo/theme-config.php:1217
+#: ../vanesa/theme-config.php:1253 ../vanesa/theme-config.php:1259
+msgid "<p>This is the tab content, HTML is allowed.</p>"
+msgstr ""
+
+#: ../brize/theme-config.php:1306 ../heajy/theme-config.php:1272
+#: ../mirano/theme-config.php:1217 ../saharan/theme-config.php:1107
+#: ../sozo/theme-config.php:1216 ../vanesa/theme-config.php:1258
+msgid "Theme Information 2"
+msgstr ""
+
+#: ../brize/theme-config.php:1311 ../heajy/theme-config.php:1277
+#: ../mirano/theme-config.php:1222 ../saharan/theme-config.php:1112
+#: ../sozo/theme-config.php:1221 ../vanesa/theme-config.php:1263
+msgid "<p>This is the sidebar content, HTML is allowed.</p>"
+msgstr ""
+
+#: ../brize/theme-config.php:1331 ../brize/theme-config.php:1332
+#: ../heajy/theme-config.php:1297 ../heajy/theme-config.php:1298
+#: ../mirano/theme-config.php:1242 ../mirano/theme-config.php:1243
+#: ../saharan/theme-config.php:1132 ../saharan/theme-config.php:1133
+#: ../sozo/theme-config.php:1241 ../sozo/theme-config.php:1242
+#: ../vanesa/theme-config.php:1283 ../vanesa/theme-config.php:1284
+msgid "Theme Options"
+msgstr ""
+
+#: ../brize/woocommerce/archive-product.php:90
+#: ../brize/woocommerce/archive-product.php:127
+#: ../saharan/woocommerce/archive-product.php:91
+#: ../twentyfourteen/inc/customizer.php:60
+msgid "Grid"
+msgstr ""
+
+#: ../brize/woocommerce/archive-product.php:91
+#: ../brize/woocommerce/archive-product.php:128
+#: ../saharan/woocommerce/archive-product.php:92
+msgid "List"
+msgstr ""
+
+#: ../brize/woocommerce/cart/cart.php:25
+#: ../mirano/woocommerce/cart/cart.php:25
+#: ../saharan/woocommerce/cart/cart.php:25
+#: ../vanesa/woocommerce/cart/cart.php:25
+msgid "Image"
+msgstr ""
+
+#: ../brize/woocommerce/cart/cart.php:27 ../heajy/woocommerce/cart/cart.php:27
+#: ../mirano/woocommerce/cart/cart.php:27
+#: ../saharan/woocommerce/cart/cart.php:27
+#: ../sozo/woocommerce/cart/cart.php:27 ../vanesa/woocommerce/cart/cart.php:27
+msgid "Price"
+msgstr ""
+
+#: ../brize/woocommerce/cart/cart.php:28 ../heajy/woocommerce/cart/cart.php:28
+#: ../mirano/woocommerce/cart/cart.php:28
+#: ../saharan/woocommerce/cart/cart.php:28
+#: ../sozo/woocommerce/cart/cart.php:28 ../vanesa/woocommerce/cart/cart.php:28
+msgid "Quantity"
+msgstr ""
+
+#: ../brize/woocommerce/cart/cart.php:29
+#: ../brize/woocommerce/checkout/review-order.php:18
+#: ../brize/woocommerce/myaccount/my-orders.php:35
+#: ../brize/woocommerce/myaccount/my-orders.php:58
+#: ../heajy/woocommerce/cart/cart.php:29
+#: ../heajy/woocommerce/checkout/review-order.php:18
+#: ../heajy/woocommerce/myaccount/my-orders.php:35
+#: ../heajy/woocommerce/myaccount/my-orders.php:58
+#: ../mirano/woocommerce/cart/cart.php:29
+#: ../mirano/woocommerce/checkout/review-order.php:18
+#: ../mirano/woocommerce/myaccount/my-orders.php:35
+#: ../mirano/woocommerce/myaccount/my-orders.php:58
+#: ../saharan/woocommerce/cart/cart.php:29
+#: ../saharan/woocommerce/checkout/review-order.php:18
+#: ../saharan/woocommerce/myaccount/my-orders.php:35
+#: ../saharan/woocommerce/myaccount/my-orders.php:58
+#: ../sozo/woocommerce/cart/cart.php:29
+#: ../sozo/woocommerce/checkout/review-order.php:18
+#: ../sozo/woocommerce/myaccount/my-orders.php:35
+#: ../sozo/woocommerce/myaccount/my-orders.php:58
+#: ../vanesa/woocommerce/cart/cart.php:29
+#: ../vanesa/woocommerce/checkout/review-order.php:18
+#: ../vanesa/woocommerce/myaccount/my-orders.php:35
+#: ../vanesa/woocommerce/myaccount/my-orders.php:58
+#: ../vanesa/woocommerce/order/order-details.php:22
+msgid "Total"
+msgstr ""
+
+#: ../brize/woocommerce/cart/cart.php:30
+#: ../mirano/woocommerce/cart/cart.php:30
+#: ../saharan/woocommerce/cart/cart.php:30
+#: ../vanesa/woocommerce/cart/cart.php:30
+msgid "Remove"
+msgstr ""
+
+#: ../brize/woocommerce/cart/cart.php:81 ../heajy/woocommerce/cart/cart.php:68
+#: ../mirano/woocommerce/cart/cart.php:81
+#: ../saharan/woocommerce/cart/cart.php:68
+#: ../sozo/woocommerce/cart/cart.php:81 ../vanesa/woocommerce/cart/cart.php:68
+msgid "Available on backorder"
+msgstr ""
+
+#: ../brize/woocommerce/cart/cart.php:118
+#: ../brize/woocommerce/cart/mini-cart.php:51
+#: ../heajy/woocommerce/cart/cart.php:105
+#: ../heajy/woocommerce/cart/mini-cart.php:48
+#: ../mirano/woocommerce/cart/cart.php:118
+#: ../mirano/woocommerce/cart/mini-cart.php:52
+#: ../saharan/woocommerce/cart/cart.php:102
+#: ../saharan/woocommerce/cart/mini-cart.php:52
+#: ../sozo/woocommerce/cart/cart.php:118
+#: ../sozo/woocommerce/cart/mini-cart.php:48
+#: ../vanesa/woocommerce/cart/cart.php:105
+#: ../vanesa/woocommerce/cart/mini-cart.php:51
+msgid "Remove this item"
+msgstr ""
+
+#: ../brize/woocommerce/cart/cart.php:134
+#: ../heajy/woocommerce/cart/cart.php:121
+#: ../mirano/woocommerce/cart/cart.php:134
+#: ../saharan/woocommerce/cart/cart.php:118
+#: ../sozo/woocommerce/cart/cart.php:134
+#: ../vanesa/woocommerce/cart/cart.php:121
+msgid "Update Cart"
+msgstr ""
+
+#: ../brize/woocommerce/cart/cart.php:135
+#: ../heajy/woocommerce/cart/cart.php:122
+#: ../mirano/woocommerce/cart/cart.php:135
+#: ../saharan/woocommerce/cart/cart.php:119
+#: ../sozo/woocommerce/cart/cart.php:135
+#: ../vanesa/woocommerce/cart/cart.php:122
+msgid "Continue Shopping"
+msgstr ""
+
+#: ../brize/woocommerce/cart/cart.php:139
+#: ../heajy/woocommerce/cart/cart.php:128
+#: ../mirano/woocommerce/cart/cart.php:139
+#: ../saharan/woocommerce/cart/cart.php:123
+#: ../sozo/woocommerce/cart/cart.php:141
+#: ../vanesa/woocommerce/cart/cart.php:126
+msgid "Coupon"
+msgstr ""
+
+#: ../brize/woocommerce/cart/cart.php:140
+#: ../heajy/woocommerce/cart/cart.php:129
+#: ../mirano/woocommerce/cart/cart.php:140
+#: ../saharan/woocommerce/cart/cart.php:124
+#: ../sozo/woocommerce/cart/cart.php:142
+#: ../vanesa/woocommerce/cart/cart.php:127
+msgid "Enter your coupon code if you have one."
+msgstr ""
+
+#: ../brize/woocommerce/cart/cart.php:141
+#: ../heajy/woocommerce/cart/cart.php:130
+#: ../mirano/woocommerce/cart/cart.php:141
+#: ../saharan/woocommerce/cart/cart.php:125
+#: ../sozo/woocommerce/cart/cart.php:143
+#: ../vanesa/woocommerce/cart/cart.php:128
+msgid "Coupon code"
+msgstr ""
+
+#: ../brize/woocommerce/cart/cart.php:142
+#: ../heajy/woocommerce/cart/cart.php:131
+#: ../mirano/woocommerce/cart/cart.php:142
+#: ../saharan/woocommerce/cart/cart.php:126
+#: ../sozo/woocommerce/cart/cart.php:144
+#: ../vanesa/woocommerce/cart/cart.php:129
+msgid "Apply Coupon"
+msgstr ""
+
+#: ../brize/woocommerce/cart/cross-sells.php:40
+#: ../heajy/woocommerce/cart/cross-sells.php:40
+#: ../mirano/woocommerce/cart/cross-sells.php:40
+#: ../sozo/woocommerce/cart/cross-sells.php:40
+#: ../vanesa/woocommerce/cart/cross-sells.php:40
+msgid ""
+"Base on your selection, you may be interested in the \n"
+"following items:"
+msgstr ""
+
+#: ../brize/woocommerce/cart/mini-cart.php:21
+#: ../mirano/woocommerce/cart/mini-cart.php:21
+#: ../vanesa/woocommerce/cart/mini-cart.php:21
+msgid "My cart: "
+msgstr ""
+
+#: ../brize/woocommerce/cart/mini-cart.php:65
+#: ../heajy/woocommerce/cart/mini-cart.php:61
+#: ../mirano/woocommerce/cart/mini-cart.php:65
+#: ../saharan/woocommerce/cart/mini-cart.php:65
+#: ../sozo/woocommerce/cart/mini-cart.php:61
+#: ../vanesa/woocommerce/cart/mini-cart.php:65
+msgid "You have no items in your shopping cart"
+msgstr ""
+
+#: ../brize/woocommerce/cart/mini-cart.php:66
+#: ../brize/woocommerce/cart/mini-cart.php:72
+#: ../heajy/woocommerce/cart/mini-cart.php:62
+#: ../heajy/woocommerce/cart/mini-cart.php:68
+#: ../mirano/woocommerce/cart/mini-cart.php:66
+#: ../mirano/woocommerce/cart/mini-cart.php:72
+#: ../saharan/woocommerce/cart/mini-cart.php:66
+#: ../saharan/woocommerce/cart/mini-cart.php:72
+#: ../sozo/woocommerce/cart/mini-cart.php:62
+#: ../sozo/woocommerce/cart/mini-cart.php:68
+#: ../vanesa/woocommerce/cart/mini-cart.php:66
+#: ../vanesa/woocommerce/cart/mini-cart.php:72
+msgid "Subtotal"
+msgstr ""
+
+#: ../brize/woocommerce/cart/mini-cart.php:77
+#: ../heajy/woocommerce/cart/mini-cart.php:73
+#: ../mirano/woocommerce/cart/mini-cart.php:77
+#: ../saharan/woocommerce/cart/mini-cart.php:77
+#: ../sozo/woocommerce/cart/mini-cart.php:73
+#: ../vanesa/woocommerce/cart/mini-cart.php:77
+msgid "Checkout"
+msgstr ""
+
+#: ../brize/woocommerce/checkout/form-checkout.php:20
+#: ../heajy/woocommerce/checkout/form-checkout.php:20
+#: ../mirano/woocommerce/checkout/form-checkout.php:20
+#: ../saharan/woocommerce/checkout/form-checkout.php:20
+#: ../sozo/woocommerce/checkout/form-checkout.php:20
+#: ../vanesa/woocommerce/checkout/form-checkout.php:20
+msgid "You must be logged in to checkout."
+msgstr ""
+
+#: ../brize/woocommerce/checkout/form-checkout.php:49
+#: ../heajy/woocommerce/checkout/form-checkout.php:49
+#: ../mirano/woocommerce/checkout/form-checkout.php:49
+#: ../saharan/woocommerce/checkout/form-checkout.php:49
+#: ../sozo/woocommerce/checkout/form-checkout.php:49
+#: ../vanesa/woocommerce/checkout/form-checkout.php:49
+msgid "Your order"
+msgstr ""
+
+#: ../brize/woocommerce/checkout/form-login.php:14
+#: ../heajy/woocommerce/checkout/form-login.php:14
+#: ../mirano/woocommerce/checkout/form-login.php:14
+#: ../saharan/woocommerce/checkout/form-login.php:14
+#: ../sozo/woocommerce/checkout/form-login.php:14
+#: ../vanesa/woocommerce/checkout/form-login.php:14
+msgid "Returning customer?"
+msgstr ""
+
+#: ../brize/woocommerce/checkout/form-login.php:15
+#: ../heajy/woocommerce/checkout/form-login.php:15
+#: ../mirano/woocommerce/checkout/form-login.php:15
+#: ../saharan/woocommerce/checkout/form-login.php:15
+#: ../sozo/woocommerce/checkout/form-login.php:15
+#: ../vanesa/woocommerce/checkout/form-login.php:15
+msgid "Click here to login"
+msgstr ""
+
+#: ../brize/woocommerce/checkout/form-login.php:22
+#: ../heajy/woocommerce/checkout/form-login.php:22
+#: ../mirano/woocommerce/checkout/form-login.php:22
+#: ../saharan/woocommerce/checkout/form-login.php:22
+#: ../sozo/woocommerce/checkout/form-login.php:22
+#: ../vanesa/woocommerce/checkout/form-login.php:22
+msgid ""
+"If you have shopped with us before, please enter your details in the boxes "
+"below. If you are a new customer please proceed to the Billing &amp; "
+"Shipping section."
+msgstr ""
+
+#: ../brize/woocommerce/checkout/review-order.php:50
+#: ../heajy/woocommerce/checkout/review-order.php:50
+#: ../mirano/woocommerce/checkout/review-order.php:50
+#: ../saharan/woocommerce/checkout/review-order.php:50
+#: ../sozo/woocommerce/checkout/review-order.php:50
+#: ../vanesa/woocommerce/checkout/review-order.php:50
+msgid "Cart Subtotal"
+msgstr ""
+
+#: ../brize/woocommerce/checkout/review-order.php:97
+#: ../heajy/woocommerce/checkout/review-order.php:97
+#: ../mirano/woocommerce/checkout/review-order.php:97
+#: ../saharan/woocommerce/checkout/review-order.php:97
+#: ../sozo/woocommerce/checkout/review-order.php:97
+#: ../vanesa/woocommerce/checkout/review-order.php:97
+msgid "Order Total"
+msgstr ""
+
+#: ../brize/woocommerce/checkout/thankyou.php:16
+#: ../heajy/woocommerce/checkout/thankyou.php:16
+#: ../mirano/woocommerce/checkout/thankyou.php:16
+#: ../saharan/woocommerce/checkout/thankyou.php:16
+#: ../sozo/woocommerce/checkout/thankyou.php:16
+#: ../vanesa/woocommerce/checkout/thankyou.php:16
+msgid ""
+"Unfortunately your order cannot be processed as the originating bank/"
+"merchant has declined your transaction."
+msgstr ""
+
+#: ../brize/woocommerce/checkout/thankyou.php:20
+#: ../heajy/woocommerce/checkout/thankyou.php:20
+#: ../mirano/woocommerce/checkout/thankyou.php:20
+#: ../saharan/woocommerce/checkout/thankyou.php:20
+#: ../sozo/woocommerce/checkout/thankyou.php:20
+#: ../vanesa/woocommerce/checkout/thankyou.php:20
+msgid "Please attempt your purchase again or go to your account page."
+msgstr ""
+
+#: ../brize/woocommerce/checkout/thankyou.php:22
+#: ../heajy/woocommerce/checkout/thankyou.php:22
+#: ../mirano/woocommerce/checkout/thankyou.php:22
+#: ../saharan/woocommerce/checkout/thankyou.php:22
+#: ../sozo/woocommerce/checkout/thankyou.php:22
+#: ../vanesa/woocommerce/checkout/thankyou.php:22
+msgid "Please attempt your purchase again."
+msgstr ""
+
+#: ../brize/woocommerce/checkout/thankyou.php:26
+#: ../brize/woocommerce/myaccount/my-orders.php:68
+#: ../heajy/woocommerce/checkout/thankyou.php:26
+#: ../heajy/woocommerce/myaccount/my-orders.php:68
+#: ../mirano/woocommerce/checkout/thankyou.php:26
+#: ../mirano/woocommerce/myaccount/my-orders.php:68
+#: ../saharan/woocommerce/checkout/thankyou.php:26
+#: ../saharan/woocommerce/myaccount/my-orders.php:68
+#: ../sozo/woocommerce/checkout/thankyou.php:26
+#: ../sozo/woocommerce/myaccount/my-orders.php:68
+#: ../vanesa/woocommerce/checkout/thankyou.php:26
+#: ../vanesa/woocommerce/myaccount/my-orders.php:68
+msgid "Pay"
+msgstr ""
+
+#: ../brize/woocommerce/checkout/thankyou.php:28
+#: ../heajy/woocommerce/checkout/thankyou.php:28
+#: ../mirano/woocommerce/checkout/thankyou.php:28
+#: ../saharan/woocommerce/checkout/thankyou.php:28
+#: ../sozo/woocommerce/checkout/thankyou.php:28
+#: ../vanesa/woocommerce/checkout/thankyou.php:28
+msgid "My Account"
+msgstr ""
+
+#: ../brize/woocommerce/checkout/thankyou.php:34
+#: ../brize/woocommerce/checkout/thankyou.php:65
+#: ../heajy/woocommerce/checkout/thankyou.php:34
+#: ../heajy/woocommerce/checkout/thankyou.php:65
+#: ../mirano/woocommerce/checkout/thankyou.php:34
+#: ../mirano/woocommerce/checkout/thankyou.php:65
+#: ../saharan/woocommerce/checkout/thankyou.php:34
+#: ../saharan/woocommerce/checkout/thankyou.php:65
+#: ../sozo/woocommerce/checkout/thankyou.php:34
+#: ../sozo/woocommerce/checkout/thankyou.php:65
+#: ../vanesa/woocommerce/checkout/thankyou.php:34
+#: ../vanesa/woocommerce/checkout/thankyou.php:65
+msgid "Thank you. Your order has been received."
+msgstr ""
+
+#: ../brize/woocommerce/checkout/thankyou.php:38
+#: ../heajy/woocommerce/checkout/thankyou.php:38
+#: ../mirano/woocommerce/checkout/thankyou.php:38
+#: ../saharan/woocommerce/checkout/thankyou.php:38
+#: ../sozo/woocommerce/checkout/thankyou.php:38
+#: ../vanesa/woocommerce/checkout/thankyou.php:38
+msgid "Order:"
+msgstr ""
+
+#: ../brize/woocommerce/checkout/thankyou.php:42
+#: ../heajy/woocommerce/checkout/thankyou.php:42
+#: ../mirano/woocommerce/checkout/thankyou.php:42
+#: ../saharan/woocommerce/checkout/thankyou.php:42
+#: ../sozo/woocommerce/checkout/thankyou.php:42
+#: ../vanesa/woocommerce/checkout/thankyou.php:42
+msgid "Date:"
+msgstr ""
+
+#: ../brize/woocommerce/checkout/thankyou.php:46
+#: ../heajy/woocommerce/checkout/thankyou.php:46
+#: ../mirano/woocommerce/checkout/thankyou.php:46
+#: ../saharan/woocommerce/checkout/thankyou.php:46
+#: ../sozo/woocommerce/checkout/thankyou.php:46
+#: ../vanesa/woocommerce/checkout/thankyou.php:46
+msgid "Total:"
+msgstr ""
+
+#: ../brize/woocommerce/checkout/thankyou.php:51
+#: ../heajy/woocommerce/checkout/thankyou.php:51
+#: ../mirano/woocommerce/checkout/thankyou.php:51
+#: ../saharan/woocommerce/checkout/thankyou.php:51
+#: ../sozo/woocommerce/checkout/thankyou.php:51
+#: ../vanesa/woocommerce/checkout/thankyou.php:51
+msgid "Payment method:"
+msgstr ""
+
+#: ../brize/woocommerce/class-wc-widget-cart.php:23
+#: ../heajy/woocommerce/class-wc-widget-cart.php:23
+#: ../mirano/woocommerce/class-wc-widget-cart.php:23
+#: ../saharan/woocommerce/class-wc-widget-cart.php:23
+#: ../sozo/woocommerce/class-wc-widget-cart.php:23
+#: ../vanesa/woocommerce/class-wc-widget-cart.php:23
+msgid "Display the user's Cart in the sidebar."
+msgstr ""
+
+#: ../brize/woocommerce/class-wc-widget-cart.php:25
+#: ../heajy/woocommerce/class-wc-widget-cart.php:25
+#: ../mirano/woocommerce/class-wc-widget-cart.php:25
+#: ../saharan/woocommerce/class-wc-widget-cart.php:25
+#: ../sozo/woocommerce/class-wc-widget-cart.php:25
+#: ../vanesa/woocommerce/class-wc-widget-cart.php:25
+msgid "WooCommerce Cart"
+msgstr ""
+
+#: ../brize/woocommerce/class-wc-widget-cart.php:29
+#: ../brize/woocommerce/class-wc-widget-cart.php:54
+#: ../heajy/woocommerce/class-wc-widget-cart.php:29
+#: ../heajy/woocommerce/class-wc-widget-cart.php:54
+#: ../mirano/woocommerce/class-wc-widget-cart.php:29
+#: ../mirano/woocommerce/class-wc-widget-cart.php:54
+#: ../saharan/woocommerce/class-wc-widget-cart.php:29
+#: ../saharan/woocommerce/class-wc-widget-cart.php:54
+#: ../sozo/woocommerce/class-wc-widget-cart.php:29
+#: ../sozo/woocommerce/class-wc-widget-cart.php:54
+#: ../vanesa/woocommerce/class-wc-widget-cart.php:29
+#: ../vanesa/woocommerce/class-wc-widget-cart.php:54
+msgid "Cart"
+msgstr ""
+
+#: ../brize/woocommerce/class-wc-widget-cart.php:35
+#: ../heajy/woocommerce/class-wc-widget-cart.php:35
+#: ../mirano/woocommerce/class-wc-widget-cart.php:35
+#: ../saharan/woocommerce/class-wc-widget-cart.php:35
+#: ../sozo/woocommerce/class-wc-widget-cart.php:35
+#: ../vanesa/woocommerce/class-wc-widget-cart.php:35
+msgid "Hide if cart is empty"
+msgstr ""
+
+#: ../brize/woocommerce/content-product-archive.php:61
+#: ../brize/woocommerce/content-product.php:66
+#: ../brize/woocommerce/single-product/sale-flash.php:16
+#: ../heajy/woocommerce/content-product-archive.php:61
+#: ../heajy/woocommerce/content-product.php:56
+#: ../heajy/woocommerce/single-product/sale-flash.php:16
+#: ../mirano/woocommerce/content-product-archive.php:61
+#: ../mirano/woocommerce/content-product.php:61
+#: ../mirano/woocommerce/single-product/sale-flash.php:16
+#: ../saharan/woocommerce/content-product-archive.php:62
+#: ../saharan/woocommerce/content-product.php:63
+#: ../saharan/woocommerce/single-product/sale-flash.php:16
+#: ../sozo/woocommerce/content-product-archive.php:61
+#: ../sozo/woocommerce/content-product.php:56
+#: ../sozo/woocommerce/single-product/sale-flash.php:16
+#: ../vanesa/woocommerce/content-product-archive.php:61
+#: ../vanesa/woocommerce/content-product.php:61
+#: ../vanesa/woocommerce/single-product/sale-flash.php:16
+msgid "Sale"
+msgstr ""
+
+#: ../brize/woocommerce/content-product-archive.php:105
+#: ../brize/woocommerce/content-product-archive.php:139
+#: ../brize/woocommerce/content-product.php:98
+#: ../brize/woocommerce/content-product.php:167
+#: ../heajy/woocommerce/content-product-archive.php:87
+#: ../heajy/woocommerce/content-product.php:82
+#: ../mirano/woocommerce/content-product-archive.php:104
+#: ../mirano/woocommerce/content-product-archive.php:138
+#: ../mirano/woocommerce/content-product.php:90
+#: ../mirano/woocommerce/content-product.php:161
+#: ../mirano/woocommerce/content-widget-product.php:18
+#: ../saharan/woocommerce/content-product-archive.php:97
+#: ../saharan/woocommerce/content-product.php:85
+#: ../sozo/woocommerce/content-product-archive.php:64
+#: ../sozo/woocommerce/content-product-archive.php:137
+#: ../sozo/woocommerce/content-product.php:59
+#: ../vanesa/woocommerce/content-product-archive.php:93
+#: ../vanesa/woocommerce/content-product-archive.php:128
+#: ../vanesa/woocommerce/content-product.php:93
+#: ../vanesa/woocommerce/content-product.php:128
+msgid "Quick View"
+msgstr ""
+
+#: ../brize/woocommerce/loop/orderby.php:14
+#: ../heajy/woocommerce/loop/orderby.php:14
+#: ../mirano/woocommerce/loop/orderby.php:14
+#: ../saharan/woocommerce/loop/orderby.php:14
+#: ../sozo/woocommerce/loop/orderby.php:14
+#: ../vanesa/woocommerce/loop/orderby.php:14
+msgid "Sort By"
+msgstr ""
+
+#: ../brize/woocommerce/myaccount/form-login.php:29
+#: ../brize/woocommerce/myaccount/form-login.php:49
+#: ../heajy/woocommerce/myaccount/form-login.php:29
+#: ../heajy/woocommerce/myaccount/form-login.php:49
+#: ../mirano/woocommerce/myaccount/form-login.php:29
+#: ../mirano/woocommerce/myaccount/form-login.php:49
+#: ../saharan/woocommerce/myaccount/form-login.php:29
+#: ../saharan/woocommerce/myaccount/form-login.php:49
+#: ../sozo/woocommerce/myaccount/form-login.php:29
+#: ../sozo/woocommerce/myaccount/form-login.php:49
+#: ../vanesa/woocommerce/myaccount/form-login.php:29
+#: ../vanesa/woocommerce/myaccount/form-login.php:49
+msgid "Login"
+msgstr ""
+
+#: ../brize/woocommerce/myaccount/form-login.php:34
+#: ../heajy/woocommerce/myaccount/form-login.php:34
+#: ../mirano/woocommerce/myaccount/form-login.php:34
+#: ../saharan/woocommerce/myaccount/form-login.php:34
+#: ../sozo/woocommerce/myaccount/form-login.php:34
+#: ../vanesa/woocommerce/myaccount/form-login.php:34
+msgid "Username or email address"
+msgstr ""
+
+#: ../brize/woocommerce/myaccount/form-login.php:38
+#: ../brize/woocommerce/myaccount/form-login.php:88
+#: ../heajy/woocommerce/myaccount/form-login.php:38
+#: ../heajy/woocommerce/myaccount/form-login.php:88
+#: ../mirano/woocommerce/myaccount/form-login.php:38
+#: ../mirano/woocommerce/myaccount/form-login.php:88
+#: ../saharan/woocommerce/myaccount/form-login.php:38
+#: ../saharan/woocommerce/myaccount/form-login.php:88
+#: ../sozo/woocommerce/myaccount/form-login.php:38
+#: ../sozo/woocommerce/myaccount/form-login.php:88
+#: ../vanesa/woocommerce/myaccount/form-login.php:38
+#: ../vanesa/woocommerce/myaccount/form-login.php:88
+msgid "Password"
+msgstr ""
+
+#: ../brize/woocommerce/myaccount/form-login.php:47
+#: ../heajy/woocommerce/myaccount/form-login.php:47
+#: ../mirano/woocommerce/myaccount/form-login.php:47
+#: ../saharan/woocommerce/myaccount/form-login.php:47
+#: ../sozo/woocommerce/myaccount/form-login.php:47
+#: ../vanesa/woocommerce/myaccount/form-login.php:47
+msgid "Lost your password?"
+msgstr ""
+
+#: ../brize/woocommerce/myaccount/form-login.php:51
+#: ../heajy/woocommerce/myaccount/form-login.php:51
+#: ../mirano/woocommerce/myaccount/form-login.php:51
+#: ../saharan/woocommerce/myaccount/form-login.php:51
+#: ../sozo/woocommerce/myaccount/form-login.php:51
+#: ../vanesa/woocommerce/myaccount/form-login.php:51
+msgid "Remember me"
+msgstr ""
+
+#: ../brize/woocommerce/myaccount/form-login.php:67
+#: ../brize/woocommerce/myaccount/form-login.php:104
+#: ../heajy/woocommerce/myaccount/form-login.php:67
+#: ../heajy/woocommerce/myaccount/form-login.php:104
+#: ../mirano/woocommerce/myaccount/form-login.php:67
+#: ../mirano/woocommerce/myaccount/form-login.php:104
+#: ../saharan/woocommerce/myaccount/form-login.php:67
+#: ../saharan/woocommerce/myaccount/form-login.php:104
+#: ../sozo/woocommerce/myaccount/form-login.php:67
+#: ../sozo/woocommerce/myaccount/form-login.php:104
+#: ../vanesa/woocommerce/myaccount/form-login.php:67
+#: ../vanesa/woocommerce/myaccount/form-login.php:104
+msgid "Register"
+msgstr ""
+
+#: ../brize/woocommerce/myaccount/form-login.php:74
+#: ../heajy/woocommerce/myaccount/form-login.php:74
+#: ../mirano/woocommerce/myaccount/form-login.php:74
+#: ../saharan/woocommerce/myaccount/form-login.php:74
+#: ../sozo/woocommerce/myaccount/form-login.php:74
+#: ../vanesa/woocommerce/myaccount/form-login.php:74
+msgid "Username"
+msgstr ""
+
+#: ../brize/woocommerce/myaccount/form-login.php:81
+#: ../heajy/woocommerce/myaccount/form-login.php:81
+#: ../mirano/woocommerce/myaccount/form-login.php:81
+#: ../saharan/woocommerce/myaccount/form-login.php:81
+#: ../sozo/woocommerce/myaccount/form-login.php:81
+#: ../vanesa/woocommerce/myaccount/form-login.php:81
+msgid "Email address"
+msgstr ""
+
+#: ../brize/woocommerce/myaccount/form-login.php:95
+#: ../heajy/woocommerce/myaccount/form-login.php:95
+#: ../mirano/woocommerce/myaccount/form-login.php:95
+#: ../saharan/woocommerce/myaccount/form-login.php:95
+#: ../sozo/woocommerce/myaccount/form-login.php:95
+#: ../vanesa/woocommerce/myaccount/form-login.php:95
+msgid "Anti-spam"
+msgstr ""
+
+#: ../brize/woocommerce/myaccount/form-lost-password.php:22
+#: ../heajy/woocommerce/myaccount/form-lost-password.php:22
+#: ../mirano/woocommerce/myaccount/form-lost-password.php:22
+#: ../saharan/woocommerce/myaccount/form-lost-password.php:22
+#: ../sozo/woocommerce/myaccount/form-lost-password.php:22
+#: ../vanesa/woocommerce/myaccount/form-lost-password.php:22
+msgid ""
+"Lost your password? Please enter your username or email address. You will "
+"receive a link to create a new password via email."
+msgstr ""
+
+#: ../brize/woocommerce/myaccount/form-lost-password.php:24
+#: ../heajy/woocommerce/myaccount/form-lost-password.php:24
+#: ../mirano/woocommerce/myaccount/form-lost-password.php:24
+#: ../saharan/woocommerce/myaccount/form-lost-password.php:24
+#: ../sozo/woocommerce/myaccount/form-lost-password.php:24
+#: ../vanesa/woocommerce/myaccount/form-lost-password.php:24
+msgid "Username or email"
+msgstr ""
+
+#: ../brize/woocommerce/myaccount/form-lost-password.php:28
+#: ../heajy/woocommerce/myaccount/form-lost-password.php:28
+#: ../mirano/woocommerce/myaccount/form-lost-password.php:28
+#: ../saharan/woocommerce/myaccount/form-lost-password.php:28
+#: ../sozo/woocommerce/myaccount/form-lost-password.php:28
+#: ../vanesa/woocommerce/myaccount/form-lost-password.php:28
+msgid "Enter a new password below."
+msgstr ""
+
+#: ../brize/woocommerce/myaccount/form-lost-password.php:31
+#: ../heajy/woocommerce/myaccount/form-lost-password.php:31
+#: ../mirano/woocommerce/myaccount/form-lost-password.php:31
+#: ../saharan/woocommerce/myaccount/form-lost-password.php:31
+#: ../sozo/woocommerce/myaccount/form-lost-password.php:31
+#: ../vanesa/woocommerce/myaccount/form-lost-password.php:31
+msgid "New password"
+msgstr ""
+
+#: ../brize/woocommerce/myaccount/form-lost-password.php:35
+#: ../heajy/woocommerce/myaccount/form-lost-password.php:35
+#: ../mirano/woocommerce/myaccount/form-lost-password.php:35
+#: ../saharan/woocommerce/myaccount/form-lost-password.php:35
+#: ../sozo/woocommerce/myaccount/form-lost-password.php:35
+#: ../vanesa/woocommerce/myaccount/form-lost-password.php:35
+msgid "Re-enter new password"
+msgstr ""
+
+#: ../brize/woocommerce/myaccount/form-lost-password.php:48
+#: ../heajy/woocommerce/myaccount/form-lost-password.php:48
+#: ../mirano/woocommerce/myaccount/form-lost-password.php:48
+#: ../saharan/woocommerce/myaccount/form-lost-password.php:48
+#: ../sozo/woocommerce/myaccount/form-lost-password.php:48
+#: ../vanesa/woocommerce/myaccount/form-lost-password.php:48
+msgid "Reset Password"
+msgstr ""
+
+#: ../brize/woocommerce/myaccount/form-lost-password.php:48
+#: ../heajy/woocommerce/myaccount/form-lost-password.php:48
+#: ../mirano/woocommerce/myaccount/form-lost-password.php:48
+#: ../saharan/woocommerce/myaccount/form-lost-password.php:48
+#: ../sozo/woocommerce/myaccount/form-lost-password.php:48
+#: ../vanesa/woocommerce/myaccount/form-lost-password.php:48
+msgid "Save"
+msgstr ""
+
+#: ../brize/woocommerce/myaccount/my-address.php:17
+#: ../heajy/woocommerce/myaccount/my-address.php:17
+#: ../mirano/woocommerce/myaccount/my-address.php:17
+#: ../saharan/woocommerce/myaccount/my-address.php:17
+#: ../sozo/woocommerce/myaccount/my-address.php:17
+#: ../vanesa/woocommerce/myaccount/my-address.php:17
+msgid "My Addresses"
+msgstr ""
+
+#: ../brize/woocommerce/myaccount/my-address.php:19
+#: ../brize/woocommerce/myaccount/my-address.php:25
+#: ../heajy/woocommerce/myaccount/my-address.php:19
+#: ../heajy/woocommerce/myaccount/my-address.php:25
+#: ../mirano/woocommerce/myaccount/my-address.php:19
+#: ../mirano/woocommerce/myaccount/my-address.php:25
+#: ../saharan/woocommerce/myaccount/my-address.php:19
+#: ../saharan/woocommerce/myaccount/my-address.php:25
+#: ../sozo/woocommerce/myaccount/my-address.php:19
+#: ../sozo/woocommerce/myaccount/my-address.php:25
+#: ../vanesa/woocommerce/myaccount/my-address.php:19
+#: ../vanesa/woocommerce/myaccount/my-address.php:25
+#: ../vanesa/woocommerce/order/order-details.php:196
+msgid "Billing Address"
+msgstr ""
+
+#: ../brize/woocommerce/myaccount/my-address.php:20
+#: ../heajy/woocommerce/myaccount/my-address.php:20
+#: ../mirano/woocommerce/myaccount/my-address.php:20
+#: ../saharan/woocommerce/myaccount/my-address.php:20
+#: ../sozo/woocommerce/myaccount/my-address.php:20
+#: ../vanesa/woocommerce/myaccount/my-address.php:20
+#: ../vanesa/woocommerce/order/order-details.php:215
+msgid "Shipping Address"
+msgstr ""
+
+#: ../brize/woocommerce/myaccount/my-address.php:23
+#: ../heajy/woocommerce/myaccount/my-address.php:23
+#: ../mirano/woocommerce/myaccount/my-address.php:23
+#: ../saharan/woocommerce/myaccount/my-address.php:23
+#: ../sozo/woocommerce/myaccount/my-address.php:23
+#: ../vanesa/woocommerce/myaccount/my-address.php:23
+msgid "My Address"
+msgstr ""
+
+#: ../brize/woocommerce/myaccount/my-address.php:35
+#: ../heajy/woocommerce/myaccount/my-address.php:35
+#: ../mirano/woocommerce/myaccount/my-address.php:35
+#: ../saharan/woocommerce/myaccount/my-address.php:35
+#: ../sozo/woocommerce/myaccount/my-address.php:35
+#: ../vanesa/woocommerce/myaccount/my-address.php:35
+msgid "The following addresses will be used on the checkout page by default."
+msgstr ""
+
+#: ../brize/woocommerce/myaccount/my-address.php:64
+#: ../heajy/woocommerce/myaccount/my-address.php:64
+#: ../mirano/woocommerce/myaccount/my-address.php:64
+#: ../saharan/woocommerce/myaccount/my-address.php:64
+#: ../sozo/woocommerce/myaccount/my-address.php:64
+#: ../vanesa/woocommerce/myaccount/my-address.php:64
+msgid "You have not set up this type of address yet."
+msgstr ""
+
+#: ../brize/woocommerce/myaccount/my-downloads.php:20
+#: ../heajy/woocommerce/myaccount/my-downloads.php:20
+#: ../mirano/woocommerce/myaccount/my-downloads.php:20
+#: ../saharan/woocommerce/myaccount/my-downloads.php:20
+#: ../sozo/woocommerce/myaccount/my-downloads.php:20
+#: ../vanesa/woocommerce/myaccount/my-downloads.php:20
+msgid "Available downloads"
+msgstr ""
+
+#: ../brize/woocommerce/myaccount/my-downloads.php:29
+#: ../heajy/woocommerce/myaccount/my-downloads.php:29
+#: ../mirano/woocommerce/myaccount/my-downloads.php:29
+#: ../saharan/woocommerce/myaccount/my-downloads.php:29
+#: ../sozo/woocommerce/myaccount/my-downloads.php:29
+#: ../vanesa/woocommerce/myaccount/my-downloads.php:29
+#, php-format
+msgid "%s download remaining"
+msgstr ""
+
+#: ../brize/woocommerce/myaccount/my-orders.php:26
+#: ../heajy/woocommerce/myaccount/my-orders.php:26
+#: ../mirano/woocommerce/myaccount/my-orders.php:26
+#: ../saharan/woocommerce/myaccount/my-orders.php:26
+#: ../sozo/woocommerce/myaccount/my-orders.php:26
+#: ../vanesa/woocommerce/myaccount/my-orders.php:26
+msgid "Recent Orders"
+msgstr ""
+
+#: ../brize/woocommerce/myaccount/my-orders.php:32
+#: ../heajy/woocommerce/myaccount/my-orders.php:32
+#: ../mirano/woocommerce/myaccount/my-orders.php:32
+#: ../saharan/woocommerce/myaccount/my-orders.php:32
+#: ../sozo/woocommerce/myaccount/my-orders.php:32
+#: ../vanesa/woocommerce/myaccount/my-orders.php:32
+msgid "Order"
+msgstr ""
+
+#: ../brize/woocommerce/myaccount/my-orders.php:33
+#: ../brize/woocommerce/myaccount/my-orders.php:52
+#: ../heajy/woocommerce/myaccount/my-orders.php:33
+#: ../heajy/woocommerce/myaccount/my-orders.php:52
+#: ../mirano/woocommerce/myaccount/my-orders.php:33
+#: ../mirano/woocommerce/myaccount/my-orders.php:52
+#: ../saharan/woocommerce/myaccount/my-orders.php:33
+#: ../saharan/woocommerce/myaccount/my-orders.php:52
+#: ../sozo/woocommerce/myaccount/my-orders.php:33
+#: ../sozo/woocommerce/myaccount/my-orders.php:52
+#: ../vanesa/woocommerce/myaccount/my-orders.php:33
+#: ../vanesa/woocommerce/myaccount/my-orders.php:52
+msgid "Date"
+msgstr ""
+
+#: ../brize/woocommerce/myaccount/my-orders.php:47
+#: ../heajy/woocommerce/myaccount/my-orders.php:47
+#: ../mirano/woocommerce/myaccount/my-orders.php:47
+#: ../saharan/woocommerce/myaccount/my-orders.php:47
+#: ../sozo/woocommerce/myaccount/my-orders.php:47
+#: ../vanesa/woocommerce/myaccount/my-orders.php:47
+msgid "Order Number"
+msgstr ""
+
+#: ../brize/woocommerce/myaccount/my-orders.php:59
+#: ../heajy/woocommerce/myaccount/my-orders.php:59
+#: ../mirano/woocommerce/myaccount/my-orders.php:59
+#: ../saharan/woocommerce/myaccount/my-orders.php:59
+#: ../sozo/woocommerce/myaccount/my-orders.php:59
+#: ../vanesa/woocommerce/myaccount/my-orders.php:59
+#, php-format
+msgid "%s for %s item"
+msgstr ""
+
+#: ../brize/woocommerce/myaccount/my-orders.php:75
+#: ../heajy/woocommerce/myaccount/my-orders.php:75
+#: ../mirano/woocommerce/myaccount/my-orders.php:75
+#: ../saharan/woocommerce/myaccount/my-orders.php:75
+#: ../sozo/woocommerce/myaccount/my-orders.php:75
+#: ../vanesa/woocommerce/myaccount/my-orders.php:75
+msgid "Cancel"
+msgstr ""
+
+#: ../brize/woocommerce/myaccount/my-orders.php:81
+#: ../heajy/woocommerce/myaccount/my-orders.php:81
+#: ../mirano/woocommerce/myaccount/my-orders.php:81
+#: ../saharan/woocommerce/myaccount/my-orders.php:81
+#: ../sozo/woocommerce/myaccount/my-orders.php:81
+#: ../vanesa/woocommerce/myaccount/my-orders.php:81
+msgid "View"
+msgstr ""
+
+#: ../brize/woocommerce/myaccount/view-order.php:19
+#: ../heajy/woocommerce/myaccount/view-order.php:19
+#: ../mirano/woocommerce/myaccount/view-order.php:19
+#: ../saharan/woocommerce/myaccount/view-order.php:19
+#: ../sozo/woocommerce/myaccount/view-order.php:19
+#: ../vanesa/woocommerce/myaccount/view-order.php:19
+#, php-format
+msgid ""
+"Order <mark class=\"order-number\">%s</mark> was placed on <mark class="
+"\"order-date\">%s</mark> and is currently <mark class=\"order-status\">%s</"
+"mark>."
+msgstr ""
+
+#: ../brize/woocommerce/myaccount/view-order.php:23
+#: ../heajy/woocommerce/myaccount/view-order.php:23
+#: ../mirano/woocommerce/myaccount/view-order.php:23
+#: ../saharan/woocommerce/myaccount/view-order.php:23
+#: ../sozo/woocommerce/myaccount/view-order.php:23
+#: ../vanesa/woocommerce/myaccount/view-order.php:23
+msgid "Order Updates"
+msgstr ""
+
+#: ../brize/woocommerce/myaccount/view-order.php:29
+#: ../heajy/woocommerce/myaccount/view-order.php:29
+#: ../mirano/woocommerce/myaccount/view-order.php:29
+#: ../saharan/woocommerce/myaccount/view-order.php:29
+#: ../sozo/woocommerce/myaccount/view-order.php:29
+#: ../vanesa/woocommerce/myaccount/view-order.php:29
+msgid "l jS \\o\\f F Y, h:ia"
+msgstr ""
+
+#: ../brize/woocommerce/single-product-reviews.php:24
+#: ../heajy/woocommerce/single-product-reviews.php:24
+#: ../mirano/woocommerce/single-product-reviews.php:24
+#: ../saharan/woocommerce/single-product-reviews.php:24
+#: ../sozo/woocommerce/single-product-reviews.php:24
+#: ../vanesa/woocommerce/single-product-reviews.php:24
+#, php-format
+msgid "%s review for %s"
+msgstr ""
+
+#: ../brize/woocommerce/single-product-reviews.php:26
+#: ../heajy/woocommerce/single-product-reviews.php:26
+#: ../mirano/woocommerce/single-product-reviews.php:26
+#: ../saharan/woocommerce/single-product-reviews.php:26
+#: ../sozo/woocommerce/single-product-reviews.php:26
+#: ../vanesa/woocommerce/single-product-reviews.php:26
+msgid "Reviews"
+msgstr ""
+
+#: ../brize/woocommerce/single-product-reviews.php:47
+#: ../heajy/woocommerce/single-product-reviews.php:47
+#: ../mirano/woocommerce/single-product-reviews.php:47
+#: ../saharan/woocommerce/single-product-reviews.php:47
+#: ../sozo/woocommerce/single-product-reviews.php:47
+#: ../vanesa/woocommerce/single-product-reviews.php:47
+msgid "There are no reviews yet."
+msgstr ""
+
+#: ../brize/woocommerce/single-product-reviews.php:60
+#: ../heajy/woocommerce/single-product-reviews.php:60
+#: ../mirano/woocommerce/single-product-reviews.php:60
+#: ../saharan/woocommerce/single-product-reviews.php:60
+#: ../sozo/woocommerce/single-product-reviews.php:60
+#: ../vanesa/woocommerce/single-product-reviews.php:60
+msgid "Add a review"
+msgstr ""
+
+#: ../brize/woocommerce/single-product-reviews.php:60
+#: ../heajy/woocommerce/single-product-reviews.php:60
+#: ../mirano/woocommerce/single-product-reviews.php:60
+#: ../saharan/woocommerce/single-product-reviews.php:60
+#: ../sozo/woocommerce/single-product-reviews.php:60
+#: ../vanesa/woocommerce/single-product-reviews.php:60
+msgid "Be the first to review"
+msgstr ""
+
+#: ../brize/woocommerce/single-product-reviews.php:61
+#: ../heajy/woocommerce/single-product-reviews.php:61
+#: ../mirano/woocommerce/single-product-reviews.php:61
+#: ../saharan/woocommerce/single-product-reviews.php:61
+#: ../sozo/woocommerce/single-product-reviews.php:61
+#: ../vanesa/woocommerce/single-product-reviews.php:61
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr ""
+
+#: ../brize/woocommerce/single-product-reviews.php:65
+#: ../heajy/woocommerce/single-product-reviews.php:65
+#: ../mirano/woocommerce/single-product-reviews.php:65
+#: ../saharan/woocommerce/single-product-reviews.php:65
+#: ../sozo/woocommerce/single-product-reviews.php:65
+#: ../vanesa/woocommerce/single-product-reviews.php:65
+msgid "Name"
+msgstr ""
+
+#: ../brize/woocommerce/single-product-reviews.php:67
+#: ../heajy/woocommerce/single-product-reviews.php:67
+#: ../mirano/woocommerce/single-product-reviews.php:67
+#: ../saharan/woocommerce/single-product-reviews.php:67
+#: ../sozo/woocommerce/single-product-reviews.php:67
+#: ../vanesa/header-first.php:22 ../vanesa/header-second.php:22
+#: ../vanesa/theme-config.php:382
+#: ../vanesa/woocommerce/order/order-details.php:174
+#: ../vanesa/woocommerce/single-product-reviews.php:67
+msgid "Email"
+msgstr ""
+
+#: ../brize/woocommerce/single-product-reviews.php:70
+#: ../heajy/woocommerce/single-product-reviews.php:70
+#: ../mirano/woocommerce/single-product-reviews.php:70
+#: ../saharan/woocommerce/single-product-reviews.php:70
+#: ../sozo/woocommerce/single-product-reviews.php:70
+#: ../vanesa/woocommerce/single-product-reviews.php:70
+msgid "Submit"
+msgstr ""
+
+#: ../brize/woocommerce/single-product-reviews.php:76
+#: ../heajy/woocommerce/single-product-reviews.php:76
+#: ../mirano/woocommerce/single-product-reviews.php:76
+#: ../saharan/woocommerce/single-product-reviews.php:76
+#: ../sozo/woocommerce/single-product-reviews.php:76
+#: ../vanesa/woocommerce/single-product-reviews.php:76
+msgid "Your Rating"
+msgstr ""
+
+#: ../brize/woocommerce/single-product-reviews.php:77
+#: ../heajy/woocommerce/single-product-reviews.php:77
+#: ../mirano/woocommerce/single-product-reviews.php:77
+#: ../saharan/woocommerce/single-product-reviews.php:77
+#: ../sozo/woocommerce/single-product-reviews.php:77
+#: ../vanesa/woocommerce/single-product-reviews.php:77
+msgid "Rate&hellip;"
+msgstr ""
+
+#: ../brize/woocommerce/single-product-reviews.php:78
+#: ../heajy/woocommerce/single-product-reviews.php:78
+#: ../mirano/woocommerce/single-product-reviews.php:78
+#: ../saharan/woocommerce/single-product-reviews.php:78
+#: ../sozo/woocommerce/single-product-reviews.php:78
+#: ../vanesa/woocommerce/single-product-reviews.php:78
+msgid "Perfect"
+msgstr ""
+
+#: ../brize/woocommerce/single-product-reviews.php:79
+#: ../heajy/woocommerce/single-product-reviews.php:79
+#: ../mirano/woocommerce/single-product-reviews.php:79
+#: ../saharan/woocommerce/single-product-reviews.php:79
+#: ../sozo/woocommerce/single-product-reviews.php:79
+#: ../vanesa/woocommerce/single-product-reviews.php:79
+msgid "Good"
+msgstr ""
+
+#: ../brize/woocommerce/single-product-reviews.php:80
+#: ../heajy/woocommerce/single-product-reviews.php:80
+#: ../mirano/woocommerce/single-product-reviews.php:80
+#: ../saharan/woocommerce/single-product-reviews.php:80
+#: ../sozo/woocommerce/single-product-reviews.php:80
+#: ../vanesa/woocommerce/single-product-reviews.php:80
+msgid "Average"
+msgstr ""
+
+#: ../brize/woocommerce/single-product-reviews.php:81
+#: ../heajy/woocommerce/single-product-reviews.php:81
+#: ../mirano/woocommerce/single-product-reviews.php:81
+#: ../saharan/woocommerce/single-product-reviews.php:81
+#: ../sozo/woocommerce/single-product-reviews.php:81
+#: ../vanesa/woocommerce/single-product-reviews.php:81
+msgid "Not that bad"
+msgstr ""
+
+#: ../brize/woocommerce/single-product-reviews.php:82
+#: ../heajy/woocommerce/single-product-reviews.php:82
+#: ../mirano/woocommerce/single-product-reviews.php:82
+#: ../saharan/woocommerce/single-product-reviews.php:82
+#: ../sozo/woocommerce/single-product-reviews.php:82
+#: ../vanesa/woocommerce/single-product-reviews.php:82
+msgid "Very Poor"
+msgstr ""
+
+#: ../brize/woocommerce/single-product-reviews.php:86
+#: ../heajy/woocommerce/single-product-reviews.php:86
+#: ../mirano/woocommerce/single-product-reviews.php:86
+#: ../saharan/woocommerce/single-product-reviews.php:86
+#: ../sozo/woocommerce/single-product-reviews.php:86
+#: ../vanesa/woocommerce/single-product-reviews.php:86
+msgid "Your Review"
+msgstr ""
+
+#: ../brize/woocommerce/single-product-reviews.php:95
+#: ../heajy/woocommerce/single-product-reviews.php:95
+#: ../mirano/woocommerce/single-product-reviews.php:95
+#: ../saharan/woocommerce/single-product-reviews.php:95
+#: ../sozo/woocommerce/single-product-reviews.php:95
+#: ../vanesa/woocommerce/single-product-reviews.php:95
+msgid ""
+"Only logged in customers who have purchased this product may leave a review."
+msgstr ""
+
+#: ../brize/woocommerce/single-product/add-to-cart/variable.php:23
+#: ../heajy/woocommerce/single-product/add-to-cart/variable.php:23
+#: ../mirano/woocommerce/single-product/add-to-cart/variable.php:23
+#: ../saharan/woocommerce/single-product/add-to-cart/variable.php:23
+#: ../sozo/woocommerce/single-product/add-to-cart/variable.php:23
+#: ../vanesa/woocommerce/single-product/add-to-cart/variable.php:92
+msgid "This product is currently out of stock and unavailable."
+msgstr ""
+
+#: ../brize/woocommerce/single-product/add-to-cart/variable.php:33
+#: ../heajy/woocommerce/single-product/add-to-cart/variable.php:33
+#: ../mirano/woocommerce/single-product/add-to-cart/variable.php:33
+#: ../saharan/woocommerce/single-product/add-to-cart/variable.php:33
+#: ../sozo/woocommerce/single-product/add-to-cart/variable.php:33
+#: ../vanesa/woocommerce/single-product/add-to-cart/variable.php:62
+msgid "Clear selection"
+msgstr ""
+
+#: ../brize/woocommerce/single-product/rating.php:27
+#: ../heajy/woocommerce/single-product/rating.php:27
+#: ../mirano/woocommerce/single-product/rating.php:27
+#: ../saharan/woocommerce/single-product/rating.php:27
+#: ../sozo/woocommerce/single-product/rating.php:27
+#: ../vanesa/woocommerce/single-product/rating.php:27
+#, php-format
+msgid "Rated %s out of 5"
+msgstr ""
+
+#: ../brize/woocommerce/single-product/rating.php:29
+#: ../heajy/woocommerce/single-product/rating.php:29
+#: ../mirano/woocommerce/single-product/rating.php:29
+#: ../saharan/woocommerce/single-product/rating.php:29
+#: ../sozo/woocommerce/single-product/rating.php:29
+#: ../vanesa/woocommerce/single-product/rating.php:29
+#, php-format
+msgid "out of %s5%s"
+msgstr ""
+
+#: ../brize/woocommerce/single-product/rating.php:30
+#: ../heajy/woocommerce/single-product/rating.php:30
+#: ../mirano/woocommerce/single-product/rating.php:30
+#: ../saharan/woocommerce/single-product/rating.php:30
+#: ../sozo/woocommerce/single-product/rating.php:30
+#: ../vanesa/woocommerce/single-product/rating.php:30
+#, php-format
+msgid "based on %s customer rating"
+msgstr ""
+
+#: ../brize/woocommerce/single-product/rating.php:33
+#: ../heajy/woocommerce/single-product/rating.php:33
+#: ../mirano/woocommerce/single-product/rating.php:33
+#: ../saharan/woocommerce/single-product/rating.php:33
+#: ../sozo/woocommerce/single-product/rating.php:33
+#: ../vanesa/woocommerce/single-product/rating.php:33
+#, php-format
+msgid "%s customer review"
+msgstr ""
+
+#: ../brize/woocommerce/single-product/review.php:26
+#: ../heajy/woocommerce/single-product/review.php:26
+#: ../mirano/woocommerce/single-product/review.php:26
+#: ../saharan/woocommerce/single-product/review.php:26
+#: ../sozo/woocommerce/single-product/review.php:26
+#: ../vanesa/woocommerce/single-product/review.php:26
+#, php-format
+msgid "Rated %d out of 5"
+msgstr ""
+
+#: ../brize/woocommerce/single-product/review.php:27
+#: ../heajy/woocommerce/single-product/review.php:27
+#: ../mirano/woocommerce/single-product/review.php:27
+#: ../saharan/woocommerce/single-product/review.php:27
+#: ../sozo/woocommerce/single-product/review.php:27
+#: ../vanesa/woocommerce/single-product/review.php:27
+msgid "out of 5"
+msgstr ""
+
+#: ../brize/woocommerce/single-product/review.php:34
+#: ../heajy/woocommerce/single-product/review.php:34
+#: ../mirano/woocommerce/single-product/review.php:34
+#: ../saharan/woocommerce/single-product/review.php:34
+#: ../sozo/woocommerce/single-product/review.php:34
+#: ../vanesa/woocommerce/single-product/review.php:34
+msgid "Your comment is awaiting approval"
+msgstr ""
+
+#: ../brize/woocommerce/single-product/review.php:43
+#: ../heajy/woocommerce/single-product/review.php:43
+#: ../mirano/woocommerce/single-product/review.php:43
+#: ../saharan/woocommerce/single-product/review.php:43
+#: ../sozo/woocommerce/single-product/review.php:43
+#: ../vanesa/woocommerce/single-product/review.php:43
+msgid "verified owner"
+msgstr ""
+
+#: ../brize/woocommerce/single-product/tabs/additional-information.php:17
+#: ../heajy/woocommerce/single-product/tabs/additional-information.php:17
+#: ../mirano/woocommerce/single-product/tabs/additional-information.php:17
+#: ../saharan/woocommerce/single-product/tabs/additional-information.php:17
+#: ../sozo/woocommerce/single-product/tabs/additional-information.php:17
+#: ../vanesa/woocommerce/single-product/tabs/additional-information.php:17
+msgid "Additional Information"
+msgstr ""
+
+#: ../brize/woocommerce/single-product/tabs/description.php:14
+#: ../heajy/woocommerce/single-product/tabs/description.php:14
+#: ../mirano/woocommerce/single-product/tabs/description.php:14
+#: ../saharan/woocommerce/single-product/tabs/description.php:14
+#: ../sozo/woocommerce/single-product/tabs/description.php:14
+#: ../vanesa/woocommerce/single-product/tabs/description.php:14
+msgid "Product Description"
+msgstr ""
+
+#: ../heajy/404.php:18
+msgid "404"
+msgstr ""
+
+#: ../heajy/404.php:19
+msgid "WHOOPS, OUR BAD..."
+msgstr ""
+
+#: ../heajy/404.php:20
+msgid "Please go to the home page "
+msgstr ""
+
+#: ../heajy/class-tgm-plugin-activation.php:164
+#: ../vanesa/class-tgm-plugin-activation.php:164
+msgid "Something went wrong."
+msgstr ""
+
+#: ../heajy/class-tgm-plugin-activation.php:1167
+#: ../heajy/class-tgm-plugin-activation.php:1348
+#: ../vanesa/class-tgm-plugin-activation.php:1167
+#: ../vanesa/class-tgm-plugin-activation.php:1348
+msgid "Private Repository"
+msgstr ""
+
+#: ../heajy/class-tgm-plugin-activation.php:1372
+#: ../vanesa/class-tgm-plugin-activation.php:1372
+#, php-format
+msgid ""
+"No plugins to install or activate. <a href=\"%1$s\" title=\"Return to the "
+"Dashboard\">Return to the Dashboard</a>"
+msgstr ""
+
+#: ../heajy/class-tgm-plugin-activation.php:1939
+#: ../vanesa/class-tgm-plugin-activation.php:1939
+msgid "Install package not available."
+msgstr ""
+
+#: ../heajy/class-tgm-plugin-activation.php:1940
+#: ../vanesa/class-tgm-plugin-activation.php:1940
+#, php-format
+msgid "Downloading install package from <span class=\"code\">%s</span>&#8230;"
+msgstr ""
+
+#: ../heajy/class-tgm-plugin-activation.php:1941
+#: ../vanesa/class-tgm-plugin-activation.php:1941
+msgid "Unpacking the package&#8230;"
+msgstr ""
+
+#: ../heajy/class-tgm-plugin-activation.php:1942
+#: ../vanesa/class-tgm-plugin-activation.php:1942
+msgid "Installing the plugin&#8230;"
+msgstr ""
+
+#: ../heajy/class-tgm-plugin-activation.php:1943
+#: ../vanesa/class-tgm-plugin-activation.php:1943
+msgid "Plugin install failed."
+msgstr ""
+
+#: ../heajy/class-tgm-plugin-activation.php:1944
+#: ../vanesa/class-tgm-plugin-activation.php:1944
+msgid "Plugin installed successfully."
+msgstr ""
+
+#: ../heajy/functions.php:622 ../sozo/functions.php:640
+msgid "Shop Sidebar"
+msgstr ""
+
+#: ../heajy/functions.php:624 ../sozo/functions.php:642
+msgid "Sidebar on shop page (only sidebar shop layout)"
+msgstr ""
+
+#: ../heajy/functions.php:634
+msgid "Small sidebar on product category page (only full width shop layout)"
+msgstr ""
+
+#: ../heajy/functions.php:642
+msgid "Category Filter"
+msgstr ""
+
+#: ../heajy/functions.php:644
+msgid "Filter area on product category page (only full width shop layout)"
+msgstr ""
+
+#: ../heajy/functions.php:884 ../saharan/functions.php:808
+#: ../sozo/functions.php:899 ../twentyfifteen/functions.php:185
+#: ../vanesa/functions.php:903
+msgid "no-subset"
+msgstr ""
+
+#: ../heajy/functions.php:1026 ../sozo/functions.php:1041
+#, php-format
+msgid "%1$s / Tags: %2$s"
+msgstr ""
+
+#: ../heajy/functions.php:1041 ../sozo/functions.php:1056
+#, php-format
+msgid "Posted by %1$s / %2$s"
+msgstr ""
+
+#: ../heajy/include/shortcodes.php:12 ../heajy/include/shortcodes.php:21
+#: ../heajy/include/shortcodes.php:58 ../heajy/include/shortcodes.php:84
+#: ../heajy/include/shortcodes.php:110 ../heajy/include/shortcodes.php:118
+#: ../heajy/include/shortcodes.php:128 ../mirano/include/shortcodes.php:12
+#: ../mirano/include/shortcodes.php:33 ../mirano/include/shortcodes.php:70
+#: ../mirano/include/shortcodes.php:96 ../mirano/include/shortcodes.php:122
+#: ../mirano/include/shortcodes.php:130 ../mirano/include/shortcodes.php:140
+#: ../mirano/include/shortcodes.php:158 ../saharan/include/shortcodes.php:12
+#: ../saharan/include/shortcodes.php:38 ../saharan/include/shortcodes.php:49
+#: ../saharan/include/shortcodes.php:60 ../saharan/include/shortcodes.php:97
+#: ../saharan/include/shortcodes.php:123 ../saharan/include/shortcodes.php:131
+#: ../saharan/include/shortcodes.php:141 ../sozo/include/shortcodes.php:12
+#: ../sozo/include/shortcodes.php:21 ../sozo/include/shortcodes.php:58
+#: ../sozo/include/shortcodes.php:85 ../sozo/include/shortcodes.php:93
+#: ../sozo/include/shortcodes.php:103 ../vanesa/include/shortcodes.php:12
+#: ../vanesa/include/shortcodes.php:21 ../vanesa/include/shortcodes.php:58
+#: ../vanesa/include/shortcodes.php:84 ../vanesa/include/shortcodes.php:110
+#: ../vanesa/include/shortcodes.php:118 ../vanesa/include/shortcodes.php:128
+msgid "RoadThemes"
+msgstr ""
+
+#: ../heajy/theme-config.php:282
+msgid "Background for error 404 page"
+msgstr ""
+
+#: ../heajy/theme-config.php:297
+msgid "Pick a color for primary color (default: #afa376)."
+msgstr ""
+
+#: ../heajy/theme-config.php:308 ../sozo/theme-config.php:276
+msgid "Pick a color for bg sale label (default: #ffffff)."
+msgstr ""
+
+#: ../heajy/theme-config.php:319
+msgid "Pick a color for sale label text (default: #333333)."
+msgstr ""
+
+#: ../heajy/theme-config.php:330
+msgid "Pick a color for star of rating (default: #222222)."
+msgstr ""
+
+#: ../heajy/theme-config.php:365
+msgid "Left Menu"
+msgstr ""
+
+#: ../heajy/theme-config.php:372
+msgid "Right Menu"
+msgstr ""
+
+#: ../heajy/theme-config.php:385
+msgid "Slider Alias"
+msgstr ""
+
+#: ../heajy/theme-config.php:386
+msgid "Enter the slider alias for the slider above header"
+msgstr ""
+
+#: ../heajy/theme-config.php:401
+msgid "Footer Layout"
+msgstr ""
+
+#: ../heajy/theme-config.php:415 ../sozo/theme-config.php:433
+msgid "Footer Logo"
+msgstr ""
+
+#: ../heajy/theme-config.php:423
+msgid "Ribbon text"
+msgstr ""
+
+#: ../heajy/theme-config.php:424
+msgid "HTML tags allowed: h1, h2, h3, a, br, strong"
+msgstr ""
+
+#: ../heajy/theme-config.php:460
+msgid "Custom Block"
+msgstr ""
+
+#: ../heajy/theme-config.php:466
+msgid "Block title"
+msgstr ""
+
+#: ../heajy/theme-config.php:472
+msgid "Custom block"
+msgstr ""
+
+#: ../heajy/theme-config.php:473
+msgid "HTML tags allowed: a, img, ul, li, i, br, em, strong, p"
+msgstr ""
+
+#: ../heajy/theme-config.php:513
+msgid "Follow Us title"
+msgstr ""
+
+#: ../heajy/theme-config.php:591 ../vanesa/theme-config.php:556
+msgid "Menu Bottom"
+msgstr ""
+
+#: ../heajy/theme-config.php:813 ../sozo/theme-config.php:794
+msgid "Shop Sidebar Position"
+msgstr ""
+
+#: ../heajy/theme-config.php:814 ../sozo/theme-config.php:795
+msgid "Sidebar on shop page"
+msgstr ""
+
+#: ../heajy/woocommerce/archive-product.php:113
+#: ../sozo/woocommerce/archive-product.php:96
+msgid "View on"
+msgstr ""
+
+#: ../heajy/woocommerce/content-product_cat.php:74
+#: ../sozo/woocommerce/content-product_cat.php:74
+msgid "Browse Category"
+msgstr ""
+
+#: ../heajy/woocommerce/content-single-product.php:34
+msgid "All products"
+msgstr ""
+
+#: ../heajy/woocommerce/single-product/product-image.php:40
+#: ../mirano/woocommerce/single-product/product-image.php:40
+#: ../saharan/woocommerce/single-product/product-image.php:40
+#: ../sozo/woocommerce/single-product/product-image.php:40
+msgid "Placeholder"
+msgstr ""
+
+#: ../mirano/404.php:24 ../saharan/404.php:15 ../vanesa/404.php:23
+msgid "Oops ! That Page Can't Be Found."
+msgstr ""
+
+#: ../mirano/404.php:25 ../vanesa/404.php:24
+msgid "Can't find what you need? Take a moment and do a search below!"
+msgstr ""
+
+#: ../mirano/functions.php:670 ../saharan/functions.php:555
+msgid "Product Sidebar"
+msgstr ""
+
+#: ../mirano/functions.php:672 ../saharan/functions.php:557
+msgid "Sidebar on product details page"
+msgstr ""
+
+#: ../mirano/functions.php:690
+msgid "Contact Sidebar"
+msgstr ""
+
+#: ../mirano/functions.php:692
+msgid "Sidebar on contact page"
+msgstr ""
+
+#: ../mirano/functions.php:1075
+#, php-format
+msgid "Posted by %1$s / %2$s / %3$s / %4$s"
+msgstr ""
+
+#: ../mirano/functions.php:1113
+#, php-format
+msgid "<i class=\"fa fa-clock-o\"></i>%1$s%2$s"
+msgstr ""
+
+#: ../mirano/include/shortcodes.php:18
+msgid "Number of rows"
+msgstr ""
+
+#: ../mirano/include/shortcodes.php:164
+msgid "Newsletter Form ID"
+msgstr ""
+
+#: ../mirano/include/shortcodes.php:166
+msgid "1"
+msgstr ""
+
+#: ../mirano/include/wooajax.php:112 ../vanesa/include/wooajax.php:101
+#: ../vanesa/woocommerce/cart/mini-cart.php:24
+#, php-format
+msgid "%d item"
+msgstr ""
+
+#: ../mirano/theme-config.php:242
+msgid "Upload here."
+msgstr ""
+
+#: ../mirano/theme-config.php:273
+msgid "Pick a color for primary color (default: #14bfcc)."
+msgstr ""
+
+#: ../mirano/theme-config.php:283
+msgid "Pick a color for bg sale label (default: #f93f25)."
+msgstr ""
+
+#: ../mirano/theme-config.php:294
+msgid "Pick a color for sale label text (default: #FFFFFF)."
+msgstr ""
+
+#: ../mirano/theme-config.php:305
+msgid "Pick a color for star of rating (default: #f7bb39)."
+msgstr ""
+
+#: ../mirano/theme-config.php:360
+msgid "Footer Skin"
+msgstr ""
+
+#: ../mirano/theme-config.php:373
+msgid "Logo Footer"
+msgstr ""
+
+#: ../mirano/theme-config.php:422
+msgid "Newsletter Text"
+msgstr ""
+
+#: ../mirano/theme-config.php:423
+msgid "HTML tags allowed: h3, p, strong"
+msgstr ""
+
+#: ../mirano/theme-config.php:479 ../mirano/theme-config.php:491
+msgid "Store Information"
+msgstr ""
+
+#: ../mirano/theme-config.php:485
+msgid "Store Information title"
+msgstr ""
+
+#: ../mirano/theme-config.php:814
+msgid "Contact Sidebar Position"
+msgstr ""
+
+#: ../mirano/theme-config.php:815
+msgid "Sidebar on Contact page"
+msgstr ""
+
+#: ../mirano/theme-config.php:919
+msgid "Number of upsells products"
+msgstr ""
+
+#: ../mirano/theme-config.php:972
+msgid "Social Newsletter Title"
+msgstr ""
+
+#: ../mirano/woocommerce/archive-product.php:62
+#: ../vanesa/woocommerce/archive-product.php:62
+msgid "Shop All Products"
+msgstr ""
+
+#: ../mirano/woocommerce/cart/mini-cart.php:24
+#, php-format
+msgid "%d item : "
+msgstr ""
+
+#: ../saharan/404.php:22
+msgid "The page you are looking for is not found!"
+msgstr ""
+
+#: ../saharan/404.php:23
+msgid "Back to homepage"
+msgstr ""
+
+#: ../saharan/footer.php:41
+msgid "Follow Us"
+msgstr ""
+
+#: ../saharan/functions.php:958
+#, php-format
+msgid "Posted by %1$s %2$s %3$s"
+msgstr ""
+
+#: ../saharan/functions.php:974
+#, php-format
+msgid "<i class=\"fa fa-clock-o\"></i>%1$s / Posted by %2$s"
+msgstr ""
+
+#: ../saharan/include/shortcodes.php:9
+msgid "Popular categories"
+msgstr ""
+
+#: ../saharan/include/shortcodes.php:18
+msgid "Category slug"
+msgstr ""
+
+#: ../saharan/include/shortcodes.php:20 ../saharan/include/shortcodes.php:28
+msgid "clothes"
+msgstr ""
+
+#: ../saharan/include/shortcodes.php:26
+msgid "Image path"
+msgstr ""
+
+#: ../saharan/theme-config.php:240 ../sozo/theme-config.php:338
+msgid "Upload image here."
+msgstr ""
+
+#: ../saharan/theme-config.php:272
+msgid "Pick a color for primary color (default: #f1574d)."
+msgstr ""
+
+#: ../saharan/theme-config.php:283
+msgid "Pick a color for bg sale label (default: #f44051)."
+msgstr ""
+
+#: ../saharan/theme-config.php:294
+msgid "Pick a color for sale label text (default: #f44051)."
+msgstr ""
+
+#: ../saharan/theme-config.php:305
+msgid "Pick a color for star of rating (default: #555656)."
+msgstr ""
+
+#: ../saharan/theme-config.php:342 ../sozo/theme-config.php:356
+msgid "Header Shipping"
+msgstr ""
+
+#: ../saharan/theme-config.php:398
+msgid "Follow title"
+msgstr ""
+
+#: ../saharan/theme-config.php:464
+msgid "Product Shortcode"
+msgstr ""
+
+#: ../saharan/theme-config.php:470
+msgid "Shortcode title"
+msgstr ""
+
+#: ../saharan/theme-config.php:476
+msgid "Shortcode"
+msgstr ""
+
+#: ../saharan/theme-config.php:650
+msgid "Number of logo columns per page"
+msgstr ""
+
+#: ../saharan/theme-config.php:651
+msgid "Number of logos columns per page, default value: 6"
+msgstr ""
+
+#: ../saharan/woocommerce/cart/mini-cart.php:22
+msgid "My cart:"
+msgstr ""
+
+#: ../sozo/404.php:18
+msgid "Oops, that page can't be found."
+msgstr ""
+
+#: ../sozo/404.php:19
+msgid "Can't find what you need, Take a moment and do a search below"
+msgstr ""
+
+#: ../sozo/functions.php:377
+msgid "Categories Menu"
+msgstr ""
+
+#: ../sozo/header-first.php:67 ../sozo/header-second.php:67
+#: ../sozo/page-templates/demo2.php:115
+msgid "Category"
+msgstr ""
+
+#: ../sozo/header-first.php:70 ../sozo/header-second.php:70
+#: ../sozo/page-templates/demo2.php:118
+msgid "More Categories"
+msgstr ""
+
+#: ../sozo/header-first.php:71 ../sozo/header-second.php:71
+#: ../sozo/page-templates/demo2.php:119
+msgid "Close Menu"
+msgstr ""
+
+#: ../sozo/header-first.php:119 ../sozo/header-second.php:102
+#: ../sozo/page-templates/demo2.php:150
+msgid "All Categories"
+msgstr ""
+
+#: ../sozo/include/shortcodes.php:100
+msgid "Contact map"
+msgstr ""
+
+#: ../sozo/theme-config.php:265
+msgid "Pick a color for primary color (default: #ff7572)."
+msgstr ""
+
+#: ../sozo/theme-config.php:287
+msgid "Pick a color for sale label text (default: #ff7572)."
+msgstr ""
+
+#: ../sozo/theme-config.php:298
+msgid "Pick a color for star of rating (default: #e74c3c)."
+msgstr ""
+
+#: ../sozo/theme-config.php:329
+msgid "Welcome message"
+msgstr ""
+
+#: ../sozo/theme-config.php:335
+msgid "Images Top Bar"
+msgstr ""
+
+#: ../sozo/theme-config.php:343
+msgid "Link for image on top bar"
+msgstr ""
+
+#: ../sozo/theme-config.php:363
+msgid "Categories menu label"
+msgstr ""
+
+#: ../sozo/theme-config.php:364
+msgid "The label for categories menu"
+msgstr ""
+
+#: ../sozo/theme-config.php:370
+msgid "Number of items"
+msgstr ""
+
+#: ../sozo/theme-config.php:371
+msgid "Number of menu items level 1 to show, default value: 8"
+msgstr ""
+
+#: ../sozo/theme-config.php:381
+msgid "More Categories label"
+msgstr ""
+
+#: ../sozo/theme-config.php:382
+msgid "The label for more categories button"
+msgstr ""
+
+#: ../sozo/theme-config.php:388
+msgid "Less Categories label"
+msgstr ""
+
+#: ../sozo/theme-config.php:389
+msgid "The label for less categories button"
+msgstr ""
+
+#: ../sozo/theme-config.php:395
+msgid "Home Categories Menu"
+msgstr ""
+
+#: ../sozo/theme-config.php:396
+msgid "Always show categories menu on home page"
+msgstr ""
+
+#: ../sozo/theme-config.php:402
+msgid "Inner Categories Menu"
+msgstr ""
+
+#: ../sozo/theme-config.php:403
+msgid "Always show categories menu on inner pages"
+msgstr ""
+
+#: ../sozo/theme-config.php:416
+msgid "Countdown Date"
+msgstr ""
+
+#: ../sozo/theme-config.php:417
+msgid "Enter date for the countdown (format: Y/m/d. Example: 2016/08/15"
+msgstr ""
+
+#: ../twentyfifteen/404.php:17
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: ../twentyfifteen/404.php:21 ../twentyfourteen/404.php:21
+#: ../twentythirteen/404.php:22
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr ""
+
+#: ../twentyfifteen/archive.php:49 ../twentyfifteen/index.php:46
+#: ../twentyfifteen/search.php:38
+msgid "Previous page"
+msgstr ""
+
+#: ../twentyfifteen/archive.php:50 ../twentyfifteen/index.php:47
+#: ../twentyfifteen/search.php:39
+msgid "Next page"
+msgstr ""
+
+#: ../twentyfifteen/archive.php:51 ../twentyfifteen/content-link.php:40
+#: ../twentyfifteen/content-page.php:29 ../twentyfifteen/content.php:42
+#: ../twentyfifteen/image.php:63 ../twentyfifteen/index.php:48
+#: ../twentyfifteen/search.php:40
+msgid "Page"
+msgstr ""
+
+#: ../twentyfifteen/author-bio.php:12
+msgid "Published by"
+msgstr ""
+
+#: ../twentyfifteen/content-link.php:31 ../twentyfifteen/content.php:33
+#: ../twentyfifteen/inc/template-tags.php:237
+#, php-format
+msgid "Continue reading %s"
+msgstr ""
+
+#: ../twentyfifteen/content-none.php:22 ../twentyfourteen/content-none.php:18
+#: ../twentythirteen/content-none.php:18
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: ../twentyfifteen/content-none.php:26 ../twentyfourteen/content-none.php:22
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: ../twentyfifteen/content-none.php:31 ../twentyfourteen/content-none.php:27
+#: ../twentythirteen/content-none.php:27
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: ../twentyfifteen/footer.php:25
+msgid "https://wordpress.org/"
+msgstr ""
+
+#: ../twentyfifteen/footer.php:25 ../twentyfourteen/footer.php:21
+#: ../twentythirteen/footer.php:19
+#, php-format
+msgid "Proudly powered by %s"
+msgstr ""
+
+#: ../twentyfifteen/functions.php:86
+msgid "Social Links Menu"
+msgstr ""
+
+#: ../twentyfifteen/functions.php:133
+msgid "Widget Area"
+msgstr ""
+
+#: ../twentyfifteen/functions.php:135
+msgid "Add widgets here to appear in your sidebar."
+msgstr ""
+
+#: ../twentyfifteen/functions.php:255
+msgid "expand child menu"
+msgstr ""
+
+#: ../twentyfifteen/functions.php:256
+msgid "collapse child menu"
+msgstr ""
+
+#: ../twentyfifteen/header.php:26 ../twentyfourteen/header.php:53
+#: ../twentythirteen/header.php:44
+msgid "Skip to content"
+msgstr ""
+
+#: ../twentyfifteen/header.php:43
+msgid "Menu and widgets"
+msgstr ""
+
+#: ../twentyfifteen/image.php:24 ../twentyfourteen/image.php:65
+msgid "Previous Image"
+msgstr ""
+
+#: ../twentyfifteen/image.php:24 ../twentyfourteen/image.php:66
+msgid "Next Image"
+msgstr ""
+
+#: ../twentyfifteen/image.php:84
+msgid ""
+"<span class=\"meta-nav\">Published in</span><span class=\"post-title\">"
+"%title</span>"
+msgstr ""
+
+#: ../twentyfifteen/inc/back-compat.php:37
+#: ../twentyfifteen/inc/back-compat.php:47
+#: ../twentyfifteen/inc/back-compat.php:60
+#, php-format
+msgid ""
+"Twenty Fifteen requires at least WordPress version 4.1. You are running "
+"version %s. Please upgrade and try again."
+msgstr ""
+
+#: ../twentyfifteen/inc/customizer.php:31
+msgid "Base Color Scheme"
+msgstr ""
+
+#: ../twentyfifteen/inc/customizer.php:46
+msgid "Header and Sidebar Text Color"
+msgstr ""
+
+#: ../twentyfifteen/inc/customizer.php:47
+#: ../twentyfifteen/inc/customizer.php:63
+#: ../twentyfifteen/inc/customizer.php:68
+msgid "Applied to the header on small screens and the sidebar on wide screens."
+msgstr ""
+
+#: ../twentyfifteen/inc/customizer.php:62
+msgid "Header and Sidebar Background Color"
+msgstr ""
+
+#: ../twentyfifteen/inc/customizer.php:92
+msgid "Default"
+msgstr ""
+
+#: ../twentyfifteen/inc/customizer.php:103
+msgid "Dark"
+msgstr ""
+
+#: ../twentyfifteen/inc/customizer.php:114
+msgid "Yellow"
+msgstr ""
+
+#: ../twentyfifteen/inc/customizer.php:125
+msgid "Pink"
+msgstr ""
+
+#: ../twentyfifteen/inc/customizer.php:136
+msgid "Purple"
+msgstr ""
+
+#: ../twentyfifteen/inc/customizer.php:147
+msgid "Blue"
+msgstr ""
+
+#: ../twentyfifteen/inc/template-tags.php:23 ../twentyfourteen/comments.php:34
+#: ../twentyfourteen/comments.php:52 ../twentythirteen/comments.php:45
+msgid "Comment navigation"
+msgstr ""
+
+#: ../twentyfifteen/inc/template-tags.php:26
+msgid "Older Comments"
+msgstr ""
+
+#: ../twentyfifteen/inc/template-tags.php:30
+msgid "Newer Comments"
+msgstr ""
+
+#: ../twentyfifteen/inc/template-tags.php:49
+msgid "Featured"
+msgstr ""
+
+#: ../twentyfifteen/inc/template-tags.php:55
+msgid "Format"
+msgstr ""
+
+#: ../twentyfifteen/inc/template-tags.php:76
+msgid "Posted on"
+msgstr ""
+
+#: ../twentyfifteen/inc/template-tags.php:85
+msgid "Author"
+msgstr ""
+
+#: ../twentyfifteen/inc/template-tags.php:94
+msgid "Categories"
+msgstr ""
+
+#: ../twentyfifteen/inc/template-tags.php:113
+msgid "Full size"
+msgstr ""
+
+#: ../twentyfifteen/inc/template-tags.php:122
+#: ../twentyfourteen/content-aside.php:37
+#: ../twentyfourteen/content-audio.php:37
+#: ../twentyfourteen/content-gallery.php:37
+#: ../twentyfourteen/content-image.php:37
+#: ../twentyfourteen/content-link.php:37
+#: ../twentyfourteen/content-quote.php:37
+#: ../twentyfourteen/content-video.php:37 ../twentyfourteen/content.php:38
+#: ../twentyfourteen/inc/widgets.php:194
+#: ../twentythirteen/content-gallery.php:43
+#: ../twentythirteen/content-image.php:39
+#: ../twentythirteen/content-quote.php:29
+#: ../twentythirteen/content-video.php:39 ../twentythirteen/content.php:56
+msgid "Leave a comment"
+msgstr ""
+
+#: ../twentyfifteen/inc/template-tags.php:122
+#: ../twentyfourteen/content-aside.php:37
+#: ../twentyfourteen/content-audio.php:37
+#: ../twentyfourteen/content-gallery.php:37
+#: ../twentyfourteen/content-image.php:37
+#: ../twentyfourteen/content-link.php:37
+#: ../twentyfourteen/content-quote.php:37
+#: ../twentyfourteen/content-video.php:37 ../twentyfourteen/content.php:38
+#: ../twentyfourteen/inc/widgets.php:194
+msgid "1 Comment"
+msgstr ""
+
+#: ../twentyfifteen/inc/template-tags.php:122
+#: ../twentyfourteen/content-aside.php:37
+#: ../twentyfourteen/content-audio.php:37
+#: ../twentyfourteen/content-gallery.php:37
+#: ../twentyfourteen/content-image.php:37
+#: ../twentyfourteen/content-link.php:37
+#: ../twentyfourteen/content-quote.php:37
+#: ../twentyfourteen/content-video.php:37 ../twentyfourteen/content.php:38
+#: ../twentyfourteen/inc/widgets.php:194
+msgid "% Comments"
+msgstr ""
+
+#: ../twentyfifteen/single.php:34
+msgid "Next post:"
+msgstr ""
+
+#: ../twentyfifteen/single.php:37
+msgid "Previous post:"
+msgstr ""
+
+#: ../twentyfourteen/404.php:17 ../twentythirteen/404.php:16
+msgid "Not Found"
+msgstr ""
+
+#: ../twentyfourteen/author.php:31 ../twentythirteen/author.php:31
+#, php-format
+msgid "All posts by %s"
+msgstr ""
+
+#: ../twentyfourteen/comments.php:27
+#, php-format
+msgid "One thought on &ldquo;%2$s&rdquo;"
+msgstr ""
+
+#: ../twentyfourteen/comments.php:35 ../twentyfourteen/comments.php:53
+#: ../twentythirteen/comments.php:46
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: ../twentyfourteen/comments.php:36 ../twentyfourteen/comments.php:54
+#: ../twentythirteen/comments.php:47
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: ../twentyfourteen/content-aside.php:48
+#: ../twentyfourteen/content-audio.php:48
+#: ../twentyfourteen/content-gallery.php:48
+#: ../twentyfourteen/content-image.php:48
+#: ../twentyfourteen/content-link.php:48
+#: ../twentyfourteen/content-quote.php:48
+#: ../twentyfourteen/content-video.php:48 ../twentyfourteen/content.php:56
+#: ../twentyfourteen/inc/template-tags.php:222
+#: ../twentythirteen/content-aside.php:16
+#: ../twentythirteen/content-audio.php:27
+#: ../twentythirteen/content-chat.php:26
+#: ../twentythirteen/content-gallery.php:27
+#: ../twentythirteen/content-image.php:26
+#: ../twentythirteen/content-link.php:27
+#: ../twentythirteen/content-quote.php:16
+#: ../twentythirteen/content-status.php:16
+#: ../twentythirteen/content-video.php:26 ../twentythirteen/content.php:44
+#: ../twentythirteen/functions.php:478
+#, php-format
+msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: ../twentyfourteen/footer.php:21 ../twentythirteen/footer.php:19
+msgid "http://wordpress.org/"
+msgstr ""
+
+#: ../twentyfourteen/functions.php:83
+msgid "Top primary menu"
+msgstr ""
+
+#: ../twentyfourteen/functions.php:84
+msgid "Secondary menu in left sidebar"
+msgstr ""
+
+#: ../twentyfourteen/functions.php:171
+msgid "Primary Sidebar"
+msgstr ""
+
+#: ../twentyfourteen/functions.php:173
+msgid "Main sidebar that appears on the left."
+msgstr ""
+
+#: ../twentyfourteen/functions.php:180
+msgid "Content Sidebar"
+msgstr ""
+
+#: ../twentyfourteen/functions.php:182
+msgid "Additional sidebar that appears on the right."
+msgstr ""
+
+#: ../twentyfourteen/functions.php:189
+msgid "Footer Widget Area"
+msgstr ""
+
+#: ../twentyfourteen/functions.php:191 ../twentythirteen/functions.php:233
+msgid "Appears in the footer section of the site."
+msgstr ""
+
+#: ../twentyfourteen/functions.php:376
+#, php-format
+msgid "%d Article"
+msgstr ""
+
+#: ../twentyfourteen/functions.php:495 ../twentythirteen/functions.php:218
+#, php-format
+msgid "Page %s"
+msgstr ""
+
+#: ../twentyfourteen/header.php:48
+msgid "Search"
+msgstr ""
+
+#: ../twentyfourteen/inc/back-compat.php:37
+#: ../twentyfourteen/inc/back-compat.php:47
+#: ../twentyfourteen/inc/back-compat.php:60
+#, php-format
+msgid ""
+"Twenty Fourteen requires at least WordPress version 3.6. You are running "
+"version %s. Please upgrade and try again."
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:24
+msgid "Site Title Color"
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:27
+msgid "Display Site Title &amp; Tagline"
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:31
+#: ../twentyfourteen/inc/customizer.php:32
+msgid "May only be visible on wide screens."
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:34
+#: ../twentyfourteen/inc/customizer.php:35
+msgid "Background may only be visible on wide screens."
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:40
+#: ../twentyfourteen/inc/featured-content.php:403
+msgid "Featured Content"
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:41
+#: ../twentyfourteen/inc/featured-content.php:404
+#, php-format
+msgid ""
+"Use a <a href=\"%1$s\">tag</a> to feature your posts. If no posts match the "
+"tag, <a href=\"%2$s\">sticky posts</a> will be displayed instead."
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:42
+#: ../twentyfourteen/inc/customizer.php:108
+#: ../twentyfourteen/inc/featured-content.php:405
+#: ../twentyfourteen/inc/featured-content.php:414
+#: ../twentyfourteen/inc/featured-content.php:474
+msgid "featured"
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:61
+msgid "Slider"
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:105
+msgid "Twenty Fourteen"
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:108
+#, php-format
+msgid ""
+"The home page features your choice of up to 6 posts prominently displayed in "
+"a grid or slider, controlled by a <a href=\"%1$s\">tag</a>; you can change "
+"the tag and layout in <a href=\"%2$s\">Appearance &rarr; Customize</a>. If "
+"no posts match the tag, <a href=\"%3$s\">sticky posts</a> will be displayed "
+"instead."
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:109
+#, php-format
+msgid ""
+"Enhance your site design by using <a href=\"%s\">Featured Images</a> for "
+"posts you&rsquo;d like to stand out (also known as post thumbnails). This "
+"allows you to associate an image with your post without inserting it. Twenty "
+"Fourteen uses featured images for posts and pages&mdash;above the "
+"title&mdash;and in the Featured Content area on the home page."
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:110
+#, php-format
+msgid ""
+"For an in-depth tutorial, and more tips and tricks, visit the <a href=\"%s"
+"\">Twenty Fourteen documentation</a>."
+msgstr ""
+
+#: ../twentyfourteen/inc/featured-content.php:426
+msgid "Tag Name"
+msgstr ""
+
+#: ../twentyfourteen/inc/featured-content.php:431
+msgid "Don&rsquo;t display tag on front end."
+msgstr ""
+
+#: ../twentyfourteen/inc/template-tags.php:58
+#: ../twentythirteen/functions.php:266
+msgid "Posts navigation"
+msgstr ""
+
+#: ../twentyfourteen/inc/template-tags.php:89
+msgid "<span class=\"meta-nav\">Published In</span>%title"
+msgstr ""
+
+#: ../twentyfourteen/inc/template-tags.php:91
+msgid "<span class=\"meta-nav\">Previous Post</span>%title"
+msgstr ""
+
+#: ../twentyfourteen/inc/template-tags.php:92
+msgid "<span class=\"meta-nav\">Next Post</span>%title"
+msgstr ""
+
+#: ../twentyfourteen/inc/template-tags.php:109
+#: ../twentythirteen/functions.php:322
+msgid "Sticky"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:34
+msgid "Twenty Fourteen Ephemera"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:36
+msgid ""
+"Use this widget to list your recent Aside, Quote, Video, Audio, Image, "
+"Gallery, and Link posts."
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:54
+#: ../twentyfourteen/taxonomy-post_format.php:33
+msgid "Images"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:55
+msgid "More images"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:58
+#: ../twentyfourteen/taxonomy-post_format.php:36
+msgid "Videos"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:59
+msgid "More videos"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:62
+#: ../twentyfourteen/taxonomy-post_format.php:39
+msgid "Audio"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:63
+msgid "More audio"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:66
+#: ../twentyfourteen/taxonomy-post_format.php:42
+msgid "Quotes"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:67
+msgid "More quotes"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:70
+#: ../twentyfourteen/taxonomy-post_format.php:45
+msgid "Links"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:71
+msgid "More links"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:74
+#: ../twentyfourteen/taxonomy-post_format.php:48
+msgid "Galleries"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:75
+msgid "More galleries"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:79
+#: ../twentyfourteen/taxonomy-post_format.php:30
+msgid "Asides"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:80
+msgid "More asides"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:162
+#, php-format
+msgid "This gallery contains <a href=\"%1$s\" rel=\"bookmark\">%2$s photo</a>."
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:206
+#, php-format
+msgid "%s <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:258
+msgid "Number of posts to show:"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:261
+msgid "Post format to show:"
+msgstr ""
+
+#: ../twentythirteen/404.php:21
+msgid "This is somewhat embarrassing, isn&rsquo;t it?"
+msgstr ""
+
+#: ../twentythirteen/author-bio.php:30
+#, php-format
+msgid "View all posts by %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: ../twentythirteen/content-gallery.php:43
+#: ../twentythirteen/content-image.php:39
+#: ../twentythirteen/content-quote.php:29
+#: ../twentythirteen/content-video.php:39 ../twentythirteen/content.php:56
+msgid "One comment so far"
+msgstr ""
+
+#: ../twentythirteen/content-gallery.php:43
+#: ../twentythirteen/content-image.php:39
+#: ../twentythirteen/content-quote.php:29
+#: ../twentythirteen/content-video.php:39 ../twentythirteen/content.php:56
+#, php-format
+msgid "View all % comments"
+msgstr ""
+
+#: ../twentythirteen/content-none.php:22
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with "
+"different keywords."
+msgstr ""
+
+#: ../twentythirteen/functions.php:97
+msgid "Navigation Menu"
+msgstr ""
+
+#: ../twentythirteen/functions.php:231
+msgid "Main Widget Area"
+msgstr ""
+
+#: ../twentythirteen/functions.php:241
+msgid "Secondary Widget Area"
+msgstr ""
+
+#: ../twentythirteen/functions.php:243
+msgid "Appears on posts and pages in the sidebar."
+msgstr ""
+
+#: ../twentythirteen/functions.php:303
+msgid "<span class=\"meta-nav\">&larr;</span> %title"
+msgstr ""
+
+#: ../twentythirteen/functions.php:304
+msgid "%title <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: ../twentythirteen/functions.php:363
+#, php-format
+msgid "%1$s on %2$s"
+msgstr ""
+
+#: ../twentythirteen/functions.php:369
+#, php-format
+msgid "Permalink to %s"
+msgstr ""
+
+#: ../twentythirteen/header.php:43
+msgid "Menu"
+msgstr ""
+
+#: ../twentythirteen/image.php:22
+#, php-format
+msgid ""
+"<span class=\"attachment-meta\">Published on <time class=\"entry-date\" "
+"datetime=\"%1$s\">%2$s</time> in <a href=\"%3$s\" title=\"Return to %4$s\" "
+"rel=\"gallery\">%5$s</a></span>"
+msgstr ""
+
+#: ../twentythirteen/image.php:39
+msgid "Full resolution"
+msgstr ""
+
+#: ../twentythirteen/image.php:51
+msgid "<span class=\"meta-nav\">&larr;</span> Previous"
+msgstr ""
+
+#: ../twentythirteen/image.php:52
+msgid "Next <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: ../twentythirteen/inc/back-compat.php:37
+#: ../twentythirteen/inc/back-compat.php:47
+#: ../twentythirteen/inc/back-compat.php:60
+#, php-format
+msgid ""
+"Twenty Thirteen requires at least WordPress version 3.6. You are running "
+"version %s. Please upgrade and try again."
+msgstr ""
+
+#: ../twentythirteen/inc/custom-header.php:49
+msgid "Circle"
+msgstr ""
+
+#: ../twentythirteen/inc/custom-header.php:54
+msgid "Diamond"
+msgstr ""
+
+#: ../twentythirteen/inc/custom-header.php:59
+msgid "Star"
+msgstr ""
+
+#: ../twentythirteen/taxonomy-post_format.php:23
+#, php-format
+msgid "%s Archives"
+msgstr ""
+
+#: ../vanesa/header-first.php:24 ../vanesa/header-second.php:24
+#: ../vanesa/theme-config.php:388
+msgid "Phone"
+msgstr ""
+
+#: ../vanesa/theme-config.php:289
+msgid "Blog header background"
+msgstr ""
+
+#: ../vanesa/theme-config.php:296
+msgid "About header background"
+msgstr ""
+
+#: ../vanesa/theme-config.php:303
+msgid "Contact header background"
+msgstr ""
+
+#: ../vanesa/theme-config.php:318
+msgid "Pick a color for primary color (default: #009587)."
+msgstr ""
+
+#: ../vanesa/theme-config.php:329
+msgid "Pick a color for bg sale label (default: #222222)."
+msgstr ""
+
+#: ../vanesa/theme-config.php:351
+msgid "Pick a color for star of rating (default: #ffe117)."
+msgstr ""
+
+#: ../vanesa/theme-config.php:514
+msgid "Contact Us title"
+msgstr ""
+
+#: ../vanesa/woocommerce/order/order-details.php:17
+msgid "Order Details"
+msgstr ""
+
+#: ../vanesa/woocommerce/order/order-details.php:60
+#, php-format
+msgid "Download file%s"
+msgstr ""
+
+#: ../vanesa/woocommerce/order/order-details.php:126
+#: ../vanesa/woocommerce/order/order-details.php:130
+#, php-format
+msgid "(Includes %s)"
+msgstr ""
+
+#: ../vanesa/woocommerce/order/order-details.php:148
+msgid "Refunded:"
+msgstr ""
+
+#: ../vanesa/woocommerce/order/order-details.php:157
+msgid "Note:"
+msgstr ""
+
+#: ../vanesa/woocommerce/order/order-details.php:167
+msgid "Customer details"
+msgstr ""
+
+#: ../vanesa/woocommerce/order/order-details.php:174
+msgid "Email:"
+msgstr ""
+
+#: ../vanesa/woocommerce/order/order-details.php:178
+msgid "Telephone:"
+msgstr ""
+
+#: ../vanesa/woocommerce/order/order-details.php:178
+msgid "Telephone"
+msgstr ""
+
+#: ../vanesa/woocommerce/order/order-details.php:201
+#: ../vanesa/woocommerce/order/order-details.php:220
+msgid "N/A"
+msgstr ""
+
+#: ../vanesa/woocommerce/single-product/add-to-cart/variable.php:27
+msgid "Choose an option"
+msgstr ""

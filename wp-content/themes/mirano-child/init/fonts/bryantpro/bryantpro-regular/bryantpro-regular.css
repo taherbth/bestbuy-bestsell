@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Bryant Pro Regular';
+    src: url('bryantpro-regular-webfont.eot');
+    src: url('bryantpro-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('bryantpro-regular-webfont.woff2') format('woff2'),
+         url('bryantpro-regular-webfont.woff') format('woff'),
+         url('bryantpro-regular-webfont.ttf') format('truetype'),
+         url('bryantpro-regular-webfont.svg#bryant_pro_regularregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
