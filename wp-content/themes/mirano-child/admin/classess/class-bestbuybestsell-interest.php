@@ -185,7 +185,6 @@ class Bestbuybestsell_Interest extends WP_List_Table {
 				_e( 'No Interest Avaliable.', TEXTDOMAIN );
 		}
 	}
-
 	/**
 	 * Render a column when no column specific method exist.
 	 *
@@ -193,7 +192,7 @@ class Bestbuybestsell_Interest extends WP_List_Table {
 	 * @param string $column_name
 	 *
 	 * @return mixed column
- */ 
+ 	*/
 	public function column_default( $item, $column_name ) {
 		//print_r( $item ); exit;
 		global $sql_interest_total, $product_id, $user_action, $build_subtab, $total_qty_column_message; 
@@ -335,10 +334,10 @@ $total_qty_column_message = $count_group_interest_qty[0]['total_qty'] ? $count_g
 			echo '<span id="price_update_message'.$item['product_interest_id'].'"></span><br/>';
 			echo '<span>
 					<input type="text" name="interest_unit_price'.$item['product_interest_id']. '" id="'.$item['product_interest_id']. '" class="update_interest_unit_price" value="'.$item['interest_unit_price']. '" style="width:110px;" /> 
-					<input type="hidden" id="product_interest_id" name="product_interest_id" value="'. $item['product_interest_id'].'" />';	
-			break; 
-			
-			case 'interest_start_date': 		
+					<input type="hidden" id="product_interest_id" name="product_interest_id" value="'. $item['product_interest_id'].'" />';
+			break;
+
+			case 'interest_start_date':
 				echo '<span>';
 					if( $item['asa_price_is_reasonable'] ){
 						_e("As soon as price is reasonable");
@@ -354,9 +353,9 @@ $total_qty_column_message = $count_group_interest_qty[0]['total_qty'] ? $count_g
 				echo '</span>'; 
 			break;
 			
-			case 'inmid_price':
+			case 'bestbuy_bestsell_price':
 				echo '<span>';					
-						echo ( $item['inmid_price'] ? $item['inmid_price'] : '&ndash;');					
+						echo ( $item['bestbuy_bestsell_price'] ? $item['bestbuy_bestsell_price'] : '&ndash;');
 				echo '</span>'; 
 			break;
 			
@@ -431,9 +430,7 @@ $total_qty_column_message = $count_group_interest_qty[0]['total_qty'] ? $count_g
 			<span id="email_sent_message'. $item['product_interest_id']. '"></span>
 			<span id="interester_email_span'. $item['product_interest_id']. '" style="display:none"> 
 			<textarea placeholder="Write messae to this interester" name="email_message_to_interester'. $item['product_interest_id']. '" id="email_message_to_interester'. $item['product_interest_id']. '"rows="4" cols="30"></textarea> 
-			
 			<input class="send_email_to_interester_class" id="' . $item['product_interest_id'] .'" type="button" name="send_email_to_interester" value="'. __("Send Email" , TEXTDOMAIN ). '" / >	</span>';
-			
 			echo '</div>';
 			break;
 			
@@ -489,9 +486,9 @@ $total_qty_column_message = $count_group_interest_qty[0]['total_qty'] ? $count_g
 				$delete_nonce = wp_create_nonce( 'remove-group-price' );
 				echo '<div>';				
 					
-					echo '<a style="float:inherit;" href="' . admin_url( 'admin.php?page=inmid-business-settings&tab=' . $_REQUEST['tab'].'&group_id='.$item['group_id'] .'&product_id='.$product_id ). '&user_action=set-group-price&action=edit-group-price&group_price_id=' .$item['group_price_id']. '" >'.__("Edit" , TEXTDOMAIN ).' </a>';  
+					echo '<a style="float:inherit;" href="' . admin_url( 'admin.php?page=bestbuy-bestsell-business-settings&tab=' . $_REQUEST['tab'].'&group_id='.$item['group_id'] .'&product_id='.$product_id ). '&user_action=set-group-price&action=edit-group-price&group_price_id=' .$item['group_price_id']. '" >'.__("Edit" , TEXTDOMAIN ).' </a>';
 				
-				echo '|<a style="float:inherit;" href="' . admin_url( 'admin.php?page=inmid-business-settings&tab=' . $_REQUEST['tab'].'&group_id='.$item['group_id'] .'&product_id='.$product_id ). '&user_action=set-group-price&action=remove-group-price&group_price_id=' .$item['group_price_id'].'&_wpnonce=' .$delete_nonce. '" >'.__("Reomve" , TEXTDOMAIN ).' </a>';  
+				echo '|<a style="float:inherit;" href="' . admin_url( 'admin.php?page=bestbuy-bestsell-business-settings&tab=' . $_REQUEST['tab'].'&group_id='.$item['group_id'] .'&product_id='.$product_id ). '&user_action=set-group-price&action=remove-group-price&group_price_id=' .$item['group_price_id'].'&_wpnonce=' .$delete_nonce. '" >'.__("Reomve" , TEXTDOMAIN ).' </a>';
 				echo '</div>';
 			break;
 		//default:
@@ -599,7 +596,7 @@ $total_qty_column_message = $count_group_interest_qty[0]['total_qty'] ? $count_g
 			$columns = [
 				'cb'      => '<input type="checkbox"/>',
 				'no_of_sells'    => __( 'No Of Sells', TEXTDOMAIN ),
-				'inmid_price'    => __( 'Bestbuy-bestsell Price', TEXTDOMAIN ),
+				'bestbuy_bestsell_price'    => __( 'Bestbuy-bestsell Price', TEXTDOMAIN ),
 				'vendor_price'    => __( 'Vendor Price', TEXTDOMAIN ),
 				'shipping_price'    => __( 'Shipping Price', TEXTDOMAIN ),
 				'add_date'    => __( 'Add Date', TEXTDOMAIN ),
@@ -630,7 +627,7 @@ $total_qty_column_message = $count_group_interest_qty[0]['total_qty'] ? $count_g
 			'product_id' => array( 'product_id', false ),
 			'group_closing_date' => array( 'group_closing_date', false ),
 			'no_of_sells' => array( 'no_of_sells', false ),
-			'inmid_price' => array( 'inmid_price', false ),
+			'bestbuy_bestsell_price' => array( 'bestbuy_bestsell_price', false ),
 			'vendor_price' => array( 'vendor_price', false ),
 			'shipping_price' => array( 'shipping_price', false ),
 			'add_date' => array( 'add_date', false ),			
@@ -1114,9 +1111,9 @@ $total_qty_column_message = $count_group_interest_qty[0]['total_qty'] ? $count_g
 		}
 		if( $search ){
 			if( !empty( $where_query ) ){
-				$where_query  .= " AND {$wpdb->prefix}interest_group_price.no_of_sells LIKE '%" . esc_sql( str_replace( '*', '', $search ) ) . "%' OR {$wpdb->prefix}interest_group_price.inmid_price LIKE '%" . esc_sql( str_replace( '*', '', $search ) ) . "%'  OR {$wpdb->prefix}interest_group_price.vendor_price LIKE '%" . esc_sql( str_replace( '*', '', $search ) ) . "%' OR {$wpdb->prefix}interest_group_price.shipping_price LIKE '%" . esc_sql( str_replace( '*', '', $search ) ) . "%' ";
+				$where_query  .= " AND {$wpdb->prefix}interest_group_price.no_of_sells LIKE '%" . esc_sql( str_replace( '*', '', $search ) ) . "%' OR {$wpdb->prefix}interest_group_price.bestbuy_bestsell_price LIKE '%" . esc_sql( str_replace( '*', '', $search ) ) . "%'  OR {$wpdb->prefix}interest_group_price.vendor_price LIKE '%" . esc_sql( str_replace( '*', '', $search ) ) . "%' OR {$wpdb->prefix}interest_group_price.shipping_price LIKE '%" . esc_sql( str_replace( '*', '', $search ) ) . "%' ";
 			}else{
-				$where_query  .= " WHERE {$wpdb->prefix}interest_group_price.no_of_sells LIKE '%" . esc_sql( str_replace( '*', '', $search ) ) . "%' OR {$wpdb->prefix}interest_group_price.inmid_price LIKE '%" . esc_sql( str_replace( '*', '', $search ) ) . "%'  OR {$wpdb->prefix}interest_group_price.vendor_price LIKE '%" . esc_sql( str_replace( '*', '', $search ) ) . "%' OR {$wpdb->prefix}interest_group_price.shipping_price LIKE '%" . esc_sql( str_replace( '*', '', $search ) ) . "%' ";
+				$where_query  .= " WHERE {$wpdb->prefix}interest_group_price.no_of_sells LIKE '%" . esc_sql( str_replace( '*', '', $search ) ) . "%' OR {$wpdb->prefix}interest_group_price.bestbuy_bestsell_price LIKE '%" . esc_sql( str_replace( '*', '', $search ) ) . "%'  OR {$wpdb->prefix}interest_group_price.vendor_price LIKE '%" . esc_sql( str_replace( '*', '', $search ) ) . "%' OR {$wpdb->prefix}interest_group_price.shipping_price LIKE '%" . esc_sql( str_replace( '*', '', $search ) ) . "%' ";
 			}
 		}
 		if( !empty( $where_query ) ){
@@ -1395,7 +1392,7 @@ $total_qty_column_message = $count_group_interest_qty[0]['total_qty'] ? $count_g
 						foreach( $group_price_list as $group_price_data ) {
 							$group_price_list_text .='<tr>
 							<td><span>'. $group_price_data["no_of_sells"] .'</span></td>
-							<td><span>'.$group_price_data["inmid_price"] .'&nbsp;'.get_currency().'</span></td>
+							<td><span>'.$group_price_data["bestbuy_bestsell_price"] .'&nbsp;'.get_currency().'</span></td>
 							<td><span>'.$group_price_data["shipping_price"] .'&nbsp;'.get_currency().'</span></td>
 							</tr>'."\n\n";
 						}
@@ -1462,7 +1459,6 @@ $total_qty_column_message = $count_group_interest_qty[0]['total_qty'] ? $count_g
 					$header .= "Content-Transfer-Encoding: base64\r\n";
 					//$header .= "Content-Disposition: attachment; filename=\"".$attachment_name."\"\r\n\r\n";
 					//$header .= $attachedfile."\r\n\r\n";
-					//echo $message;
 					$header .= "--".$uid."--";
 					$attachments ="";
 					$messages = "";
@@ -1550,7 +1546,7 @@ $total_qty_column_message = $count_group_interest_qty[0]['total_qty'] ? $count_g
 					foreach( $group_price_list_matched as $group_price_data ) {
 						$group_price_list_text .='<tr>
 						<td><span>'. $group_price_data["no_of_sells"] .'</span></td>
-						<td><span>'.$group_price_data["inmid_price"] .'&nbsp;'.get_currency().'</span></td>
+						<td><span>'.$group_price_data["bestbuy_bestsell_price"] .'&nbsp;'.get_currency().'</span></td>
 						<td><span>'.$group_price_data["shipping_price"] .'&nbsp;'.get_currency().'</span></td>
 						</tr>'."\n\n";
 					}

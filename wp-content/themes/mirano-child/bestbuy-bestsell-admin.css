@@ -1,0 +1,254 @@
+.form-table, .form-table td, .form-table td p, .form-table th, .form-wrap label {
+    font-size: 14px;
+}
+.form-table {
+    border-collapse: collapse;
+    clear: both;
+    margin-top: 0.5em;
+    width: 100%;
+}
+
+.form-table, .form-table td, .form-table td p, .form-table th, .form-wrap label {
+    font-size: 14px;
+}
+.form-table {
+    border-collapse: collapse;
+}
+
+ table.form-table th {
+    padding-right: 24px;
+    position: relative;
+}
+.form-table th {
+    font-weight: 600;
+    line-height: 1.3;
+    padding: 20px 10px 20px 0;
+    text-align: left;
+    vertical-align: top;
+    width: 200px;
+}
+.form-table th, .form-table label {
+    color: #222;
+    font-weight: 400;
+    text-shadow: none;
+    vertical-align: baseline;
+}
+.form-table, .form-table td, .form-table td p, .form-table th, .form-wrap label {
+    font-size: 14px;
+}
+.form-table {
+    border-collapse: collapse;
+}
+.form-table th {
+    font-weight: 600;
+    line-height: 1.3;
+    text-align: left;
+}
+.form-table th, .form-wrap label {
+    color: #222;
+    font-weight: 400;
+    text-shadow: none;
+}
+.form-table, .form-table td, .form-table td p, .form-table th, .form-wrap label {
+    font-size: 14px;
+}
+.form-table th img.help_tip {
+    float: right;
+    margin: 0 -24px 0 0;
+}
+.form-table img.help_tip {
+    cursor: help;
+    line-height: 1;
+    margin: -4px 0 0 5px;
+    padding: 0;
+    vertical-align: middle;
+}
+img.help_tip {
+    margin: 0 0 0 9px;
+    vertical-align: middle;
+}
+img {
+    border: medium none;
+}
+br { clear: both; }
+input { border: 1px solid black; margin-bottom: .5em;  }
+input.error { border: 1px solid red; }
+label.error {
+	background: url('images/unchecked.gif') no-repeat;
+	padding-left: 16px;
+	margin-left: .3em;
+}
+label.valid {
+	background: url('images/checked.gif') no-repeat;
+	display: block;
+	width: 16px;
+	height: 16px;
+}
+
+table.wp-list-table td.column-thumb  img {
+    height: auto;
+    margin: 0;
+    max-height: 150px;
+    max-width: 150px;
+    vertical-align: middle;
+    width: auto;
+}
+td.column-thumb img {
+    height: auto;
+    margin: 0;
+    max-height: 150px;
+    max-width: 150px;
+    vertical-align: middle;
+    width: auto;
+}
+
+
+table.wp-list-table img {
+    margin: 1px 2px;
+	   height: auto;
+    margin: 0;
+    max-height: 150px;
+    max-width: 150px;
+    vertical-align: middle;
+    width: auto;
+}
+
+.edit-icon {
+    background: url("images/edit-icon.gif") no-repeat;
+    display: block;
+    font-size: 1.5em;
+    font-weight: 700;
+    height: 1em;
+    line-height: 1;
+    text-align: center;
+    text-decoration: none;
+    width: 1em;
+}
+
+.update-icon{
+    background: url("images/update.png") no-repeat;
+    display: block;
+    font-size: 3.5em;
+    font-weight: 700;
+    height: 1em;
+    line-height: 1;
+    text-align: center;
+    text-decoration: none;
+    width: 2em;
+}
+
+.interest_details{
+	width: 100%;
+}
+.product_thumb, .interest_by_thumb{
+	float:left;
+	width: 340px;
+}
+
+.interest_info, .interest_by_info{
+	float:left;
+	width: 600px;
+}
+.meta_name_label{
+	font-weight:bold;
+	font-size: 15px;
+}
+.meta_name_value{
+	font-size: 15px;
+}
+.meta_not_available{
+	font-weight:bold;
+	font-size: 15px;
+}
+.product_title, .user_name {
+	font-size: 23px;
+    font-weight: 400;
+    padding: 0px 15px 20px 0;
+}
+.product_status{
+	font-size: 16px;
+    font-weight: 400;
+    padding: 10px 15px 20px 0;
+}
+.start-date_label, .end-date_label, .meta_not_available, .interest_by_name_label{
+	font-weight:bold;
+	font-size: 15px;
+	line-height:30px;
+}
+.interest_by_label{
+	font-weight:bold;
+	font-size: 15px;
+	line-height:30px;
+}
+.interest_by{
+	margin-top: 50px;
+}
+.authoritative_person_info{
+	font-weight:bold;
+	font-size: 18px;
+	line-height:60px;
+}
+a.remove {
+    border-radius: 100%;
+    color: red;
+    display: block;
+    font-size: 1.5em;
+    font-weight: 700;
+    height: 1em;
+    line-height: 1;
+    text-align: center;
+    text-decoration: none;
+    width: 1em;
+}
+.send_email_interester{
+border: 1px solid red;
+}
+
+#send_email_option_div{
+	margin:0 0 0 137px;
+}
+
+.campaign_step{
+	text-align:center;
+}
+
+.campaign_step h2{
+	font-weight:bold;
+}
+
+.product_header_form{
+	margin: 0 auto;
+    text-align: left;
+    width: 800px;
+}
+.mandatory_field_class{
+	color: red; 
+}
+
+.product_header_form_messages{
+	margin-left: 30%;
+    text-align: left;
+    width: 800px;
+}
+
+.product_header_form_messages .error_messages{
+	color:red; 
+}
+.sucess_messages{
+	color:#1E8CC0; 
+}
+.mmq_not_reached label{
+	font-weight:bold;
+	color:red;
+}
+.deal_selection{
+	font-weight:bold;
+}
+.deal_selection_or label{
+	font-weight:bold;
+	margin-left: 120px; 
+}
+.shipping_address{
+	float:right; 
+	margin-right:54%;
+}

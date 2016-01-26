@@ -12,10 +12,19 @@ show_admin_bar( false );
 
 add_action('after_setup_theme', 'mirano_child_setup' , 11);
 
-
 function mirano_child_setup(){
     /*Add your Hooks , Filters and Theme Support after This*/
     define('BESTBUY_BESTSELL_DIR', get_stylesheet_directory_uri());
+    /*
+    * Include WP_List_Table class from admin, Need it to display wordpress standard
+    * Custom Table Display
+    */
+    if ( ! class_exists( 'WP_List_Table' ) ) {
+        require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
+    }
+    if ( ! class_exists( 'Bestbuybestsell_Interest' ) ){
+        require_once( 'admin/classess/class-bestbuybestsell-interest.php' );
+    }
     /*
     * Bestbuy-bestsell Business Menu For Admin Panel
     * Display Admin Menu
@@ -24,23 +33,10 @@ function mirano_child_setup(){
     function bestbuy_bestsell_business_menu() {
         add_menu_page('Bestbuy-bestsell Business', 'Bestbuy-bestsell Business', 'manage_options', 'bestbuy-bestsell-business-settings', 'bestbuy_bestsell_business_options',"dashicons-list-view");
     }
-
     /*
-    * Include WP_List_Table class from admin, Need it to display wordpress standard
-    * Custom Table Display
+    * Bestbuy-bestsell Business Menu For Admin Panel
+    * Render All Menu for Bestbuy-bestsell Business
     */
-    if ( ! class_exists( 'WP_List_Table' ) ) {
-        require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
-    }
-
-    if ( ! class_exists( 'Bestbuybestsell_Interest' ) ){
-        require_once( 'admin/classess/class-bestbuybestsell-interest.php' );
-    }
-
-    /*
-* Bestbuy-bestsell Business Menu For Admin Panel
-* Render All Menu for Bestbuy-bestsell Business
-*/
     function bestbuy_bestsell_business_options(){
         global $current_subtab, $current_tab, $product_id, $product_interest_id, $interest_group_id, $search, $build_subtab, $subtabs, $user_action, $action;
 
@@ -71,9 +67,9 @@ function mirano_child_setup(){
         if( isset( $_GET['message'] ) ) {
             $message =  __( 'Your settings have been saved.'  );
             do_action( 'bestbuy_bestsell_show_settings_message' , $message );
-//show_messages( $message );
+            //show_messages( $message );
         }
-//$menu_header_message = show_menu_header_message(  );
+        //$menu_header_message = show_menu_header_message(  );
         do_action( 'bestbuy_bestsell_show_menu_header_message' );
 
         if( 'view_interest_details' != $user_action ){
@@ -128,950 +124,6 @@ function mirano_child_setup(){
             echo '<div id="message" class="updated fade"><p><strong>' . esc_html( $message ) . '</strong></p></div>';
         }
     }
-    /**
-     *Show menu header message for Bestbuy_bestsell Admin Menu
-     *
-    */
-    add_action( 'bestbuy_bestsell_show_menu_header_message', 'show_menu_header_message', 10 );
-    function show_menu_header_message( ){
-        global $current_subtab, $current_tab, $product_id, $interest_group_id, $group_info, $group_details, $search, $build_subtab, $subtabs, $sql_posts_total, $product_interest_lists, $group_details, $show_description_header, $user_action ;
-        $show_description_header = FALSE;
-        $show_interest_details_section = FALSE;
-        $bestbuy_bestsell_interest_list_object = new Bestbuybestsell_Interest();
-
-        $product_interest_lists = $bestbuy_bestsell_interest_list_object ->get_product_interest_lists( $per_page = 5 , $page_number = 1, 'product_details' );
-        if( 'product-interest-lists' != $user_action ){
-            $group_info = $bestbuy_bestsell_interest_list_object ->get_group_info( $interest_group_id );
-            $group_details = $bestbuy_bestsell_interest_list_object ->get_interest_group_details( $per_page = 5, $page_number = 1 , $interest_group_id, $group_price_id , 'group_details');
-        }
-        switch( $current_tab ){
-            case 'interest_lists':
-                if( empty( $current_subtab ) && empty( $user_action ) ){
-                    $header_message = __('Step 1 : Interest Lists');
-                }
-                elseif( isset( $user_action ) && 'product-interest-lists' === $user_action ){
-                    $header_message = __('Step 1.1 : Interest List For ');
-                    $header_message .= '" '.get_the_title( $product_id ).' "';
-                    $show_description_header = TRUE;
-                }
-                elseif( isset( $user_action ) && 'view_interest_details' === $user_action ){
-                    $header_message = __('Interest Details For ');
-                    $header_message .= '" '.get_the_title( $product_id ).' "';
-                    $show_interest_details_section = TRUE;
-                }
-                break;
-            case 'interest_groups':
-                if( empty( $current_subtab ) && empty( $user_action ) ){
-                    $header_message = __('Step 2 : Interest Groups ');
-                }
-                elseif( isset( $user_action ) && 'view-group-details' === $user_action ){
-                    $header_message = __('Step 2.1 : Interest Group For ');
-                    $header_message .= '" '.get_the_title( $product_id ).' "';
-                    $show_description_header = TRUE;
-                }
-                elseif( isset( $user_action ) && 'set-group-price' === $user_action ){
-                    $header_message = __('Step 2.2 : Set Price For ');
-                    $header_message .= '" '.get_the_title( $product_id ).' "';
-                    $show_description_header = TRUE;
-                }
-                elseif( isset( $user_action ) && 'add-more-interests' === $user_action ){
-                    $header_message = __('Add To Group : Add More Interest To ');
-                    $header_message .= '" '.$group_info[0]['group_name'].' "';
-                    $show_description_header = TRUE;
-                }
-                break;
-            case 'interest_confirmed_groups':
-                if( empty( $current_subtab ) && empty( $user_action ) ){
-                    $header_message = __('Step 3 : Confirmed Interest Groups ');
-                }elseif( isset( $user_action ) && 'view-confirmed-group-details' === $user_action ){
-                    $header_message = __('Step 3.1 : Confirmed Interest Group For ');
-                    $header_message .= '" '.get_the_title( $product_id ).' "';
-                    $show_description_header = TRUE;
-                }elseif( isset( $user_action ) && 'add-more-interests-to-confirmed-group' === $user_action ){
-                    $header_message = __('Add To Confirmed Group : Add More Interest To ');
-                    $header_message .= '" '.$group_info[0]['group_name'].' "';
-                    $show_description_header = TRUE;
-                }
-                break;
-            case 'interest_failed_groups':
-                if( empty( $current_subtab ) && empty( $user_action ) ){
-                    $header_message = __('Step 5 : Failed Interest Groups ');
-                }elseif( isset( $user_action ) && 'view-failed-group-details' === $user_action ){
-                    $header_message = __('Step 5.1 : Failed Interest Group For ');
-                    $header_message .= '" '.get_the_title( $product_id ).' "';
-                    $show_description_header = TRUE;
-                }
-                break;
-        }
-        echo '<div class="campaign_step" > <h2 >'. $header_message . '</h2> </div><br class="clear" />';
-        if( $show_description_header ){
-            do_action( 'bestbuy_bestsell_show_product_interest_description_header' );
-        }
-        if( $show_interest_details_section ){
-            do_action( 'bestbuy_bestsell_show_product_interest_details_section' );
-        }
-    }
-
-    ////////////////////////////////////////////////////////////
-    /**
-     *Show show_product_interest_details_section for a Particular Interest
-     * Show Product Title, Product Thumb , No of Interest, No of Interester, Group Name, Group Closing Date, */
-    add_action( 'bestbuy_bestsell_show_product_interest_details_section' , 'show_product_interest_details_section' , 5 );
-    function show_product_interest_details_section( ){
-        global $product_interest_id, $user_product_interest_details;
-        $bestbuy_bestsell_interest_details_object = new Bestbuybestsell_Interest();
-        $user_product_interest_details = $bestbuy_bestsell_interest_details_object ->user_product_interest_details( $product_interest_id );
-    }
-
-    /**
-     *Show show_product_interest_details_section for a Particular Interest
-     * Show Product Title, Product Thumb , No of Interest, No of Interester, Group Name, Group Closing Date, */
-    add_action( 'bestbuy_bestsell_show_product_interest_details_section' , 'show_product_interest_details_section_interest_details' , 10 );
-    function show_product_interest_details_section_interest_details( ){
-        global $product_interest_id, $user_product_interest_details;
-        $bestbuy_bestsell_interest_details_object = new Bestbuybestsell_Interest();
-        ?>
-        <div class="product_interest_description_header">
-        <h2><?php _e('Interest Details'); ?> </h2>
-        <?php
-        if( $user_product_interest_details ){
-            $post_thumbnail = get_the_post_thumbnail( $user_product_interest_details[0]['ID'], 'medium' );
-            $interest_meta_details = $bestbuy_bestsell_interest_details_object ->get_user_product_interest_meta( $product_interest_id );
-            ?>
-            <div class="interest_details">
-                <div class="product_thumb">
-                    <?php echo $post_thumbnail."<br/>";
-                    if( $user_product_interest_details[0]['post_status']!='publish' ){ ?>
-                    <span class="product_status">
-					<?php  _e('Waiting for approval');
-                    }
-                    ?> </span>
-                </div>
-                <div class="interest_info">
-				<span class="product_title">
-					<?php echo $user_product_interest_details[0]['post_title']." ( ". $user_product_interest_details[0]['interest_qty']." Pc"; if( $user_product_interest_details[0]['interest_qty'] > 1 ){ echo "s";} echo " )"; ?>
-				</span><br/><br/>
-                    <?php
-                    ////////////////////////////////////////////////
-                    $interest_meta_array = array();
-                    if( $interest_meta_details ) {
-                        foreach( $interest_meta_details as $interest_meta_data ) {
-                            if( $interest_meta_data ){
-                                $interest_meta_array[$interest_meta_data['meta_name']] = $interest_meta_data['meta_value'];     }
-                        }
-                        $submit_btn_name = "interest_update";
-                        $submit_btn_value = "Update";
-                    }else{ ?>
-                        <span class="meta_not_available">
-						<?php
-                        _e("Please Choose Product Attributes ");
-                        $submit_btn_name = "interest_assign";
-                        $submit_btn_value = "Save";
-                        ?>
-					</span>
-                    <?php }
-                    if( $user_product_interest_details[0]['post_status'] ==='publish' ){
-                        if( isset( $_SESSION['interest_assign_success'] ) ){
-                            echo '<p class="sucess_messages">';
-                            _e("Attributes Saved Successfully");
-                            unset( $_SESSION['interest_assign_success'] ) ;
-                            echo '</p>';
-                        }
-                        $product_attributes = get_field('attributes', $user_product_interest_details[0]['ID']);
-                        if( $product_attributes ) {
-                            ?>
-                            <div class="interest_assign">
-                                <form method="post" name="interest_assign">
-                                    <div style="margin:0 0 10px 0; float:left;">
-                                        <?php
-                                        $num_cloms = 0;
-                                        foreach( $product_attributes as $product_attribute ) {
-                                            if($product_attribute){ $num_cloms++; ?>
-                                                <div class="product_attribute_div" style="margin:0 20px 10px 0; padding-right:5px; float:left;  background: none repeat-x scroll 0 0;">
-                                                    <?php 		///$interest_meta_array = array();
-                                                    echo '<h4>'.$product_attribute['label'].'</h4>';
-                                                    if($product_attribute['values']){
-                                                        foreach($product_attribute['values'] as $value) {
-                                                            ?>
-                                                            <label><input type="radio" name="<?php echo $product_attribute['label']; ?>" value="<?php echo $value['value']; ?>"
-                                                                    <?php if( strtolower( $interest_meta_array[ $product_attribute["label"] ] )  == strtolower( $value['value'] ) ){ ?> checked=checked <?php } ?> > <?php echo $value['value']; ?> </label> <br />						     <?php
-                                                        }
-                                                    }?>
-                                                </div>
-                                                <?php if($num_cloms==3){ $num_cloms = 0; ?> <div style="clear:both;"> </div> <?php }
-                                            }
-                                        }
-                                        ?>
-                                        <input type="hidden" name="product_interest_id" value="<?php echo $product_interest_id; ?>" />
-                                        <input type="hidden" name="user_id" value="<?php echo $user_product_interest_details[0]['user_id']; ?>" />
-                                        <input type="hidden" name="product_id" value="<?php echo $user_product_interest_details[0]['product_id']; ?>" />
-                                        <div class="submit_btn"> <input type="submit" name="<?php echo $submit_btn_name; ?>" value="<?php echo $submit_btn_value;?>" /></div>
-                                    </div>
-                                </form>
-                            </div>
-                        <?php } } ?>
-                    <div style="clear:both;"> </div>
-                    <span class="start-date_label"> <?php _e("Interest Start"); ?> : </span>
-					<span class="start-date">
-						<?php if( $user_product_interest_details[0]['interest_start_date'] ){
-                            echo date( "Y-m-d", $user_product_interest_details[0]['interest_start_date'] ); }
-                        elseif( $user_product_interest_details[0]['asa_price_is_reasonable'] ){ _e("As soon as price is reasonable"); } ?>
-					</span>
-                    <?php if( $user_product_interest_details[0]['interest_end_date'] ){ ?>
-                        <br/><span class="end-date_label"> <?php _e("Interest End"); ?> : </span>
-                        <span class="start-date"> <?php echo date( "Y-m-d", $user_product_interest_details[0]['interest_end_date'] );  ?></span>
-                    <?php } ?>
-                    <?php if( $user_product_interest_details[0]['interest_recuring_purchase'] ){ ?>
-                        <br/><span class="end-date_label"> <?php _e("Re-curing Purchase"); ?> : </span>
-                        <span class="start-date">
-							<?php echo $user_product_interest_details[0]['interest_recuring_purchase'];  ?></span>
-                    <?php } ?>
-                    <?php if( $user_product_interest_details[0]['interest_notes'] ){ ?>
-                        <br/><span class="end-date_label"> <?php _e(" Interest Notes"); ?> : </span>
-                        <span class="start-date"> <?php echo $user_product_interest_details[0]['interest_notes'];  ?></span>
-                    <?php } ?>
-                </div>
-            </div><br class="clear">
-            </div>
-            <?php
-        }
-    }
-
-    /**
-     *Show show_product_interest_details_section for a Particular Interest
-     * Show Product Title, Product Thumb , No of Interest, No of Interester, Group Name, Group Closing Date,
-     */
-    add_action( 'bestbuy_bestsell_show_product_interest_details_section' , 'show_product_interest_details_section_interest_by_details' , 15 );
-    function show_product_interest_details_section_interest_by_details( ){
-        global $product_interest_id, $user_product_interest_details, $interest_by_details ;
-
-        ?>
-        <div class="interest_by">
-            <h2> <?php _e("Interest By"); ?> : </h2>
-            <div class="interest_by_thumb"> <?php echo get_avatar( $user_product_interest_details[0]['user_id']	, "302", "", "Not Available" ); ?> </div>
-        </div>
-        <div class="interest_by_info">
-        <?php
-        ////////////////////////////////////////////////
-        $interest_by_details = get_userdata( $user_product_interest_details[0]['user_id'] );
-        $interest_by_meta = get_user_meta( $user_product_interest_details[0]['user_id'] );
-        $user_id = $user_product_interest_details[0]['user_id'];
-        //print_r($interest_by_meta); exit;
-        if( $interest_by_details ) { ?>
-            <span class="user_name">
-					<a href="user-edit.php?user_id=<?php echo $user_product_interest_details[0]['user_id']; ?>">
-                        <?php
-                        echo $interest_by_details->display_name;
-                        if( $interest_by_details->roles ){
-                            echo " ( ".$current_user_role = implode(', ', $interest_by_details->roles)." )" ;
-                        }
-                        ?>
-                    </a>
-					</span>
-            <?php if( $interest_by_meta['first_name'][0] || $interest_by_meta['last_name'][0] ){ ?>
-                <br/><br/><span class="interest_by_name_label"> <?php _e("Name"); ?> : </span>
-                <span class="person_name"> <?php echo $interest_by_meta['first_name'][0]? $interest_by_meta['first_name'][0]: "";  echo $interest_by_meta['last_name'][0]? "&nbsp;".$interest_by_meta['last_name'][0]: ""; ?></span>
-            <?php }
-            if( $interest_by_details->user_email ){ ?>
-                <br/><span class="interest_by_name_label"> <?php _e("E-mail"); ?> : </span>
-                <span class="person_name"> <?php echo $interest_by_details->user_email; ?></span>
-            <?php }
-            if( $interest_by_meta['phone'][0] ){ ?>
-                <br/><span class="interest_by_name_label"> <?php _e("Phone"); ?> : </span>
-                <span class="person_name"> <?php echo $interest_by_meta['phone'][0]; ?></span>
-            <?php }
-            if( $interest_by_meta['user_country'][0] ){ ?>
-                <br/><span class="interest_by_name_label"> <?php _e("Country"); ?> : </span>
-                <span class="person_name"> <?php echo $interest_by_meta['user_country'][0]; ?></span>
-            <?php }
-            if( $interest_by_meta['city'][0] ){ ?>
-                <br/><span class="interest_by_name_label"> <?php _e("City"); ?> : </span>
-                <span class="person_name"> <?php echo $interest_by_meta['city'][0]; ?></span>
-            <?php }
-            if( $user_product_interest_details[0]['authorative_person'] ){ ?>
-                <br/><span class="authoritative_person_info"> <?php _e("Authoritative Person Info"); ?> : </span><br/><span class="interest_by_name_label"> <?php _e("Name"); ?> : </span>
-                <span class="person_name"> <?php echo $user_product_interest_details[0]['authorative_person_first_name']."&nbsp;".$user_product_interest_details[0]['authorative_person_last_name']; ?></span><br/><span class="interest_by_name_label"> <?php _e("E-mail"); ?> : </span>
-                <span class="person_name"> <?php echo $user_product_interest_details[0]['authorative_person_email']; ?></span><br/><span class="interest_by_name_label"> <?php _e("Phone"); ?> : </span><span class="person_name"> <?php echo $user_product_interest_details[0]['authorative_person_phone']; ?></span>
-            <?php }
-            ?>
-            </div>
-        <?php }else{ ?>
-            <span class="user_name"> <?php _e("Visitor"); ?></span>
-            <br/><br/><span class="interest_by_name_label"> <?php _e("E-mail"); ?> : </span>
-            <span class="person_name"> <?php echo $user_product_interest_details[0]['interest_visitor_email']; ?></span><br/><span class="interest_by_name_label"> <?php _e("Phone"); ?> : </span><span class="person_name"> <?php echo $user_product_interest_details[0]['interest_visitor_phone']; ?></span>
-        <?php }
-
-    }
-    /**
-     *Show show_product_interest_details_section for a Particular Interest
-     * Show Product Title, Product Thumb , No of Interest, No of Interester, Group Name, Group Closing Date,
-     */
-    add_action( 'bestbuy_bestsell_show_product_interest_details_section' , 'show_product_interest_details_section_interest_shipping_details' , 20 );
-    function show_product_interest_details_section_interest_shipping_details( ){
-        global $product_interest_id, $user_product_interest_details, $interest_by_details ;
-
-        ?>
-        <div class="shipping_address" >
-        <?php
-        if( $interest_by_details ) { ?>
-            <br/><span class="authoritative_person_info"> <?php _e("Shipping Address"); ?> : </span><br/>
-            <?php
-            $address = '';
-            $address .= get_user_meta( $user_id, 'shipping_first_name', true );
-            $address .= ' ';
-            $address .= get_user_meta( $user_id, 'shipping_last_name', true );
-            $address .= "<br/>";
-            $address .= get_user_meta( $user_id, 'shipping_company', true );
-            $address .= "<br/>";
-            $address .= get_user_meta( $user_id, 'shipping_address_1', true );
-            $address .= "<br/>";
-            $address .= get_user_meta( $user_id, 'shipping_address_2', true );
-            $address .= "<br/>";
-            $address .= get_user_meta( $user_id, 'shipping_city', true );
-            $address .= "<br/>";
-            $address .= get_user_meta( $user_id, 'shipping_state', true );
-            $address .= "<br/>";
-            $address .= get_user_meta( $user_id, 'shipping_postcode', true );
-            $address .= "<br/>";
-            $address .= get_user_meta( $user_id, 'shipping_country', true );
-            echo $address;
-            ?>
-            <br/><span class="authoritative_person_info"> <?php _e("Billing Address"); ?> : </span><br/>
-            <?php
-            $address = '';
-            $address .= get_user_meta( $user_id, 'billing_first_name', true );
-            $address .= ' ';
-            $address .= get_user_meta( $user_id, 'billing_last_name', true );
-            $address .= "<br/>";
-            $address .= get_user_meta( $user_id, 'billing_company', true );
-            $address .= "<br/>";
-            $address .= get_user_meta( $user_id, 'billing_address_1', true );
-            $address .= "<br/>";
-            $address .= get_user_meta( $user_id, 'billing_address_2', true );
-            $address .= "<br/>";
-            $address .= get_user_meta( $user_id, 'billing_city', true );
-            $address .= "<br/>";
-            $address .= get_user_meta( $user_id, 'billing_state', true );
-            $address .= "<br/>";
-            $address .= get_user_meta( $user_id, 'billing_postcode', true );
-            $address .= "<br/>";
-            $address .= get_user_meta( $user_id, 'billing_country', true );
-            echo $address;
-            ?>
-            </div>
-
-            <?php
-        }
-        ?>
-        <br class="clear">
-        <?Php
-    }
-
-    /**
-     *Show show_product_interest_details_section for a Particular Interest
-     * Show Product Title, Product Thumb , No of Interest, No of Interester, Group Name, Group Closing Date,
-     */
-    add_action( 'bestbuy_bestsell_show_product_interest_details_section' , 'show_product_interest_details_section_interest_assign_or_update' , 25 );
-    function show_product_interest_details_section_interest_assign_or_update( ){
-        global $product_id, $product_interest_id, $user_product_interest_details, $interest_by_details ;
-
-        if( isset( $_REQUEST['interest_assign'] ) || isset( $_REQUEST['interest_update'] ) ){ //Color: Red | Cover: Strong | Paper-size: A4| Printing: both page | Printing-from: press
-            //$interest_assign_data = $_REQUEST['interest_notes'];
-            $bestbuy_bestsell_interest_details_object = new Bestbuybestsell_Interest();
-            $interest_id = $_REQUEST['product_interest_id'];
-            $product_id = $_REQUEST['product_id'];
-            $user_id = $_REQUEST['user_id'];
-            $wp_product_interest_data['product_id'] = $product_id;
-            $wp_product_interest_data['user_id'] = $user_id;
-
-            $product_attributes = get_field('attributes', $product_id);
-            if( $product_attributes ) {
-                foreach($product_attributes as $product_attribute) {
-                    $interest_assign_data[] = array('name' => $product_attribute['label'], 'value' => $_POST[$product_attribute['label']]);
-                }
-            }	//print_r($interest_assign_data); exit;
-            if( $interest_assign_data ){
-                if( isset( $_REQUEST['interest_assign'] ) ){
-                    $success = $bestbuy_bestsell_interest_details_object ->wp_product_interest_meta_insert( $interest_id, $wp_product_interest_data, $interest_assign_data );
-                    $_SESSION['interest_assign_success'] = $success;
-                }
-                if( isset( $_REQUEST['interest_update'] ) ){
-                    $success = $bestbuy_bestsell_interest_details_object ->wp_product_interest_meta_update( $interest_id, $wp_product_interest_data, $interest_assign_data );
-                    $_SESSION['interest_assign_success'] = $success;
-                }
-            }
-            wp_safe_redirect(  add_query_arg( )  );
-        }
-    }
-    ////////////////////////////////////////////////////////////
-    /**
-     *Show show_product_interest_description_header for Bestbuy-bestsell Admin Menu
-     * Show Product Title, Product Thumb , No of Interest, No of Interester, Group Name, Group Closing Date, Group Price settings form
-     */
-    add_action( 'bestbuy_bestsell_show_product_interest_description_header' , 'show_product_interest_description_header' , 10 );
-    function show_product_interest_description_header( ){
-        global $current_subtab, $current_tab, $product_id, $group_info, $search, $build_subtab, $subtabs,$sql_posts_total, $product_interest_lists, $group_details,  $product_id, $user_action, $group_price_form_settings_fields, $sql_total_price_list, $count_interest_qty;
-        $bestbuy_bestsell_interest_list_object = new Bestbuybestsell_Interest();
-        $post_thumbnail = get_the_post_thumbnail( $product_id , 'medium' );
-        $count_interest_qty = $bestbuy_bestsell_interest_list_object->sum_qty_for_product_interest( $product_id, "", $flag= "not_in_group" );
-        if( $group_info ){
-            /*if( $user_action === 'view-group-details'  ){
-                $count_interest_qty = $inmid_interest_list_object->sum_qty_for_group_interest( $group_info[0]['product_id'] , $group_info[0]['group_id'] );
-
-            }elseif( $user_action === 'view-failed-group-details'  ){
-                $count_interest_qty = $inmid_interest_list_object->count_interest_failed( $group_info[0]['product_id'] , $group_info[0]['group_id'] );
-
-            }*/
-
-            $count_interest_qty = $bestbuy_bestsell_interest_list_object->sum_qty_for_group_interest( $group_info[0]['product_id'] , $group_info[0]['group_id'] );
-
-            if( 'view-failed-group-details' === $user_action ){
-                $count_interest_qty = $bestbuy_bestsell_interest_list_object->count_interest_failed( $group_info[0]['product_id'] , $group_info[0]['group_id'] );
-            }
-            if( 'view-confirmed-group-details' === $user_action || 'add-more-interests-to-confirmed-group' === $user_action ){
-                $count_interest_qty = $bestbuy_bestsell_interest_list_object->count_interest_confirmed( $group_info[0]['product_id'] , $group_info[0]['group_id'] );
-            }
-            $bestbuy_bestsell_interest_list_object->get_group_price_by_id( $group_info[0]['group_id'], $group_price_id='' );
-        }
-        ?>
-        <div class="product_interest_description_header">
-            <h2>
-                <?php
-                echo get_the_title( $product_id ). " ( ";
-                echo $count_interest_qty[0]['total_qty'] ? $count_interest_qty[0]['total_qty'] : '0';
-                echo " Pc";
-                echo $count_interest_qty[0]['total_qty'] >  1 ? 's' : '';
-                echo ' ) <br /><br />';
-                _e("Total Interester: ");
-                echo $sql_posts_total;
-                ?>
-            </h2>
-            <!-- Start: interest_details -->
-            <div class="interest_details">
-                <div class="product_thumb"> <?php echo $post_thumbnail;  ?>	</div>
-
-                <!-- Start: group_info -->
-                <div class="interest_info"> <br/>
-					<span class="product_title">
-						<?php
-                        if( $group_info ){
-                            _e('Group: ');
-                            echo $group_info[0]['group_name'].'<br/><br/>';
-                            _e('Group Closing: ');
-                            if( $group_info[0]['group_closing_date']==='asap' ){ _e('asap'); }
-                            else  {	echo date('Y-m-d', $group_info[0]['group_closing_date'] );	}
-
-                            if( isset( $user_action ) && ( 'view-group-details' === $user_action || 'view-confirmed-group-details' === $user_action ) ){
-                                echo '<br/><br/>';
-                                _e('Group Price: ');
-
-                                $url_param = array(
-                                    'tab' => 'interest_groups',
-                                    'user_action' => 'set-group-price',
-                                );
-
-                                echo '<a style="float:inherit;" href="' . add_query_arg( $url_param ) .'" >';
-
-                                if( $sql_total_price_list ){ _e( 'Price Already Set' , TEXTDOMAIN ); } else  { _e( 'Price Not Set Yet' , TEXTDOMAIN ) ;	}
-                                echo '</a><br/><br/>';
-
-                                _e('E-mail To Group: ');
-
-                                switch( $user_action ){
-                                    case 'view-group-details':
-                                        if( $group_info[0]['email_sent'] ){
-                                            _e('E-mail Already Sent');
-                                        }else{
-                                            _e('E-mail Not Sent Yet');
-                                        }
-                                        break;
-
-                                    case 'view-confirmed-group-details':
-                                        if( $group_info[0]['payment_email_sent'] ){
-                                            _e('E-mail Already Sent');
-                                        }else{
-                                            _e('E-mail Not Sent Yet');
-                                        }
-                                        break;
-                                }
-                            }
-                        }
-                        ?>
-					</span>
-                </div> 	<!-- End: group_info -->
-
-            </div>	<!-- End: interest_details -->
-        </div>	<br class="clear">
-        <div class="product_header_form">
-            <?php
-            if( isset( $user_action ) && 'view-group-details' === $user_action ){
-                do_action( 'bestbuy_bestsell_send_email_to_group' );
-                do_action( 'bestbuy_bestsell_send_email_to_group_form_settings' );
-
-            }elseif( isset( $user_action ) && 'view-confirmed-group-details' === $user_action ){
-                do_action( 'bestbuy_bestsell_send_email_to_confirmed_group' );
-                do_action( 'bestbuy_bestsell_send_email_to_group_form_settings' );
-
-            }
-            elseif( isset( $user_action ) && 'set-group-price' === $user_action ){
-                do_action( 'bestbuy_bestsell_group_price_save', $group_price_form_settings_fields );
-                do_action( 'bestbuy_bestsell_group_price_form_settings' );
-
-            }
-            ?>
-        </div><br class="clear">
-        <?php
-    }
-    /**
-     *Show menu lists title for Bestbuy_bestsell Admin Menu
-     *
-     */
-    add_action( 'bestbuy_bestsell_show_menu_lists_title', 'show_menu_lists_title', 10 );
-    function show_menu_lists_title( ){
-        global $current_subtab, $current_tab, $user_action ;
-
-        switch( $current_tab ){
-            case 'interest_lists':
-                if( empty( $current_subtab ) && empty( $user_action ) ){
-                    $title_message = __('Interest Lists');
-                }elseif( isset( $user_action ) && 'product-interest-lists' === $user_action ){
-                    $title_message = __('Product Interest Lists');
-                }
-                break;
-            case 'interest_groups':
-                if( empty( $current_subtab ) && empty( $user_action ) ){
-                    $title_message = __('Interest Group Lists');
-                }elseif( isset( $user_action ) && 'view-group-details' === $user_action ){
-                    $title_message = __('Group Interest Lists');
-                    $url_param = array(
-                        'user_action' => 'add-more-interests',
-                    );
-                    $sub_sub_sub_menu = '<li class="all"> <a href="' . add_query_arg( $url_param ) . '">'. __("Add More Interests" , TEXTDOMAIN ). ' </a></li>';
-
-                }elseif( isset( $user_action ) && 'set-group-price' === $user_action ){
-                    $title_message = __('Group Price Lists');
-                }elseif( isset( $user_action ) && 'add-more-interests' === $user_action ){
-                    $title_message = __('Product Interest Lists');
-                }
-                break;
-            case 'interest_failed_groups':
-                if( empty( $current_subtab ) && empty( $user_action ) ){
-                    $title_message = __('Failed Interest Group Lists');
-                }elseif( isset( $user_action ) && 'view-failed-group-details' === $user_action ){
-                    $title_message = __('Failed Interest Lists');
-                }
-                break;
-            case 'interest_confirmed_groups':
-                if( empty( $current_subtab ) && empty( $user_action ) ){
-                    $title_message = __('Confirmed Interest Group Lists ');
-                }elseif( isset( $user_action ) && 'view-confirmed-group-details' === $user_action ){
-                    $title_message = __('Confirmed Interest Lists');
-                    $url_param = array(
-                        'user_action' => 'add-more-interests-to-confirmed-group',
-                    );
-                    $sub_sub_sub_menu = '<li class="all"> <a href="' . add_query_arg( $url_param ) . '">'. __("Add More Interests" , TEXTDOMAIN ). ' </a></li>';
-                }elseif( isset( $user_action ) && 'add-more-interests-to-confirmed-group' === $user_action ){
-                    $title_message = __('Product Interest Lists');
-                }
-                break;
-        }
-        echo '<h2 >'. $title_message . '</h2>';
-        if( !empty( $sub_sub_sub_menu ) ){
-            echo '<ul class="subsubsub">'. $sub_sub_sub_menu . '</ul>';
-        }
-    }
-
-    /////////////////////////////////////////////////////////////////////
-    /* Bestbuy-bestsell  Send E-mail To Group
-    * send_email_to_group
-    *Return Success / Failure Message
-    */
-    add_action('bestbuy_bestsell_send_email_to_group', 'send_email_to_group', 1 , 1 );
-    function send_email_to_group( $form_fields ){
-
-        global $sanitize_post_data, $messages, $form_validation_errors, $email_data, $group_details ;
-
-        $messages = array();
-        $sanitize_post_data = array();
-        $email_success = 0;
-
-        if(	isset( $_POST[ 'send_email' ] ) ){
-
-            do_action( 'bestbuy_bestsell_send_email_to_group_form_validation' );
-            if ( isset( $form_validation_errors ) && sizeof( $form_validation_errors->get_error_messages() ) > 0 )  		 {
-                //print_r( $form_validation_errors );
-            }else{
-                $bestbuy_bestsell_email_send_to_group = new Bestbuybestsell_Interest();
-                $email_success = $bestbuy_bestsell_email_send_to_group ->send_email_to_interest_group( $email_data, $group_details );
-            }
-        }
-        if( $email_success ){
-            $_SESSION['group_email_sent'] = 1;
-            wp_safe_redirect(  add_query_arg( $url_param )  );
-            exit;
-        }
-    }
-
-    /* Bestbuy-bestsell  Send E-mail To Confirmed Group
-    * send_email_to_confirmed_group
-    *Return Success / Failure Message
-    */
-    add_action('bestbuy_bestsell_send_email_to_confirmed_group', 'send_email_to_confirmed_group', 1 , 1 );
-    function send_email_to_confirmed_group( $form_fields ){
-
-        global $sanitize_post_data, $messages, $form_validation_errors, $email_data, $group_details ;
-        $messages = array();
-        $sanitize_post_data = array();
-        $email_success = 0;
-
-        if(	isset( $_POST[ 'send_email' ] ) ){
-            do_action( 'bestbuy_bestsell_send_email_to_group_form_validation' );
-            if ( isset( $form_validation_errors ) && sizeof( $form_validation_errors->get_error_messages() ) > 0 )  		 {
-                //print_r( $form_validation_errors );
-            }else{
-                $bestbuy_bestsell_email_send_to_group = new Bestbuybestsell_Interest();
-                $email_success = $bestbuy_bestsell_email_send_to_group ->send_email_to_interest_confirmed( $email_data, $group_details , $_REQUEST['deal_selection'] );
-            }
-        }
-        if( $email_success ){
-            $_SESSION['group_email_sent'] = 1;
-            wp_safe_redirect(  add_query_arg( $url_param )  );
-            exit;
-        }
-    }
-    /* Bestbuy-bestsell Group Price Form Settings
-    * Show group_price_form
-    */
-    add_action( 'bestbuy_bestsell_group_price_form_settings', 'group_price_form_settings' , 5 );
-    function group_price_form_settings(){
-        global $current_subtab, $current_tab, $product_id, $group_info, $search, $build_subtab, $subtabs,	$sql_posts_total, $product_interest_lists, $product_id, $user_action, $action, $group_price_form_settings_fields, $form_validation_errors, $price_data,$price_data_by_id ;
-
-        $price_data_by_id = '';
-
-        if( isset( $action ) && 'edit-group-price' === $action ){
-            $bestbuy_bestsell_group_price_object = new Bestbuybestsell_Interest();
-            $bestbuy_bestsell_group_price_object ->get_group_price_by_id( $group_id= '', $_REQUEST['group_price_id'] );
-        }
-        if( $group_info ){
-            $submit_btn_name = 'price_save';
-            $submit_btn_value = __( 'Save Price' , TEXTDOMAIN );
-
-            if( $price_data_by_id ){
-                $price_data['group_price_id'] = $price_data_by_id[0]['group_price_id'];
-                $price_data['no_of_sells'] = $price_data_by_id[0]['no_of_sells'];
-                $price_data['inmid_price'] = $price_data_by_id[0]['inmid_price'];
-                $price_data['vendor_price'] = $price_data_by_id[0]['vendor_price'];
-                $price_data['shipping_price'] = $price_data_by_id[0]['shipping_price'];
-            }
-        }
-
-        $group_price_form_settings_fields = array(
-
-            'no_of_sells' => array(
-                'label'       => __( 'No Of Sells', TEXTDOMAIN ),
-                'name'        => 'no_of_sells',
-                'id'        => 'no_of_sells',
-                'type'        => 'text',
-                'value'     => $price_data['no_of_sells'] ? $price_data['no_of_sells'] : '',
-                'tooltip_label' => __( 'Price Sets based on number of sells', TEXTDOMAIN ),
-                'mandatory'       => 'yes',
-            ),
-
-            'inmid_price' => array(
-                'label'       => __( '!NMID Price', TEXTDOMAIN ),
-                'name'        => 'inmid_price',
-                'id'        => 'inmid_price',
-                'type'        => 'text',
-                'value'     => $price_data['inmid_price'] ? $price_data['inmid_price'] : '',
-                'tooltip_label' => __( 'Inmid Price for consumer', TEXTDOMAIN ),
-                'mandatory'       => 'yes',
-            ),
-
-            'vendor_price' => array(
-                'label'       => __( 'Vendor Price', TEXTDOMAIN ),
-                'name'        => 'vendor_price',
-                'id'        => 'vendor_price',
-                'type'        => 'text',
-                'value'     => $price_data['vendor_price'] ? $price_data['vendor_price'] : '',
-                'tooltip_label' => __( 'Vendor Price for Inmid', TEXTDOMAIN ),
-                'mandatory'       => 'yes',
-            ),
-
-            'shipping_price' => array(
-                'label'       => __( 'Shipping Price', TEXTDOMAIN ),
-                'name'        => 'shipping_price',
-                'id'        => 'shipping_price',
-                'type'        => 'text',
-                'value'     => $price_data['shipping_price'] ? $price_data['shipping_price'] : '',
-                'tooltip_label' => __( 'Shipping Price for Inmid consumer', TEXTDOMAIN ),
-            ),
-
-            'group_id' => array(
-                'label'       => '',
-                'name'        => 'group_id',
-                'id'        => 'group_id',
-                'type'        => 'hidden',
-                'value'     => $_REQUEST['group_id'] ? $_REQUEST['group_id'] : '',
-            ),
-
-        );
-
-        if(  'edit-group-price' === $action ){
-            $submit_btn_name = "price_update";
-            $submit_btn_value = __( 'Update Price' , TEXTDOMAIN );
-            $group_price_form_settings_fields [ 'group_price_id' ] = array(
-                'label'       => '',
-                'name'        => 'group_price_id',
-                'id'        => 'group_price_id',
-                'type'        => 'hidden',
-                'value'     => $_REQUEST['group_price_id'] ? $_REQUEST['group_price_id'] : '',	);
-        }
-
-        $group_price_form_settings_fields [ 'submit_button' ] = array(
-            'label'       => $submit_btn_value,
-            'name'        => $submit_btn_name,
-            'id'        => 'product_description_header',
-            'type'        => 'submit_button', );
-
-        do_action( 'bestbuy_bestsell_show_product_interest_description_header_form',  $group_price_form_settings_fields );
-    }
-
-
-    /* Bestbuy-bestsell Product Interest Description Header Form Messages
-    * Show product_interest_description_header_form_messages, Messages could be 'Error Messages', 'Sucess Messages', 'Failure Messages'
-    *Return Bestbuy-bestsell Product Interest Description Header Form Messages
-    */
-    add_action( 'bestbuy_bestsell_show_product_interest_description_header_form' , 'product_interest_description_header_form_messages', 1 , 1 );
-    function product_interest_description_header_form_messages( $form_fields ){
-        global $form_validation_errors;
-        ?>
-        <div class='product_header_form_messages' >
-            <?php
-            echo '<p class="sucess_messages">';
-            if( isset( $_SESSION['price_saved'] ) && $_SESSION['price_saved'] ){
-                _e( 'Price Successfully Saved' );
-                $price_data = array();
-                $_SESSION['price_saved'] = '';
-            }
-            if( isset( $_SESSION['price_updated'] ) && $_SESSION['price_updated'] ){
-                _e( 'Price Successfully Updated' );
-                $price_data = array();
-                $_SESSION['price_updated'] = '';
-                $submit_btn_name = "price_save";
-                $submit_btn_value = "Save Price";
-            }
-            if( isset( $_SESSION['group_email_sent'] ) && $_SESSION['group_email_sent'] ){
-                _e( 'E-mail Successfully Sent' );
-                $price_data = array();
-                $_SESSION['group_email_sent'] = '';
-            }
-
-            echo '</p>';
-            if ( isset( $form_validation_errors )  && sizeof( $form_validation_errors->get_error_messages() )  > 0 )  {
-                echo '<p class="error_messages">';
-                foreach ( $form_validation_errors->get_error_messages($code) as $error ) {
-                    echo $error . "<br />";
-                }
-                echo '</p>';
-            }
-            ?>
-        </div>
-        <?php
-    }
-
-
-    /* Bestbuy-bestsell Product Interest Description Header Form
-    * Show bestbuy_bestsell_show_product_interest_description_header_form
-    *Return Bestbuy-bestsell Product Interest Description Header Form
-    */
-    add_action('bestbuy_bestsell_show_product_interest_description_header_form',  'show_product_interest_description_header_form' , 2 , 1 );
-    function show_product_interest_description_header_form( $form_fields ){
-
-        if( $form_fields ){
-            echo ' <form method="post" enctype="multipart/form-data" id="product_interest_description_header_form" name="product_interest_description_header_form" >';
-            echo '<table class="form-table"><tbody>';
-            foreach( $form_fields as $field ) {
-                echo '<tr valign="top">';
-                switch ( $field['type'] ) {
-                    case 'label':
-                        if( 'table_column_td' === $field['position']  ){
-                            echo '<th class="titledesc" scope="row"></th>
-									<td class="'. $field['class'].'"><label >'.$field['label'].'</label></td>';
-                        }
-                        else{
-                            echo '<th class="titledesc '. $field['class'].'" scope="row"><label >'.$field['label'].'</label></th><td></td>';
-                        }
-                        break;
-                    case 'radio':
-                        //if( 'deal_selection' === $field['name'] ){
-                        echo '<th class="titledesc" scope="row"></th>
-								<td class="'. $field['class'].'"><input type="radio" name="'. $field['name']. '" id="'. $field['id']. '" value="'. $field['value']. '" />&nbsp;'.$field['label']."</td>";
-
-                        //}
-                        break;
-                    case 'checkbox':
-                        echo '<th class="titledesc" scope="row"><label><strong>'.$field['label'].'</strong></label>'
-                            .get_mandatory_field_html( $field ) . get_tooltip_html( $field ).
-                            '</th>
-								<td class="forminp"><input '. $field['checked'].' type="checkbox" name="'. $field['name']. '" id="'. $field['id']. '"  />&nbsp;'.$field['description']."</td>";
-                        break;
-                    case 'text': // The html to display for the text type
-                        echo '<th class="titledesc" scope="row"><label><strong>'.$field['label'].' </strong></label> '
-                            .get_mandatory_field_html( $field ) . get_tooltip_html( $field ).
-                            '</th>
-								<td class="forminp">';
-                        echo '<input '. $field['disabled']. ' type="text" name="'. $field['name']. '" id="'. $field['id']. '" value="'.$field['value']. '" ' .'" placeholder="'.$field['placeholder']. '" ' . $field['attribute'] .'/>'."</td>";
-                        break;
-                    case 'email': // The html to display for the text type
-                        echo '<th class="titledesc" scope="row"><label><strong>'.$field['label'].'</strong></label>'
-                            .get_mandatory_field_html( $field ) . get_tooltip_html( $field ).
-                            '</th>
-								<td class="forminp">';
-                        echo '<input '. $field['disabled']. ' type="email" name="'. $field['name']. '" id="'. $field['id']. '" value="'.$field['value']. '" ' .'" placeholder="'.$field['placeholder']. '" ' . $field['attribute'] .' class="requiredField" />'."</td>";
-                        break;
-                    case 'select': // The html to display for the text type
-                        echo '<th class="titledesc" scope="row"><label><strong>'.$field['label'].'</strong></label>'
-                            .get_mandatory_field_html( $field ) .get_tooltip_html( $field ).
-                            '</th>
-								<td class="forminp">';
-                        echo '<select '. $field['disabled']. ' name="'. $field['name']. '" id="'. $field['id']. '" >';
-                        foreach( $field['options'] as $each_option ){
-                            echo '<option '. $each_option['selected'].'  value="'.$each_option['value']. '" >' . $each_option['label']. '</option>';
-                        }
-                        echo '</select ></td>';
-                        break;
-                    case 'textarea': // The html to display for the textarea type
-                        echo '<th class="titledesc" scope="row"><label><strong>'.$field['label'].'</strong></label>'
-                            .get_mandatory_field_html( $field ) . get_tooltip_html( $field ).
-                            '</th>
-								<td class="forminp">';
-                        echo '<textarea name="'. $field['name']. '" id="'.$field['id']. '"placeholder="'. $field['placeholder']. '">'. $field['value']. '</textarea></td>';
-                        break;
-                    case 'texteditor':
-                        echo '<th class="titledesc" scope="row"><label><strong>'.$field['label'].'</strong></label>'
-                            .get_mandatory_field_html( $field ) .get_tooltip_html( $field ).
-                            '</th><td class="forminp">';
-                        wp_editor( $field['value'] , 'product-textarea', $field['settings']);
-                        echo '</td>';
-                        break;
-                    case 'hidden': // The html to display for the text type
-                        echo '<th class="titledesc" scope="row"></th>
-								<td class="forminp">';
-                        echo '<input type="hidden" name="'. $field['name']. '" id="'. $field['id']. '" value="'.$field['value']. '"' . $field['attribute'] .'/>'."</td>";
-                        break;
-                }
-                if( $field['type'] === 'submit_button' ){
-                    echo '<th class="titledesc" scope="row"></th><td class="forminp">';
-                    echo '<input style="display:'.$field['display'].'; " name="'.$field['name'].'" id="'.$field['id'].'" class="button-primary" type="submit" value="'.$field['label'].'" /></td>';
-                }
-            }
-            echo '</tr></tbody></table>';
-            wp_nonce_field( );
-            echo '</form>';
-        }
-    }
-    /* Bestbuy-bestsell  Group Price Save
-    * bestbuy_bestsell_group_price_save
-    *Return Success / Failure Message
-    */
-    add_action('bestbuy_bestsell_group_price_save', 'group_price_save', 1 , 1 );
-    function group_price_save( $form_fields ){
-
-        global $sanitize_post_data, $messages, $form_validation_errors, $price_data;
-
-        $messages = array();
-        $sanitize_post_data = array();
-        $save_success = 0;
-        $update_success= 0;
-        //$form_validation_errors = new WP_Error();
-
-        if(	isset( $_POST[ 'price_save' ] ) || isset( $_POST[ 'price_update' ] ) ){
-
-            do_action( 'bestbuy_bestsell_group_price_form_validation' );
-            if ( isset( $form_validation_errors ) && sizeof( $form_validation_errors->get_error_messages() ) > 0 )  		 {
-                //print_r( $form_validation_errors );
-            }else{
-                //validate_settings_fields( $form_fields , 'product_interest_header_form' );
-                $bestbuy_bestsell_group_price_object = new Bestbuybestsell_Interest();
-                $price_data['group_id'] = $_REQUEST['group_id'];
-
-                if(	isset( $_POST[ 'price_save' ] ) ){
-                    $price_data['add_date'] = date("Y-m-d");
-                    $save_success = $bestbuy_bestsell_group_price_object ->set_group_price( $price_data );
-                }elseif(	isset( $_POST[ 'price_update' ] ) ){
-                    $group_price_id = $_REQUEST['group_price_id'];
-                    $update_success = $bestbuy_bestsell_group_price_object ->update_group_price( $price_data , $group_price_id );
-                }
-            }
-        }
-        if( $save_success ){
-            $_SESSION['price_saved'] = 1;
-            wp_safe_redirect(  add_query_arg( $url_param )  );
-            exit;
-        }
-        if( $update_success ){
-            $_SESSION['price_updated'] = 1;
-            $url_param = array(
-                'action' => false,
-                'group_price_id=' => false,
-            );
-            wp_safe_redirect(  add_query_arg( $url_param )  );
-            exit;
-        }
-        //print_r( $sanitize_post_data );
-    }
-
-    /* Bestbuy-bestsell  Send E-mail To Group  Form Validation
-    * bestbuy_bestsell_send_email_to_group_form_validation
-    *Return Validation Error Messages
-    */
-    add_action( 'bestbuy_bestsell_send_email_to_group_form_validation', 'send_email_to_group_form_validation' , 10 );
-    function send_email_to_group_form_validation(  ){
-        global $form_validation_errors, $email_data;
-        $form_validation_errors = new WP_Error();
-
-        $email_data['group_id'] = isset( $_POST['group_id'] ) ? absint( $_POST['group_id'] ) : '' ;
-        $email_data['email_subject'] = isset( $_POST['email_subject'] ) ?  $_POST['email_subject']  : '' ;
-        $email_data['email_message_to_interest_grp'] = isset( $_POST['email_subject'] ) ?  $_POST['email_message_to_interest_grp']  : '' ;
-        $email_data['confirmation_within'] = isset( $_POST['confirmation_within'] ) ?  absint( $_POST['confirmation_within'] )  : '' ;
-        $email_data['payment_within'] = isset( $_POST['payment_within'] ) ?  absint( $_POST['payment_within'] )  : '' ;
-        $email_data['same_price_to_all'] = isset( $_POST['same_price_to_all'] ) ?   $_POST['same_price_to_all']   : '' ;
-
-        if( empty( $email_data['email_subject'] ) ){
-            $form_validation_errors->add('empty_email_subject', __("Subject Can't be empty!!!") );
-        }
-        if( empty( $email_data['email_message_to_interest_grp'] ) ){
-            $form_validation_errors->add('empty_email_message_to_interest_grp', __("Message Can't be empty!!!") );
-        }
-    }
-    /* Bestbuy-bestsell  Group Price Form Validation
-    * bestbuy_bestsell_group_price_form_validation
-    *Return Validation Error Messages
-    */
-    add_action( 'bestbuy_bestsell_group_price_form_validation', 'group_price_form_validation' , 10 );
-    function group_price_form_validation(  ){
-        global $form_validation_errors, $price_data;
-        $form_validation_errors = new WP_Error();
-
-        $price_data['no_of_sells'] = isset( $_POST['no_of_sells'] ) ? absint( $_POST['no_of_sells'] ) : '' ;
-        $price_data['inmid_price'] = isset( $_POST['inmid_price'] ) ? (double) $_POST['inmid_price']  : '' ;
-        $price_data['vendor_price'] = isset( $_POST['vendor_price'] ) ? (double) $_POST['vendor_price']  : '' ;
-        $price_data['shipping_price'] = isset( $_POST['shipping_price'] ) ? (double) $_POST['shipping_price']  : '' ;
-
-        if( empty( $price_data['no_of_sells'] ) ){
-            $form_validation_errors->add('empty_no_of_sells', __("No Of Sells Can't be empty!!!'") );
-        }
-        if( empty( $price_data['inmid_price'] ) ){
-            $form_validation_errors->add('empty_inmid_price', __("!NMID Price Can't be empty!!!'") );
-        }
-        if( empty( $price_data['vendor_price'] ) ){
-            $form_validation_errors->add('empty_vendor_price', __("Vendor Price Can't be empty!!!'") );
-        }
-    }
-
-    function get_mandatory_field_html( $data ) {
-        return $data['mandatory'] ? '<span class="mandatory_field_class" >*</span>' : '';
-    }
     /*
     * Bestbuy_bestsell Business Menu : Payment Method Tab
     * Render All Sub-tab for Bestbuy_bestsell Business Admin Menu: Payment Method Tab
@@ -1084,7 +136,6 @@ function mirano_child_setup(){
         do_action('bestbuy_bestsell_business_menu_section_payment_method_'.$build_subtab );
         do_action('bestbuy_bestsell_business_menu_section_settings_form_display',  $payment_method_form_fields, $payment_method_form_header );
         do_action( 'bestbuy_bestsell_business_menu_section_settings_payment_method_save_settings', $payment_method_form_fields );
-
     }
     /*
     * Bestbuy_bestsell Business Menu : Payment Method Tab
@@ -1263,9 +314,9 @@ function mirano_child_setup(){
         );
     }
     /*
-* Bestbuy_bestsell Business Menu : Payment Method Tab
-* Render Settings for: Invoice Payment Method
-*/
+    * Bestbuy_bestsell Business Menu : Payment Method Tab
+    * Render Settings for: Invoice Payment Method
+    */
     add_action('bestbuy_bestsell_business_menu_section_payment_method_invoice', 'payment_method_invoice' );
     function payment_method_invoice(  ){
         global $payment_method_form_fields, $payment_method_form_header, $options_value, $build_subtab;
@@ -1301,9 +352,9 @@ function mirano_child_setup(){
         );
     }
     /*
-* Bestbuy_bestsell Business Menu : Payment Method Tab
-* Render Settings Form for : All types of payment method
-*/
+    * Bestbuy_bestsell Business Menu : Payment Method Tab
+    * Render Settings Form for : All types of payment method
+    */
     add_action( 'bestbuy_bestsell_business_menu_section_settings_form_display', 'section_settings_form_display' , 10, 2 );
     function section_settings_form_display( $options , $form_header){
         if( $form_header ){
@@ -1372,7 +423,6 @@ function mirano_child_setup(){
                     echo '<input name="'.$field['name'].'" class="button-primary" type="submit" value="'.$field['label'].'" /></td>';
                 }
             }
-
             echo '</tr></tbody></table>';
             wp_nonce_field( );
             echo '</form>';
@@ -1388,7 +438,7 @@ function mirano_child_setup(){
         if ( isset( $data['tooltip_label'] )) {
             $tip = $data['tooltip_label'];
         }
-        return $tip ? '<a title="' . esc_attr( $tip ) . '" > <img class="help_tip" data-tip="' . esc_attr( $tip ) . '" src="' . CODEDROP_DIR . '/images/help.png" height="16" width="16" /></a>' : '';
+        return $tip ? '<a title="' . esc_attr( $tip ) . '" > <img class="help_tip" data-tip="' . esc_attr( $tip ) . '" src="' . BESTBUY_BESTSELL_DIR . '/images/help.png" height="16" width="16" /></a>' : '';
     }
     /*
     * Bestbuy-bestsell Business Menu : Payment Method Tab
@@ -1441,12 +491,12 @@ function mirano_child_setup(){
                     $field = $function_call ( $value , $form_type );
                     $sanitize_post_data[ $value['name'] ] = $field;
 
-                // Look for a validate_FIELDTYPE_field method
+                    // Look for a validate_FIELDTYPE_field method
                 } elseif ( function_exists( 'validate_' . $value['type'] . '_field' ) ) {
                     $function_call = 'validate_' . $value['type'] . '_field';
                     $field = $function_call ( $value, $form_type );
                     $sanitize_post_data[ $value['name'] ] = $field;
-                // Default to text
+                    // Default to text
                 } else {
                     $field = validate_text_field( $value, $form_type );
                     $sanitize_post_data[ $value['name'] ] = $field;
@@ -1514,7 +564,6 @@ function mirano_child_setup(){
      * @param $current_subtab
      * @return Bestbuy-bestsell Interest Lists Section
      */
-
     add_action( 'bestbuy_bestsell_business_menu_section_settings_interest_lists', 'bestbuy_bestsell_interest_lists_section' ,10, 1 );
     function bestbuy_bestsell_interest_lists_section( $current_subtab ){
         global $build_subtab;
@@ -1523,7 +572,6 @@ function mirano_child_setup(){
         //do_action('inmid_business_menu_section_settings_form_display',  $payment_method_form_fields, $payment_method_form_header );
         //do_action( 'inmid_business_menu_section_settings_payment_method_save_settings', $payment_method_form_fields, $build_subtab );
     }
-
     /**
      * Bestbuy-bestsell Interest Lists:  Group By Product
      *
@@ -1539,12 +587,11 @@ function mirano_child_setup(){
             case 'product-interest-lists':
                 $search_text = __( 'Search Interests' );
                 break;
-
             default:
                 $search_text = __( 'Search Products' ) ;
         }
         echo '<form method="post" id="bestbuy_bestsell_interest">';
-        $bestbuy_bestsell_interest_list_object->prepare_interest_lists_items(  );
+        $bestbuy_bestsell_interest_list_object->prepare_interest_lists_items( );
         $bestbuy_bestsell_interest_list_object->search_box( $search_text , 'product_interest_search' );
         //$this->display();
         $bestbuy_bestsell_interest_list_object->display();
@@ -1552,19 +599,476 @@ function mirano_child_setup(){
         echo '</form>';
     }
     /**
+     * Show menu header message for Bestbuy_bestsell Admin Menu
+     *
+     */
+    add_action( 'bestbuy_bestsell_show_menu_header_message', 'show_menu_header_message', 10 );
+    function show_menu_header_message( ){
+        global $current_subtab, $current_tab, $product_id, $interest_group_id, $group_info, $group_details, $search, $build_subtab, $subtabs, $sql_posts_total, $product_interest_lists, $group_details, $show_description_header, $user_action ;
+        $show_description_header = FALSE;
+        $show_interest_details_section = FALSE;
+        $bestbuy_bestsell_interest_list_object = new Bestbuybestsell_Interest();
+
+        $product_interest_lists = $bestbuy_bestsell_interest_list_object ->get_product_interest_lists( $per_page = 5 , $page_number = 1, 'product_details' );
+        if( 'product-interest-lists' != $user_action ){
+            $group_info = $bestbuy_bestsell_interest_list_object ->get_group_info( $interest_group_id );
+            $group_details = $bestbuy_bestsell_interest_list_object ->get_interest_group_details( $per_page = 5, $page_number = 1 , $interest_group_id, $group_price_id , 'group_details');
+        }
+        switch( $current_tab ){
+            case 'interest_lists':
+                if( empty( $current_subtab ) && empty( $user_action ) ){
+                    $header_message = __('Step 1 : Interest Lists');
+                }
+                elseif( isset( $user_action ) && 'product-interest-lists' === $user_action ){
+                    $header_message = __('Step 1.1 : Interest List For ');
+                    $header_message .= '" '.get_the_title( $product_id ).' "';
+                    $show_description_header = TRUE;
+                }
+                elseif( isset( $user_action ) && 'view_interest_details' === $user_action ){
+                    $header_message = __('Interest Details For ');
+                    $header_message .= '" '.get_the_title( $product_id ).' "';
+                    $show_interest_details_section = TRUE;
+                }
+                break;
+            case 'interest_groups':
+                if( empty( $current_subtab ) && empty( $user_action ) ){
+                    $header_message = __('Step 2 : Interest Groups ');
+                }
+                elseif( isset( $user_action ) && 'view-group-details' === $user_action ){
+                    $header_message = __('Step 2.1 : Interest Group For ');
+                    $header_message .= '" '.get_the_title( $product_id ).' "';
+                    $show_description_header = TRUE;
+                }
+                elseif( isset( $user_action ) && 'set-group-price' === $user_action ){
+                    $header_message = __('Step 2.2 : Set Price For ');
+                    $header_message .= '" '.get_the_title( $product_id ).' "';
+                    $show_description_header = TRUE;
+                }
+                elseif( isset( $user_action ) && 'add-more-interests' === $user_action ){
+                    $header_message = __('Add To Group : Add More Interest To ');
+                    $header_message .= '" '.$group_info[0]['group_name'].' "';
+                    $show_description_header = TRUE;
+                }
+                break;
+            case 'interest_confirmed_groups':
+                if( empty( $current_subtab ) && empty( $user_action ) ){
+                    $header_message = __('Step 3 : Confirmed Interest Groups ');
+                }elseif( isset( $user_action ) && 'view-confirmed-group-details' === $user_action ){
+                    $header_message = __('Step 3.1 : Confirmed Interest Group For ');
+                    $header_message .= '" '.get_the_title( $product_id ).' "';
+                    $show_description_header = TRUE;
+                }elseif( isset( $user_action ) && 'add-more-interests-to-confirmed-group' === $user_action ){
+                    $header_message = __('Add To Confirmed Group : Add More Interest To ');
+                    $header_message .= '" '.$group_info[0]['group_name'].' "';
+                    $show_description_header = TRUE;
+                }
+                break;
+            case 'interest_failed_groups':
+                if( empty( $current_subtab ) && empty( $user_action ) ){
+                    $header_message = __('Step 5 : Failed Interest Groups ');
+                }elseif( isset( $user_action ) && 'view-failed-group-details' === $user_action ){
+                    $header_message = __('Step 5.1 : Failed Interest Group For ');
+                    $header_message .= '" '.get_the_title( $product_id ).' "';
+                    $show_description_header = TRUE;
+                }
+                break;
+        }
+        echo '<div class="campaign_step" > <h2 >'. $header_message . '</h2> </div><br class="clear" />';
+        if( $show_description_header ){
+            do_action( 'bestbuy_bestsell_show_product_interest_description_header' );
+        }
+        if( $show_interest_details_section ){
+            do_action( 'bestbuy_bestsell_show_product_interest_details_section' );
+        }
+    }
+
+    ////////////////////////////////////////////////////////////
+    /**
+     * Show show_product_interest_details_section for a Particular Interest
+     * Show Product Title, Product Thumb , No of Interest, No of Interester, Group Name, Group Closing Date, */
+    add_action( 'bestbuy_bestsell_show_product_interest_details_section' , 'show_product_interest_details_section' , 5 );
+    function show_product_interest_details_section( ){
+        global $product_interest_id, $user_product_interest_details;
+        $bestbuy_bestsell_interest_details_object = new Bestbuybestsell_Interest();
+        $user_product_interest_details = $bestbuy_bestsell_interest_details_object ->user_product_interest_details( $product_interest_id );
+    }
+
+    /**
+     *Show show_product_interest_details_section for a Particular Interest
+     * Show Product Title, Product Thumb , No of Interest, No of Interester, Group Name, Group Closing Date, */
+    add_action( 'bestbuy_bestsell_show_product_interest_details_section' , 'show_product_interest_details_section_interest_details' , 10 );
+    function show_product_interest_details_section_interest_details( ){
+        global $product_interest_id, $user_product_interest_details;
+        $bestbuy_bestsell_interest_details_object = new Bestbuybestsell_Interest();
+        ?>
+        <div class="product_interest_description_header">
+        <h2><?php _e('Interest Details'); ?> </h2>
+        <?php
+        if( $user_product_interest_details ){
+            $post_thumbnail = get_the_post_thumbnail( $user_product_interest_details[0]['ID'], 'medium' );
+            $interest_meta_details = $bestbuy_bestsell_interest_details_object ->get_user_product_interest_meta( $product_interest_id );
+            ?>
+            <div class="interest_details">
+                <div class="product_thumb">
+                    <?php echo $post_thumbnail."<br/>";
+                    if( $user_product_interest_details[0]['post_status']!='publish' ){ ?>
+                    <span class="product_status">
+					<?php  _e('Waiting for approval');
+                    }
+                    ?> </span>
+                </div>
+                <div class="interest_info">
+				<span class="product_title">
+					<?php echo $user_product_interest_details[0]['post_title']." ( ". $user_product_interest_details[0]['interest_qty']." Pc"; if( $user_product_interest_details[0]['interest_qty'] > 1 ){ echo "s";} echo " )"; ?>
+				</span><br/><br/>
+                    <?php
+                    ////////////////////////////////////////////////
+                    $interest_meta_array = array();
+                    if( $interest_meta_details ) {
+                        foreach( $interest_meta_details as $interest_meta_data ) {
+                            if( $interest_meta_data ){
+                                $interest_meta_array[$interest_meta_data['meta_name']] = $interest_meta_data['meta_value'];     }
+                        }
+                        $submit_btn_name = "interest_update";
+                        $submit_btn_value = "Update";
+                    }else{ ?>
+                        <span class="meta_not_available">
+						<?php
+                        _e("Please Choose Product Attributes ");
+                        $submit_btn_name = "interest_assign";
+                        $submit_btn_value = "Save";
+                        ?>
+					</span>
+                    <?php }
+                    if( $user_product_interest_details[0]['post_status'] ==='publish' ){
+                        if( isset( $_SESSION['interest_assign_success'] ) ){
+                            echo '<p class="sucess_messages">';
+                            _e("Attributes Saved Successfully");
+                            unset( $_SESSION['interest_assign_success'] ) ;
+                            echo '</p>';
+                        }
+                        $product_attributes = get_field('attributes', $user_product_interest_details[0]['ID']);
+                        if( $product_attributes ) {
+                            ?>
+                            <div class="interest_assign">
+                                <form method="post" name="interest_assign">
+                                    <div style="margin:0 0 10px 0; float:left;">
+                                        <?php
+                                        $num_cloms = 0;
+                                        foreach( $product_attributes as $product_attribute ) {
+                                            if($product_attribute){ $num_cloms++; ?>
+                                                <div class="product_attribute_div" style="margin:0 20px 10px 0; padding-right:5px; float:left;  background: none repeat-x scroll 0 0;">
+                                                    <?php 		///$interest_meta_array = array();
+                                                    echo '<h4>'.$product_attribute['label'].'</h4>';
+                                                    if($product_attribute['values']){
+                                                        foreach($product_attribute['values'] as $value) {
+                                                            ?>
+                                                            <label><input type="radio" name="<?php echo $product_attribute['label']; ?>" value="<?php echo $value['value']; ?>"
+                                                                    <?php if( strtolower( $interest_meta_array[ $product_attribute["label"] ] )  == strtolower( $value['value'] ) ){ ?> checked=checked <?php } ?> > <?php echo $value['value']; ?> </label> <br />						     <?php
+                                                        }
+                                                    }?>
+                                                </div>
+                                                <?php if($num_cloms==3){ $num_cloms = 0; ?> <div style="clear:both;"> </div> <?php }
+                                            }
+                                        }
+                                        ?>
+                                        <input type="hidden" name="product_interest_id" value="<?php echo $product_interest_id; ?>" />
+                                        <input type="hidden" name="user_id" value="<?php echo $user_product_interest_details[0]['user_id']; ?>" />
+                                        <input type="hidden" name="product_id" value="<?php echo $user_product_interest_details[0]['product_id']; ?>" />
+                                        <div class="submit_btn"> <input type="submit" name="<?php echo $submit_btn_name; ?>" value="<?php echo $submit_btn_value;?>" /></div>
+                                    </div>
+                                </form>
+                            </div>
+                        <?php } } ?>
+                    <div style="clear:both;"> </div>
+                    <span class="start-date_label"> <?php _e("Interest Start"); ?> : </span>
+					<span class="start-date">
+						<?php if( $user_product_interest_details[0]['interest_start_date'] ){
+                            echo date( "Y-m-d", $user_product_interest_details[0]['interest_start_date'] ); }
+                        elseif( $user_product_interest_details[0]['asa_price_is_reasonable'] ){ _e("As soon as price is reasonable"); } ?>
+					</span>
+                    <?php if( $user_product_interest_details[0]['interest_end_date'] ){ ?>
+                        <br/><span class="end-date_label"> <?php _e("Interest End"); ?> : </span>
+                        <span class="start-date"> <?php echo date( "Y-m-d", $user_product_interest_details[0]['interest_end_date'] );  ?></span>
+                    <?php } ?>
+                    <?php if( $user_product_interest_details[0]['interest_recuring_purchase'] ){ ?>
+                        <br/><span class="end-date_label"> <?php _e("Re-curing Purchase"); ?> : </span>
+                        <span class="start-date">
+							<?php echo $user_product_interest_details[0]['interest_recuring_purchase'];  ?></span>
+                    <?php } ?>
+                    <?php if( $user_product_interest_details[0]['interest_notes'] ){ ?>
+                        <br/><span class="end-date_label"> <?php _e(" Interest Notes"); ?> : </span>
+                        <span class="start-date"> <?php echo $user_product_interest_details[0]['interest_notes'];  ?></span>
+                    <?php } ?>
+                </div>
+            </div><br class="clear">
+            </div>
+            <?php
+        }
+    }
+    /**
+     * Show show_product_interest_details_section for a Particular Interest
+     * Show Product Title, Product Thumb , No of Interest, No of Interester, Group Name, Group Closing Date,
+     */
+    add_action( 'bestbuy_bestsell_show_product_interest_details_section' , 'show_product_interest_details_section_interest_by_details' , 15 );
+    function show_product_interest_details_section_interest_by_details( ){
+        global $product_interest_id, $user_product_interest_details, $interest_by_details ;
+
+        ?>
+        <div class="interest_by">
+            <h2> <?php _e("Interest By"); ?> : </h2>
+            <div class="interest_by_thumb"> <?php echo get_avatar( $user_product_interest_details[0]['user_id']	, "302", "", "Not Available" ); ?> </div>
+        </div>
+        <div class="interest_by_info">
+        <?php
+        ////////////////////////////////////////////////
+        $interest_by_details = get_userdata( $user_product_interest_details[0]['user_id'] );
+        $interest_by_meta = get_user_meta( $user_product_interest_details[0]['user_id'] );
+        $user_id = $user_product_interest_details[0]['user_id'];
+        //print_r($interest_by_meta); exit;
+        if( $interest_by_details ) { ?>
+            <span class="user_name">
+					<a href="user-edit.php?user_id=<?php echo $user_product_interest_details[0]['user_id']; ?>">
+                        <?php
+                        echo $interest_by_details->display_name;
+                        if( $interest_by_details->roles ){
+                            echo " ( ".$current_user_role = implode(', ', $interest_by_details->roles)." )" ;
+                        }
+                        ?>
+                    </a>
+					</span>
+            <?php if( $interest_by_meta['first_name'][0] || $interest_by_meta['last_name'][0] ){ ?>
+                <br/><br/><span class="interest_by_name_label"> <?php _e("Name"); ?> : </span>
+                <span class="person_name"> <?php echo $interest_by_meta['first_name'][0]? $interest_by_meta['first_name'][0]: "";  echo $interest_by_meta['last_name'][0]? "&nbsp;".$interest_by_meta['last_name'][0]: ""; ?></span>
+            <?php }
+            if( $interest_by_details->user_email ){ ?>
+                <br/><span class="interest_by_name_label"> <?php _e("E-mail"); ?> : </span>
+                <span class="person_name"> <?php echo $interest_by_details->user_email; ?></span>
+            <?php }
+            if( $interest_by_meta['phone'][0] ){ ?>
+                <br/><span class="interest_by_name_label"> <?php _e("Phone"); ?> : </span>
+                <span class="person_name"> <?php echo $interest_by_meta['phone'][0]; ?></span>
+            <?php }
+            if( $interest_by_meta['user_country'][0] ){ ?>
+                <br/><span class="interest_by_name_label"> <?php _e("Country"); ?> : </span>
+                <span class="person_name"> <?php echo $interest_by_meta['user_country'][0]; ?></span>
+            <?php }
+            if( $interest_by_meta['city'][0] ){ ?>
+                <br/><span class="interest_by_name_label"> <?php _e("City"); ?> : </span>
+                <span class="person_name"> <?php echo $interest_by_meta['city'][0]; ?></span>
+            <?php }
+            if( $user_product_interest_details[0]['authorative_person'] ){ ?>
+                <br/><span class="authoritative_person_info"> <?php _e("Authoritative Person Info"); ?> : </span><br/><span class="interest_by_name_label"> <?php _e("Name"); ?> : </span>
+                <span class="person_name"> <?php echo $user_product_interest_details[0]['authorative_person_first_name']."&nbsp;".$user_product_interest_details[0]['authorative_person_last_name']; ?></span><br/><span class="interest_by_name_label"> <?php _e("E-mail"); ?> : </span>
+                <span class="person_name"> <?php echo $user_product_interest_details[0]['authorative_person_email']; ?></span><br/><span class="interest_by_name_label"> <?php _e("Phone"); ?> : </span><span class="person_name"> <?php echo $user_product_interest_details[0]['authorative_person_phone']; ?></span>
+            <?php }
+            ?>
+            </div>
+        <?php }else{ ?>
+            <span class="user_name"> <?php _e("Visitor"); ?></span>
+            <br/><br/><span class="interest_by_name_label"> <?php _e("E-mail"); ?> : </span>
+            <span class="person_name"> <?php echo $user_product_interest_details[0]['interest_visitor_email']; ?></span><br/><span class="interest_by_name_label"> <?php _e("Phone"); ?> : </span><span class="person_name"> <?php echo $user_product_interest_details[0]['interest_visitor_phone']; ?></span>
+        <?php }
+
+    }
+    /**
+     *Show show_product_interest_details_section for a Particular Interest
+     * Show Product Title, Product Thumb , No of Interest, No of Interester, Group Name, Group Closing Date,
+     */
+    add_action( 'bestbuy_bestsell_show_product_interest_details_section' , 'show_product_interest_details_section_interest_shipping_details' , 20 );
+    function show_product_interest_details_section_interest_shipping_details( ){
+        global $product_interest_id, $user_product_interest_details, $interest_by_details ;
+
+        ?>
+        <div class="shipping_address" >
+        <?php
+        if( $interest_by_details ) { ?>
+            <br/><span class="authoritative_person_info"> <?php _e("Shipping Address"); ?> : </span><br/>
+            <?php
+            $address = '';
+            $address .= get_user_meta( $user_id, 'shipping_first_name', true );
+            $address .= ' ';
+            $address .= get_user_meta( $user_id, 'shipping_last_name', true );
+            $address .= "<br/>";
+            $address .= get_user_meta( $user_id, 'shipping_company', true );
+            $address .= "<br/>";
+            $address .= get_user_meta( $user_id, 'shipping_address_1', true );
+            $address .= "<br/>";
+            $address .= get_user_meta( $user_id, 'shipping_address_2', true );
+            $address .= "<br/>";
+            $address .= get_user_meta( $user_id, 'shipping_city', true );
+            $address .= "<br/>";
+            $address .= get_user_meta( $user_id, 'shipping_state', true );
+            $address .= "<br/>";
+            $address .= get_user_meta( $user_id, 'shipping_postcode', true );
+            $address .= "<br/>";
+            $address .= get_user_meta( $user_id, 'shipping_country', true );
+            echo $address;
+            ?>
+            <br/><span class="authoritative_person_info"> <?php _e("Billing Address"); ?> : </span><br/>
+            <?php
+            $address = '';
+            $address .= get_user_meta( $user_id, 'billing_first_name', true );
+            $address .= ' ';
+            $address .= get_user_meta( $user_id, 'billing_last_name', true );
+            $address .= "<br/>";
+            $address .= get_user_meta( $user_id, 'billing_company', true );
+            $address .= "<br/>";
+            $address .= get_user_meta( $user_id, 'billing_address_1', true );
+            $address .= "<br/>";
+            $address .= get_user_meta( $user_id, 'billing_address_2', true );
+            $address .= "<br/>";
+            $address .= get_user_meta( $user_id, 'billing_city', true );
+            $address .= "<br/>";
+            $address .= get_user_meta( $user_id, 'billing_state', true );
+            $address .= "<br/>";
+            $address .= get_user_meta( $user_id, 'billing_postcode', true );
+            $address .= "<br/>";
+            $address .= get_user_meta( $user_id, 'billing_country', true );
+            echo $address;
+            ?>
+            </div>
+
+            <?php
+        }
+        ?>
+        <br class="clear">
+        <?Php
+    }
+
+    /**
+     *Show show_product_interest_details_section for a Particular Interest
+     * Show Product Title, Product Thumb , No of Interest, No of Interester, Group Name, Group Closing Date,
+     */
+    add_action( 'bestbuy_bestsell_show_product_interest_details_section' , 'show_product_interest_details_section_interest_assign_or_update' , 25 );
+    function show_product_interest_details_section_interest_assign_or_update( ){
+        global $product_id, $product_interest_id, $user_product_interest_details, $interest_by_details ;
+
+        if( isset( $_REQUEST['interest_assign'] ) || isset( $_REQUEST['interest_update'] ) ){ //Color: Red | Cover: Strong | Paper-size: A4| Printing: both page | Printing-from: press
+            //$interest_assign_data = $_REQUEST['interest_notes'];
+            $bestbuy_bestsell_interest_details_object = new Bestbuybestsell_Interest();
+            $interest_id = $_REQUEST['product_interest_id'];
+            $product_id = $_REQUEST['product_id'];
+            $user_id = $_REQUEST['user_id'];
+            $wp_product_interest_data['product_id'] = $product_id;
+            $wp_product_interest_data['user_id'] = $user_id;
+
+            $product_attributes = get_field('attributes', $product_id);
+            if( $product_attributes ) {
+                foreach($product_attributes as $product_attribute) {
+                    $interest_assign_data[] = array('name' => $product_attribute['label'], 'value' => $_POST[$product_attribute['label']]);
+                }
+            }	//print_r($interest_assign_data); exit;
+            if( $interest_assign_data ){
+                if( isset( $_REQUEST['interest_assign'] ) ){
+                    $success = $bestbuy_bestsell_interest_details_object ->wp_product_interest_meta_insert( $interest_id, $wp_product_interest_data, $interest_assign_data );
+                    $_SESSION['interest_assign_success'] = $success;
+                }
+                if( isset( $_REQUEST['interest_update'] ) ){
+                    $success = $bestbuy_bestsell_interest_details_object ->wp_product_interest_meta_update( $interest_id, $wp_product_interest_data, $interest_assign_data );
+                    $_SESSION['interest_assign_success'] = $success;
+                }
+            }
+            wp_safe_redirect(  add_query_arg( )  );
+        }
+    }
+    ////////////////////////////////////////////////////////////
+
+    /** Author: ABU TAHER, Logic-coder IT
+     * Ajax function
+     *
+     */
+    /////////////////////////// Admin Ajax ////////////////////////////
+    add_action( 'wp_ajax_update_interest_unit_price', 'update_interest_unit_price_callback' );
+    function update_interest_unit_price_callback() {
+        global $wpdb; // this is how you get access to the database
+        $product_interest_id = $_POST['product_interest_id'];
+        $unit_price= $_POST['unit_price'];
+        $where = array( "product_interest_id" => $product_interest_id);
+        $price_data = array( "interest_unit_price"=> $unit_price );
+        $format_array = array('%f');
+        echo $wpdb->update( 'wp_product_interest', $price_data, $where, $format_array = null, $where_format = null );
+        exit();
+    }
+    add_action( 'wp_ajax_send_email_to_interester', 'send_email_to_interester_callback' );
+    function send_email_to_interester_callback() {
+        global $wpdb, $current_user;
+        $current_user = wp_get_current_user();
+        $dear_text ="";
+        $interest_start_date = "";
+        $interest_end_date = "";
+        $product_interest_id = $_POST['product_interest_id'];
+        $email_message_text = $_POST['email_message_text'];
+        $results_interest = $wpdb->get_results( " SELECT * FROM {$wpdb->prefix}users, {$wpdb->prefix}product_interest, {$wpdb->prefix}posts WHERE {$wpdb->prefix}users.ID = {$wpdb->prefix}product_interest.user_id AND {$wpdb->prefix}product_interest.product_interest_id='".$product_interest_id."' AND {$wpdb->prefix}posts.ID={$wpdb->prefix}product_interest.product_id" );
+        if( $results_interest ){
+            $user_meta_info = get_user_meta( $results_interest[0]->user_id, "" , "" );
+            //return (print_r( $user_meta_info )); exit;
+            if( $user_meta_info['first_name'][0] ){
+                $dear_text = $user_meta_info['first_name'][0];
+            }else{
+                $dear_text = $results_interest[0]->display_name;
+            }
+            if( $results_interest[0]->interest_start_date ){
+                $interest_start_date = date("Y-m-d", $results_interest[0]->interest_start_date );
+                $interest_end_date = date("Y-m-d", $results_interest[0]->interest_end_date );
+            }else{ $interest_start_date = __("As soon as price is reasonable"); }
+            //////////////////////////////////////////////
+
+            //$email_to = "tahersumonabu@gmail.com";
+            $email_to = $results_interest[0]->user_email;
+            /******************************************/
+            $subject="!NMID: A Business Aggregator\n\n";
+            $message  = "<html><body>"."\n";
+            $message .="<table cellpadding='0' cellspacing='0' bgcolor=#319d00 width='100%' style='margin:0 auto'><tr style='font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 11px; color: rgb(255,255,255); line-height: 140%;'><td width='23'></td><td><span>!NMID: A Business Aggregator</span></td></tr></table>"."\n\n";
+            $message .="<p>Dear&nbsp;".$dear_text.",</p>"."\n";
+            $message .="<p>".$email_message_text."</p>"."\n";
+            $message .="<p>Your Interest Details:</p>"."\n";
+            $message .="<p><b>Product Name: </b><a href=".get_site_url()."/all_my_interest/?action=edit&product_interest_id=".$results_interest[0]->product_interest_id."&product_name=".$results_interest[0]->post_name." >".$results_interest[0]->product_name."</a></p>\n";
+            $message .="<p><b>Qty: </b>".$results_interest[0]->interest_qty."</p>\n";
+            $message .="<p><b>Interest Start Date: </b>".$interest_start_date."</p>\n";
+            $message .="<p><b>Interest End Date: </b>".$interest_end_date."</p>\n";
+
+            $message .="<table cellpadding='0' cellspacing='0' bgcolor=#319d00 width='100%' style='margin:0 auto'><tr style='font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 11px; color: rgb(255,255,255); line-height: 140%;'><td width='23'></td><td><span>!NMID: A Business Aggregator</span></td></tr></table>"."\n\n";
+            $message .= "</body></html>\n";
+            $uid = md5(uniqid(time()));
+            $header  = "From: !NMID <".$current_user->user_email.">\r\n";
+            $header .= "Reply-To:".$current_user->user_email."\r\n";
+            $header .= "MIME-Version: 1.0\r\n";
+            $header .= "Content-Type: multipart/mixed; boundary=\"".$uid."\"\r\n\r\n";
+            $header .= "This is a multi-part message in MIME format.\r\n";
+            $header .= "--".$uid."\r\n";
+            $header .= "Content-type:text/html; charset=iso-8859-1\r\n";
+            $header .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
+            $header .= $message."\r\n\r\n";
+            $header .= "--".$uid."\r\n";
+            //$header .= "Content-Type: application/octet-stream; name=\"".$attachment_name."\"\r\n"; // use different content types here
+            $header .= "Content-Transfer-Encoding: base64\r\n";
+            //$header .= "Content-Disposition: attachment; filename=\"".$attachment_name."\"\r\n\r\n";
+            //$header .= $attachedfile."\r\n\r\n";
+            //echo $message; exit;
+            $header .= "--".$uid."--";
+            $attachments ="";
+            $messages = "";
+            if( mail( $email_to , $subject,"",$header) )	{
+                return True;
+            }
+            else{
+                return False;
+            }
+        }
+    }
+    /**
      * Bestbuy-bestsell Interest Groups Section
      *
      * @param $current_subtab
      * @return Bestbuy-bestsell Interest Groups Section
      */
-
     add_action( 'bestbuy_bestsell_business_menu_section_settings_interest_groups', 'bestbuy_bestsell_interest_groups_section' ,10, 1 );
     function bestbuy_bestsell_interest_groups_section( $current_subtab ){
         global $build_subtab;
         $build_subtab = empty( $current_subtab ) ? 'interest_groups' : sanitize_title( $current_subtab );
         do_action('bestbuy_bestsell_business_menu_section_interest_groups_'.$build_subtab );
     }
-
     /**
      * Bestbuy-bestsell Interest Groups
      *
@@ -1594,14 +1098,720 @@ function mirano_child_setup(){
             default:
                 $search_text = __( 'Search Groups' ) ;
         }
-
-        echo '<form method="post" id="inmid_interest_groups">';
+        echo '<form method="post" id="bestbuy_bestsell_interest_groups">';
         $bestbuy_bestsell_interest_list_object->prepare_interest_lists_items( );
         $bestbuy_bestsell_interest_list_object->search_box( $search_text , 'product_interest_groups_search' );
         //$this->display();
         $bestbuy_bestsell_interest_list_object->display();
         //echo '<input type="hidden" name="action" value="'. $inmid_interest_list_object->current_action(). '" />';
         echo '</form>';
+    }
+    /* Bestbuy-bestsell Group Price Form Settings
+    * Show group_price_form
+    */
+    add_action( 'bestbuy_bestsell_group_price_form_settings', 'group_price_form_settings' , 5 );
+    function group_price_form_settings(){
+        global $current_subtab, $current_tab, $product_id, $group_info, $search, $build_subtab, $subtabs,	$sql_posts_total, $product_interest_lists, $product_id, $user_action, $action, $group_price_form_settings_fields, $form_validation_errors, $price_data,$price_data_by_id ;
+
+        $price_data_by_id = '';
+
+        if( isset( $action ) && 'edit-group-price' === $action ){
+            $bestbuy_bestsell_group_price_object = new Bestbuybestsell_Interest();
+            $bestbuy_bestsell_group_price_object ->get_group_price_by_id( $group_id= '', $_REQUEST['group_price_id'] );
+        }
+        if( $group_info ){
+            $submit_btn_name = 'price_save';
+            $submit_btn_value = __( 'Save Price' , TEXTDOMAIN );
+
+            if( $price_data_by_id ){
+                $price_data['group_price_id'] = $price_data_by_id[0]['group_price_id'];
+                $price_data['no_of_sells'] = $price_data_by_id[0]['no_of_sells'];
+                $price_data['bestbuy_bestsell_price'] = $price_data_by_id[0]['bestbuy_bestsell_price'];
+                $price_data['vendor_price'] = $price_data_by_id[0]['vendor_price'];
+                $price_data['shipping_price'] = $price_data_by_id[0]['shipping_price'];
+            }
+        }
+
+        $group_price_form_settings_fields = array(
+
+            'no_of_sells' => array(
+                'label'       => __( 'No Of Sells', TEXTDOMAIN ),
+                'name'        => 'no_of_sells',
+                'id'        => 'no_of_sells',
+                'type'        => 'text',
+                'value'     => $price_data['no_of_sells'] ? $price_data['no_of_sells'] : '',
+                'tooltip_label' => __( 'Price Sets based on number of sells', TEXTDOMAIN ),
+                'mandatory'       => 'yes',
+            ),
+
+            'bestbuy_bestsell_price' => array(
+                'label'       => __( 'Bestbuy-bestsell Price', TEXTDOMAIN ),
+                'name'        => 'bestbuy_bestsell_price',
+                'id'        => 'bestbuy_bestsell_price',
+                'type'        => 'text',
+                'value'     => $price_data['bestbuy_bestsell_price'] ? $price_data['bestbuy_bestsell_price'] : '',
+                'tooltip_label' => __( 'Bestbuy-bestsell Price for consumer', TEXTDOMAIN ),
+                'mandatory'       => 'yes',
+            ),
+
+            'vendor_price' => array(
+                'label'       => __( 'Vendor Price', TEXTDOMAIN ),
+                'name'        => 'vendor_price',
+                'id'        => 'vendor_price',
+                'type'        => 'text',
+                'value'     => $price_data['vendor_price'] ? $price_data['vendor_price'] : '',
+                'tooltip_label' => __( 'Vendor Price for Bestbuy-bestsell', TEXTDOMAIN ),
+                'mandatory'       => 'yes',
+            ),
+
+            'shipping_price' => array(
+                'label'       => __( 'Shipping Price', TEXTDOMAIN ),
+                'name'        => 'shipping_price',
+                'id'        => 'shipping_price',
+                'type'        => 'text',
+                'value'     => $price_data['shipping_price'] ? $price_data['shipping_price'] : '',
+                'tooltip_label' => __( 'Shipping Price for Bestbuy-bestsell consumer', TEXTDOMAIN ),
+            ),
+
+            'group_id' => array(
+                'label'       => '',
+                'name'        => 'group_id',
+                'id'        => 'group_id',
+                'type'        => 'hidden',
+                'value'     => $_REQUEST['group_id'] ? $_REQUEST['group_id'] : '',
+            ),
+
+        );
+
+        if(  'edit-group-price' === $action ){
+            $submit_btn_name = "price_update";
+            $submit_btn_value = __( 'Update Price' , TEXTDOMAIN );
+            $group_price_form_settings_fields [ 'group_price_id' ] = array(
+                'label'       => '',
+                'name'        => 'group_price_id',
+                'id'        => 'group_price_id',
+                'type'        => 'hidden',
+                'value'     => $_REQUEST['group_price_id'] ? $_REQUEST['group_price_id'] : '',	);
+        }
+
+        $group_price_form_settings_fields [ 'submit_button' ] = array(
+            'label'       => $submit_btn_value,
+            'name'        => $submit_btn_name,
+            'id'        => 'product_description_header',
+            'type'        => 'submit_button', );
+
+        do_action( 'bestbuy_bestsell_show_product_interest_description_header_form',  $group_price_form_settings_fields );
+    }
+    /* Bestbuy-bestsell Product Interest Description Header Form Messages
+    * Show product_interest_description_header_form_messages, Messages could be 'Error Messages', 'Sucess Messages', 'Failure Messages'
+    * Return Bestbuy-bestsell Product Interest Description Header Form Messages
+    */
+    add_action( 'bestbuy_bestsell_show_product_interest_description_header_form' , 'product_interest_description_header_form_messages', 1 , 1 );
+    function product_interest_description_header_form_messages( $form_fields ){
+        global $form_validation_errors;
+        ?>
+        <div class='product_header_form_messages' >
+            <?php
+            echo '<p class="sucess_messages">';
+            if( isset( $_SESSION['price_saved'] ) && $_SESSION['price_saved'] ){
+                _e( 'Price Successfully Saved' );
+                $price_data = array();
+                $_SESSION['price_saved'] = '';
+            }
+            if( isset( $_SESSION['price_updated'] ) && $_SESSION['price_updated'] ){
+                _e( 'Price Successfully Updated' );
+                $price_data = array();
+                $_SESSION['price_updated'] = '';
+                $submit_btn_name = "price_save";
+                $submit_btn_value = "Save Price";
+            }
+            if( isset( $_SESSION['group_email_sent'] ) && $_SESSION['group_email_sent'] ){
+                _e( 'E-mail Successfully Sent' );
+                $price_data = array();
+                $_SESSION['group_email_sent'] = '';
+            }
+
+            echo '</p>';
+            if ( isset( $form_validation_errors )  && sizeof( $form_validation_errors->get_error_messages() )  > 0 )  {
+                echo '<p class="error_messages">';
+                foreach ( $form_validation_errors->get_error_messages($code) as $error ) {
+                    echo $error . "<br />";
+                }
+                echo '</p>';
+            }
+            ?>
+        </div>
+        <?php
+    }
+    /* Bestbuy-bestsell Product Interest Description Header Form
+    * Show bestbuy_bestsell_show_product_interest_description_header_form
+    * Return Bestbuy-bestsell Product Interest Description Header Form
+    */
+    add_action('bestbuy_bestsell_show_product_interest_description_header_form',  'show_product_interest_description_header_form' , 2 , 1 );
+    function show_product_interest_description_header_form( $form_fields ){
+
+        if( $form_fields ){
+            echo '<form method="post" enctype="multipart/form-data" id="product_interest_description_header_form" name="product_interest_description_header_form" >';
+            echo '<table class="form-table"><tbody>';
+            foreach( $form_fields as $field ) {
+                echo '<tr valign="top">';
+                switch ( $field['type'] ) {
+                    case 'label':
+                        if( 'table_column_td' === $field['position']  ){
+                            echo '<th class="titledesc" scope="row"></th>
+									<td class="'. $field['class'].'"><label >'.$field['label'].'</label></td>';
+                        }
+                        else{
+                            echo '<th class="titledesc '. $field['class'].'" scope="row"><label >'.$field['label'].'</label></th><td></td>';
+                        }
+                        break;
+                    case 'radio':
+                        //if( 'deal_selection' === $field['name'] ){
+                        echo '<th class="titledesc" scope="row"></th>
+								<td class="'. $field['class'].'"><input type="radio" name="'. $field['name']. '" id="'. $field['id']. '" value="'. $field['value']. '" />&nbsp;'.$field['label']."</td>";
+
+                        //}
+                        break;
+                    case 'checkbox':
+                        echo '<th class="titledesc" scope="row"><label><strong>'.$field['label'].'</strong></label>'
+                            .get_mandatory_field_html( $field ) . get_tooltip_html( $field ).
+                            '</th>
+								<td class="forminp"><input '. $field['checked'].' type="checkbox" name="'. $field['name']. '" id="'. $field['id']. '"  />&nbsp;'.$field['description']."</td>";
+                        break;
+                    case 'text': // The html to display for the text type
+                        echo '<th class="titledesc" scope="row"><label><strong>'.$field['label'].' </strong></label> '
+                            .get_mandatory_field_html( $field ) . get_tooltip_html( $field ).
+                            '</th>
+								<td class="forminp">';
+                        echo '<input '. $field['disabled']. ' type="text" name="'. $field['name']. '" id="'. $field['id']. '" value="'.$field['value']. '" ' .'" placeholder="'.$field['placeholder']. '" ' . $field['attribute'] .'/>'."</td>";
+                        break;
+                    case 'email': // The html to display for the text type
+                        echo '<th class="titledesc" scope="row"><label><strong>'.$field['label'].'</strong></label>'
+                            .get_mandatory_field_html( $field ) . get_tooltip_html( $field ).
+                            '</th>
+								<td class="forminp">';
+                        echo '<input '. $field['disabled']. ' type="email" name="'. $field['name']. '" id="'. $field['id']. '" value="'.$field['value']. '" ' .'" placeholder="'.$field['placeholder']. '" ' . $field['attribute'] .' class="requiredField" />'."</td>";
+                        break;
+                    case 'select': // The html to display for the text type
+                        echo '<th class="titledesc" scope="row"><label><strong>'.$field['label'].'</strong></label>'
+                            .get_mandatory_field_html( $field ) .get_tooltip_html( $field ).
+                            '</th>
+								<td class="forminp">';
+                        echo '<select '. $field['disabled']. ' name="'. $field['name']. '" id="'. $field['id']. '" >';
+                        foreach( $field['options'] as $each_option ){
+                            echo '<option '. $each_option['selected'].'  value="'.$each_option['value']. '" >' . $each_option['label']. '</option>';
+                        }
+                        echo '</select ></td>';
+                        break;
+                    case 'textarea': // The html to display for the textarea type
+                        echo '<th class="titledesc" scope="row"><label><strong>'.$field['label'].'</strong></label>'
+                            .get_mandatory_field_html( $field ) . get_tooltip_html( $field ).
+                            '</th>
+								<td class="forminp">';
+                        echo '<textarea name="'. $field['name']. '" id="'.$field['id']. '"placeholder="'. $field['placeholder']. '">'. $field['value']. '</textarea></td>';
+                        break;
+                    case 'texteditor':
+                        echo '<th class="titledesc" scope="row"><label><strong>'.$field['label'].'</strong></label>'
+                            .get_mandatory_field_html( $field ) .get_tooltip_html( $field ).
+                            '</th><td class="forminp">';
+                        wp_editor( $field['value'] , 'product-textarea', $field['settings']);
+                        echo '</td>';
+                        break;
+                    case 'hidden': // The html to display for the text type
+                        echo '<th class="titledesc" scope="row"></th>
+								<td class="forminp">';
+                        echo '<input type="hidden" name="'. $field['name']. '" id="'. $field['id']. '" value="'.$field['value']. '"' . $field['attribute'] .'/>'."</td>";
+                        break;
+                }
+                if( $field['type'] === 'submit_button' ){
+                    echo '<th class="titledesc" scope="row"></th><td class="forminp">';
+                    echo '<input style="display:'.$field['display'].'; " name="'.$field['name'].'" id="'.$field['id'].'" class="button-primary" type="submit" value="'.$field['label'].'" /></td>';
+                }
+            }
+            echo '</tr></tbody></table>';
+            wp_nonce_field( );
+            echo '</form>';
+        }
+    }
+    /* Bestbuy-bestsell  Group Price Save
+    * bestbuy_bestsell_group_price_save
+    * Return Success / Failure Message
+    */
+    add_action('bestbuy_bestsell_group_price_save', 'group_price_save', 1 , 1 );
+    function group_price_save( $form_fields ){
+
+        global $sanitize_post_data, $messages, $form_validation_errors, $price_data;
+
+        $messages = array();
+        $sanitize_post_data = array();
+        $save_success = 0;
+        $update_success= 0;
+        //$form_validation_errors = new WP_Error();
+
+        if(	isset( $_POST[ 'price_save' ] ) || isset( $_POST[ 'price_update' ] ) ){
+
+            do_action( 'bestbuy_bestsell_group_price_form_validation' );
+            if ( isset( $form_validation_errors ) && sizeof( $form_validation_errors->get_error_messages() ) > 0 )  		 {
+                //print_r( $form_validation_errors );
+            }else{
+                //validate_settings_fields( $form_fields , 'product_interest_header_form' );
+                $bestbuy_bestsell_group_price_object = new Bestbuybestsell_Interest();
+                $price_data['group_id'] = $_REQUEST['group_id'];
+
+                if(	isset( $_POST[ 'price_save' ] ) ){
+                    $price_data['add_date'] = date("Y-m-d");
+                    $save_success = $bestbuy_bestsell_group_price_object ->set_group_price( $price_data );
+                }elseif(	isset( $_POST[ 'price_update' ] ) ){
+                    $group_price_id = $_REQUEST['group_price_id'];
+                    $update_success = $bestbuy_bestsell_group_price_object ->update_group_price( $price_data , $group_price_id );
+                }
+            }
+        }
+        if( $save_success ){
+            $_SESSION['price_saved'] = 1;
+            wp_safe_redirect(  add_query_arg( $url_param )  );
+            exit;
+        }
+        if( $update_success ){
+            $_SESSION['price_updated'] = 1;
+            $url_param = array(
+                'action' => false,
+                'group_price_id=' => false,
+            );
+            wp_safe_redirect(  add_query_arg( $url_param )  );
+            exit;
+        }
+        //print_r( $sanitize_post_data );
+    }
+    /* Bestbuy-bestsell  Group Price Form Validation
+    * bestbuy_bestsell_group_price_form_validation
+    * Return Validation Error Messages
+    */
+    add_action( 'bestbuy_bestsell_group_price_form_validation', 'group_price_form_validation' , 10 );
+    function group_price_form_validation(  ){
+        global $form_validation_errors, $price_data;
+        $form_validation_errors = new WP_Error();
+
+        $price_data['no_of_sells'] = isset( $_POST['no_of_sells'] ) ? absint( $_POST['no_of_sells'] ) : '' ;
+        $price_data['bestbuy_bestsell_price'] = isset( $_POST['bestbuy_bestsell_price'] ) ? (double) $_POST['bestbuy_bestsell_price']  : '' ;
+        $price_data['vendor_price'] = isset( $_POST['vendor_price'] ) ? (double) $_POST['vendor_price']  : '' ;
+        $price_data['shipping_price'] = isset( $_POST['shipping_price'] ) ? (double) $_POST['shipping_price']  : '' ;
+
+        if( empty( $price_data['no_of_sells'] ) ){
+            $form_validation_errors->add('empty_no_of_sells', __("No Of Sells Can't be empty!!!'") );
+        }
+        if( empty( $price_data['bestbuy_bestsell_price'] ) ){
+            $form_validation_errors->add('empty_bestbuy_bestsell_price', __("Bestbuy-bestsell Price Can't be empty!!!'") );
+        }
+        if( empty( $price_data['vendor_price'] ) ){
+            $form_validation_errors->add('empty_vendor_price', __("Vendor Price Can't be empty!!!'") );
+        }
+    }
+    /**
+     * Show show_product_interest_description_header for Bestbuy-bestsell Admin Menu
+     * Show Product Title, Product Thumb , No of Interest, No of Interester, Group Name, Group Closing Date, Group Price settings form
+     */
+    add_action( 'bestbuy_bestsell_show_product_interest_description_header' , 'show_product_interest_description_header' , 10 );
+    function show_product_interest_description_header( ){
+        global $current_subtab, $current_tab, $product_id, $group_info, $search, $build_subtab, $subtabs,$sql_posts_total, $product_interest_lists, $group_details,  $product_id, $user_action, $group_price_form_settings_fields, $sql_total_price_list, $count_interest_qty;
+        $bestbuy_bestsell_interest_list_object = new Bestbuybestsell_Interest();
+        $post_thumbnail = get_the_post_thumbnail( $product_id , 'medium' );
+        $count_interest_qty = $bestbuy_bestsell_interest_list_object->sum_qty_for_product_interest( $product_id, "", $flag= "not_in_group" );
+        if( $group_info ){
+            /*if( $user_action === 'view-group-details'  ){
+                $count_interest_qty = $inmid_interest_list_object->sum_qty_for_group_interest( $group_info[0]['product_id'] , $group_info[0]['group_id'] );
+
+            }elseif( $user_action === 'view-failed-group-details'  ){
+                $count_interest_qty = $inmid_interest_list_object->count_interest_failed( $group_info[0]['product_id'] , $group_info[0]['group_id'] );
+
+            }*/
+
+            $count_interest_qty = $bestbuy_bestsell_interest_list_object->sum_qty_for_group_interest( $group_info[0]['product_id'] , $group_info[0]['group_id'] );
+
+            if( 'view-failed-group-details' === $user_action ){
+                $count_interest_qty = $bestbuy_bestsell_interest_list_object->count_interest_failed( $group_info[0]['product_id'] , $group_info[0]['group_id'] );
+            }
+            if( 'view-confirmed-group-details' === $user_action || 'add-more-interests-to-confirmed-group' === $user_action ){
+                $count_interest_qty = $bestbuy_bestsell_interest_list_object->count_interest_confirmed( $group_info[0]['product_id'] , $group_info[0]['group_id'] );
+            }
+            $bestbuy_bestsell_interest_list_object->get_group_price_by_id( $group_info[0]['group_id'], $group_price_id='' );
+        }
+        ?>
+        <div class="product_interest_description_header">
+            <h2>
+                <?php
+                echo get_the_title( $product_id ). " ( ";
+                echo $count_interest_qty[0]['total_qty'] ? $count_interest_qty[0]['total_qty'] : '0';
+                echo " Pc";
+                echo $count_interest_qty[0]['total_qty'] >  1 ? 's' : '';
+                echo ' ) <br /><br />';
+                _e("Total Interester: ");
+                echo $sql_posts_total;
+                ?>
+            </h2>
+            <!-- Start: interest_details -->
+            <div class="interest_details">
+                <div class="product_thumb"> <?php echo $post_thumbnail;  ?>	</div>
+
+                <!-- Start: group_info -->
+                <div class="interest_info"> <br/>
+					<span class="product_title">
+						<?php
+                        if( $group_info ){
+                            _e('Group: ');
+                            echo $group_info[0]['group_name'].'<br/><br/>';
+                            _e('Group Closing: ');
+                            if( $group_info[0]['group_closing_date']==='asap' ){ _e('asap'); }
+                            else  {	echo date('Y-m-d', $group_info[0]['group_closing_date'] );	}
+
+                            if( isset( $user_action ) && ( 'view-group-details' === $user_action || 'view-confirmed-group-details' === $user_action ) ){
+                                echo '<br/><br/>';
+                                _e('Group Price: ');
+
+                                $url_param = array(
+                                    'tab' => 'interest_groups',
+                                    'user_action' => 'set-group-price',
+                                );
+
+                                echo '<a style="float:inherit;" href="' . add_query_arg( $url_param ) .'" >';
+
+                                if( $sql_total_price_list ){ _e( 'Price Already Set' , TEXTDOMAIN ); } else  { _e( 'Price Not Set Yet' , TEXTDOMAIN ) ;	}
+                                echo '</a><br/><br/>';
+
+                                _e('E-mail To Group: ');
+
+                                switch( $user_action ){
+                                    case 'view-group-details':
+                                        if( $group_info[0]['email_sent'] ){
+                                            _e('E-mail Already Sent');
+                                        }else{
+                                            _e('E-mail Not Sent Yet');
+                                        }
+                                        break;
+
+                                    case 'view-confirmed-group-details':
+                                        if( $group_info[0]['payment_email_sent'] ){
+                                            _e('E-mail Already Sent');
+                                        }else{
+                                            _e('E-mail Not Sent Yet');
+                                        }
+                                        break;
+                                }
+                            }
+                        }
+                        ?>
+					</span>
+                </div> 	<!-- End: group_info -->
+
+            </div>	<!-- End: interest_details -->
+        </div>	<br class="clear">
+        <div class="product_header_form">
+            <?php
+            if( isset( $user_action ) && 'view-group-details' === $user_action ){
+                do_action( 'bestbuy_bestsell_send_email_to_group' );
+                do_action( 'bestbuy_bestsell_send_email_to_group_form_settings' );
+            }elseif( isset( $user_action ) && 'view-confirmed-group-details' === $user_action ){
+                do_action( 'bestbuy_bestsell_send_email_to_confirmed_group' );
+                do_action( 'bestbuy_bestsell_send_email_to_group_form_settings' );
+            }
+            elseif( isset( $user_action ) && 'set-group-price' === $user_action ){
+                do_action( 'bestbuy_bestsell_group_price_save', $group_price_form_settings_fields );
+                do_action( 'bestbuy_bestsell_group_price_form_settings' );
+            }
+            ?>
+        </div><br class="clear">
+        <?php
+    }
+    /**
+     *Show menu lists title for Bestbuy_bestsell Admin Menu
+     *
+     */
+    add_action( 'bestbuy_bestsell_show_menu_lists_title', 'show_menu_lists_title', 10 );
+    function show_menu_lists_title( ){
+        global $current_subtab, $current_tab, $user_action ;
+
+        switch( $current_tab ){
+            case 'interest_lists':
+                if( empty( $current_subtab ) && empty( $user_action ) ){
+                    $title_message = __('Interest Lists');
+                }elseif( isset( $user_action ) && 'product-interest-lists' === $user_action ){
+                    $title_message = __('Product Interest Lists');
+                }
+                break;
+            case 'interest_groups':
+                if( empty( $current_subtab ) && empty( $user_action ) ){
+                    $title_message = __('Interest Group Lists');
+                }elseif( isset( $user_action ) && 'view-group-details' === $user_action ){
+                    $title_message = __('Group Interest Lists');
+                    $url_param = array(
+                        'user_action' => 'add-more-interests',
+                    );
+                    $sub_sub_sub_menu = '<li class="all"> <a href="' . add_query_arg( $url_param ) . '">'. __("Add More Interests" , TEXTDOMAIN ). ' </a></li>';
+
+                }elseif( isset( $user_action ) && 'set-group-price' === $user_action ){
+                    $title_message = __('Group Price Lists');
+                }elseif( isset( $user_action ) && 'add-more-interests' === $user_action ){
+                    $title_message = __('Product Interest Lists');
+                }
+                break;
+            case 'interest_failed_groups':
+                if( empty( $current_subtab ) && empty( $user_action ) ){
+                    $title_message = __('Failed Interest Group Lists');
+                }elseif( isset( $user_action ) && 'view-failed-group-details' === $user_action ){
+                    $title_message = __('Failed Interest Lists');
+                }
+                break;
+            case 'interest_confirmed_groups':
+                if( empty( $current_subtab ) && empty( $user_action ) ){
+                    $title_message = __('Confirmed Interest Group Lists ');
+                }elseif( isset( $user_action ) && 'view-confirmed-group-details' === $user_action ){
+                    $title_message = __('Confirmed Interest Lists');
+                    $url_param = array(
+                        'user_action' => 'add-more-interests-to-confirmed-group',
+                    );
+                    $sub_sub_sub_menu = '<li class="all"> <a href="' . add_query_arg( $url_param ) . '">'. __("Add More Interests" , TEXTDOMAIN ). ' </a></li>';
+                }elseif( isset( $user_action ) && 'add-more-interests-to-confirmed-group' === $user_action ){
+                    $title_message = __('Product Interest Lists');
+                }
+                break;
+        }
+        echo '<h2 >'. $title_message . '</h2>';
+        if( !empty( $sub_sub_sub_menu ) ){
+            echo '<ul class="subsubsub">'. $sub_sub_sub_menu . '</ul>';
+        }
+    }
+    /////////////////////////////////////////////////////////////////////
+    /* Bestbuy-bestsell Send E-mail To Group Form Settings
+    * Show Send E-mail To Group Form
+    */
+    add_action( 'bestbuy_bestsell_send_email_to_group_form_settings', 'send_email_to_group_form_settings' , 5 );
+    function send_email_to_group_form_settings(){
+        global $current_subtab, $current_tab, $product_id, $group_info, $search, $build_subtab, $subtabs,	$sql_posts_total, $user_action, $action, $send_email_to_group_form_settings_fields, $email_data,  $form_validation_errors, $count_interest_qty ;
+
+        $minimum_target_sells = get_post_meta( $group_info[0]['product_id'], 'minimum_target_sells', '' );
+
+        $send_email_to_group_form_settings_fields = array(
+
+            'email_subject' => array(
+                'label'       => __( 'Subject', TEXTDOMAIN ),
+                'name'        => 'email_subject',
+                'id'        => 'email_subject',
+                'type'        => 'text',
+                'value'     => $email_data['email_subject'] ? $email_data['email_subject'] : '',
+                'tooltip_label' => __( 'E-mail Subject', TEXTDOMAIN ),
+                'mandatory'       => 'yes',
+            ),
+
+            'email_message_to_interest_grp' => array(
+                'label'       => __( 'Message', TEXTDOMAIN ),
+                'name'        => 'email_message_to_interest_grp',
+                'id'        => 'email_message_to_interest_grp',
+                'type'        => 'textarea',
+                'value'     => $email_data['email_message_to_interest_grp'] ? $email_data['email_message_to_interest_grp'] : '',
+                'tooltip_label' => __( 'E-mail Body', TEXTDOMAIN ),
+                'mandatory'       => 'yes',
+            ),
+
+        );
+
+        if( 'view-group-details' === $user_action ){
+            $send_email_to_group_form_settings_fields['confirmation_within'] = array(
+                'label'       => __( 'Confirmation Within', TEXTDOMAIN ),
+                'name'       => 'confirmation_within',
+                'id'       => 'confirmation_within',
+                'type'        => 'select',
+                'tooltip_label' => __( 'Interester Must Confirm their interest within this time period', TEXTDOMAIN ),
+                'options'     => array(
+                    array( 'label' => __( '--Please Select--', TEXTDOMAIN ),
+                        'value' => '' ),
+
+                    array( 'label' => __( '24Hours', TEXTDOMAIN ),
+                        'value' => '24' ),
+
+                    array( 'label' => __( '48Hours', TEXTDOMAIN ),
+                        'value' => '48' ),
+
+                    array( 'label' => __( '72Hours', TEXTDOMAIN ),
+                        'value' => '72' )
+                )
+            );
+        }
+        if( 'view-confirmed-group-details' === $user_action ){
+            $send_email_to_group_form_settings_fields['payment_within'] = array(
+                'label'       => __( 'Payment Within', TEXTDOMAIN ),
+                'name'       => 'payment_within',
+                'id'       => 'payment_within',
+                'type'        => 'select',
+                'tooltip_label' => __( 'Interester Must Pay for their interest within this time period', TEXTDOMAIN ),
+                'options'     => array(
+                    array( 'label' => __( '--Please Select--', TEXTDOMAIN ),
+                        'value' => '' ),
+
+                    array( 'label' => __( '24Hours', TEXTDOMAIN ),
+                        'value' => '24' ),
+
+                    array( 'label' => __( '48Hours', TEXTDOMAIN ),
+                        'value' => '48' ),
+
+                    array( 'label' => __( '72Hours', TEXTDOMAIN ),
+                        'value' => '72' )
+                )
+            );
+
+            if( $count_interest_qty[0]['total_qty'] < $minimum_target_sells[0] ){
+                $bestbuy_bestsell_interest_list_object = new Bestbuybestsell_Interest();
+                $minimum_price_list = $bestbuy_bestsell_interest_list_object ->get_minimum_price_list( $group_info[0]['group_id'] );
+                $send_email_to_group_form_settings_fields['mmq_not_reached'] =  array(
+                    'label'   => __('MMQ', TEXTDOMAIN ). ' ( '. $minimum_target_sells[0].' )'.__( ' Not Reached.' , TEXTDOMAIN ),
+                    'name'   => 'mmq_not_reached',
+                    'id'   => 'mmq_not_reached',
+                    'type'    => 'label',
+                    'class' => 'mmq_not_reached',
+                    'position' => 'table_column_td',
+                );
+                $deal_selection_label_text = $minimum_price_list ? $minimum_price_list[0]['inmid_price'].' '.get_currency().'/Unit?': '';
+                $send_email_to_group_form_settings_fields['deal_selection'] =  array(
+                    'label'   => __( 'Still Deal With Price: ', TEXTDOMAIN ). $deal_selection_label_text,
+                    'name'   => 'deal_selection',
+                    'id'   => 'deal_selection',
+                    'type'    => 'radio',
+                    'value' => 'want_to_deal',
+                    'class' => 'deal_selection',
+                    'position' => 'table_column_td',
+                );
+                $send_email_to_group_form_settings_fields['deal_selection_or'] =  array(
+                    'label'   => __( 'Or', TEXTDOMAIN ),
+                    'name'   => 'deal_selection_or',
+                    'id'   => 'deal_selection_or',
+                    'type'    => 'label',
+                    'class' => 'deal_selection_or',
+                    'position' => 'table_column_td',
+
+                );
+                $send_email_to_group_form_settings_fields['dealings_fail'] =  array(
+                    'label'   => __( 'Campaign Fail Message', TEXTDOMAIN ),
+                    'name'   => 'deal_selection',
+                    'id'   => 'deal_selection',
+                    'type'    => 'radio',
+                    'value' => 'dealings_fail',
+                    'class' => 'deal_selection',
+                    'position' => 'table_column_td',
+                );
+            }
+        }
+        if( 'view-group-details' === $user_action ){
+            $send_email_to_group_form_settings_fields['same_price_to_all'] =  array(
+                'label'   => __( 'Send Same price to all', TEXTDOMAIN ),
+                'name'   => 'same_price_to_all',
+                'id'   => 'same_price_to_all',
+                'type'    => 'checkbox',
+                'tooltip_label'   => __( 'Send Group Price To All Interester When this option is enabled; Otherwise send individual price to respective Interester', TEXTDOMAIN ),
+            );
+        }
+        $send_email_to_group_form_settings_fields['group_id'] = array(
+            'label'       => '',
+            'name'        => 'group_id',
+            'id'        => 'group_id',
+            'type'        => 'hidden',
+            'value'     => $group_info[0]['group_id'] ? $group_info[0]['group_id'] : '',
+        );
+        $send_email_to_group_form_settings_fields['submit_button'] =  array(
+            'label'       => __( 'Send E-mail', TEXTDOMAIN ),
+            'name'        => 'send_email',
+            'id'        => 'send_email',
+            'type'        => 'submit_button',
+            'display'        => $count_interest_qty[0]['total_qty'] < $minimum_target_sells[0] ? 'none':'',
+        );
+        if( 'view-group-details' === $user_action ){
+            $send_email_to_group_form_settings_fields['submit_button'] =  array(
+                'label'       => __( 'Send E-mail', TEXTDOMAIN ),
+                'name'        => 'send_email',
+                'id'        => 'send_email',
+                'type'        => 'submit_button',
+            );
+        }
+        do_action( 'bestbuy_bestsell_show_product_interest_description_header_form',  $send_email_to_group_form_settings_fields );
+    }
+    /* Bestbuy-bestsell  Send E-mail To Group
+    * send_email_to_group
+    * Return Success / Failure Message
+    */
+    add_action('bestbuy_bestsell_send_email_to_group', 'send_email_to_group', 1 , 1 );
+    function send_email_to_group( $form_fields ){
+        global $sanitize_post_data, $messages, $form_validation_errors, $email_data, $group_details ;
+        $messages = array();
+        $sanitize_post_data = array();
+        $email_success = 0;
+
+        if(	isset( $_POST[ 'send_email' ] ) ){
+
+            do_action( 'bestbuy_bestsell_send_email_to_group_form_validation' );
+            if ( isset( $form_validation_errors ) && sizeof( $form_validation_errors->get_error_messages() ) > 0 )  		 {
+                //print_r( $form_validation_errors );
+            }else{
+                $bestbuy_bestsell_email_send_to_group = new Bestbuybestsell_Interest();
+                $email_success = $bestbuy_bestsell_email_send_to_group ->send_email_to_interest_group( $email_data, $group_details );
+            }
+        }
+        if( $email_success ){
+            $_SESSION['group_email_sent'] = 1;
+            wp_safe_redirect(  add_query_arg( $url_param )  );
+            exit;
+        }
+    }
+    /* Bestbuy-bestsell  Send E-mail To Confirmed Group
+    * send_email_to_confirmed_group
+    *Return Success / Failure Message
+    */
+    add_action('bestbuy_bestsell_send_email_to_confirmed_group', 'send_email_to_confirmed_group', 1 , 1 );
+    function send_email_to_confirmed_group( $form_fields ){
+
+        global $sanitize_post_data, $messages, $form_validation_errors, $email_data, $group_details ;
+        $messages = array();
+        $sanitize_post_data = array();
+        $email_success = 0;
+
+        if(	isset( $_POST[ 'send_email' ] ) ){
+            do_action( 'bestbuy_bestsell_send_email_to_group_form_validation' );
+            if ( isset( $form_validation_errors ) && sizeof( $form_validation_errors->get_error_messages() ) > 0 )  		 {
+                //print_r( $form_validation_errors );
+            }else{
+                $bestbuy_bestsell_email_send_to_group = new Bestbuybestsell_Interest();
+                $email_success = $bestbuy_bestsell_email_send_to_group ->send_email_to_interest_confirmed( $email_data, $group_details , $_REQUEST['deal_selection'] );
+            }
+        }
+        if( $email_success ){
+            $_SESSION['group_email_sent'] = 1;
+            wp_safe_redirect(  add_query_arg( $url_param )  );
+            exit;
+        }
+    }
+    /* Bestbuy-bestsell  Send E-mail To Group  Form Validation
+    * bestbuy_bestsell_send_email_to_group_form_validation
+    * Return Validation Error Messages
+    */
+    add_action( 'bestbuy_bestsell_send_email_to_group_form_validation', 'send_email_to_group_form_validation' , 10 );
+    function send_email_to_group_form_validation(  ){
+        global $form_validation_errors, $email_data;
+        $form_validation_errors = new WP_Error();
+
+        $email_data['group_id'] = isset( $_POST['group_id'] ) ? absint( $_POST['group_id'] ) : '' ;
+        $email_data['email_subject'] = isset( $_POST['email_subject'] ) ?  $_POST['email_subject']  : '' ;
+        $email_data['email_message_to_interest_grp'] = isset( $_POST['email_subject'] ) ?  $_POST['email_message_to_interest_grp']  : '' ;
+        $email_data['confirmation_within'] = isset( $_POST['confirmation_within'] ) ?  absint( $_POST['confirmation_within'] )  : '' ;
+        $email_data['payment_within'] = isset( $_POST['payment_within'] ) ?  absint( $_POST['payment_within'] )  : '' ;
+        $email_data['same_price_to_all'] = isset( $_POST['same_price_to_all'] ) ?   $_POST['same_price_to_all']   : '' ;
+
+        if( empty( $email_data['email_subject'] ) ){
+            $form_validation_errors->add('empty_email_subject', __("Subject Can't be empty!!!") );
+        }
+        if( empty( $email_data['email_message_to_interest_grp'] ) ){
+            $form_validation_errors->add('empty_email_message_to_interest_grp', __("Message Can't be empty!!!") );
+        }
+    }
+
+    function get_mandatory_field_html( $data ) {
+        return $data['mandatory'] ? '<span class="mandatory_field_class" >*</span>' : '';
     }
     /**
      * Bestbuy-bestsell Interest Failed Groups Section
@@ -2014,7 +2224,7 @@ function mirano_child_setup(){
                 /* Custom inline data for bestbuy_bestsell */
                 echo '<div class="hidden" id="bestbuy_bestsell_inline_' . $post->ID . '">
 						<div class="menu_order">' . $post->menu_order . '</div>
-						<div class="inmid_price">' . $post_meta['current_market_price'][0] . '</div>
+						<div class="bestbuy_bestsell_price">' . $post_meta['current_market_price'][0] . '</div>
 						</div>';
                 break;
             case 'cmp' :
@@ -2842,91 +3052,6 @@ function mirano_child_setup(){
         return $wpdb->insert_id;
     }
     /** Author: ABU TAHER, Logic-coder IT
-     * Ajax function
-     *
-     */
-
-/////////////////////////// Admin Ajax ////////////////////////////
-
-    add_action( 'wp_ajax_update_interest_unit_price', 'update_interest_unit_price_callback' );
-    function update_interest_unit_price_callback() {
-        global $wpdb; // this is how you get access to the database
-        $product_interest_id = $_POST['product_interest_id'];
-        $unit_price= $_POST['unit_price'];
-        $where = array( "product_interest_id" => $product_interest_id);
-        $price_data = array( "interest_unit_price"=> $unit_price );
-        $format_array = array('%f');
-        echo $wpdb->update( 'wp_product_interest', $price_data, $where, $format_array = null, $where_format = null );
-        exit();
-    }
-    add_action( 'wp_ajax_send_email_to_interester', 'send_email_to_interester_callback' );
-    function send_email_to_interester_callback() {
-        global $wpdb, $current_user;
-        $current_user = wp_get_current_user();
-        $dear_text ="";
-        $interest_start_date = "";
-        $interest_end_date = "";
-        $product_interest_id = $_POST['product_interest_id'];
-        $email_message_text = $_POST['email_message_text'];
-        $results_interest = $wpdb->get_results( " SELECT * FROM {$wpdb->prefix}users, {$wpdb->prefix}product_interest, {$wpdb->prefix}posts WHERE {$wpdb->prefix}users.ID = {$wpdb->prefix}product_interest.user_id AND {$wpdb->prefix}product_interest.product_interest_id='".$product_interest_id."' AND {$wpdb->prefix}posts.ID={$wpdb->prefix}product_interest.product_id" );
-        if( $results_interest ){
-            $user_meta_info = get_user_meta( $results_interest[0]->user_id, "" , "" );
-            //return (print_r( $user_meta_info )); exit;
-            if( $user_meta_info['first_name'][0] ){
-                $dear_text = $user_meta_info['first_name'][0];
-            }else{
-                $dear_text = $results_interest[0]->display_name;
-            }
-            if( $results_interest[0]->interest_start_date ){
-                $interest_start_date = date("Y-m-d", $results_interest[0]->interest_start_date );
-                $interest_end_date = date("Y-m-d", $results_interest[0]->interest_end_date );
-            }else{ $interest_start_date = __("As soon as price is reasonable"); }
-            //////////////////////////////////////////////
-
-            //$email_to = "tahersumonabu@gmail.com";
-            $email_to = $results_interest[0]->user_email;
-            /******************************************/
-            $subject="!NMID: A Business Aggregator\n\n";
-            $message  = "<html><body>"."\n";
-            $message .="<table cellpadding='0' cellspacing='0' bgcolor=#319d00 width='100%' style='margin:0 auto'><tr style='font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 11px; color: rgb(255,255,255); line-height: 140%;'><td width='23'></td><td><span>!NMID: A Business Aggregator</span></td></tr></table>"."\n\n";
-            $message .="<p>Dear&nbsp;".$dear_text.",</p>"."\n";
-            $message .="<p>".$email_message_text."</p>"."\n";
-            $message .="<p>Your Interest Details:</p>"."\n";
-            $message .="<p><b>Product Name: </b><a href=".get_site_url()."/all_my_interest/?action=edit&product_interest_id=".$results_interest[0]->product_interest_id."&product_name=".$results_interest[0]->post_name." >".$results_interest[0]->product_name."</a></p>\n";
-            $message .="<p><b>Qty: </b>".$results_interest[0]->interest_qty."</p>\n";
-            $message .="<p><b>Interest Start Date: </b>".$interest_start_date."</p>\n";
-            $message .="<p><b>Interest End Date: </b>".$interest_end_date."</p>\n";
-
-            $message .="<table cellpadding='0' cellspacing='0' bgcolor=#319d00 width='100%' style='margin:0 auto'><tr style='font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 11px; color: rgb(255,255,255); line-height: 140%;'><td width='23'></td><td><span>!NMID: A Business Aggregator</span></td></tr></table>"."\n\n";
-            $message .= "</body></html>\n";
-            $uid = md5(uniqid(time()));
-            $header  = "From: !NMID <".$current_user->user_email.">\r\n";
-            $header .= "Reply-To:".$current_user->user_email."\r\n";
-            $header .= "MIME-Version: 1.0\r\n";
-            $header .= "Content-Type: multipart/mixed; boundary=\"".$uid."\"\r\n\r\n";
-            $header .= "This is a multi-part message in MIME format.\r\n";
-            $header .= "--".$uid."\r\n";
-            $header .= "Content-type:text/html; charset=iso-8859-1\r\n";
-            $header .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
-            $header .= $message."\r\n\r\n";
-            $header .= "--".$uid."\r\n";
-            //$header .= "Content-Type: application/octet-stream; name=\"".$attachment_name."\"\r\n"; // use different content types here
-            $header .= "Content-Transfer-Encoding: base64\r\n";
-            //$header .= "Content-Disposition: attachment; filename=\"".$attachment_name."\"\r\n\r\n";
-            //$header .= $attachedfile."\r\n\r\n";
-            //echo $message; exit;
-            $header .= "--".$uid."--";
-            $attachments ="";
-            $messages = "";
-            if( mail( $email_to , $subject,"",$header) )	{
-                return True;
-            }
-            else{
-                return False;
-            }
-        }
-    }
-    /** Author: ABU TAHER, Logic-coder IT
      * wp_my_interest_list
      * Param $current_user_id
      */
@@ -3485,7 +3610,7 @@ function mirano_child_setup(){
                 foreach( $group_price_list as $group_price_data ) {
                     $group_price_list_text .="<tr>
 					<td><span>". $group_price_data->no_of_sells ."</span></td>
-					<td><span>".$group_price_data->inmid_price ."</span></td>
+					<td><span>".$group_price_data->bestbuy_bestsell_price ."</span></td>
 					<td><span>".$group_price_data->shipping_price ."</span></td>
 					</tr>"."\n\n";
                 }
@@ -3638,7 +3763,7 @@ function mirano_child_setup(){
                 foreach( $group_price_list_matched as $group_price_data ) {
                     $group_price_list_text .="<tr>
 					<td><span>". $group_price_data->no_of_sells ."</span></td>
-					<td><span>".$group_price_data->inmid_price ."</span></td>
+					<td><span>".$group_price_data->bestbuy_bestsell_price ."</span></td>
 					<td><span>".$group_price_data->shipping_price ."</span></td>
 					</tr>"."\n\n";
                 }
@@ -3959,9 +4084,19 @@ function mirano_child_setup(){
     }
     add_action( 'wp_enqueue_scripts', 'bestbuy_bestsell_theme_custom_scripts' );
 
+    function bestbuy_bestsell_theme_custom_wp_admin_scripts() {
+        wp_enqueue_script( 'bestbuy-bestsell-admin-scripts', BESTBUY_BESTSELL_DIR . '/init/js/bestbuy-bestsell-admin.js' );
+        wp_enqueue_script( 'bestbuy-bestsell-admin-form-validation-scripts', BESTBUY_BESTSELL_DIR . '/init/js/jquery.validate.min.js' );
+        wp_enqueue_script( 'bestbuy-bestsell-admin-rool-tip-scripts', BESTBUY_BESTSELL_DIR . '/init/js/jquery.tipTip.min.js' );
+        //wp_enqueue_script( 'inmid-admin-meta-box-product-variation-scripts', CODEDROP_DIR . '/init/js/meta-boxes-product-variation.min.js' );
+        wp_enqueue_script( 'bestbuy-bestsell-admin-meta-box-product-min-scripts', BESTBUY_BESTSELL_DIR . '/init/js/meta-boxes-product.min.js' );
+        //wp_enqueue_script( 'inmid-admin-meta-box-scripts', CODEDROP_DIR . '/init/js/meta-boxes.min.js' );
+        wp_enqueue_style( 'bestbuy-bestsell-admin-style', BESTBUY_BESTSELL_DIR . '/bestbuy-bestsell-admin.css' );
+        //wp_enqueue_style( 'inmid-admin-product-style', CODEDROP_DIR . '/init/css/admin-product.css' );
+    }
+    add_action( 'admin_enqueue_scripts', 'bestbuy_bestsell_theme_custom_wp_admin_scripts' );
     /*Add your Hooks , Filters and Theme Support before This*/
 }
-
 
 /******************************************/
 /* Add your functions before this */
