@@ -40,7 +40,7 @@ jQuery(document).ready(function($){
         // since 2.8 ajaxurl is always defined in the admin header and points to admin-ajax.php
         $.post(ajaxurl, data, function( response ) { 
 			var updated_label = "email_sent_message"+interest_id	
-			if( response  ){ document.getElementById( updated_label ).innerHTML="E-mail Sent" }
+			if( response  ){ document.getElementById( updated_label ).innerHTML=response}
 			else{ document.getElementById( updated_label ).innerHTML="Error: E-mail Not Sent" }            
         });   	
 	});

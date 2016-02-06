@@ -990,8 +990,89 @@ function mirano_child_setup(){
         echo $wpdb->update( 'wp_product_interest', $price_data, $where, $format_array = null, $where_format = null );
         exit();
     }
+    add_filter ("wp_mail_content_type", "bestbuy_bestsell_mail_content_type");
+    function bestbuy_bestsell_mail_content_type() {
+        return "text/html";
+    }
+
+    add_filter ("wp_mail_from", "bestbuy_bestsell_mail_from");
+    function bestbuy_bestsell_mail_from() {
+        return "info@logic-coder.info";
+    }
+
+    add_filter ("wp_mail_from_name", "bestbuy_bestsell_mail_from_name");
+    function bestbuy_bestsell_email_from_name() {
+        return "Bestbuy-bestsell";
+    }
     add_action( 'wp_ajax_send_email_to_interester', 'send_email_to_interester_callback' );
     function send_email_to_interester_callback() {
+
+        /*global $wpdb, $current_user;
+        $current_user = wp_get_current_user();
+        $dear_text ="";
+        $interest_start_date = "";
+        $interest_end_date = "";
+        $product_interest_id = $_POST['product_interest_id'];
+        $email_message_text = $_POST['email_message_text'];
+        $results_interest = $wpdb->get_results( " SELECT * FROM {$wpdb->prefix}users, {$wpdb->prefix}product_interest, {$wpdb->prefix}posts WHERE {$wpdb->prefix}users.ID = {$wpdb->prefix}product_interest.user_id AND {$wpdb->prefix}product_interest.product_interest_id='".$product_interest_id."' AND {$wpdb->prefix}posts.ID={$wpdb->prefix}product_interest.product_id" );
+        if( $results_interest ){
+            $user_meta_info = get_user_meta( $results_interest[0]->user_id, "" , "" );
+            //return (print_r( $user_meta_info )); exit;
+            if( $user_meta_info['first_name'][0] ){
+                $dear_text = $user_meta_info['first_name'][0];
+            }else{
+                $dear_text = $results_interest[0]->display_name;
+            }
+            if( $results_interest[0]->interest_start_date ){
+                $interest_start_date = date("Y-m-d", $results_interest[0]->interest_start_date );
+                $interest_end_date = date("Y-m-d", $results_interest[0]->interest_end_date );
+            }else{ $interest_start_date = __("As soon as price is reasonable"); }
+            //////////////////////////////////////////////
+
+            //$email_to = "tahersumonabu@gmail.com";
+            $email_to = $results_interest[0]->user_email;
+            /******************************************/
+            /*$subject="Bestbuy-bestsell: A Business Aggregator\n\n";
+            $message  = "<html><body>"."\n";
+            $message .="<table cellpadding='0' cellspacing='0' bgcolor=#319d00 width='100%' style='margin:0 auto'><tr style='font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 11px; color: rgb(255,255,255); line-height: 140%;'><td width='23'></td><td><span>!NMID: A Business Aggregator</span></td></tr></table>"."\n\n";
+            $message .="<p>Dear&nbsp;".$dear_text.",</p>"."\n";
+            $message .="<p>".$email_message_text."</p>"."\n";
+            $message .="<p>Your Interest Details:</p>"."\n";
+            $message .="<p><b>Product Name: </b><a href=".get_site_url()."/all_my_interest/?action=edit&product_interest_id=".$results_interest[0]->product_interest_id."&product_name=".$results_interest[0]->post_name." >".$results_interest[0]->product_name."</a></p>\n";
+            $message .="<p><b>Qty: </b>".$results_interest[0]->interest_qty."</p>\n";
+            $message .="<p><b>Interest Start Date: </b>".$interest_start_date."</p>\n";
+            $message .="<p><b>Interest End Date: </b>".$interest_end_date."</p>\n";
+
+            $message .="<table cellpadding='0' cellspacing='0' bgcolor=#319d00 width='100%' style='margin:0 auto'><tr style='font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 11px; color: rgb(255,255,255); line-height: 140%;'><td width='23'></td><td><span>!NMID: A Business Aggregator</span></td></tr></table>"."\n\n";
+            $message .= "</body></html>\n";
+            $uid = md5(uniqid(time()));
+            $header  = "From: Bestbuy-bestsell <".$current_user->user_email.">\r\n";
+            $header .= "Reply-To:".$current_user->user_email."\r\n";
+            $header .= "MIME-Version: 1.0\r\n";
+            $header .= "Content-Type: multipart/mixed; boundary=\"".$uid."\"\r\n\r\n";
+            $header .= "This is a multi-part message in MIME format.\r\n";
+            $header .= "--".$uid."\r\n";
+            $header .= "Content-type:text/html; charset=iso-8859-1\r\n";
+            $header .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
+            $header .= $message."\r\n\r\n";
+            $header .= "--".$uid."\r\n";*/
+            //$header .= "Content-Type: application/octet-stream; name=\"".$attachment_name."\"\r\n"; // use different content types here
+            /*$header .= "Content-Transfer-Encoding: base64\r\n";*/
+            //$header .= "Content-Disposition: attachment; filename=\"".$attachment_name."\"\r\n\r\n";
+            //$header .= $attachedfile."\r\n\r\n";
+            //echo $message; exit;
+            //echo $current_user->user_email; exit;
+            //echo "Email to ".$email_to; exit;
+           /* $header .= "--".$uid."--";
+            $attachments ="";
+            $messages = "";
+            if( mail( $email_to , $subject,"",$header) )	{
+                return True;
+            }
+            else{
+                return False;
+            }
+        }*/
         global $wpdb, $current_user;
         $current_user = wp_get_current_user();
         $dear_text ="";
@@ -1017,52 +1098,323 @@ function mirano_child_setup(){
             //$email_to = "tahersumonabu@gmail.com";
             $email_to = $results_interest[0]->user_email;
             /******************************************/
-            $subject="!NMID: A Business Aggregator\n\n";
-            $message  = "<html><body>"."\n";
-            $message .="<table cellpadding='0' cellspacing='0' bgcolor=#319d00 width='100%' style='margin:0 auto'><tr style='font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 11px; color: rgb(255,255,255); line-height: 140%;'><td width='23'></td><td><span>!NMID: A Business Aggregator</span></td></tr></table>"."\n\n";
-            $message .="<p>Dear&nbsp;".$dear_text.",</p>"."\n";
-            $message .="<p>".$email_message_text."</p>"."\n";
-            $message .="<p>Your Interest Details:</p>"."\n";
-            $message .="<p><b>Product Name: </b><a href=".get_site_url()."/all_my_interest/?action=edit&product_interest_id=".$results_interest[0]->product_interest_id."&product_name=".$results_interest[0]->post_name." >".$results_interest[0]->product_name."</a></p>\n";
-            $message .="<p><b>Qty: </b>".$results_interest[0]->interest_qty."</p>\n";
-            $message .="<p><b>Interest Start Date: </b>".$interest_start_date."</p>\n";
-            $message .="<p><b>Interest End Date: </b>".$interest_end_date."</p>\n";
+            $subject = "Bestbuy-bestsell: A Business Aggregator\n\n";
+            ob_start();
+            include("email_header.php");
+            ?>
 
-            $message .="<table cellpadding='0' cellspacing='0' bgcolor=#319d00 width='100%' style='margin:0 auto'><tr style='font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 11px; color: rgb(255,255,255); line-height: 140%;'><td width='23'></td><td><span>!NMID: A Business Aggregator</span></td></tr></table>"."\n\n";
-            $message .= "</body></html>\n";
-            $uid = md5(uniqid(time()));
-            $header  = "From: !NMID <".$current_user->user_email.">\r\n";
-            $header .= "Reply-To:".$current_user->user_email."\r\n";
-            $header .= "MIME-Version: 1.0\r\n";
-            $header .= "Content-Type: multipart/mixed; boundary=\"".$uid."\"\r\n\r\n";
-            $header .= "This is a multi-part message in MIME format.\r\n";
-            $header .= "--".$uid."\r\n";
-            $header .= "Content-type:text/html; charset=iso-8859-1\r\n";
-            $header .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
-            $header .= $message."\r\n\r\n";
-            $header .= "--".$uid."\r\n";
-            //$header .= "Content-Type: application/octet-stream; name=\"".$attachment_name."\"\r\n"; // use different content types here
-            $header .= "Content-Transfer-Encoding: base64\r\n";
-            //$header .= "Content-Disposition: attachment; filename=\"".$attachment_name."\"\r\n\r\n";
-            //$header .= $attachedfile."\r\n\r\n";
-            //echo $message; exit;
-            $header .= "--".$uid."--";
-            $attachments ="";
-            $messages = "";
-            if( mail( $email_to , $subject,"",$header) )	{
-                return True;
+            <p>Dear&nbsp;<?php echo $dear_text; ?> </p><br/>
+            <p><?php echo $email_message_text; ?> </p><br/>
+            <p>Your Interest Details:</p>
+            <p><b>Product Name: </b>
+            <a href="<?php echo get_site_url(); ?>/index.phpmy-interest-lists/?action=edit&product_interest_id=<?php echo $results_interest[0]->product_interest_id; ?>&product_name=<?php echo $results_interest[0]->post_name; ?>" > <?php echo $results_interest[0]->product_name; ?></a></p><br/>
+            <p><b>Qty: </b><?php echo $results_interest[0]->interest_qty; ?> </p><br/>
+            <p><b>Interest Start Date: </b><?php echo $interest_start_date; ?> </p><br/>
+            <p><b>Interest End Date: </b><?php echo $interest_end_date; ?> </p><br/>
+            <?php
+            include("email_footer.php");
+            $message = ob_get_contents();
+            ob_end_clean();
+            echo $message; exit;
+            //$mailto = "tahersumonabu@gmail.com";
+            //$subject = "This is test";
+            //$message_body="This is message body";
+            $from = "info@delvedivine.com";
+            //wp_mail($mailto, $subject, $message_body);
+            wp_mail($email_to,$subject,$message);
+            remove_filter ("wp_mail_content_type", "bestbuy_bestsell_mail_content_type");
+        }
+}
+
+    /** Author: ABU TAHER, Logic-coder IT
+     * send_email_to_interest_group
+     * Param $email_data, $group_details
+     * return Success/Failure Message
+     */
+     function send_email_to_interest_group( $email_data, $group_details ){
+        global $wpdb, $current_user;
+        $bestbuy_bestsell_interest_list_object = new Bestbuybestsell_Interest();
+        $current_user = wp_get_current_user();
+        $dear_text ="";
+        $interest_start_date = "";
+        $interest_end_date = "";
+        $group_price_list_text = "";
+        $same_price_to_all = 0;
+        $add_date = date("Y-m-d");
+        $email_sent = 0;
+        $interest_confirmation_link_expire = "";
+        $interest_confirmation_link_expire_text = "";
+        //$time_now =
+        if( $email_data['confirmation_within'] ){
+            $time_now = date("Y-m-d H:i");
+            $confirmation_within = $email_data['confirmation_within'] / 24;
+            $interest_confirmation_link_expire = date('Y-m-d H:i', strtotime($time_now. ' + '.$confirmation_within. 'days'));
+            $expire_date_time_separation = explode( " ", $interest_confirmation_link_expire );
+            $expire_date  = explode( "-", $expire_date_time_separation[0] );
+            $expire_time  = explode( ":", $expire_date_time_separation[1] );
+            $interest_confirmation_link_expire_text = mktime( $expire_time[0], $expire_time[1], 0, $expire_date[1],$expire_date[2],$expire_date[0]	);
+        }
+        if( $group_details ){
+
+            $group_price_list = $bestbuy_bestsell_interest_list_object ->get_group_price_by_id( $group_details[0]['group_id'] , $group_price_id='' );
+
+            if( $group_price_list ){
+                foreach( $group_price_list as $group_price_data ) {
+                    $group_price_list_text .='<tr>
+							<td><span>'. $group_price_data["no_of_sells"] .'</span></td>
+							<td><span>'.$group_price_data["bestbuy_bestsell_price"] .'&nbsp;'.get_currency().'</span></td>
+							<td><span>'.$group_price_data["shipping_price"] .'&nbsp;'.get_currency().'</span></td>
+							</tr>'."\n\n";
+                }
             }
-            else{
-                return False;
+            foreach( $group_details as $individual_data ){
+                /******************************************/
+                $user_info =  get_userdata( $individual_data['user_id'] );
+                $user_meta_info = get_user_meta( $individual_data['user_id'], '' , '' );
+                //return (print_r( $user_meta_info )); exit;
+                if( $user_meta_info['first_name'][0] ){
+                    $dear_text = $user_meta_info['first_name'][0];
+                }else{
+                    $dear_text = $user_info->display_name;
+                }
+                if( $individual_data['interest_start_date'] ){
+                    $interest_start_date = date("Y-m-d", $individual_data['interest_start_date'] );
+                    $interest_end_date = date("Y-m-d", $individual_data['interest_end_date'] );
+                }else{ $interest_start_date = __("As soon as price is reasonable"); }
+                /////////////////////// Start: Email Template ///////////////////////
+                $subject="Bestbuybestsell: ".$email_data["email_subject"]." CaseNo(".$group_details[0]['group_id'] ."_".$individual_data['product_interest_id'] .")\n\n";
+                ob_start();
+                include("email_header.php");
+                ?>
+                <p>Dear Customer &nbsp;<?php echo $dear_text;?> </p><br/>
+                <p><?php echo $email_data["email_message_to_interest_grp"];?></p><br/>
+                <?php
+                if( $email_data["same_price_to_all"] || !intval( $individual_data['interest_unit_price'] )){
+                    if( $email_data["same_price_to_all"] ){
+                        $same_price_to_all = 1;
+                    }
+                    ?>
+                    <p>A Price List is following for your interest:</p><br/>
+                    <table cellpadding='5' cellspacing='2' bgcolor=#ffffff width='100%' style='margin:0 auto'>
+                        <tr style='font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 11px; color: 333333; line-height: 140%;'>
+                            <td><span style='font-weight:bold;'>No Of Sells</span></td>
+                            <td><span style='font-weight:bold;'>Unit Price</span></td>
+                            <td><span style='font-weight:bold;'>Shipping Price</span></td>
+                        </tr><br/><br/>
+                        <?php echo $group_price_list_text;?> </table><br/><br/>
+                    <?php
+                }else{ ?>
+                    <p>The Unit Price For Your Interest Is:&nbsp;<?php echo get_currency().":".$individual_data['interest_unit_price'];?></p><br/>
+                <?php } ?>
+                <p>Your Interest Details:</p><br/>
+                <p><b>Product Name: </b>
+                    <a href="<?php echo get_site_url(); ?>/index.php/my-interest-lists/?action=edit&product_interest_id=<?php echo $individual_data['product_interest_id'];?> &product_name=<?php echo $individual_data['post_name'];?> " ><?php echo $individual_data['product_name'];?> </a></p><br/>
+                <p><b>Qty: </b><?php echo $individual_data['interest_qty'];?></p><br/>
+                <p><b>Interest Start Date: </b><?php echo $interest_start_date;?></p><br/>
+                <p><b>Interest End Date: </b><?php echo $interest_end_date;?></p><br/>
+                <?php
+                if( $email_data['confirmation_within'] ){ ?>
+                    <p>You Have&nbsp;<?php echo $email_data['confirmation_within'];?>Hours to confirm that you are still want to purchase this product for the above Details</p><br/>
+                <?php } ?>
+                <p>To confirm Please click on Yes:
+                    <a href="<?php echo get_site_url();?>/index.php/my-interest-lists/?action=interest_confirmed&product_interest_id=<?php echo $individual_data['product_interest_id'];?>" >Yes</a>
+                    <a href="<?php echo get_site_url();?>/index.php/my-interest-lists/?action=interest_notconfirmed&product_interest_id=<?php echo  $individual_data['product_interest_id'];?>" >No</a>
+                </p><br/>
+                <?php
+                include("email_footer.php");
+                $message = ob_get_contents();
+                ob_end_clean();
+                //echo $message; exit;
+                /////////////////////// End: Email Template ///////////////////////
+                $email_to = $user_info->user_email;
+                $format_array = array('%s', '%d', '%d', '%s', '%s',  '%s',  '%d',  '%s');
+                if( wp_mail($email_to, $subject, $message )){
+                    $case_data['case_no'] = $group_details[0]['group_id'] ."_".$individual_data['product_interest_id'];
+                    $case_data['product_interest_id'] = $individual_data['product_interest_id'];
+                    $case_data['group_id'] = $group_details[0]['group_id'];
+                    $case_data['user_id'] = $individual_data['user_id'];
+                    $case_data['case_subject'] = $subject;
+                    $case_data['case_message'] = $header;
+                    $case_data['confirmation_within'] = $email_data['confirmation_within'];
+                    $case_data['same_price_to_all'] = $same_price_to_all;
+                    $case_data['add_date'] = $add_date;
+                    //print_r( $case_data ); exit;
+                    $succes_case_insert = $bestbuy_bestsell_interest_list_object ->insert_interest_case( $case_data , $format_array );
+                    if( !$email_sent ){
+                        $update_group_data = array( "email_sent"=>1, "same_price_to_all"=>$same_price_to_all );
+                        $where = array( "group_id"=>$group_details[0]['group_id'] );
+                        $update_format_array = array( '%d', "%d" );
+                        $where_format = array();
+                        $wpdb->update( "{$wpdb->prefix}interest_group" , $update_group_data, $where, $update_format_array = null, $where_format = null );
+                        $email_sent = 1;
+                    }
+                    $update_interest_data = array( "interest_confirmation_link_expire"=>$interest_confirmation_link_expire_text );
+                    $where = array( "product_interest_id"=>$individual_data['product_interest_id'] );
+                    $update_format_array = array( '%s' );
+                    $where_format = array();
+                    $wpdb->update( "{$wpdb->prefix}product_interest" , $update_interest_data, $where, $update_format_array = null, $where_format = null );
+                }
+                /******************************************/
             }
         }
+        if( $email_sent ){
+            return True;
+        }
     }
-    /**
-     * Bestbuy-bestsell Interest Groups Section
-     *
-     * @param $current_subtab
-     * @return Bestbuy-bestsell Interest Groups Section
+    /** Author: ABU TAHER, Logic-coder IT
+     * send_email_to_interest_confirmed
+     * Param $email_data, $interest_confirmed_details
+     * return Success/Failure Message
      */
+    function send_email_to_interest_confirmed( $email_data, $interest_confirmed_details, $deal_selection ){
+        global $wpdb, $current_user;
+        $bestbuy_bestsell_interest_list_object = new Bestbuybestsell_Interest();
+        $current_user = wp_get_current_user();
+        $dear_text ="";
+        $interest_start_date = "";
+        $interest_end_date = "";
+        $group_price_list_text = "";
+        $same_price_to_all = 0;
+        $add_date = date("Y-m-d");
+        $payment_email_sent = 0;
+        $payment_confirmation_link_expire = "";
+        $payment_confirmation_link_expire_text = "";
+        $group_price_list_matched = "";
+        $update_interest_data ="";
+        $update_format_array ="";
+        //$time_now =
+        if( $email_data['payment_within'] ){
+            $time_now = date("Y-m-d H:i");
+            $payment_within = $email_data['payment_within'] / 24;
+            $payment_confirmation_link_expire = date('Y-m-d H:i', strtotime($time_now. ' + '.$payment_within. 'days'));
+            $expire_date_time_separation = explode( " ", $payment_confirmation_link_expire );
+            $expire_date  = explode( "-", $expire_date_time_separation[0] );
+            $expire_time  = explode( ":", $expire_date_time_separation[1] );
+            $payment_confirmation_link_expire_text = mktime( $expire_time[0], $expire_time[1], 0, $expire_date[1],$expire_date[2],$expire_date[0]	);
+        }
+        if( $interest_confirmed_details ){
+            $count_interest_confirmed = $bestbuy_bestsell_interest_list_object ->count_interest_confirmed( $interest_confirmed_details[0]['product_id'], $interest_confirmed_details[0]['group_id'] );
+            //echo $count_interest_confirmed[0]->total_qty; exit;
+            //////////////////////////////////////////////////////
+            $product_meta_values = get_post_meta( $interest_confirmed_details[0]['product_id'], '', '' );
+            $minimum_target_sells = $product_meta_values['minimum_target_sells'][0];
+            if( $count_interest_confirmed[0]['total_qty'] < $minimum_target_sells ){
+                $group_price_list_matched = $bestbuy_bestsell_interest_list_object ->get_minimum_price_list( $interest_confirmed_details[0]['group_id'] );
+            }else{
+                $group_price_list_matched = $bestbuy_bestsell_interest_list_object ->get_group_price_list_matched( $interest_confirmed_details[0]['group_id'], $count_interest_confirmed[0]['total_qty'] );
+            }
+            /////////////////////////////////////////////////////
+            if( $group_price_list_matched ){
+                foreach( $group_price_list_matched as $group_price_data ) {
+                    $group_price_list_text .='<tr>
+						<td><span>'. $group_price_data["no_of_sells"] .'</span></td>
+						<td><span>'.$group_price_data["bestbuy_bestsell_price"] .'&nbsp;'.get_currency().'</span></td>
+						<td><span>'.$group_price_data["shipping_price"] .'&nbsp;'.get_currency().'</span></td>
+						</tr>'."\n\n";
+                }
+            }
+            foreach( $interest_confirmed_details as $individual_data ){
+                /******************************************/
+                $user_info =  get_userdata( $individual_data['user_id'] );
+                $user_meta_info = get_user_meta( $individual_data['user_id'], '' , '' );
+                //return (print_r( $user_meta_info )); exit;
+                if( $user_meta_info['first_name'][0] ){
+                    $dear_text = $user_meta_info['first_name'][0];
+                }else{
+                    $dear_text = $user_info->display_name;
+                }
+                if( $individual_data['interest_start_date'] ){
+                    $interest_start_date = date("Y-m-d", $individual_data['interest_start_date'] );
+                    $interest_end_date = date("Y-m-d", $individual_data['interest_end_date'] );
+                }else{ $interest_start_date = __("As soon as price is reasonable"); }
+                /////////////////////// Start: Email Template ///////////////////////
+                $subject="Bestbuybestsell: ".$email_data["email_subject"]." CaseNo(".$interest_confirmed_details[0]['group_id'] ."_".$individual_data['product_interest_id'] .")\n\n";
+                ob_start();
+                include("email_header.php");
+                ?>
+                <p>Dear Customer &nbsp;<?php echo $dear_text;?></p>
+                <p><?php echo $email_data["email_message_to_interest_grp"];?> </p>
+                <?php
+                if( $deal_selection ==='want_to_deal' ){
+                    if( $individual_data['same_price_to_all'] || !intval( $individual_data['interest_unit_price'] ) ){
+                    ?>
+                        //$same_price_to_all = 1;
+                        <p>A Price List is following for your interest:</p>
+                        <table cellpadding='5' cellspacing='2' bgcolor=#ffffff width='100%' style='margin:0 auto'>
+                        <tr style='font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 11px; color: 333333; line-height: 140%;'>
+						<td><span style='font-weight:bold;'>No Of Sells</span></td>
+						<td><span style='font-weight:bold;'>Unit Price</span></td>
+						<td><span style='font-weight:bold;'>Shipping Price</span></td>
+						</tr>
+                        <?php echo $group_price_list_text;?></table>
+                    <?php
+                    }else{ ?>
+                        <p>The Unit Price For Your Interest Is:<?php echo get_currency()." : ".$individual_data['interest_unit_price'];?></p>
+                    <?php }
+                }?>
+                <p>Your Interest Details:</p>
+                <p><b>Product Name: </b>
+                <a href="<?php echo get_site_url();?>/index.php/my-interest-list/?action=edit&product_interest_id=<?php echo $individual_data['product_interest_id'];?>&product_name=<?php echo $individual_data['post_name'];?>" ><?php echo $individual_data['product_name'];?> </a></p>
+                <p><b>Qty: </b><?php echo $individual_data['interest_qty'];?> </p>
+                <p><b>Interest Start Date: </b><?php echo $interest_start_date;?></p>
+                <p><b>Interest End Date: </b><?php echo $interest_end_date;?></p>
+                <?php
+                if( $deal_selection=="want_to_deal"){
+                    if( $email_data['payment_within'] ){ ?>
+                        <p>You Have&nbsp;<?php echo $email_data['payment_within'];?>Hours For Payment to confirm that you are still want to purchase this product for the above Details</p>
+                   <?Php } ?>
+                    <p>For Payment Please click on This Link:
+                        <a href="<?php echo get_site_url();?>/index.php/my-interest-list/?action=interest_confirmed&product_interest_id=<?php echo $individual_data['product_interest_id'];?>" >Yes</a>
+					</p>
+                <?php }
+                include("email_footer.php");
+                $message = ob_get_contents();
+                ob_end_clean();
+                $email_to = $user_info->user_email;
+                $update_format_array = array( '%s', "%s", "%s" );
+                //if( mail( $email_to , $subject,"",$header) )	{
+                if( wp_mail( $email_to, $subject, $message) )	{
+                    //$case_data['product_interest_id'] = $individual_data->product_interest_id;
+                    $update_case_data['payment_subject'] = $subject;
+                    $update_case_data['payment_message'] = $header;
+                    $update_case_data['payment_within'] = $email_data['payment_within'];
+                    $where = array( "product_interest_id"=>$individual_data['product_interest_id'] );
+                    $where_format = array();
+                    $wpdb->update( "{$wpdb->prefix}interest_group_case", $update_case_data, $where, $update_format_array = null, $where_format = null );
+                    //print_r( $case_data ); exit;
+                    //$succes_case_insert = insert_interest_case( $case_data , $format_array );
+                    if( !$email_sent ){
+                        $update_group_data = array( "payment_email_sent"=>1 );
+                        $where = array( "group_id"=>$interest_confirmed_details[0]['group_id'] );
+                        $update_format_array = array( '%d' );
+                        $where_format = array();
+                        $wpdb->update( "{$wpdb->prefix}interest_group", $update_group_data, $where, $update_format_array = null, $where_format = null );
+                        $email_sent = 1;
+                    }
+                    if( $deal_selection=="want_to_deal" ){
+                        $update_interest_data = array( "interest_campaign_closed"=>0 , "payment_confirmation_link_expire"=>$payment_confirmation_link_expire_text );
+                        $update_format_array = array( '%d', '%s' );
+                    }elseif( $deal_selection=="dealings_fail" ){
+                        $update_interest_data = array( "interest_confirmed"=>0 , "interest_campaign_closed"=>2 ,"interest_confirmation_link_expire"=> 0 );
+                        $update_format_array = array( '%d', '%d', '%s' );
+                    }
+                    $where = array( "product_interest_id"=>$individual_data['product_interest_id'] );
+                    $where_format = array();
+                    $wpdb->update( "{$wpdb->prefix}product_interest", $update_interest_data, $where, $update_format_array = null, $where_format = null );
+                }
+                /******************************************/
+            }
+        }
+        if( $email_sent ){
+            return True;
+        }
+    }
+/**
+* Bestbuy-bestsell Interest Groups Section
+*
+* @param $current_subtab
+* @return Bestbuy-bestsell Interest Groups Section
+*/
     add_action( 'bestbuy_bestsell_business_menu_section_settings_interest_groups', 'bestbuy_bestsell_interest_groups_section' ,10, 1 );
     function bestbuy_bestsell_interest_groups_section( $current_subtab ){
         global $build_subtab;
@@ -1750,7 +2102,8 @@ function mirano_child_setup(){
                 //print_r( $form_validation_errors );
             }else{
                 $bestbuy_bestsell_email_send_to_group = new Bestbuybestsell_Interest();
-                $email_success = $bestbuy_bestsell_email_send_to_group ->send_email_to_interest_group( $email_data, $group_details );
+                //$email_success = $bestbuy_bestsell_email_send_to_group ->send_email_to_interest_group( $email_data, $group_details );
+                $email_success = send_email_to_interest_group( $email_data, $group_details );
             }
         }
         if( $email_success ){
@@ -1777,7 +2130,8 @@ function mirano_child_setup(){
                 //print_r( $form_validation_errors );
             }else{
                 $bestbuy_bestsell_email_send_to_group = new Bestbuybestsell_Interest();
-                $email_success = $bestbuy_bestsell_email_send_to_group ->send_email_to_interest_confirmed( $email_data, $group_details , $_REQUEST['deal_selection'] );
+                //$email_success = $bestbuy_bestsell_email_send_to_group ->send_email_to_interest_confirmed( $email_data, $group_details , $_REQUEST['deal_selection'] );
+                $email_success = send_email_to_interest_confirmed( $email_data, $group_details , $_REQUEST['deal_selection'] );
             }
         }
         if( $email_success ){
@@ -1833,6 +2187,7 @@ function mirano_child_setup(){
      */
     add_action('bestbuy_bestsell_business_menu_section_interest_failed_groups_interest_failed_groups', 'bestbuy_bestsell_interest_failed_groups' );
     function bestbuy_bestsell_interest_failed_groups( ){
+
         global $build_subtab , $user_action ;
         $bestbuy_bestsell_interest_list_object = new Bestbuybestsell_Interest();
 
@@ -2354,7 +2709,7 @@ function mirano_child_setup(){
      */
     add_shortcode('all_my_interest', 'all_my_interest_bestbuy_bestsell');
     function all_my_interest_bestbuy_bestsell(){
-        get_template_part('views/my_interest', 'list_inmid');
+        get_template_part('views/my_interest', 'list_bestbuybestsell');
     }
 
     /////////////////////////////////////////////////////////////////////
@@ -3577,302 +3932,6 @@ function mirano_child_setup(){
     return $wpdb->update( 'wp_product_interest', $price_data, $where, $format_array = null, 	$where_format = null );
     }*/
 
-    /** Author: ABU TAHER, Logic-coder IT
-     * send_email_to_interest_group
-     * Param $email_data, $group_details
-     * return Success/Failure Message
-     */
-    function send_email_to_interest_group( $email_data, $group_details ){
-        global $wpdb, $current_user;
-        $current_user = wp_get_current_user();
-        $dear_text ="";
-        $interest_start_date = "";
-        $interest_end_date = "";
-        $group_price_list_text = "";
-        $same_price_to_all = 0;
-        $add_date = date("Y-m-d");
-        $email_sent = 0;
-        $interest_confirmation_link_expire = "";
-        $interest_confirmation_link_expire_text = "";
-        //$time_now =
-        if( $email_data['confirmation_within'] ){
-            $time_now = date("Y-m-d H:i");
-            $confirmation_within = $email_data['confirmation_within'] / 24;
-            $interest_confirmation_link_expire = date('Y-m-d H:i', strtotime($time_now. ' + '.$confirmation_within. 'days'));
-            $expire_date_time_separation = explode( " ", $interest_confirmation_link_expire );
-            $expire_date  = explode( "-", $expire_date_time_separation[0] );
-            $expire_time  = explode( ":", $expire_date_time_separation[1] );
-            $interest_confirmation_link_expire_text = mktime( $expire_time[0], $expire_time[1], 0, $expire_date[1],$expire_date[2],$expire_date[0]	);
-        }
-        if( $group_details ){
-            $group_price_list = get_group_price_list("", $group_details[0]->group_id, "" );
-            if( $group_price_list ){
-                foreach( $group_price_list as $group_price_data ) {
-                    $group_price_list_text .="<tr>
-					<td><span>". $group_price_data->no_of_sells ."</span></td>
-					<td><span>".$group_price_data->bestbuy_bestsell_price ."</span></td>
-					<td><span>".$group_price_data->shipping_price ."</span></td>
-					</tr>"."\n\n";
-                }
-            }
-            foreach( $group_details as $individual_data ){
-                /******************************************/
-                $user_info =  get_userdata( $individual_data->user_id );
-                $user_meta_info = get_user_meta( $individual_data->user_id, "" , "" );
-                //return (print_r( $user_meta_info )); exit;
-                if( $user_meta_info['first_name'][0] ){
-                    $dear_text = $user_meta_info['first_name'][0];
-                }else{
-                    $dear_text = $user_info->display_name;
-                }
-                if( $individual_data->interest_start_date ){
-                    $interest_start_date = date("Y-m-d", $individual_data->interest_start_date );
-                    $interest_end_date = date("Y-m-d", $individual_data->interest_end_date );
-                }else{ $interest_start_date = __("As soon as price is reasonable"); }
-                //////////////////////////////////////////////
-                $subject="!NMID: ".$email_data["email_subject"]." CaseNo(".$group_details[0]->group_id ."_".$individual_data->product_interest_id .")\n\n";
-                $message  = "<html><body>"."\n";
-                $message .="<table cellpadding='0' cellspacing='0' bgcolor=#319d00 width='100%' style='margin:0 auto'><tr style='font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 11px; color: rgb(255,255,255); line-height: 140%;'><td width='23'></td><td><span>!NMID: A Business Aggregator</span></td></tr></table>"."\n\n";
-                $message .="<p>Dear Customer &nbsp;".$dear_text.",</p>"."\n";
-                $message .="<p>".$email_data["email_message_to_interest_grp"]."</p>"."\n";
-
-                if( $email_data["same_price_to_all"] || !intval( $individual_data->interest_unit_price )){
-                    if( $email_data["same_price_to_all"] ){
-                        $same_price_to_all = 1;
-                    }
-                    $message .="<p>A Price List is following for your interest:</p>"."\n";
-                    $message .="<table cellpadding='5' cellspacing='2' bgcolor=#ffffff width='100%' style='margin:0 auto'><tr style='font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 11px; color: 333333; line-height: 140%;'>
-				<td><span style='font-weight:bold;'>No Of Sells</span></td>
-				<td><span style='font-weight:bold;'>Unit Price</span></td>
-				<td><span style='font-weight:bold;'>Shipping Price</span></td>
-				</tr>"."\n\n";
-                    $message .= $group_price_list_text . "</table>"."\n\n";
-                }else{
-                    $message .="<p>The Unit Price For Your Interest Is: SEK: ".$individual_data->interest_unit_price."</p>\n";
-                }
-                $message .="<p>Your Interest Details:</p>"."\n";
-                $message .="<p><b>Product Name: </b><a href=".get_site_url()."/my-interest-list/?action=edit&product_interest_id=".$individual_data->product_interest_id ."&product_name=".$individual_data->post_name ." >".$individual_data->product_name ."</a></p>\n";
-                $message .="<p><b>Qty: </b>".$individual_data->interest_qty ."</p>\n";
-                $message .="<p><b>Interest Start Date: </b>".$interest_start_date."</p>\n";
-                $message .="<p><b>Interest End Date: </b>".$interest_end_date."</p>\n";
-                if( $email_data['confirmation_within'] ){
-                    $message .="<p>You Have&nbsp;".$email_data['confirmation_within']."Hours to confirm that you are still want to purchase this product for the above Details</p>\n";
-                }
-                $message .="<p>To confirm Please click on Yes: <a href=".get_site_url()."/my-interest-list/?action=interest_confirmed&product_interest_id=".$individual_data->product_interest_id ." >Yes</a><a href=".get_site_url()."/my-interest-list/?action=interest_notconfirmed&product_interest_id=".$individual_data->product_interest_id ." >No</a>
-			</p>\n";
-                $message .="<table cellpadding='0' cellspacing='0' bgcolor=#319d00 width='100%' style='margin:0 auto'><tr style='font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 11px; color: rgb(255,255,255); line-height: 140%;'><td width='23'></td><td><span>!NMID: A Business Aggregator</span></td></tr></table>"."\n\n";
-                $message .= "</body></html>\n";
-                $uid = md5(uniqid(time()));
-                $header  = "From: !NMID <".$current_user->user_email.">\r\n";
-                $header .= "Reply-To:".$current_user->user_email."\r\n";
-                $header .= "MIME-Version: 1.0\r\n";
-                $header .= "Content-Type: multipart/mixed; boundary=\"".$uid."\"\r\n\r\n";
-                $header .= "This is a multi-part message in MIME format.\r\n";
-                $header .= "--".$uid."\r\n";
-                $header .= "Content-type:text/html; charset=iso-8859-1\r\n";
-                $header .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
-                $header .= $message."\r\n\r\n";
-                $header .= "--".$uid."\r\n";
-                //$header .= "Content-Type: application/octet-stream; name=\"".$attachment_name."\"\r\n"; // use different content types here
-                $header .= "Content-Transfer-Encoding: base64\r\n";
-                //$header .= "Content-Disposition: attachment; filename=\"".$attachment_name."\"\r\n\r\n";
-                //$header .= $attachedfile."\r\n\r\n";
-                //echo $message; exit;
-                $header .= "--".$uid."--";
-                $attachments ="";
-                $messages = "";
-                $email_to = $user_info->user_email;
-                $format_array = array('%s', '%d', '%d', '%s', '%s',  '%s',  '%d',  '%s');
-                if( mail( $email_to , $subject,"",$header) )	{
-                    $case_data['case_no'] = $group_details[0]->group_id ."_".$individual_data->product_interest_id;
-                    $case_data['product_interest_id'] = $individual_data->product_interest_id;
-                    $case_data['group_id'] = $group_details[0]->group_id;
-                    $case_data['user_id'] = $individual_data->user_id;
-                    $case_data['case_subject'] = $subject;
-                    $case_data['case_message'] = $header;
-                    $case_data['confirmation_within'] = $email_data['confirmation_within'];
-                    $case_data['same_price_to_all'] = $same_price_to_all;
-                    $case_data['add_date'] = $add_date;
-                    //print_r( $case_data ); exit;
-                    $succes_case_insert = insert_interest_case( $case_data , $format_array );
-                    if( !$email_sent ){
-                        $update_group_data = array( "email_sent"=>1, "same_price_to_all"=>$same_price_to_all );
-                        $where = array( "group_id"=>$group_details[0]->group_id );
-                        $update_format_array = array( '%d', "%d" );
-                        $where_format = array();
-                        $wpdb->update( 'wp_interest_group', $update_group_data, $where, $update_format_array = null, $where_format = null );
-                        $email_sent = 1;
-                    }
-                    $update_interest_data = array( "interest_confirmation_link_expire"=>$interest_confirmation_link_expire_text );
-                    $where = array( "product_interest_id"=>$individual_data->product_interest_id );
-                    $update_format_array = array( '%s' );
-                    $where_format = array();
-                    $wpdb->update( 'wp_product_interest', $update_interest_data, $where, $update_format_array = null, $where_format = null );
-                }
-                /******************************************/
-            }
-        }
-        if( $email_sent ){
-            return True;
-        }
-    }
-
-    /** Author: ABU TAHER, Logic-coder IT
-     * send_email_to_interest_confirmed
-     * Param $email_data, $interest_confirmed_details
-     * return Success/Failure Message
-     */
-    function send_email_to_interest_confirmed( $email_data, $interest_confirmed_details, $deal_selection ){
-        global $wpdb, $current_user;
-        $current_user = wp_get_current_user();
-        $dear_text ="";
-        $interest_start_date = "";
-        $interest_end_date = "";
-        $group_price_list_text = "";
-        $same_price_to_all = 0;
-        $add_date = date("Y-m-d");
-        $payment_email_sent = 0;
-        $payment_confirmation_link_expire = "";
-        $payment_confirmation_link_expire_text = "";
-        $group_price_list_matched = "";
-        $update_interest_data ="";
-        $update_format_array ="";
-        //$time_now =
-        if( $email_data['payment_within'] ){
-            $time_now = date("Y-m-d H:i");
-            $payment_within = $email_data['payment_within'] / 24;
-            $payment_confirmation_link_expire = date('Y-m-d H:i', strtotime($time_now. ' + '.$payment_within. 'days'));
-            $expire_date_time_separation = explode( " ", $payment_confirmation_link_expire );
-            $expire_date  = explode( "-", $expire_date_time_separation[0] );
-            $expire_time  = explode( ":", $expire_date_time_separation[1] );
-            $payment_confirmation_link_expire_text = mktime( $expire_time[0], $expire_time[1], 0, $expire_date[1],$expire_date[2],$expire_date[0]	);
-        }
-        if( $interest_confirmed_details ){
-            $count_interest_confirmed = count_interest_confirmed( $interest_confirmed_details[0]->product_id , $interest_confirmed_details[0]->group_id );
-            //echo $count_interest_confirmed[0]->total_qty; exit;
-            //////////////////////////////////////////////////////
-            $product_meta_values = get_post_meta( $interest_confirmed_details[0]->product_id, "", "" );
-            $minimum_target_sells = $product_meta_values['minimum_target_sells'][0];
-            if( $count_interest_confirmed[0]->total_qty < $minimum_target_sells ){
-                $group_price_list_matched = get_minimum_price_list( $interest_confirmed_details[0]->group_id );
-            }else{
-                $group_price_list_matched = get_group_price_list_matched( $interest_confirmed_details[0]->group_id, $count_interest_confirmed[0]->total_qty );
-            }
-            /////////////////////////////////////////////////////
-            if( $group_price_list_matched ){
-                foreach( $group_price_list_matched as $group_price_data ) {
-                    $group_price_list_text .="<tr>
-					<td><span>". $group_price_data->no_of_sells ."</span></td>
-					<td><span>".$group_price_data->bestbuy_bestsell_price ."</span></td>
-					<td><span>".$group_price_data->shipping_price ."</span></td>
-					</tr>"."\n\n";
-                }
-            }
-            foreach( $interest_confirmed_details as $individual_data ){
-                /******************************************/
-                $user_info =  get_userdata( $individual_data->user_id );
-                $user_meta_info = get_user_meta( $individual_data->user_id, "" , "" );
-                //return (print_r( $user_meta_info )); exit;
-                if( $user_meta_info['first_name'][0] ){
-                    $dear_text = $user_meta_info['first_name'][0];
-                }else{
-                    $dear_text = $user_info->display_name;
-                }
-                if( $individual_data->interest_start_date ){
-                    $interest_start_date = date("Y-m-d", $individual_data->interest_start_date );
-                    $interest_end_date = date("Y-m-d", $individual_data->interest_end_date );
-                }else{ $interest_start_date = __("As soon as price is reasonable"); }
-                //////////////////////////////////////////////
-                $subject="!NMID: ".$email_data["email_subject"]." CaseNo(".$interest_confirmed_details[0]->group_id ."_".$individual_data->product_interest_id .")\n\n";
-                $message  = "<html><body>"."\n";
-                $message .="<table cellpadding='0' cellspacing='0' bgcolor=#319d00 width='100%' style='margin:0 auto'><tr style='font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 11px; color: rgb(255,255,255); line-height: 140%;'><td width='23'></td><td><span>!NMID: A Business Aggregator</span></td></tr></table>"."\n\n";
-                $message .="<p>Dear Customer &nbsp;".$dear_text.",</p>"."\n";
-                $message .="<p>".$email_data["email_message_to_interest_grp"]."</p>"."\n";
-                if( $deal_selection=="want_to_deal" ){
-                    if( $individual_data->same_price_to_all || !intval( $individual_data->interest_unit_price ) ){
-                        //$same_price_to_all = 1;
-                        $message .="<p>A Price List is following for your interest:</p>"."\n";
-                        $message .="<table cellpadding='5' cellspacing='2' bgcolor=#ffffff width='100%' style='margin:0 auto'><tr style='font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 11px; color: 333333; line-height: 140%;'>
-					<td><span style='font-weight:bold;'>No Of Sells</span></td>
-					<td><span style='font-weight:bold;'>Unit Price</span></td>
-					<td><span style='font-weight:bold;'>Shipping Price</span></td>
-					</tr>"."\n\n";
-                        $message .= $group_price_list_text . "</table>"."\n\n";
-                    }else{
-                        $message .="<p>The Unit Price For Your Interest Is: SEK: ".$individual_data->interest_unit_price."</p>\n";
-                    }
-                }
-                $message .="<p>Your Interest Details:</p>"."\n";
-                $message .="<p><b>Product Name: </b><a href=".get_site_url()."/my-interest-list/?action=edit&product_interest_id=".$individual_data->product_interest_id ."&product_name=".$individual_data->post_name ." >".$individual_data->product_name ."</a></p>\n";
-                $message .="<p><b>Qty: </b>".$individual_data->interest_qty ."</p>\n";
-                $message .="<p><b>Interest Start Date: </b>".$interest_start_date."</p>\n";
-                $message .="<p><b>Interest End Date: </b>".$interest_end_date."</p>\n";
-                if( $deal_selection=="want_to_deal"){
-                    if( $email_data['payment_within'] ){
-                        $message .="<p>You Have&nbsp;".$email_data['payment_within']."Hours For Payment to confirm that you are still want to purchase this product for the above Details</p>\n";
-                    }
-                    $message .="<p>For Payment Please click on This Link: <a href=".get_site_url()."/my-interest-list/?action=interest_confirmed&product_interest_id=".$individual_data->product_interest_id ." >Yes</a>
-				</p>\n";
-                }
-                $message .="<table cellpadding='0' cellspacing='0' bgcolor=#319d00 width='100%' style='margin:0 auto'><tr style='font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 11px; color: rgb(255,255,255); line-height: 140%;'><td width='23'></td><td><span>!NMID: A Business Aggregator</span></td></tr></table>"."\n\n";
-                $message .= "</body></html>\n";
-                $uid = md5(uniqid(time()));
-                $header  = "From: !NMID <".$current_user->user_email.">\r\n";
-                $header .= "Reply-To:".$current_user->user_email."\r\n";
-                $header .= "MIME-Version: 1.0\r\n";
-                $header .= "Content-Type: multipart/mixed; boundary=\"".$uid."\"\r\n\r\n";
-                $header .= "This is a multi-part message in MIME format.\r\n";
-                $header .= "--".$uid."\r\n";
-                $header .= "Content-type:text/html; charset=iso-8859-1\r\n";
-                $header .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
-                $header .= $message."\r\n\r\n";
-                $header .= "--".$uid."\r\n";
-                //$header .= "Content-Type: application/octet-stream; name=\"".$attachment_name."\"\r\n"; // use different content types here
-                $header .= "Content-Transfer-Encoding: base64\r\n";
-                //$header .= "Content-Disposition: attachment; filename=\"".$attachment_name."\"\r\n\r\n";
-                //$header .= $attachedfile."\r\n\r\n";
-                echo $message;
-                $header .= "--".$uid."--";
-                $attachments ="";
-                $messages = "";
-                $email_to = $user_info->user_email;
-                $update_format_array = array( '%s', "%s", "%s" );
-                if( !mail( $email_to , $subject,"",$header) )	{
-                    //$case_data['product_interest_id'] = $individual_data->product_interest_id;
-                    $update_case_data['payment_subject'] = $subject;
-                    $update_case_data['payment_message'] = $header;
-                    $update_case_data['payment_within'] = $email_data['payment_within'];
-                    $where = array( "product_interest_id"=>$individual_data->product_interest_id );
-                    $where_format = array();
-                    $wpdb->update( 'wp_interest_group_case', $update_case_data, $where, $update_format_array = null, $where_format = null );
-                    //print_r( $case_data ); exit;
-                    //$succes_case_insert = insert_interest_case( $case_data , $format_array );
-                    if( !$email_sent ){
-                        $update_group_data = array( "payment_email_sent"=>1 );
-                        $where = array( "group_id"=>$interest_confirmed_details[0]->group_id );
-                        $update_format_array = array( '%d' );
-                        $where_format = array();
-                        $wpdb->update( 'wp_interest_group', $update_group_data, $where, $update_format_array = null, $where_format = null );
-                        $email_sent = 1;
-                    }
-                    if( $deal_selection=="want_to_deal" ){
-                        $update_interest_data = array( "interest_campaign_closed"=>0 , "payment_confirmation_link_expire"=>$payment_confirmation_link_expire_text );
-                        $update_format_array = array( '%d', '%s' );
-                    }elseif( $deal_selection=="dealings_fail" ){
-                        $update_interest_data = array( "interest_confirmed"=>0 , "interest_campaign_closed"=>2 ,"interest_confirmation_link_expire"=> 0 );
-                        $update_format_array = array( '%d', '%d', '%s' );
-                    }
-                    $where = array( "product_interest_id"=>$individual_data->product_interest_id );
-                    $where_format = array();
-                    $wpdb->update( 'wp_product_interest', $update_interest_data, $where, $update_format_array = null, $where_format = null );
-                }
-                /******************************************/
-            }
-        }
-        if( $email_sent ){
-            return True;exit;
-        }
-    }
 
     /** Author: ABU TAHER, Logic-coder IT
      * insert_interest_case
@@ -3898,7 +3957,8 @@ function mirano_child_setup(){
         $product_meta_values = get_post_meta( get_the_ID(), "", "" );
         $ciq_to_display_visitor = 0;
         $inmid_ciq = $product_meta_values['inmid_ciq'][0];
-        if( isset( $_REQUEST['product_interest_id'] ) && !empty( $_REQUEST['product_interest_id'] ) && !empty( get_current_user_id() ) ){
+        $current_user_id = get_current_user_id();
+        if( isset( $_REQUEST['product_interest_id'] ) && !empty( $_REQUEST['product_interest_id'] ) && !empty( $current_user_id ) ){
             $count_interest_qty = sum_qty_for_product_interest( get_the_ID(), $_REQUEST['product_interest_id'] , $flag= "for_interest_group" );
         }else{
             $count_interest_qty = sum_qty_for_product_interest( get_the_ID(), "", $flag= "in_general" );
@@ -3930,7 +3990,8 @@ function mirano_child_setup(){
      */
     add_action('bestbuy_bestsell_product_status', 'bestbuy_bestsell_product_status_PPQ' , 10 );
     function bestbuy_bestsell_product_status_PPQ( ){
-        if( isset( $_REQUEST['product_interest_id'] ) && !empty( $_REQUEST['product_interest_id'] ) && !empty( get_current_user_id() ) ){
+        $current_user_id = get_current_user_id();
+        if( isset( $_REQUEST['product_interest_id'] ) && !empty( $_REQUEST['product_interest_id'] ) && !empty( $current_user_id ) ){
             $ppq_data = get_product_ppq( get_the_ID(), $_REQUEST['product_interest_id'], $flag= "for_interest" );
         }else{
             $ppq_data = get_product_ppq( get_the_ID(), "", $flag= "in_general" );
@@ -3956,7 +4017,8 @@ function mirano_child_setup(){
      */
     add_action('bestbuy_bestsell_product_status', 'bestbuy_bestsell_product_status_MMQ' , 15 );
     function bestbuy_bestsell_product_status_MMQ( ){
-        if( isset( $_REQUEST['product_interest_id'] ) && !empty( $_REQUEST['product_interest_id'] ) && !empty( get_current_user_id() ) ){
+        $current_user_id = get_current_user_id();
+        if( isset( $_REQUEST['product_interest_id'] ) && !empty( $_REQUEST['product_interest_id'] ) && !empty( $current_user_id  ) ){
             $campaign_mmq_reached = get_campaign_mmq_reached_by_product( get_the_ID(), $_REQUEST['product_interest_id'] , $flag= "for_interest_group" );
         }else{
             $campaign_mmq_reached = get_campaign_mmq_reached_by_product( get_the_ID(), "", $flag= "in_general" );
@@ -4017,8 +4079,9 @@ function mirano_child_setup(){
      */
     add_action('my_interest_stats', 'my_interest_stats', 5, 2 );
     function my_interest_stats( $product_interest_id, $post_status ){
+        $current_user_id = get_current_user_id();
         if( $product_interest_id ){
-            $my_interest_meta_data = wp_my_interest_meta( get_current_user_id() , $product_interest_id );
+            $my_interest_meta_data = wp_my_interest_meta( $current_user_id , $product_interest_id );
             $my_interest_stats_output = '<div class="my_interest_stats" style="margin:0 20px 10px 0; padding-right:5px; float:left;
 		background: none repeat-x scroll 0 	0;"> <a id="tool_tip_design" class="tooltip_my_interest_stats" title="' . __('My Interest Stats', TEXTDOMAIN). '" >';
 

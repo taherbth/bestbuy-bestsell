@@ -25,3 +25,14 @@
 }
 
 
+.wishlist_table thead { background: #eee; }
+.wishlist_table thead th { color: #555 !important; }
+.wishlist_table .product-thumbnail img { max-width: 60px; }
+
+.wishlist_table .product-status .edit-icon:before { font-family: 'FontAwesome' !important; font-size: 14px; content: '\f040'; padding: 5px; color: #00aeef; font-size: 16px; }
+.wishlist_table .product-status .remove:before { font-family: 'FontAwesome' !important; font-size: 14px; content: '\f014'; padding: 5px; color: #e74c3c; font-size: 16px; }
+
+.wishlist_table tbody tr:nth-child(odd) { background: #f8f8f8; }
+.wishlist_table tbody tr:hover { background: #eee; }
+
+.wishlist_table tr td { padding: 6px 0 !important; }
