@@ -48,4 +48,5 @@ if ( ! function_exists( 'has_site_icon' ) || ! has_site_icon() ) {
 	} else {
 		get_header($road_opt['header_layout']);
 	}
-	?>
+
+?>

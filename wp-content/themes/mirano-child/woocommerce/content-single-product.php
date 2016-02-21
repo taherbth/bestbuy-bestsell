@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 ?>
 <?php
 global $road_opt, $road_secondimage;
-global $interest_form, $show_this_div, $interest_start_date_time_as_text, $product_interest_validation_errors, $interest_meta_array, $format_array, $wp_interest_form_data;
+global $interest_form, $show_this_div, $interest_start_date_time_as_text, $product_interest_validation_errors, $interest_meta_array, $format_array, $wp_interest_form_data, $current_user_id;
 
 ?>
 <?php
@@ -113,9 +113,20 @@ global $interest_form, $show_this_div, $interest_start_date_time_as_text, $produ
 						}
 						?>
 						<!--<div class="clear">   </div>-->
-						<div id="add_to_cart_interest_div" >
-							<input class="add_to_cart_interest_div"  type="button" name="add_to_cart_interest" value="I&rsquo;m Interested" >
-						</div>
+
+							<?php
+								if( $current_user_id ){ ?>
+									<div id="add_to_cart_interest_div" >
+										<input class="add_to_cart_interest_div"  type="button" name="add_to_cart_interest" value="I&rsquo;m Interested" >
+									</div>
+							<?php } else{ ?>
+									<div id="add_to_cart_interest_div__" >
+										<a href="<?php echo get_site_url().'/index.php/authentication'?>">
+											<input class="add_to_cart_interest_div"  type="button" name="add_to_cart_interest" value="I&rsquo;m Interested" >
+										</a>
+									</div>
+							<?php }
+							?>
 					<?php } ?>
 					<div class="product_interest_form_main" >
 						<?php

@@ -1007,72 +1007,6 @@ function mirano_child_setup(){
     add_action( 'wp_ajax_send_email_to_interester', 'send_email_to_interester_callback' );
     function send_email_to_interester_callback() {
 
-        /*global $wpdb, $current_user;
-        $current_user = wp_get_current_user();
-        $dear_text ="";
-        $interest_start_date = "";
-        $interest_end_date = "";
-        $product_interest_id = $_POST['product_interest_id'];
-        $email_message_text = $_POST['email_message_text'];
-        $results_interest = $wpdb->get_results( " SELECT * FROM {$wpdb->prefix}users, {$wpdb->prefix}product_interest, {$wpdb->prefix}posts WHERE {$wpdb->prefix}users.ID = {$wpdb->prefix}product_interest.user_id AND {$wpdb->prefix}product_interest.product_interest_id='".$product_interest_id."' AND {$wpdb->prefix}posts.ID={$wpdb->prefix}product_interest.product_id" );
-        if( $results_interest ){
-            $user_meta_info = get_user_meta( $results_interest[0]->user_id, "" , "" );
-            //return (print_r( $user_meta_info )); exit;
-            if( $user_meta_info['first_name'][0] ){
-                $dear_text = $user_meta_info['first_name'][0];
-            }else{
-                $dear_text = $results_interest[0]->display_name;
-            }
-            if( $results_interest[0]->interest_start_date ){
-                $interest_start_date = date("Y-m-d", $results_interest[0]->interest_start_date );
-                $interest_end_date = date("Y-m-d", $results_interest[0]->interest_end_date );
-            }else{ $interest_start_date = __("As soon as price is reasonable"); }
-            //////////////////////////////////////////////
-
-            //$email_to = "tahersumonabu@gmail.com";
-            $email_to = $results_interest[0]->user_email;
-            /******************************************/
-            /*$subject="Bestbuy-bestsell: A Business Aggregator\n\n";
-            $message  = "<html><body>"."\n";
-            $message .="<table cellpadding='0' cellspacing='0' bgcolor=#319d00 width='100%' style='margin:0 auto'><tr style='font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 11px; color: rgb(255,255,255); line-height: 140%;'><td width='23'></td><td><span>!NMID: A Business Aggregator</span></td></tr></table>"."\n\n";
-            $message .="<p>Dear&nbsp;".$dear_text.",</p>"."\n";
-            $message .="<p>".$email_message_text."</p>"."\n";
-            $message .="<p>Your Interest Details:</p>"."\n";
-            $message .="<p><b>Product Name: </b><a href=".get_site_url()."/all_my_interest/?action=edit&product_interest_id=".$results_interest[0]->product_interest_id."&product_name=".$results_interest[0]->post_name." >".$results_interest[0]->product_name."</a></p>\n";
-            $message .="<p><b>Qty: </b>".$results_interest[0]->interest_qty."</p>\n";
-            $message .="<p><b>Interest Start Date: </b>".$interest_start_date."</p>\n";
-            $message .="<p><b>Interest End Date: </b>".$interest_end_date."</p>\n";
-
-            $message .="<table cellpadding='0' cellspacing='0' bgcolor=#319d00 width='100%' style='margin:0 auto'><tr style='font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 11px; color: rgb(255,255,255); line-height: 140%;'><td width='23'></td><td><span>!NMID: A Business Aggregator</span></td></tr></table>"."\n\n";
-            $message .= "</body></html>\n";
-            $uid = md5(uniqid(time()));
-            $header  = "From: Bestbuy-bestsell <".$current_user->user_email.">\r\n";
-            $header .= "Reply-To:".$current_user->user_email."\r\n";
-            $header .= "MIME-Version: 1.0\r\n";
-            $header .= "Content-Type: multipart/mixed; boundary=\"".$uid."\"\r\n\r\n";
-            $header .= "This is a multi-part message in MIME format.\r\n";
-            $header .= "--".$uid."\r\n";
-            $header .= "Content-type:text/html; charset=iso-8859-1\r\n";
-            $header .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
-            $header .= $message."\r\n\r\n";
-            $header .= "--".$uid."\r\n";*/
-            //$header .= "Content-Type: application/octet-stream; name=\"".$attachment_name."\"\r\n"; // use different content types here
-            /*$header .= "Content-Transfer-Encoding: base64\r\n";*/
-            //$header .= "Content-Disposition: attachment; filename=\"".$attachment_name."\"\r\n\r\n";
-            //$header .= $attachedfile."\r\n\r\n";
-            //echo $message; exit;
-            //echo $current_user->user_email; exit;
-            //echo "Email to ".$email_to; exit;
-           /* $header .= "--".$uid."--";
-            $attachments ="";
-            $messages = "";
-            if( mail( $email_to , $subject,"",$header) )	{
-                return True;
-            }
-            else{
-                return False;
-            }
-        }*/
         global $wpdb, $current_user;
         $current_user = wp_get_current_user();
         $dear_text ="";
@@ -1115,7 +1049,6 @@ function mirano_child_setup(){
             include("email_footer.php");
             $message = ob_get_contents();
             ob_end_clean();
-            echo $message; exit;
             //$mailto = "tahersumonabu@gmail.com";
             //$subject = "This is test";
             //$message_body="This is message body";
@@ -2702,6 +2635,157 @@ function mirano_child_setup(){
         return apply_filters( 'bestbuy_bestsell_get_image_size_' . $image_size, $size );
     }
 
+    /*
+    * Bestbuy-bestsell User Authentication
+    * Display Authentication Panel
+    */
+    add_shortcode( 'user_authentication', 'user_authentication_bestbuy_bestsell' );
+    function user_authentication_bestbuy_bestsell() {
+        ?>
+        <div class="flexbox">
+            <div class="col box">
+                    <h3 class="page-subheading"><?php _e( 'Create an account', TEXTDOMAIN );?> </h3>
+                    <div class="form_content clearfix">
+                        <p><?php _e( 'Please fill the form to create an account.', TEXTDOMAIN );?> </p>
+                        <div style="display:none" id="user_created_success_message" class="alert alert-success"></div>
+                        <div style="display:none" id="user_created_error" class="alert alert-danger">
+                            <div id="first_name_error_message" ></div>
+                            <div id="last_name_error_message" ></div>
+                            <div id="invalid_email_error_message" ></div>
+                            <div id="user_created_error_message" ></div>
+                            <div id="password_error_message" ></div>
+                            <div id="company_private_person_error_message" ></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="user_email"><?php _e( 'First Name', TEXTDOMAIN );?></label>
+                            <input type="text" value="" name="first_name" id="first_name" class="is_required validate account_input form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="user_email"><?php _e( 'Last Name', TEXTDOMAIN );?></label>
+                            <input type="text" value="" name="last_name" id="last_name" class="is_required validate account_input form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="user_email"><?php _e( 'Email address', TEXTDOMAIN );?></label>
+                            <input type="email" value="" name="user_email" id="user_email" class="is_required validate account_input form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="user_pass"><?php _e( 'Password', TEXTDOMAIN );?></label>
+                            <input type="password" value="" name="user_pass" id="user_pass" data-validate="isPasswd" class="is_required validate account_input form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="company_private_person">
+                                <input type="radio" value="company" name="company_or_private_person" class="company_private_person">
+                                <?php _e( 'Company', TEXTDOMAIN );?>
+                            </label>
+
+                            <label for="company_private_person"><?php _e( 'Or', TEXTDOMAIN );?>
+                                <input type="radio" value="private_person" name="company_or_private_person" class="company_private_person">
+                                <?php _e( 'Private Person', TEXTDOMAIN );?>
+                            </label>
+                        </div>
+                        <div class="submit">
+                            <input type="hidden" name="redirect_to" id="redirect_to" value="<?php echo wp_get_referer(); ?>" />
+                            <button name="user_create" id="user_create" type="submit" class="btn btn-default button button-medium exclusive join-btn">
+                                <span>
+                                    <i class="icon-user left"></i>
+                                    <?php _e( 'Create an account', TEXTDOMAIN );?>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+            </div>
+            <div class="col box">
+                <h3 class="page-subheading"><?php _e( 'Already Have An Account?', TEXTDOMAIN );?></h3>
+                <div style="display:none" id="login_success_message" class="alert alert-success"></div>
+                <div style="display:none" id="login_error_message" class="alert alert-danger">
+                    <div id="login_email_error_message" ></div>
+                    <div id="login_password_error_message" ></div>
+                    <div id="login_failed_message" ></div>
+                </div>
+                <div class="form_content clearfix">
+                    <div class="form-group">
+                        <label for="email"><?php _e( 'Email address', TEXTDOMAIN );?></label>
+                        <input type="email" value="" name="login_user_email" id="login_user_email" data-validate="isEmail" class="is_required validate account_input form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="user_pass"><?php _e( 'Password', TEXTDOMAIN );?></label>
+                        <input type="password" value="" name="login_user_pass" id="login_user_pass" data-validate="isPasswd" class="is_required validate account_input form-control">
+                    </div>
+                    <p class="lost_password form-group">
+                        <a title="Recover your forgotten password" href="#"><?php _e( 'Forgot your password?', TEXTDOMAIN );?></a></p>
+                    <p class="submit">
+                        <input type="hidden" name="login_redirect_to" id="login_redirect_to" value="<?php echo wp_get_referer(); ?>" />
+                        <button name="user_create" id="user_create" type="submit" class="btn btn-default button button-medium exclusive login-btn">
+                            <span>
+                                <i class="icon-lock left"></i>
+                                <?php _e( 'Sign in', TEXTDOMAIN );?>
+                            </span>
+                        </button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    <?php }
+    add_action("wp_ajax_nopriv_bestbuy_bestsell_sign_up_user", "bestbuy_bestsell_sign_up_user_callback");
+    add_action("wp_ajax_bestbuy_bestsell_sign_up_user", "bestbuy_bestsell_sign_up_user_callback");
+    function bestbuy_bestsell_sign_up_user_callback(){
+            $first_name = $_POST['first_name'];
+            $last_name = $_POST['last_name'];
+            $user_email = $_POST['user_email'];
+            $password = $_POST['user_pass'];
+            $company_or_private_person = $_POST['company_or_private_person'];
+            if( email_exists( $user_email )) {
+                echo 2; // 2 = This E-mail already exists
+            }else{
+                $success_user = wp_create_user( $user_email, $password, $user_email );
+                if ( is_wp_error( $success_user ) ) {
+                    $error_string = $success_user->get_error_message();
+                    _e($error_string, 'bestbuy_bestsell'); // System Error returned by wp_create_user()
+                }else{
+                    update_user_meta( $success_user, 'company_or_private_person', $company_or_private_person, '' );
+                    update_user_meta( $success_user, 'first_name', $first_name, '' );
+                    update_user_meta( $success_user, 'last_name', $last_name, '' );
+                    $credentials = array(
+                        'user_login'    => $user_email,
+                        'user_password' => $password,
+                        'rememember'    => true
+                    );
+                    $user = wp_signon( $credentials, false );
+                    $userID = $user->ID;
+                    wp_set_current_user( $userID, $user_email );
+                    wp_set_auth_cookie( $userID, true, false );
+                    do_action( 'wp_login', $user_email );
+                    echo 1; // 1 = User created successfully
+                    exit;
+                }
+            }
+            exit;
+    }
+    add_action("wp_ajax_nopriv_bestbuy_bestsell_sign_in_user", "bestbuy_bestsell_sign_in_user_callback");
+    add_action("wp_ajax_bestbuy_bestsell_sign_in_user", "bestbuy_bestsell_sign_in_user_callback");
+    function bestbuy_bestsell_sign_in_user_callback(){
+        $user_email = $_POST['user_email'];
+        $password = $_POST['user_pass'];
+        $credentials = array(
+            'user_login'    => $user_email,
+            'user_password' => $password,
+            'rememember'    => true
+        );
+        $user = wp_signon( $credentials, false );
+        $userID = $user->ID;
+        wp_set_current_user( $userID, $user_email );
+        wp_set_auth_cookie( $userID, true, false );
+        do_action( 'wp_login', $user_email );
+        if ( is_user_logged_in() )
+        {
+            echo 1; // 1 = User LoggedIn successfully
+        }
+        else
+        {
+            echo 2; // 1 = User LoggedIn Failed
+        }
+        exit;
+    }
     /** Author: ABU TAHER, Logic-coder IT
      * My Interest Lists
      *
@@ -2711,7 +2795,6 @@ function mirano_child_setup(){
     function all_my_interest_bestbuy_bestsell(){
         get_template_part('views/my_interest', 'list_bestbuybestsell');
     }
-
     /////////////////////////////////////////////////////////////////////
     /*********  Show interest form for a single product **********/
     /** Author: ABU TAHER, Logic-coder IT
@@ -2721,7 +2804,7 @@ function mirano_child_setup(){
      */
     add_action('bestbuy_bestsell_product_interest_form', 'bestbuy_bestsell_product_interest_form_function');
     function bestbuy_bestsell_product_interest_form_function(){
-        global $interest_form, $show_this_div, $interest_start_date_time_as_text, $product_interest_validation_errors, $interest_meta_array, $format_array, $wp_interest_form_data,$product_data;
+        global $interest_form, $show_this_div, $interest_start_date_time_as_text, $product_interest_validation_errors, $interest_meta_array, $format_array, $wp_interest_form_data,$product_data, $current_user_id;
         $show_this_div = 0;
         $interest_start_date_time_as_text = '';
         $interest_meta_array = array();
@@ -2841,9 +2924,10 @@ function mirano_child_setup(){
                 'value' => $wp_interest_form_data['interest_notes']
             )
         );
-        if($current_user_role==='company'){
+
+        if($all_meta_for_user['company_or_private_person'][0]==='company'){
             $authorative_person_options = array( array( 'label' =>__('Min själv', TEXTDOMAIN ), 'value' => 'My Self' ) );
-            if( $all_meta_for_user['authorative_person_one_first_name'][0] ){
+            if( !$all_meta_for_user['authorative_person_one_first_name'][0] ){
                 array_push( $authorative_person_options, array( 'label' =>__('Ny adda', TEXTDOMAIN ), 'value' => 'add_authorative_person' ) );
             }
             if( $all_meta_for_user['authorative_person_one_first_name'][0] ) {
@@ -4128,6 +4212,7 @@ function mirano_child_setup(){
     */
     function bestbuy_bestsell_theme_custom_scripts() {
         if ( ! is_admin() ) {
+            wp_localize_script( 'function', 'bestbuy_bestsell_sign_up_user_script', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
             wp_enqueue_script('jquery-ui-datepicker');
             wp_enqueue_style('jquery-style', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css');
             wp_enqueue_script('jquery');

@@ -36,3 +36,38 @@
 .wishlist_table tbody tr:hover { background: #eee; }
 
 .wishlist_table tr td { padding: 6px 0 !important; }
+
+/* User Registratio */
+
+.box {
+    background: none repeat scroll 0 0 #fbfbfb;
+    border: 1px solid #333;
+    border-radius: 3px;
+    line-height: 23px;
+    margin: 0 0 30px;
+    padding: 14px 18px 13px;
+}
+.flexbox {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+}
+.flexbox .col {
+    flex: 1;
+    padding: 20px;
+}
+.flexbox .col:nth-child(1) {
+    background: #eee;
+    -webkit-order: 1;
+    -ms-flex-order: 1;
+    order: 0;
+    margin-right: 2%;
+}
+.flexbox .col:nth-child(2) {
+    background: #eee;
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 1;
+}
+
