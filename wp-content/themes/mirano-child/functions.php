@@ -2795,6 +2795,257 @@ function mirano_child_setup(){
     function all_my_interest_bestbuy_bestsell(){
         get_template_part('views/my_interest', 'list_bestbuybestsell');
     }
+    /** Author: ABU TAHER, Logic-coder IT
+     * My Account
+     *
+     * Return Logged User Account Info
+     */
+    add_shortcode('bestbuy_bestsell_my_account', 'bestbuy_bestsell_my_account');
+    function bestbuy_bestsell_my_account(){
+        $current_user_id = get_current_user_id();
+        $user_info = get_userdata($current_user_id);
+        $all_meta_for_user = get_user_meta( $current_user_id );
+        ?>
+       <div class="my_account">
+           <div class="personal_info">
+               <h2 class="personal_info_title"><?php _e( 'Personal Data', TEXTDOMAIN );?></h2>
+               <div class="form_element">
+                   <div style="display:none" id="save_personal_data_success_message" class="alert alert-success save_personal_data_success"></div>
+                    <div class="element_group">
+                        <div class="element_label">
+                            <label><?php _e( 'Gender', TEXTDOMAIN );?></label><span>*</span>
+                        </div>
+                        <div class="element_value">
+                            <select name="gender" id="gender">
+                                <option value="Male" <?php if( $all_meta_for_user['gender'][0]=='Male' ){ ?> selected="selected"<?php } ?> ><?php _e( 'Male', TEXTDOMAIN );?></option>
+                                <option value="Female" <?php if( $all_meta_for_user['gender'][0]=='Female' ){ ?> selected="selected"<?php } ?>><?php _e( 'Female', TEXTDOMAIN );?></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div style="display:none" id="gender_error_message">  </div>
+                    <div class="element_group">
+                        <div class="element_label">
+                            <label><?php _e( 'First Name', TEXTDOMAIN );?></label><span>*</span>
+                        </div>
+                            <div class="element_value">
+                            <input type="text" name="first_name" id="first_name" value="<?php echo $all_meta_for_user['first_name'][0]; ?>" id="first_name" />
+                        </div>
+                    </div>
+                    <div id="first_name_error_message">  </div>
+                    <div class="element_group">
+                       <div class="element_label">
+                           <label><?php _e( 'Last Name', TEXTDOMAIN );?></label><span>*</span>
+                       </div>
+                       <div class="element_value">
+                           <input type="text" name="last_name" id="last_name" value="<?php echo $all_meta_for_user['last_name'][0]; ?>" id="last_name" />
+                       </div>
+                    </div>
+                    <div id="last_name_error_message">  </div>
+                    <div class="element_group">
+                       <div class="element_label">
+                           <label><?php _e( 'Birth Date', TEXTDOMAIN );?></label>
+                       </div>
+                       <div class="element_value">
+                           <div class="day">
+                               <select name="day" id="day">
+                                   <option value=""><?php _e( 'Day', TEXTDOMAIN );?></option>
+                                   <?php
+                                   for( $day= 1; $day <= 31; $day++ ){?>
+                                       <option value="<?php echo $day;?>" <?php if( $all_meta_for_user['day'][0]==$day ){ ?> selected="selected"<?php } ?> ><?php echo $day;?></option>
+                                   <?php }
+                                   ?>
+                               </select>
+                           </div>
+                           <div class="month">
+                               <select name="month" id="month">
+                                   <option value=""><?php _e( 'Month', TEXTDOMAIN );?></option>
+                                   <option value="<?php _e( 'January', TEXTDOMAIN );?>" <?php if( $all_meta_for_user['month'][0]=='January' ){ ?> selected="selected"<?php } ?> ><?php _e( 'January', TEXTDOMAIN );?></option>
+                                   <option value="<?php _e( 'February', TEXTDOMAIN );?>" <?php if( $all_meta_for_user['month'][0]=='February' ){ ?> selected="selected"<?php } ?>><?php _e( 'February', TEXTDOMAIN );?></option>
+                                   <option value="<?php _e( 'March', TEXTDOMAIN );?>" <?php if( $all_meta_for_user['month'][0]=='March' ){ ?> selected="selected"<?php } ?> ><?php _e( 'March', TEXTDOMAIN );?></option>
+                                   <option value="<?php _e( 'April', TEXTDOMAIN );?>" <?php if( $all_meta_for_user['month'][0]=='April' ){ ?> selected="selected"<?php } ?> ><?php _e( 'April', TEXTDOMAIN );?></option>
+                                   <option value="<?php _e( 'May', TEXTDOMAIN );?>" <?php if( $all_meta_for_user['month'][0]=='May' ){ ?> selected="selected"<?php } ?> ><?php _e( 'May', TEXTDOMAIN );?></option>
+                                   <option value="<?php _e( 'June', TEXTDOMAIN );?>" <?php if( $all_meta_for_user['month'][0]=='June' ){ ?> selected="selected"<?php } ?> ><?php _e( 'June', TEXTDOMAIN );?></option>
+                                   <option value="<?php _e( 'July', TEXTDOMAIN );?>" <?php if( $all_meta_for_user['month'][0]=='July' ){ ?> selected="selected"<?php } ?> ><?php _e( 'July', TEXTDOMAIN );?></option>
+                                   <option value="<?php _e( 'August', TEXTDOMAIN );?>" <?php if( $all_meta_for_user['month'][0]=='August' ){ ?> selected="selected"<?php } ?> ><?php _e( 'August', TEXTDOMAIN );?></option>
+                                   <option value="<?php _e( 'September', TEXTDOMAIN );?>" <?php if( $all_meta_for_user['month'][0]=='September' ){ ?> selected="selected"<?php } ?> ><?php _e( 'September', TEXTDOMAIN );?></option>
+                                   <option value="<?php _e( 'October', TEXTDOMAIN );?>" <?php if( $all_meta_for_user['month'][0]=='October' ){ ?> selected="selected"<?php } ?> ><?php _e( 'October', TEXTDOMAIN );?></option>
+                                   <option value="<?php _e( 'November', TEXTDOMAIN );?>" <?php if( $all_meta_for_user['month'][0]=='November' ){ ?> selected="selected"<?php } ?> ><?php _e( 'November', TEXTDOMAIN );?></option>
+                                   <option value="<?php _e( 'December', TEXTDOMAIN );?>" <?php if( $all_meta_for_user['month'][0]=='December' ){ ?> selected="selected"<?php } ?> ><?php _e( 'December', TEXTDOMAIN );?></option>
+                               </select>
+                           </div>
+                           <div class="year">
+                               <select name="year" id="year">
+                                   <option value=""><?php _e( 'Year', TEXTDOMAIN );?></option>
+                                   <?php for ( $year = ( date('Y')-18); $year >= (date('Y')-99); $year--) { ?>
+                                    <option value="<?php echo $year;?>" <?php if( $all_meta_for_user['year'][0]==$year ){ ?> selected="selected"<?php } ?> ><?php echo $year;?></option>
+                                   <?php } ?>
+                               </select>
+                           </div>
+                       </div>
+                    </div>
+                   <div id="birth_day_error_message">  </div>
+                    <div class="element_group">
+                       <div class="element_label">
+                           <label><?php _e( 'Mobile Number', TEXTDOMAIN );?></label><span>*</span>
+                       </div>
+                       <div class="element_value">
+                           <input type="text" name="mobile_number" id="mobile_number" value="<?php echo $all_meta_for_user['mobile_number'][0]; ?>" id="mobile_number" />
+                       </div>
+                    </div>
+                    <div id="mobile_number_pattern"> e.g. 07xxxxxxxx </div>
+                    <div id="mobile_number_error_message">  </div>
+                    <div class="element_group">
+                        <div class="element_label">
+                        </div>
+                       <div class="element_value_company_or_private">
+                           <label for="company_private_person">
+                               <input type="radio" value="company" name="company_or_private_person" <?php if( $all_meta_for_user['company_or_private_person'][0]=='company' ){ ?> checked <?php } ?> >
+                               <?php _e( 'Company', TEXTDOMAIN );?>
+                           </label>
+                           <label for="company_private_person"><?php _e( 'Or', TEXTDOMAIN );?>
+                               <input type="radio" value="private_person" name="company_or_private_person" <?php if( $all_meta_for_user['company_or_private_person'][0]=='private_person' ){ ?> checked <?php } ?> >
+                               <?php _e( 'Private Person', TEXTDOMAIN );?>
+                           </label>
+                       </div>
+                    </div>
+                    <div id="company_private_person_error_message">  </div>
+                    <div class="element_group">
+                       <div class="element_asterek_message">
+                           <label>* <?php _e( 'Required fields', TEXTDOMAIN );?></label>
+                       </div>
+                       <div class="element_save_button">
+                           <p class="submit">
+                               <button name="save_personal_data" id="save_personal_data" type="submit" class="btn btn-default button button-medium exclusive save_personal_data_btn">
+                            <span>
+                                <i class="icon-lock left"></i>
+                                <?php _e( 'Save', TEXTDOMAIN );?>
+                            </span>
+                               </button>
+                           </p>
+                       </div>
+                    </div>
+               </div>
+           </div>
+           <div class="change_password">
+               <h2 class="change_password_title"><?php _e( 'Password', TEXTDOMAIN );?></h2>
+               <div class="form_element">
+                   <div style="display:none" id="save_password_data_success_message" class="alert alert-success save_personal_data_success"></div>
+                   <div style="display:none" id="save_password_data_error_message" class="alert alert-danger save_personal_data_error"></div>
+                   <div class="element_group">
+                       <div class="element_label">
+                           <label><?php _e( 'Old Password', TEXTDOMAIN );?></label><span>*</span>
+                       </div>
+                       <div class="element_value">
+                           <input type="password" name="old_password" id="old_password" value="" id="old_password" />
+                       </div>
+                   </div>
+                   <div id="old_password_error_message">  </div>
+                   <div class="element_group">
+                       <div class="element_label">
+                           <label><?php _e( 'New Password', TEXTDOMAIN );?></label><span>*</span>
+                       </div>
+                       <div class="element_value">
+                           <input type="password" name="new_password" id="new_password" value="" id="new_password" />
+                       </div>
+                   </div>
+                   <div id="new_password_error_message">  </div>
+                   <div class="element_group">
+                       <div class="element_label">
+                           <label><?php _e( 'Confirm Password', TEXTDOMAIN );?></label><span>*</span>
+                       </div>
+                       <div class="element_value">
+                           <input type="password" name="confirm_password" id="confirm_password" value="" id="confirm_password" />
+                       </div>
+                   </div>
+                   <div id="confirm_password_error_message">  </div>
+                   <div id="password_not_matched_error_message">  </div>
+                   <div class="element_group">
+                       <div class="element_asterek_message">
+                           <label>* <?php _e( 'Required fields', TEXTDOMAIN );?></label>
+                       </div>
+                       <div class="element_save_button">
+                           <p class="submit">
+                               <button name="save_password_data" id="save_password_data" type="submit" class="btn btn-default button button-medium exclusive save_password_data_btn">
+                            <span>
+                                <i class="icon-lock left"></i>
+                                <?php _e( 'Save', TEXTDOMAIN );?>
+                            </span>
+                               </button>
+                           </p>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+    <?php }
+
+    add_action("wp_ajax_nopriv_bestbuy_bestsell_save_personal_data", "bestbuy_bestsell_save_personal_data_callback");
+    add_action("wp_ajax_bestbuy_bestsell_save_personal_data", "bestbuy_bestsell_save_personal_data_callback");
+    function bestbuy_bestsell_save_personal_data_callback(){
+        $gender = $_POST['gender'];
+        $first_name = $_POST['first_name'];
+        $last_name = $_POST['last_name'];
+        $birth_day = $_POST['birth_day'];
+        $birth_month = $_POST['birth_month'];
+        $birth_year = $_POST['birth_year'];
+        $mobile_number = $_POST['mobile_number'];
+        $company_or_private_person = $_POST['company_or_private_person'];
+
+        $user_id = get_current_user_id();
+        update_user_meta( $user_id, 'gender', $gender, '' );
+        update_user_meta( $user_id, 'first_name', $first_name, '' );
+        update_user_meta( $user_id, 'last_name', $last_name, '' );
+        update_user_meta( $user_id, 'birth_day', $birth_day, '' );
+        update_user_meta( $user_id, 'birth_month', $birth_month, '' );
+        update_user_meta( $user_id, 'birth_year', $birth_year, '' );
+        update_user_meta( $user_id, 'mobile_number', $mobile_number, '' );
+        update_user_meta( $user_id, 'company_or_private_person', $company_or_private_person, '' );
+        echo 1;
+        exit;
+    }
+
+    add_action("wp_ajax_nopriv_bestbuy_bestsell_save_password_data", "bestbuy_bestsell_save_password_data_callback");
+    add_action("wp_ajax_bestbuy_bestsell_save_password_data", "bestbuy_bestsell_save_password_data_callback");
+    function bestbuy_bestsell_save_password_data_callback(){
+        $old_password = $_POST['old_password'];
+        $new_password = $_POST['new_password'];
+        $confirm_password = $_POST['confirm_password'];
+        $user = wp_get_current_user(); //trace($user);
+        $check_password = wp_check_password( $old_password, $user->user_pass, $user->data->ID );
+        if($check_password)
+        {
+            if( !empty( $new_password ) && !empty( $confirm_password ))
+            {
+                if( $new_password == $confirm_password )
+                {
+                    $update_data['ID'] = $user->data->ID;
+                    $update_data['user_pass'] = $new_password;
+                    $uid = wp_update_user( $update_data );
+                    if( $uid )
+                    {
+                        echo 1; // 1 = "The password has been updated successfully";
+                    }
+                    else
+                    {
+                        echo 2; // 2 = "Sorry! Failed to update your account details";
+                    }
+                }
+                else
+                {
+                   // $passupdatemsg = "Confirm password doesn't match with new password";
+                }
+            }
+            else
+            {
+                ///$passupdatemsg = "Please enter new password and confirm password";
+            }
+        }
+        else
+        {
+            echo 3; // 3 = "Old Password doesn't match the existing password";
+        }
+        exit;
+    }
     /////////////////////////////////////////////////////////////////////
     /*********  Show interest form for a single product **********/
     /** Author: ABU TAHER, Logic-coder IT

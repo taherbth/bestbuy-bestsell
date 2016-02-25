@@ -16,15 +16,25 @@
 
 /* =Theme customization starts here
 -------------------------------------------------------------- */
-#user-submitted-posts input[type="text"], textarea, select {
-    background: none repeat scroll 0 0 #eee !important;
+#user-submitted-posts input[type="text"], input[type="password"],textarea, select {
+    background: #fff none no-repeat right top !important;
     border: medium none !important;
     display: block;
-    padding: 15px !important;
+    padding: 6px !important;
     width: 100%;
 }
-
-
+.day select {
+    float:left;
+    width: 27%;
+}
+.month select {
+    float:left;
+    width: 46%;
+}
+.year select {
+    float:left;
+    width: 27%;
+}
 .wishlist_table thead { background: #eee; }
 .wishlist_table thead th { color: #555 !important; }
 .wishlist_table .product-thumbnail img { max-width: 60px; }
@@ -70,4 +80,93 @@
     -ms-flex-order: 0;
     order: 1;
 }
+.my_account{
+    width:100%;
+}
+.personal_info{
+    width: 40%;
+    float:left;
+    border: 1px solid #eaeaea;
+    overflow: hidden;
+}
+.form_element{
+    width:100%;
+}
+.element_group{
+    padding-bottom: 40px;
+}
+.element_label{
+    float:left;
+    width:25%;
+    margin: 0 2% 0 20%;
+    text-align: right;
+}
+.element_value{
+    width:50%;
+    float:left;
+    border: 1px solid #ddd;
+}
+.element_value_company_or_private{
+    width:56%;
+    float:right;
+}
+.element_value input[type="text"]{
+    background: none no-repeat scroll right top #fff !important;
+    border: medium none !important;
+    display: block;
+    padding: 6px !important;
+    width: 100%;
+}
+.change_password{
+    width: 40%;
+    float:left;
+    margin-left: 3%;
+    border: 1px solid #eaeaea;
+    overflow: hidden;
+}
+.personal_info_title, .change_password_title{
+    color: #404040;
+    font-family: arial,helvetica,"DejaVu Sans","Arial Unicode MS","Lucida Sans Unicode",sans-serif;
+    font-style: normal;
+    text-decoration: none;
+    background-color: #f3f3f3;
+    font-size: 12px;
+    line-height: 14px;
+    margin: 0 0 10px;
+    overflow: hidden;
+    padding: 7px 10px;
+}
+.element_asterek_message{
+    width:40%;
+    margin-left: 2%;
+}
+.element_save_button{
+    float:right;
+    padding-right: 3%;
+}
+#gender_error_message,
+#first_name_error_message,
+#last_name_error_message,
+#mobile_number_error_message,
+#company_private_person_error_message,
+#birth_day_error_message,
+#old_password_error_message,
+#confirm_password_error_message,
+#new_password_error_message,
+#password_not_matched_error_message{
+    width: 79%;
+    color:red;
+    padding: 1% 0% 1% 0%;
+    text-align: right;
+}
+#mobile_number_pattern{
+    width: 66%;
+    padding: 1% 0% 1% 0%;
+    text-align: right;
+}
+.save_personal_data_success, .save_personal_data_error{
+    border-radius: 4px;
+    margin: 0 10px 20px 10px;
+    padding: 10px;
 
+}

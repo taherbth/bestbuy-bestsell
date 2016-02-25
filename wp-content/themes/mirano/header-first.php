@@ -38,7 +38,7 @@ if(is_ssl()){
 				</div>
 				<div class="col-xs-12 col-md-6">	
 					<?php if ( class_exists( 'WC_Widget_Cart' ) ) {
-						the_widget('Custom_WC_Widget_Cart'); 
+						//the_widget('Custom_WC_Widget_Cart');
 					} ?>
 					<?php if(class_exists('WC_Widget_Product_Search') ) { ?>
 						<div class="header-search">
