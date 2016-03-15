@@ -219,7 +219,7 @@ jQuery(document).ready(function($){
 				confirm_password: confirm_password
 			};
 			// since 2.8 ajaxurl is always defined in the admin header and points to admin-ajax.php
-			$.post(ajaxurl, data, function( response ) { 
+			$.post(ajaxurl, data, function( response ) {
 				if( response == 1 )
 				{
 					document.getElementById( 'save_password_data_success_message' ).style.display='block';
@@ -234,6 +234,163 @@ jQuery(document).ready(function($){
 				{
 					document.getElementById( 'save_password_data_error_message' ).style.display='block';
 					document.getElementById( 'save_password_data_error_message' ).innerHTML="Old Password doesn't match the existing password"
+				}
+			});
+		}
+		else
+		{
+			return false;
+		}
+	});
+	$('.save_email_data_btn').on( 'click', function (event)
+	{
+		document.getElementById('save_email_data_success_message').innerHTML='';
+		document.getElementById('save_email_data_success_message' ).style.display='none';
+		document.getElementById('save_email_data_error_message').innerHTML='';
+		document.getElementById('save_email_data_error_message' ).style.display='none';
+		document.getElementById('login_email_error_message').innerHTML='';
+		document.getElementById('user_pass_error_message').innerHTML='';
+
+		var user_email = $('#user_email').val();
+		var user_pass = $('#user_pass').val();
+
+		var changeEmailValidate = validateChangeEmail( user_email, user_pass );
+
+		if( changeEmailValidate )
+		{
+			var data = {
+				action: 'bestbuy_bestsell_save_email_data',
+				user_email: user_email,
+				user_pass: user_pass
+			};
+			// since 2.8 ajaxurl is always defined in the admin header and points to admin-ajax.php
+			$.post(ajaxurl, data, function( response ) {
+				if( response == 1 )
+				{
+					document.getElementById( 'save_email_data_success_message' ).style.display='block';
+					document.getElementById( 'save_email_data_success_message' ).innerHTML="The email has been updated successfully"
+				}
+				else if( response == 2 )
+				{
+					document.getElementById( 'save_email_data_error_message' ).style.display='block';
+					document.getElementById( 'save_email_data_error_message' ).innerHTML="Sorry! Failed to update your account details"
+				}
+			});
+		}
+		else
+		{
+			return false;
+		}
+	});
+	$('.save_billing_address_btn').on( 'click', function (event)
+	{
+		document.getElementById('save_billing_delivery_address_success_message').innerHTML='';
+		document.getElementById('save_billing_delivery_address_success_message' ).style.display='none';
+		document.getElementById('gender_error_message').innerHTML='';
+		document.getElementById('first_name_error_message').innerHTML='';
+		document.getElementById('last_name_error_message').innerHTML='';
+		document.getElementById('street_house_number_error_message').innerHTML='';
+		document.getElementById('care_of_error_message').innerHTML='';
+		document.getElementById('zip_code_error_message').innerHTML='';
+		document.getElementById('place_error_message').innerHTML='';
+		document.getElementById('country_error_message').innerHTML='';
+		var billing_gender = $('#billing_gender').val();
+		var billing_first_name = $('#billing_first_name').val();
+		var billing_last_name = $('#billing_last_name').val();
+		var billing_street_house_number = $('#billing_street_house_number').val();
+		var billing_care_of = $('#billing_care_of').val();
+		var billing_zip_code = $('#billing_zip_code').val();
+		var billing_place = $('#billing_place').val();
+		var billing_country = $('#billing_country').val();
+
+		var genderValidate = validateGender( billing_gender );
+		var firstNameValidate = validateFirstName( billing_first_name );
+		var lastNameValidate = validateLastName( billing_last_name );
+		var streetHouseNumberValidate = validateStreetHouseNumber( billing_street_house_number );
+		var zipCodeValidate = validateZipCode( billing_zip_code );
+		var placeValidate = validatePlace( billing_place );
+		var countryValidate = validateCountry( billing_country );
+
+		if( genderValidate && firstNameValidate && lastNameValidate && streetHouseNumberValidate && zipCodeValidate && placeValidate && countryValidate )
+		{
+			var data = {
+				action: 'bestbuy_bestsell_save_my_billing_data',
+				billing_gender: billing_gender,
+				billing_first_name: billing_first_name,
+				billing_last_name: billing_last_name,
+				billing_street_house_number: billing_street_house_number,
+				billing_care_of: billing_care_of,
+				billing_zip_code: billing_zip_code,
+				billing_place: billing_place,
+				billing_country: billing_country
+			};
+			// since 2.8 ajaxurl is always defined in the admin header and points to admin-ajax.php
+			$.post(ajaxurl, data, function( response ) {
+				if( response == 1 )
+				{
+					document.getElementById( 'save_billing_delivery_address_success_message' ).style.display='block';
+					document.getElementById( 'save_billing_delivery_address_success_message' ).innerHTML='Billing Data Saved'
+				}
+			});
+		}
+		else
+		{
+			return false;
+		}
+	});
+	$('.save_delivery_address_btn').on( 'click', function (event)
+	{
+		document.getElementById('save_billing_delivery_address_success_message').innerHTML='';
+		document.getElementById('save_billing_delivery_address_success_message' ).style.display='none';
+		document.getElementById('gender_error_message').innerHTML='';
+		document.getElementById('first_name_error_message').innerHTML='';
+		document.getElementById('last_name_error_message').innerHTML='';
+		document.getElementById('street_house_number_error_message').innerHTML='';
+		document.getElementById('care_of_error_message').innerHTML='';
+		document.getElementById('zip_code_error_message').innerHTML='';
+		document.getElementById('place_error_message').innerHTML='';
+		document.getElementById('country_error_message').innerHTML='';
+		var delivery_gender = $('#delivery_gender').val();
+		var delivery_first_name = $('#delivery_first_name').val();
+		var delivery_last_name = $('#delivery_last_name').val();
+		var delivery_street_house_number = $('#delivery_street_house_number').val();
+		var delivery_care_of = $('#delivery_care_of').val();
+		var delivery_zip_code = $('#delivery_zip_code').val();
+		var delivery_place = $('#delivery_place').val();
+		var delivery_country = $('#delivery_country').val();
+		var use_as_billing_address = 0;
+		if( document.getElementById("use_as_billing_address").checked ){
+			use_as_billing_address = 1;
+		}
+
+		var genderValidate = validateGender( delivery_gender );
+		var firstNameValidate = validateFirstName( delivery_first_name );
+		var lastNameValidate = validateLastName( delivery_last_name );
+		var streetHouseNumberValidate = validateStreetHouseNumber( delivery_street_house_number );
+		var zipCodeValidate = validateZipCode( delivery_zip_code );
+		var placeValidate = validatePlace( delivery_place );
+		var countryValidate = validateCountry( delivery_country );
+
+		if( genderValidate && firstNameValidate && lastNameValidate && streetHouseNumberValidate && zipCodeValidate && placeValidate && countryValidate )
+		{
+			var data = {
+				action: 'bestbuy_bestsell_save_my_delivery_data',
+				delivery_gender: delivery_gender,
+				delivery_first_name: delivery_first_name,
+				delivery_last_name: delivery_last_name,
+				delivery_street_house_number: delivery_street_house_number,
+				delivery_care_of: delivery_care_of,
+				delivery_zip_code: delivery_zip_code,
+				delivery_place: delivery_place,
+				delivery_country: delivery_country,
+				use_as_billing_address: use_as_billing_address
+			};
+			// since 2.8 ajaxurl is always defined in the admin header and points to admin-ajax.php
+			$.post(ajaxurl, data, function( response ) {
+				if( response == 1 )
+				{
+					document.getElementById( 'save_billing_delivery_address_success_message' ).style.display='block';
+					document.getElementById( 'save_billing_delivery_address_success_message' ).innerHTML='Delivery Data Saved'
 				}
 			});
 		}
@@ -343,6 +500,18 @@ function validateChangePassword( old_password, new_password, confirm_password ){
 	}
 	return return_value;
 }
+function validateChangeEmail( user_email, user_pass ){
+	var return_value = true;
+	if( !validateLogInEmail( user_email ) ){
+		return_value = false;
+	}
+	if( user_pass.length <= 0 )
+	{
+		document.getElementById('user_pass_error_message').innerHTML = "This is a required field";
+		return_value = false;
+	}
+	return return_value;
+}
 function validateCompanyOrPrivate( length )
 {
 	if( length == 0)
@@ -391,4 +560,47 @@ function validateLogInPassword( user_pass )
 		return true;
 	}
 }
-
+function validateStreetHouseNumber( street_house_number ){
+	if( street_house_number.length <= 0 )
+	{
+		document.getElementById('street_house_number_error_message').innerHTML="Street/House Can't Be Empty"
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+}
+function validateZipCode( zip_code ){
+	if( zip_code.length <= 0 )
+	{
+		document.getElementById('zip_code_error_message').innerHTML="Zip Code Can't Be Empty"
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+}
+function validatePlace( place ){
+	if( place.length <= 0 )
+	{
+		document.getElementById('place_error_message').innerHTML="Place Can't Be Empty"
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+}
+function validateCountry( country ){
+	if( country.length <= 0 )
+	{
+		document.getElementById('country_error_message').innerHTML="Country Can't Be Empty"
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+}

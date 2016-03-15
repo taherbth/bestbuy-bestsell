@@ -1670,6 +1670,7 @@ $total_qty_column_message = $count_group_interest_qty[0]['total_qty'] ? $count_g
 	 */
 	public function get_group_price_list_matched( $group_id, $total_qty ){
 		global $wpdb;
+		//echo "SELECT * FROM {$wpdb->prefix}interest_group_price WHERE  group_id='".$group_id."' AND no_of_sells= ( SELECT max(no_of_sells) FROM {$wpdb->prefix}interest_group_price WHERE group_price_id IN (SELECT group_price_id FROM {$wpdb->prefix}interest_group_price WHERE $total_qty >= no_of_sells AND group_id='".$group_id."'";
 		$sql_result = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}interest_group_price WHERE  group_id='".$group_id."' AND no_of_sells= ( SELECT max(no_of_sells) FROM {$wpdb->prefix}interest_group_price WHERE group_price_id IN (SELECT group_price_id FROM {$wpdb->prefix}interest_group_price WHERE $total_qty >= no_of_sells AND group_id='".$group_id."') ) ", 'ARRAY_A' );
 		return $sql_result;
 	}

@@ -16,7 +16,7 @@
 
 /* =Theme customization starts here
 -------------------------------------------------------------- */
-#user-submitted-posts input[type="text"], input[type="password"],textarea, select {
+#user-submitted-posts input[type="text"], input[type="password"], input[type="email"],textarea, select {
     background: #fff none no-repeat right top !important;
     border: medium none !important;
     display: block;
@@ -80,7 +80,7 @@
     -ms-flex-order: 0;
     order: 1;
 }
-.my_account{
+.my_account, .my_addresses, .my_interest_summary{
     width:100%;
 }
 .personal_info{
@@ -89,8 +89,25 @@
     border: 1px solid #eaeaea;
     overflow: hidden;
 }
+.change_password{
+    width: 40%;
+    float:left;
+    margin-left: 3%;
+    border: 1px solid #eaeaea;
+    overflow: hidden;
+}
+.change_email{
+    width: 40%;
+    float:left;
+    margin-top: 3%;
+    border: 1px solid #eaeaea;
+    overflow: hidden;
+}
 .form_element{
     width:100%;
+}
+.form_element_billing_delivery_address{
+    width:98%;
 }
 .element_group{
     padding-bottom: 40px;
@@ -100,6 +117,19 @@
     width:25%;
     margin: 0 2% 0 20%;
     text-align: right;
+}
+.element_label_billing_delivery_address{
+    float:left;
+    width:27%;
+    margin: 0 2% 0 20%;
+    text-align: right;
+}
+.use_as_billing_address{
+    width:50%;
+    float:left;
+}
+.use_as_billing_address label{
+    margin-left: 2px;
 }
 .element_value{
     width:50%;
@@ -117,14 +147,7 @@
     padding: 6px !important;
     width: 100%;
 }
-.change_password{
-    width: 40%;
-    float:left;
-    margin-left: 3%;
-    border: 1px solid #eaeaea;
-    overflow: hidden;
-}
-.personal_info_title, .change_password_title{
+.personal_info_title, .change_password_title,.change_email_title,.billing_delivery_address_title{
     color: #404040;
     font-family: arial,helvetica,"DejaVu Sans","Arial Unicode MS","Lucida Sans Unicode",sans-serif;
     font-style: normal;
@@ -140,9 +163,18 @@
     width:40%;
     margin-left: 2%;
 }
+.element_asterek_message_billing_delivery_address{
+    float: right;
+    margin-top: 1%;
+    width: 18%;
+}
 .element_save_button{
     float:right;
     padding-right: 3%;
+}
+.element_back_button{
+    float:left;
+    padding-left: 3%;
 }
 #gender_error_message,
 #first_name_error_message,
@@ -153,7 +185,14 @@
 #old_password_error_message,
 #confirm_password_error_message,
 #new_password_error_message,
-#password_not_matched_error_message{
+#password_not_matched_error_message,
+#login_email_error_message,
+#user_pass_error_message,
+#street_house_number_error_message,
+#zip_code_error_message,
+#place_error_message,
+#country_error_message
+{
     width: 79%;
     color:red;
     padding: 1% 0% 1% 0%;
@@ -164,9 +203,115 @@
     padding: 1% 0% 1% 0%;
     text-align: right;
 }
-.save_personal_data_success, .save_personal_data_error{
+.save_personal_data_success, .save_personal_data_error, .save_billing_delivery_address_success{
     border-radius: 4px;
     margin: 0 10px 20px 10px;
     padding: 10px;
+}
+.clear{
+    clear:both;
+}
+.billing_address{
+    width: 45%;
+    float:left;
+    border: 1px solid #eaeaea;
+    overflow: hidden;
+}
+.delivery_address{
+    width: 45%;
+    float:left;
+    margin-left: 1.5%;
+    border: 1px solid #eaeaea;
+    overflow: hidden;
+}
+.billing_address_label{
+    width: 40%;
+    margin: 0 0 0 10px;
+    text-align: left;
+}
+.change_billing_address_link, .change_delivery_address_link{
+    float:right;
+    margin: 10px 10px 0 0;
+}
+.my_billing_delivery_address{
+    width: 67%;
+    float:left;
+    border: 1px solid #eaeaea;
+    overflow: hidden;
+}
+.save_back_button{
+    width: 67%;
+    margin-top: 2%;
+}
+.back_address_btn  {
+    background: none repeat scroll 0 0 #909295 !important;
+}
+.my_address_left_navigation{
+    width: 25%;
+    float:left;
+}
+.my_interest_article_summary{
+    width:70%;
+    margin-left:2%;
+    float:left;
+}
+.my_billing_address{
+    border: 1px solid #eaeaea;
+    overflow: hidden;
+}
+.my_delivery_address{
+    margin-top: 3%;
+    border: 1px solid #eaeaea;
+    overflow: hidden;
+}
+.billing_address_label{
+    width: 40%;
+    margin: 0 0 0 10px;
+    text-align: left;
+}
 
+.article_table {
+    background: none repeat scroll 0 0 #fff;
+    border-color: #e5e5e5;
+    border-radius: 0;
+    border-style: solid;
+    border-width: 1px 0 0 1px;
+    /*margin: 0 0 50px;*/
+}
+.my_article_details table {
+    border-collapse: separate;
+    border-color: #e5e5e5;
+    border-spacing: 0;
+    border-style: solid;
+    border-width: 1px 0 0 1px;
+    margin-bottom: 0 !important;
+    width: 100%;
+}
+.summary_table thead {
+    background: none repeat scroll 0 0 #eee;
+}
+.article_table th {
+    font-family: Arial,Arial,Helvetica,sans-serif;
+    font-weight: bold;
+    text-transform: capitalize;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+.summary_table thead th {
+    color: #555 !important;
+}
+.my_article_details table th, .my_article_details table td {
+    /*border-bottom: 1px solid #e5e5e5;
+    border-right: 1px solid #e5e5e5;*/
+    padding: 5px;
+}
+.my_article_details td, .my_article_details th {
+    padding: 0;
+    border: none;
+}
+.product-total-price, .shipping-cost-total{
+    border-right: 1px solid #e5e5e5 !important;
+}
+.product-attributes, .product-qty, .product-unit-price, .product-total-price, .shipping-cost-total{
+    text-align: center;
 }

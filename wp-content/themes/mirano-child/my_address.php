@@ -6,7 +6,7 @@
 
 /******************************************/
 /* Add your functions after this */
-/******************************************/ 
+/******************************************/
 
 show_admin_bar( false );
 
@@ -1041,7 +1041,7 @@ function mirano_child_setup(){
             <p><?php echo $email_message_text; ?> </p><br/>
             <p>Your Interest Details:</p>
             <p><b>Product Name: </b>
-            <a href="<?php echo get_site_url(); ?>/index.phpmy-interest-lists/?action=edit&product_interest_id=<?php echo $results_interest[0]->product_interest_id; ?>&product_name=<?php echo $results_interest[0]->post_name; ?>" > <?php echo $results_interest[0]->product_name; ?></a></p><br/>
+                <a href="<?php echo get_site_url(); ?>/index.phpmy-interest-lists/?action=edit&product_interest_id=<?php echo $results_interest[0]->product_interest_id; ?>&product_name=<?php echo $results_interest[0]->post_name; ?>" > <?php echo $results_interest[0]->product_name; ?></a></p><br/>
             <p><b>Qty: </b><?php echo $results_interest[0]->interest_qty; ?> </p><br/>
             <p><b>Interest Start Date: </b><?php echo $interest_start_date; ?> </p><br/>
             <p><b>Interest End Date: </b><?php echo $interest_end_date; ?> </p><br/>
@@ -1057,14 +1057,14 @@ function mirano_child_setup(){
             wp_mail($email_to,$subject,$message);
             remove_filter ("wp_mail_content_type", "bestbuy_bestsell_mail_content_type");
         }
-}
+    }
 
     /** Author: ABU TAHER, Logic-coder IT
      * send_email_to_interest_group
      * Param $email_data, $group_details
      * return Success/Failure Message
      */
-     function send_email_to_interest_group( $email_data, $group_details ){
+    function send_email_to_interest_group( $email_data, $group_details ){
         global $wpdb, $current_user;
         $bestbuy_bestsell_interest_list_object = new Bestbuybestsell_Interest();
         $current_user = wp_get_current_user();
@@ -1274,23 +1274,23 @@ function mirano_child_setup(){
                 if( $deal_selection ==='want_to_deal' ){
                     if( $individual_data['same_price_to_all'] || !intval( $individual_data['interest_unit_price'] ) ){
                         //$same_price_to_all = 1;
-                    ?>
+                        ?>
                         <p><?php _e("A Price List is following for your interest", TEXTDOMAIN); ?>:</p>
                         <table cellpadding='5' cellspacing='2' bgcolor=#ffffff width='100%' style='margin:0 auto'>
-                        <tr style='font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 11px; color: 333333; line-height: 140%;'>
-						<td><span style='font-weight:bold;'><?php _e("No Of Sells", TEXTDOMAIN); ?></span></td>
-						<td><span style='font-weight:bold;'><?php _e("Unit Price", TEXTDOMAIN); ?></span></td>
-						<td><span style='font-weight:bold;'><?php _e("Shipping Price", TEXTDOMAIN); ?></span></td>
-						</tr>
-                        <?php echo $group_price_list_text;?></table>
-                    <?php
+                            <tr style='font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 11px; color: 333333; line-height: 140%;'>
+                                <td><span style='font-weight:bold;'><?php _e("No Of Sells", TEXTDOMAIN); ?></span></td>
+                                <td><span style='font-weight:bold;'><?php _e("Unit Price", TEXTDOMAIN); ?></span></td>
+                                <td><span style='font-weight:bold;'><?php _e("Shipping Price", TEXTDOMAIN); ?></span></td>
+                            </tr>
+                            <?php echo $group_price_list_text;?></table>
+                        <?php
                     }else{ ?>
                         <p><?php _e("The Unit Price For Your Interest Is", TEXTDOMAIN); ?>:<?php echo get_currency()." : ".$individual_data['interest_unit_price'];?></p>
                     <?php }
                 }?>
                 <p><?php _e("Your Interest Details", TEXTDOMAIN); ?>:</p>
                 <p><b><?php _e("Product Name", TEXTDOMAIN); ?>: </b>
-                <a href="<?php echo get_site_url();?>/index.php/my-interest-list/?action=edit&product_interest_id=<?php echo $individual_data['product_interest_id'];?>&product_name=<?php echo $individual_data['post_name'];?>" ><?php echo $individual_data['product_name'];?> </a></p>
+                    <a href="<?php echo get_site_url();?>/index.php/my-interest-list/?action=edit&product_interest_id=<?php echo $individual_data['product_interest_id'];?>&product_name=<?php echo $individual_data['post_name'];?>" ><?php echo $individual_data['product_name'];?> </a></p>
                 <p><b><?php _e("Qty", TEXTDOMAIN); ?>: </b><?php echo $individual_data['interest_qty'];?> </p>
                 <p><b><?php _e("Interest Start Date", TEXTDOMAIN); ?>: </b><?php echo $interest_start_date;?></p>
                 <p><b><?php _e("Interest End Date", TEXTDOMAIN); ?>: </b><?php echo $interest_end_date;?></p>
@@ -1302,12 +1302,12 @@ function mirano_child_setup(){
                         <p><?php _e("You Have", TEXTDOMAIN); ?>&nbsp;<?php echo $email_data['payment_within'];?>
                             <?php _e("Hours For Payment to confirm that you are still want to purchase this product for the above Details", TEXTDOMAIN); ?>
                         </p>
-                   <?Php
+                        <?Php
                     } ?>
                     <p><?php _e("For Payment Please click on This Link", TEXTDOMAIN); ?>:
                         <a href="<?php echo get_site_url();?>/index.php/my-interest-summary/?product_interest_id=<?php echo $individual_data['product_interest_id'];?>" ><?php _e("Yes", TEXTDOMAIN); ?></a>
-					</p>
-                <?php
+                    </p>
+                    <?php
                 }
                 include("email_footer.php");
                 $message = ob_get_contents();
@@ -1354,12 +1354,12 @@ function mirano_child_setup(){
             return True;
         }
     }
-/**
-* Bestbuy-bestsell Interest Groups Section
-*
-* @param $current_subtab
-* @return Bestbuy-bestsell Interest Groups Section
-*/
+    /**
+     * Bestbuy-bestsell Interest Groups Section
+     *
+     * @param $current_subtab
+     * @return Bestbuy-bestsell Interest Groups Section
+     */
     add_action( 'bestbuy_bestsell_business_menu_section_settings_interest_groups', 'bestbuy_bestsell_interest_groups_section' ,10, 1 );
     function bestbuy_bestsell_interest_groups_section( $current_subtab ){
         global $build_subtab;
@@ -1975,7 +1975,7 @@ function mirano_child_setup(){
                 );
             }
             elseif( $count_interest_qty[0]['total_qty'] < $minimum_target_sells[0] ){
-                   $send_email_to_group_form_settings_fields['mmq_not_reached'] =  array(
+                $send_email_to_group_form_settings_fields['mmq_not_reached'] =  array(
                     'label'   => __('MMQ', TEXTDOMAIN ). ' ( '. $minimum_target_sells[0].' )'.__( ' Not Reached.' , TEXTDOMAIN ),
                     'name'   => 'mmq_not_reached',
                     'id'   => 'mmq_not_reached',
@@ -2689,55 +2689,55 @@ function mirano_child_setup(){
         ?>
         <div class="flexbox">
             <div class="col box">
-                    <h3 class="page-subheading"><?php _e( 'Create an account', TEXTDOMAIN );?> </h3>
-                    <div class="form_content clearfix">
-                        <p><?php _e( 'Please fill the form to create an account.', TEXTDOMAIN );?> </p>
-                        <div style="display:none" id="user_created_success_message" class="alert alert-success"></div>
-                        <div style="display:none" id="user_created_error" class="alert alert-danger">
-                            <div id="first_name_error_message" ></div>
-                            <div id="last_name_error_message" ></div>
-                            <div id="invalid_email_error_message" ></div>
-                            <div id="user_created_error_message" ></div>
-                            <div id="password_error_message" ></div>
-                            <div id="company_private_person_error_message" ></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="user_email"><?php _e( 'First Name', TEXTDOMAIN );?></label>
-                            <input type="text" value="" name="first_name" id="first_name" class="is_required validate account_input form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="user_email"><?php _e( 'Last Name', TEXTDOMAIN );?></label>
-                            <input type="text" value="" name="last_name" id="last_name" class="is_required validate account_input form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="user_email"><?php _e( 'Email address', TEXTDOMAIN );?></label>
-                            <input type="email" value="" name="user_email" id="user_email" class="is_required validate account_input form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="user_pass"><?php _e( 'Password', TEXTDOMAIN );?></label>
-                            <input type="password" value="" name="user_pass" id="user_pass" data-validate="isPasswd" class="is_required validate account_input form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="company_private_person">
-                                <input type="radio" value="company" name="company_or_private_person" class="company_private_person">
-                                <?php _e( 'Company', TEXTDOMAIN );?>
-                            </label>
+                <h3 class="page-subheading"><?php _e( 'Create an account', TEXTDOMAIN );?> </h3>
+                <div class="form_content clearfix">
+                    <p><?php _e( 'Please fill the form to create an account.', TEXTDOMAIN );?> </p>
+                    <div style="display:none" id="user_created_success_message" class="alert alert-success"></div>
+                    <div style="display:none" id="user_created_error" class="alert alert-danger">
+                        <div id="first_name_error_message" ></div>
+                        <div id="last_name_error_message" ></div>
+                        <div id="invalid_email_error_message" ></div>
+                        <div id="user_created_error_message" ></div>
+                        <div id="password_error_message" ></div>
+                        <div id="company_private_person_error_message" ></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="user_email"><?php _e( 'First Name', TEXTDOMAIN );?></label>
+                        <input type="text" value="" name="first_name" id="first_name" class="is_required validate account_input form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="user_email"><?php _e( 'Last Name', TEXTDOMAIN );?></label>
+                        <input type="text" value="" name="last_name" id="last_name" class="is_required validate account_input form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="user_email"><?php _e( 'Email address', TEXTDOMAIN );?></label>
+                        <input type="email" value="" name="user_email" id="user_email" class="is_required validate account_input form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="user_pass"><?php _e( 'Password', TEXTDOMAIN );?></label>
+                        <input type="password" value="" name="user_pass" id="user_pass" data-validate="isPasswd" class="is_required validate account_input form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="company_private_person">
+                            <input type="radio" value="company" name="company_or_private_person" class="company_private_person">
+                            <?php _e( 'Company', TEXTDOMAIN );?>
+                        </label>
 
-                            <label for="company_private_person"><?php _e( 'Or', TEXTDOMAIN );?>
-                                <input type="radio" value="private_person" name="company_or_private_person" class="company_private_person">
-                                <?php _e( 'Private Person', TEXTDOMAIN );?>
-                            </label>
-                        </div>
-                        <div class="submit">
-                            <input type="hidden" name="redirect_to" id="redirect_to" value="<?php echo wp_get_referer(); ?>" />
-                            <button name="user_create" id="user_create" type="submit" class="btn btn-default button button-medium exclusive join-btn">
+                        <label for="company_private_person"><?php _e( 'Or', TEXTDOMAIN );?>
+                            <input type="radio" value="private_person" name="company_or_private_person" class="company_private_person">
+                            <?php _e( 'Private Person', TEXTDOMAIN );?>
+                        </label>
+                    </div>
+                    <div class="submit">
+                        <input type="hidden" name="redirect_to" id="redirect_to" value="<?php echo wp_get_referer(); ?>" />
+                        <button name="user_create" id="user_create" type="submit" class="btn btn-default button button-medium exclusive join-btn">
                                 <span>
                                     <i class="icon-user left"></i>
                                     <?php _e( 'Create an account', TEXTDOMAIN );?>
                                 </span>
-                            </button>
-                        </div>
+                        </button>
                     </div>
+                </div>
             </div>
             <div class="col box">
                 <h3 class="page-subheading"><?php _e( 'Already Have An Account?', TEXTDOMAIN );?></h3>
@@ -2774,37 +2774,37 @@ function mirano_child_setup(){
     add_action("wp_ajax_nopriv_bestbuy_bestsell_sign_up_user", "bestbuy_bestsell_sign_up_user_callback");
     add_action("wp_ajax_bestbuy_bestsell_sign_up_user", "bestbuy_bestsell_sign_up_user_callback");
     function bestbuy_bestsell_sign_up_user_callback(){
-            $first_name = $_POST['first_name'];
-            $last_name = $_POST['last_name'];
-            $user_email = $_POST['user_email'];
-            $password = $_POST['user_pass'];
-            $company_or_private_person = $_POST['company_or_private_person'];
-            if( email_exists( $user_email )) {
-                echo 2; // 2 = This E-mail already exists
+        $first_name = $_POST['first_name'];
+        $last_name = $_POST['last_name'];
+        $user_email = $_POST['user_email'];
+        $password = $_POST['user_pass'];
+        $company_or_private_person = $_POST['company_or_private_person'];
+        if( email_exists( $user_email )) {
+            echo 2; // 2 = This E-mail already exists
+        }else{
+            $success_user = wp_create_user( $user_email, $password, $user_email );
+            if ( is_wp_error( $success_user ) ) {
+                $error_string = $success_user->get_error_message();
+                _e($error_string, 'bestbuy_bestsell'); // System Error returned by wp_create_user()
             }else{
-                $success_user = wp_create_user( $user_email, $password, $user_email );
-                if ( is_wp_error( $success_user ) ) {
-                    $error_string = $success_user->get_error_message();
-                    _e($error_string, 'bestbuy_bestsell'); // System Error returned by wp_create_user()
-                }else{
-                    update_user_meta( $success_user, 'company_or_private_person', $company_or_private_person, '' );
-                    update_user_meta( $success_user, 'first_name', $first_name, '' );
-                    update_user_meta( $success_user, 'last_name', $last_name, '' );
-                    $credentials = array(
-                        'user_login'    => $user_email,
-                        'user_password' => $password,
-                        'rememember'    => true
-                    );
-                    $user = wp_signon( $credentials, false );
-                    $userID = $user->ID;
-                    wp_set_current_user( $userID, $user_email );
-                    wp_set_auth_cookie( $userID, true, false );
-                    do_action( 'wp_login', $user_email );
-                    echo 1; // 1 = User created successfully
-                    exit;
-                }
+                update_user_meta( $success_user, 'company_or_private_person', $company_or_private_person, '' );
+                update_user_meta( $success_user, 'first_name', $first_name, '' );
+                update_user_meta( $success_user, 'last_name', $last_name, '' );
+                $credentials = array(
+                    'user_login'    => $user_email,
+                    'user_password' => $password,
+                    'rememember'    => true
+                );
+                $user = wp_signon( $credentials, false );
+                $userID = $user->ID;
+                wp_set_current_user( $userID, $user_email );
+                wp_set_auth_cookie( $userID, true, false );
+                do_action( 'wp_login', $user_email );
+                echo 1; // 1 = User created successfully
+                exit;
             }
-            exit;
+        }
+        exit;
     }
     add_action("wp_ajax_nopriv_bestbuy_bestsell_sign_in_user", "bestbuy_bestsell_sign_in_user_callback");
     add_action("wp_ajax_bestbuy_bestsell_sign_in_user", "bestbuy_bestsell_sign_in_user_callback");
@@ -2836,8 +2836,8 @@ function mirano_child_setup(){
      *
      *  return Logged User Interest Lists
      */
-    add_shortcode('bestbuy_bestsell_all_my_interest', 'bestbuy_bestsell_all_my_interest');
-    function bestbuy_bestsell_all_my_interest(){
+    add_shortcode('all_my_interest', 'all_my_interest_bestbuy_bestsell');
+    function all_my_interest_bestbuy_bestsell(){
         get_template_part('views/my_interest', 'list_bestbuybestsell');
     }
     /** Author: ABU TAHER, Logic-coder IT
@@ -2851,11 +2851,11 @@ function mirano_child_setup(){
         $user_info = get_userdata($current_user_id);
         $all_meta_for_user = get_user_meta( $current_user_id );
         ?>
-       <div class="my_account">
-           <div class="personal_info">
-               <h2 class="personal_info_title"><?php _e( 'Personal Data', TEXTDOMAIN );?></h2>
-               <div class="form_element">
-                   <div style="display:none" id="save_personal_data_success_message" class="alert alert-success save_personal_data_success"></div>
+        <div class="my_account">
+            <div class="personal_info">
+                <h2 class="personal_info_title"><?php _e( 'Personal Data', TEXTDOMAIN );?></h2>
+                <div class="form_element">
+                    <div style="display:none" id="save_personal_data_success_message" class="alert alert-success save_personal_data_success"></div>
                     <div class="element_group">
                         <div class="element_label">
                             <label><?php _e( 'Gender', TEXTDOMAIN );?></label><span>*</span>
@@ -2872,197 +2872,197 @@ function mirano_child_setup(){
                         <div class="element_label">
                             <label><?php _e( 'First Name', TEXTDOMAIN );?></label><span>*</span>
                         </div>
-                            <div class="element_value">
+                        <div class="element_value">
                             <input type="text" name="first_name" id="first_name" value="<?php echo $all_meta_for_user['first_name'][0]; ?>" id="first_name" />
                         </div>
                     </div>
                     <div id="first_name_error_message">  </div>
                     <div class="element_group">
-                       <div class="element_label">
-                           <label><?php _e( 'Last Name', TEXTDOMAIN );?></label><span>*</span>
-                       </div>
-                       <div class="element_value">
-                           <input type="text" name="last_name" id="last_name" value="<?php echo $all_meta_for_user['last_name'][0]; ?>" id="last_name" />
-                       </div>
+                        <div class="element_label">
+                            <label><?php _e( 'Last Name', TEXTDOMAIN );?></label><span>*</span>
+                        </div>
+                        <div class="element_value">
+                            <input type="text" name="last_name" id="last_name" value="<?php echo $all_meta_for_user['last_name'][0]; ?>" id="last_name" />
+                        </div>
                     </div>
                     <div id="last_name_error_message">  </div>
                     <div class="element_group">
-                       <div class="element_label">
-                           <label><?php _e( 'Birth Date', TEXTDOMAIN );?></label>
-                       </div>
-                       <div class="element_value">
-                           <div class="day">
-                               <select name="day" id="day">
-                                   <option value=""><?php _e( 'Day', TEXTDOMAIN );?></option>
-                                   <?php
-                                   for( $day= 1; $day <= 31; $day++ ){?>
-                                       <option value="<?php echo $day;?>" <?php if( $all_meta_for_user['day'][0]==$day ){ ?> selected="selected"<?php } ?> ><?php echo $day;?></option>
-                                   <?php }
-                                   ?>
-                               </select>
-                           </div>
-                           <div class="month">
-                               <select name="month" id="month">
-                                   <option value=""><?php _e( 'Month', TEXTDOMAIN );?></option>
-                                   <option value="<?php _e( 'January', TEXTDOMAIN );?>" <?php if( $all_meta_for_user['month'][0]=='January' ){ ?> selected="selected"<?php } ?> ><?php _e( 'January', TEXTDOMAIN );?></option>
-                                   <option value="<?php _e( 'February', TEXTDOMAIN );?>" <?php if( $all_meta_for_user['month'][0]=='February' ){ ?> selected="selected"<?php } ?>><?php _e( 'February', TEXTDOMAIN );?></option>
-                                   <option value="<?php _e( 'March', TEXTDOMAIN );?>" <?php if( $all_meta_for_user['month'][0]=='March' ){ ?> selected="selected"<?php } ?> ><?php _e( 'March', TEXTDOMAIN );?></option>
-                                   <option value="<?php _e( 'April', TEXTDOMAIN );?>" <?php if( $all_meta_for_user['month'][0]=='April' ){ ?> selected="selected"<?php } ?> ><?php _e( 'April', TEXTDOMAIN );?></option>
-                                   <option value="<?php _e( 'May', TEXTDOMAIN );?>" <?php if( $all_meta_for_user['month'][0]=='May' ){ ?> selected="selected"<?php } ?> ><?php _e( 'May', TEXTDOMAIN );?></option>
-                                   <option value="<?php _e( 'June', TEXTDOMAIN );?>" <?php if( $all_meta_for_user['month'][0]=='June' ){ ?> selected="selected"<?php } ?> ><?php _e( 'June', TEXTDOMAIN );?></option>
-                                   <option value="<?php _e( 'July', TEXTDOMAIN );?>" <?php if( $all_meta_for_user['month'][0]=='July' ){ ?> selected="selected"<?php } ?> ><?php _e( 'July', TEXTDOMAIN );?></option>
-                                   <option value="<?php _e( 'August', TEXTDOMAIN );?>" <?php if( $all_meta_for_user['month'][0]=='August' ){ ?> selected="selected"<?php } ?> ><?php _e( 'August', TEXTDOMAIN );?></option>
-                                   <option value="<?php _e( 'September', TEXTDOMAIN );?>" <?php if( $all_meta_for_user['month'][0]=='September' ){ ?> selected="selected"<?php } ?> ><?php _e( 'September', TEXTDOMAIN );?></option>
-                                   <option value="<?php _e( 'October', TEXTDOMAIN );?>" <?php if( $all_meta_for_user['month'][0]=='October' ){ ?> selected="selected"<?php } ?> ><?php _e( 'October', TEXTDOMAIN );?></option>
-                                   <option value="<?php _e( 'November', TEXTDOMAIN );?>" <?php if( $all_meta_for_user['month'][0]=='November' ){ ?> selected="selected"<?php } ?> ><?php _e( 'November', TEXTDOMAIN );?></option>
-                                   <option value="<?php _e( 'December', TEXTDOMAIN );?>" <?php if( $all_meta_for_user['month'][0]=='December' ){ ?> selected="selected"<?php } ?> ><?php _e( 'December', TEXTDOMAIN );?></option>
-                               </select>
-                           </div>
-                           <div class="year">
-                               <select name="year" id="year">
-                                   <option value=""><?php _e( 'Year', TEXTDOMAIN );?></option>
-                                   <?php for ( $year = ( date('Y')-18); $year >= (date('Y')-99); $year--) { ?>
-                                    <option value="<?php echo $year;?>" <?php if( $all_meta_for_user['year'][0]==$year ){ ?> selected="selected"<?php } ?> ><?php echo $year;?></option>
-                                   <?php } ?>
-                               </select>
-                           </div>
-                       </div>
+                        <div class="element_label">
+                            <label><?php _e( 'Birth Date', TEXTDOMAIN );?></label>
+                        </div>
+                        <div class="element_value">
+                            <div class="day">
+                                <select name="day" id="day">
+                                    <option value=""><?php _e( 'Day', TEXTDOMAIN );?></option>
+                                    <?php
+                                    for( $day= 1; $day <= 31; $day++ ){?>
+                                        <option value="<?php echo $day;?>" <?php if( $all_meta_for_user['day'][0]==$day ){ ?> selected="selected"<?php } ?> ><?php echo $day;?></option>
+                                    <?php }
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="month">
+                                <select name="month" id="month">
+                                    <option value=""><?php _e( 'Month', TEXTDOMAIN );?></option>
+                                    <option value="<?php _e( 'January', TEXTDOMAIN );?>" <?php if( $all_meta_for_user['month'][0]=='January' ){ ?> selected="selected"<?php } ?> ><?php _e( 'January', TEXTDOMAIN );?></option>
+                                    <option value="<?php _e( 'February', TEXTDOMAIN );?>" <?php if( $all_meta_for_user['month'][0]=='February' ){ ?> selected="selected"<?php } ?>><?php _e( 'February', TEXTDOMAIN );?></option>
+                                    <option value="<?php _e( 'March', TEXTDOMAIN );?>" <?php if( $all_meta_for_user['month'][0]=='March' ){ ?> selected="selected"<?php } ?> ><?php _e( 'March', TEXTDOMAIN );?></option>
+                                    <option value="<?php _e( 'April', TEXTDOMAIN );?>" <?php if( $all_meta_for_user['month'][0]=='April' ){ ?> selected="selected"<?php } ?> ><?php _e( 'April', TEXTDOMAIN );?></option>
+                                    <option value="<?php _e( 'May', TEXTDOMAIN );?>" <?php if( $all_meta_for_user['month'][0]=='May' ){ ?> selected="selected"<?php } ?> ><?php _e( 'May', TEXTDOMAIN );?></option>
+                                    <option value="<?php _e( 'June', TEXTDOMAIN );?>" <?php if( $all_meta_for_user['month'][0]=='June' ){ ?> selected="selected"<?php } ?> ><?php _e( 'June', TEXTDOMAIN );?></option>
+                                    <option value="<?php _e( 'July', TEXTDOMAIN );?>" <?php if( $all_meta_for_user['month'][0]=='July' ){ ?> selected="selected"<?php } ?> ><?php _e( 'July', TEXTDOMAIN );?></option>
+                                    <option value="<?php _e( 'August', TEXTDOMAIN );?>" <?php if( $all_meta_for_user['month'][0]=='August' ){ ?> selected="selected"<?php } ?> ><?php _e( 'August', TEXTDOMAIN );?></option>
+                                    <option value="<?php _e( 'September', TEXTDOMAIN );?>" <?php if( $all_meta_for_user['month'][0]=='September' ){ ?> selected="selected"<?php } ?> ><?php _e( 'September', TEXTDOMAIN );?></option>
+                                    <option value="<?php _e( 'October', TEXTDOMAIN );?>" <?php if( $all_meta_for_user['month'][0]=='October' ){ ?> selected="selected"<?php } ?> ><?php _e( 'October', TEXTDOMAIN );?></option>
+                                    <option value="<?php _e( 'November', TEXTDOMAIN );?>" <?php if( $all_meta_for_user['month'][0]=='November' ){ ?> selected="selected"<?php } ?> ><?php _e( 'November', TEXTDOMAIN );?></option>
+                                    <option value="<?php _e( 'December', TEXTDOMAIN );?>" <?php if( $all_meta_for_user['month'][0]=='December' ){ ?> selected="selected"<?php } ?> ><?php _e( 'December', TEXTDOMAIN );?></option>
+                                </select>
+                            </div>
+                            <div class="year">
+                                <select name="year" id="year">
+                                    <option value=""><?php _e( 'Year', TEXTDOMAIN );?></option>
+                                    <?php for ( $year = ( date('Y')-18); $year >= (date('Y')-99); $year--) { ?>
+                                        <option value="<?php echo $year;?>" <?php if( $all_meta_for_user['year'][0]==$year ){ ?> selected="selected"<?php } ?> ><?php echo $year;?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        </div>
                     </div>
-                   <div id="birth_day_error_message">  </div>
+                    <div id="birth_day_error_message">  </div>
                     <div class="element_group">
-                       <div class="element_label">
-                           <label><?php _e( 'Mobile Number', TEXTDOMAIN );?></label><span>*</span>
-                       </div>
-                       <div class="element_value">
-                           <input type="text" name="mobile_number" id="mobile_number" value="<?php echo $all_meta_for_user['mobile_number'][0]; ?>" id="mobile_number" />
-                       </div>
+                        <div class="element_label">
+                            <label><?php _e( 'Mobile Number', TEXTDOMAIN );?></label><span>*</span>
+                        </div>
+                        <div class="element_value">
+                            <input type="text" name="mobile_number" id="mobile_number" value="<?php echo $all_meta_for_user['mobile_number'][0]; ?>" id="mobile_number" />
+                        </div>
                     </div>
                     <div id="mobile_number_pattern"> e.g. 07xxxxxxxx </div>
                     <div id="mobile_number_error_message">  </div>
                     <div class="element_group">
                         <div class="element_label">
                         </div>
-                       <div class="element_value_company_or_private">
-                           <label for="company_private_person">
-                               <input type="radio" value="company" name="company_or_private_person" <?php if( $all_meta_for_user['company_or_private_person'][0]=='company' ){ ?> checked <?php } ?> >
-                               <?php _e( 'Company', TEXTDOMAIN );?>
-                           </label>
-                           <label for="company_private_person"><?php _e( 'Or', TEXTDOMAIN );?>
-                               <input type="radio" value="private_person" name="company_or_private_person" <?php if( $all_meta_for_user['company_or_private_person'][0]=='private_person' ){ ?> checked <?php } ?> >
-                               <?php _e( 'Private Person', TEXTDOMAIN );?>
-                           </label>
-                       </div>
+                        <div class="element_value_company_or_private">
+                            <label for="company_private_person">
+                                <input type="radio" value="company" name="company_or_private_person" <?php if( $all_meta_for_user['company_or_private_person'][0]=='company' ){ ?> checked <?php } ?> >
+                                <?php _e( 'Company', TEXTDOMAIN );?>
+                            </label>
+                            <label for="company_private_person"><?php _e( 'Or', TEXTDOMAIN );?>
+                                <input type="radio" value="private_person" name="company_or_private_person" <?php if( $all_meta_for_user['company_or_private_person'][0]=='private_person' ){ ?> checked <?php } ?> >
+                                <?php _e( 'Private Person', TEXTDOMAIN );?>
+                            </label>
+                        </div>
                     </div>
                     <div id="company_private_person_error_message">  </div>
                     <div class="element_group">
-                       <div class="element_asterek_message">
-                           <label>* <?php _e( 'Required fields', TEXTDOMAIN );?></label>
-                       </div>
-                       <div class="element_save_button">
-                           <p class="submit">
-                               <button name="save_personal_data" id="save_personal_data" type="submit" class="btn btn-default button button-medium exclusive save_personal_data_btn">
+                        <div class="element_asterek_message">
+                            <label>* <?php _e( 'Required fields', TEXTDOMAIN );?></label>
+                        </div>
+                        <div class="element_save_button">
+                            <p class="submit">
+                                <button name="save_personal_data" id="save_personal_data" type="submit" class="btn btn-default button button-medium exclusive save_personal_data_btn">
                             <span>
                                 <i class="icon-lock left"></i>
                                 <?php _e( 'Save', TEXTDOMAIN );?>
                             </span>
-                               </button>
-                           </p>
-                       </div>
+                                </button>
+                            </p>
+                        </div>
                     </div>
-               </div>
-           </div>
-           <div class="change_password">
-               <h2 class="change_password_title"><?php _e( 'Password', TEXTDOMAIN );?></h2>
-               <div class="form_element">
-                   <div style="display:none" id="save_password_data_success_message" class="alert alert-success save_personal_data_success"></div>
-                   <div style="display:none" id="save_password_data_error_message" class="alert alert-danger save_personal_data_error"></div>
-                   <div class="element_group">
-                       <div class="element_label">
-                           <label><?php _e( 'Old Password', TEXTDOMAIN );?></label><span>*</span>
-                       </div>
-                       <div class="element_value">
-                           <input type="password" name="old_password" id="old_password" value="" id="old_password" />
-                       </div>
-                   </div>
-                   <div id="old_password_error_message">  </div>
-                   <div class="element_group">
-                       <div class="element_label">
-                           <label><?php _e( 'New Password', TEXTDOMAIN );?></label><span>*</span>
-                       </div>
-                       <div class="element_value">
-                           <input type="password" name="new_password" id="new_password" value="" id="new_password" />
-                       </div>
-                   </div>
-                   <div id="new_password_error_message">  </div>
-                   <div class="element_group">
-                       <div class="element_label">
-                           <label><?php _e( 'Confirm Password', TEXTDOMAIN );?></label><span>*</span>
-                       </div>
-                       <div class="element_value">
-                           <input type="password" name="confirm_password" id="confirm_password" value="" id="confirm_password" />
-                       </div>
-                   </div>
-                   <div id="confirm_password_error_message">  </div>
-                   <div id="password_not_matched_error_message">  </div>
-                   <div class="element_group">
-                       <div class="element_asterek_message">
-                           <label>* <?php _e( 'Required fields', TEXTDOMAIN );?></label>
-                       </div>
-                       <div class="element_save_button">
-                           <p class="submit">
-                               <button name="save_password_data" id="save_password_data" type="submit" class="btn btn-default button button-medium exclusive save_password_data_btn">
+                </div>
+            </div>
+            <div class="change_password">
+                <h2 class="change_password_title"><?php _e( 'Password', TEXTDOMAIN );?></h2>
+                <div class="form_element">
+                    <div style="display:none" id="save_password_data_success_message" class="alert alert-success save_personal_data_success"></div>
+                    <div style="display:none" id="save_password_data_error_message" class="alert alert-danger save_personal_data_error"></div>
+                    <div class="element_group">
+                        <div class="element_label">
+                            <label><?php _e( 'Old Password', TEXTDOMAIN );?></label><span>*</span>
+                        </div>
+                        <div class="element_value">
+                            <input type="password" name="old_password" id="old_password" value="" id="old_password" />
+                        </div>
+                    </div>
+                    <div id="old_password_error_message">  </div>
+                    <div class="element_group">
+                        <div class="element_label">
+                            <label><?php _e( 'New Password', TEXTDOMAIN );?></label><span>*</span>
+                        </div>
+                        <div class="element_value">
+                            <input type="password" name="new_password" id="new_password" value="" id="new_password" />
+                        </div>
+                    </div>
+                    <div id="new_password_error_message">  </div>
+                    <div class="element_group">
+                        <div class="element_label">
+                            <label><?php _e( 'Confirm Password', TEXTDOMAIN );?></label><span>*</span>
+                        </div>
+                        <div class="element_value">
+                            <input type="password" name="confirm_password" id="confirm_password" value="" id="confirm_password" />
+                        </div>
+                    </div>
+                    <div id="confirm_password_error_message">  </div>
+                    <div id="password_not_matched_error_message">  </div>
+                    <div class="element_group">
+                        <div class="element_asterek_message">
+                            <label>* <?php _e( 'Required fields', TEXTDOMAIN );?></label>
+                        </div>
+                        <div class="element_save_button">
+                            <p class="submit">
+                                <button name="save_password_data" id="save_password_data" type="submit" class="btn btn-default button button-medium exclusive save_password_data_btn">
                             <span>
                                 <i class="icon-lock left"></i>
                                 <?php _e( 'Save', TEXTDOMAIN );?>
                             </span>
-                               </button>
-                           </p>
-                       </div>
-                   </div>
-               </div>
-           </div>
-           <div class="clear"></div>
-           <div class="change_email">
-               <h2 class="change_email_title"><?php _e( 'Email', TEXTDOMAIN );?></h2>
-               <div class="form_element">
-                   <div style="display:none" id="save_email_data_success_message" class="alert alert-success save_personal_data_success"></div>
-                   <div style="display:none" id="save_email_data_error_message" class="alert alert-danger save_personal_data_error"></div>
-                   <div class="element_group">
-                       <div class="element_label">
-                           <label><?php _e( 'Email', TEXTDOMAIN );?></label><span>*</span>
-                       </div>
-                       <div class="element_value">
-                           <input type="text" name="user_email" id="user_email" value="<?php echo $user_info->user_email; ?>" id="user_email" data-validate="isEmail" />
-                       </div>
-                   </div>
-                   <div id="login_email_error_message">  </div>
-                   <div class="element_group">
-                       <div class="element_label">
-                           <label><?php _e( 'Password', TEXTDOMAIN );?></label><span>*</span>
-                       </div>
-                       <div class="element_value">
-                           <input type="password" name="user_pass" id="user_pass" value="" id="user_pass" />
-                       </div>
-                   </div>
-                   <div id="user_pass_error_message">  </div>
-                   <div class="element_group">
-                       <div class="element_asterek_message">
-                           <label>* <?php _e( 'Required fields', TEXTDOMAIN );?></label>
-                       </div>
-                       <div class="element_save_button">
-                           <p class="submit">
-                               <button name="save_email_data" id="save_email_data" type="submit" class="btn btn-default button button-medium exclusive save_email_data_btn">
+                                </button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="change_email">
+                <h2 class="change_email_title"><?php _e( 'Email', TEXTDOMAIN );?></h2>
+                <div class="form_element">
+                    <div style="display:none" id="save_email_data_success_message" class="alert alert-success save_personal_data_success"></div>
+                    <div style="display:none" id="save_email_data_error_message" class="alert alert-danger save_personal_data_error"></div>
+                    <div class="element_group">
+                        <div class="element_label">
+                            <label><?php _e( 'Email', TEXTDOMAIN );?></label><span>*</span>
+                        </div>
+                        <div class="element_value">
+                            <input type="text" name="user_email" id="user_email" value="<?php echo $user_info->user_email; ?>" id="user_email" data-validate="isEmail" />
+                        </div>
+                    </div>
+                    <div id="login_email_error_message">  </div>
+                    <div class="element_group">
+                        <div class="element_label">
+                            <label><?php _e( 'Password', TEXTDOMAIN );?></label><span>*</span>
+                        </div>
+                        <div class="element_value">
+                            <input type="password" name="user_pass" id="user_pass" value="" id="user_pass" />
+                        </div>
+                    </div>
+                    <div id="user_pass_error_message">  </div>
+                    <div class="element_group">
+                        <div class="element_asterek_message">
+                            <label>* <?php _e( 'Required fields', TEXTDOMAIN );?></label>
+                        </div>
+                        <div class="element_save_button">
+                            <p class="submit">
+                                <button name="save_email_data" id="save_email_data" type="submit" class="btn btn-default button button-medium exclusive save_email_data_btn">
                             <span>
                                 <i class="icon-lock left"></i>
                                 <?php _e( 'Save', TEXTDOMAIN );?>
                             </span>
-                               </button>
-                           </p>
-                       </div>
-                   </div>
-               </div>
-           </div>
-       </div>
+                                </button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     <?php }
 
     add_action("wp_ajax_nopriv_bestbuy_bestsell_save_personal_data", "bestbuy_bestsell_save_personal_data_callback");
@@ -3117,7 +3117,7 @@ function mirano_child_setup(){
                 }
                 else
                 {
-                   // $passupdatemsg = "Confirm password doesn't match with new password";
+                    // $passupdatemsg = "Confirm password doesn't match with new password";
                 }
             }
             else
@@ -3592,104 +3592,19 @@ function mirano_child_setup(){
             </div><!-- End: my_address_panel -->
             <!-- Start: my_interest_article_summary -->
             <div class="my_interest_article_summary">
-                <div class="my_article_details"> <!--shop_table wishlist_table-->
-                    <table cellspacing="0" class="article_table summary_table">
-                        <thead>
-                        <tr>
-                            <th class="product-name"><span class="nobr"> <?php _e( 'Article', TEXTDOMAIN ); ?> </span></th>
-                            <th class="product-attributes"><span class="nobr"><?php _e( 'Attributes', TEXTDOMAIN ); ?></span></th>
-                            <th class="product-qty"><span class="nobr"><?php _e( 'Qty', TEXTDOMAIN ); ?></span></th>
-                            <th class="product-unit-price"><span class="nobr"><?php _e( 'Unit Price', TEXTDOMAIN ); ?></span></th>
-                            <th class="product-total-price"><span class="nobr"><?php _e( 'Total Price', TEXTDOMAIN ); ?></span></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php
-                                //$post_thumbnail_id = get_post_thumbnail_id( $my_interest_data->ID );
-                                //$post_thumbnail = get_the_post_thumbnail( $my_interest_data->ID, 'thumbnail' );
-                        //yith-wcwl-row-7
-                        ?>
-                                <tr id="summary_table-row-7">
-                                    <td class="product-name">
-                                        <a href="<?php echo get_site_url().'/product/' //.$my_interest_data->post_name; ?>"  > <?php echo "ABC";//echo $post_thumbnail; ?>
-                                        </a>
-                                    </td>
-                                    <td class="product-attributes">
-                                        <span class="amount"><?php echo "Color:Red";//echo $my_interest_data->interest_qty; ?></span>
-                                    </td>
-                                    <td class="product-qty">
-                                        <span class="amount"><?php echo "200";//echo $my_interest_data->interest_qty; ?></span>
-                                    </td>
-                                    <td class="product-unit-price">
-                                        <span class="amount"><?php echo "20"; //echo $my_interest_data->interest_qty; ?></span>
+                <div class="my_article_details">
 
-                                    </td>
-                                    <td class="product-total-price">
-                                        <span class="amount"><?php echo "2000";//echo $my_interest_data->interest_qty; ?></span>
-
-                                    </td>
-                                </tr>
-                        </tbody>
-                    </table>
-                    <table cellspacing="0" class="article_table summary_table">
-                        <thead>
-                        <tr>
-                            <th class="product-name"><span class="nobr"> <?php _e( 'Shipping', TEXTDOMAIN ); ?> </span></th>
-                            <th class="product-name"><span class="nobr">  </span></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-
-                        <tr id="summary_table-row-7">
-                            <td class="shipping-cost">
-                                <?php _e( 'Shipping Cost', TEXTDOMAIN );?>
-                            </td>
-                            <td class="shipping-cost-total">
-                                <?php echo "20"; ?>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <table cellspacing="0" class="article_table summary_table">
-                        <thead>
-                        <tr>
-                            <th class="product-name"><span class="nobr"> <?php _e( 'Total Price', TEXTDOMAIN ); ?> </span></th>
-                            <th class="product-name"><span class="nobr">  </span></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-
-                        <tr id="summary_table-row-7">
-                            <td class="shipping-cost">
-                                <?php _e( 'Total Sum', TEXTDOMAIN );?>
-                            </td>
-                            <td class="shipping-cost-total">
-                                <?php echo "20"; ?>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
                 </div>
-                <!-- Start: my_interest_payment_methods -->
-                <div class="my_interest_payment_methods">
+                <div class="my_article_total_price">
 
-                        <h2 class="billing_delivery_address_title"><?php _e( 'Billing address', TEXTDOMAIN );?></h2>
-                        <div class="form_element">
-                            <div style="display:none" id="save_billing_address_success_message" class="alert alert-success save_billing_address_success"></div>
-                            <div class="element_group">
-                                <div class="billing_address_label">
-                                    <label><?php echo $all_meta_for_user['billing_first_name'][0]."&nbsp;".$all_meta_for_user['billing_last_name'][0]; ?></label><br/>
-                                    <label><?php echo $all_meta_for_user['billing_street_house_number'][0]; ?></label><br/>
-                                    <label><?php echo $all_meta_for_user['billing_care_of'][0]; ?></label><br/>
-                                    <label><?php echo $all_meta_for_user['billing_zip_code'][0]."&nbsp;".$all_meta_for_user['billing_place'][0]; ?></label><br/>
-                                    <label><?php echo $all_meta_for_user['billing_country'][0]; ?></label><br/>
-                                </div>
-                                <div class="change_billing_address_link"><a href="<?php echo get_site_url().'/index.php/my-billing-address'?>" >Change billing address</a></div>
-                            </div>
-                        </div>
-                   
-                </div><!-- End: my_interest_payment_methods -->
+                </div>
             </div><!-- End: my_interest_article_summary -->
+            <div class="clear"></div>
+            <!-- Start: my_interest_payment_methods -->
+            <div class="my_interest_payment_methods">
+
+            </div><!-- End: my_interest_payment_methods -->
+
 
         </div>
     <?php }
@@ -5105,8 +5020,8 @@ function mirano_child_setup(){
         return $results;
     }
     /** Author: ABU TAHER, Logic-coder IT
-    *   bestbuy_bestsell_theme_custom_scripts
-    */
+     *   bestbuy_bestsell_theme_custom_scripts
+     */
     function bestbuy_bestsell_theme_custom_scripts() {
         if ( ! is_admin() ) {
             wp_localize_script( 'function', 'bestbuy_bestsell_sign_up_user_script', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
