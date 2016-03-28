@@ -320,7 +320,6 @@ function mirano_child_setup(){
     add_action('bestbuy_bestsell_business_menu_section_payment_method_invoice', 'payment_method_invoice' );
     function payment_method_invoice(  ){
         global $payment_method_form_fields, $payment_method_form_header, $options_value, $build_subtab;
-
         $options_value = get_option( $build_subtab . '_option_settings' );
 
         $payment_method_form_header = array( 'label'  => __( 'Invoice', TEXTDOMAIN ),
@@ -990,6 +989,17 @@ function mirano_child_setup(){
         echo $wpdb->update( 'wp_product_interest', $price_data, $where, $format_array = null, $where_format = null );
         exit();
     }
+    add_action( 'wp_ajax_update_interest_shipping_price', 'update_interest_shipping_price_callback' );
+    function update_interest_shipping_price_callback() {
+        global $wpdb; // this is how you get access to the database
+        $product_interest_id = $_POST['product_interest_id'];
+        $shipping_price= $_POST['shipping_price'];
+        $where = array( "product_interest_id" => $product_interest_id);
+        $price_data = array( "interest_shipping_price"=> $shipping_price );
+        $format_array = array('%f');
+        echo $wpdb->update( 'wp_product_interest', $price_data, $where, $format_array = null, $where_format = null );
+        exit();
+    }
     add_filter ("wp_mail_content_type", "bestbuy_bestsell_mail_content_type");
     function bestbuy_bestsell_mail_content_type() {
         return "text/html";
@@ -997,7 +1007,7 @@ function mirano_child_setup(){
 
     add_filter ("wp_mail_from", "bestbuy_bestsell_mail_from");
     function bestbuy_bestsell_mail_from() {
-        return "info@logic-coder.info";
+        return "info@delvedivine.com";
     }
 
     add_filter ("wp_mail_from_name", "bestbuy_bestsell_mail_from_name");
@@ -1077,6 +1087,12 @@ function mirano_child_setup(){
         $email_sent = 0;
         $interest_confirmation_link_expire = "";
         $interest_confirmation_link_expire_text = "";
+        $case_data['no_of_sells'] = 0;
+        $case_data['qty'] = 0;
+        $case_data['unit_price'] = 0;
+        $case_data['total_price'] = 0;
+        $case_data['shipping_price'] = 0;
+        $case_data['net_price'] = 0;
         //$time_now =
         if( $email_data['confirmation_within'] ){
             $time_now = date("Y-m-d H:i");
@@ -1137,7 +1153,8 @@ function mirano_child_setup(){
                         <?php echo $group_price_list_text;?> </table><br/><br/>
                     <?php
                 }else{ ?>
-                    <p>The Unit Price For Your Interest Is:&nbsp;<?php echo get_currency().":".$individual_data['interest_unit_price'];?></p><br/>
+                    <p><?php _e("The Unit Price For Your Interest Is", TEXTDOMAIN); ?>:<?php echo get_currency()." : ".$individual_data['interest_unit_price'];?></p>
+                    <p><?php _e("Shipping Cost", TEXTDOMAIN); ?>:<?php echo get_currency()." : ".$individual_data['interest_shipping_price'];?></p>
                 <?php } ?>
                 <p>Your Interest Details:</p><br/>
                 <p><b>Product Name: </b>
@@ -1167,7 +1184,7 @@ function mirano_child_setup(){
                     $case_data['group_id'] = $group_details[0]['group_id'];
                     $case_data['user_id'] = $individual_data['user_id'];
                     $case_data['case_subject'] = $subject;
-                    $case_data['case_message'] = $header;
+                    $case_data['case_message'] = $message;
                     $case_data['confirmation_within'] = $email_data['confirmation_within'];
                     $case_data['same_price_to_all'] = $same_price_to_all;
                     $case_data['add_date'] = $add_date;
@@ -1215,6 +1232,12 @@ function mirano_child_setup(){
         $group_price_list_matched = "";
         $update_interest_data ="";
         $update_format_array ="";
+        $update_case_data['no_of_sells'] = 0;
+        $update_case_data['qty'] = 0;
+        $update_case_data['unit_price'] = 0;
+        $update_case_data['total_price'] = 0;
+        $update_case_data['shipping_price'] = 0;
+        $update_case_data['net_price'] = 0;
         //$time_now =
         if( $email_data['payment_within'] ){
             $time_now = date("Y-m-d H:i");
@@ -1239,8 +1262,12 @@ function mirano_child_setup(){
             }
             //print_r( $group_price_list_matched ); exit;
             /////////////////////////////////////////////////////
+
             if( $group_price_list_matched ){
                 foreach( $group_price_list_matched as $group_price_data ) {
+                    $update_case_data['no_of_sells'] = $group_price_data["no_of_sells"];
+                    $update_case_data['unit_price'] = $group_price_data["bestbuy_bestsell_price"];
+                    $update_case_data['shipping_price'] = $group_price_data["shipping_price"];
                     $group_price_list_text .='<tr>
 						<td><span>'. $group_price_data["no_of_sells"] .'</span></td>
 						<td><span>'.$group_price_data["bestbuy_bestsell_price"] .'&nbsp;'.get_currency().'</span></td>
@@ -1284,9 +1311,16 @@ function mirano_child_setup(){
 						</tr>
                         <?php echo $group_price_list_text;?></table>
                     <?php
-                    }else{ ?>
+                    }else
+                    {
+                        $update_case_data['no_of_sells'] = 0;
+                        $update_case_data['unit_price'] = $individual_data['interest_unit_price'];
+                        $update_case_data['shipping_price'] = $individual_data["interest_shipping_price"];
+                    ?>
                         <p><?php _e("The Unit Price For Your Interest Is", TEXTDOMAIN); ?>:<?php echo get_currency()." : ".$individual_data['interest_unit_price'];?></p>
-                    <?php }
+                        <p><?php _e("Shipping Cost", TEXTDOMAIN); ?>:<?php echo get_currency()." : ".$individual_data['interest_shipping_price'];?></p>
+                <?php
+                    }
                 }?>
                 <p><?php _e("Your Interest Details", TEXTDOMAIN); ?>:</p>
                 <p><b><?php _e("Product Name", TEXTDOMAIN); ?>: </b>
@@ -1317,14 +1351,17 @@ function mirano_child_setup(){
                 //if( mail( $email_to , $subject,"",$header) )	{
                 if( wp_mail( $email_to, $subject, $message) )	{
                     //$case_data['product_interest_id'] = $individual_data->product_interest_id;
+                    $update_case_data['qty'] = $individual_data['interest_qty'];
+                    $update_case_data['total_price'] = calculate_total_price( $update_case_data['qty'], $update_case_data['unit_price'] );
+                    $update_case_data['net_price'] = calculate_net_price( $update_case_data['total_price'], $update_case_data['shipping_price'] );
                     $update_case_data['payment_subject'] = $subject;
-                    $update_case_data['payment_message'] = $header;
+                    $update_case_data['payment_message'] = $message;
                     $update_case_data['payment_within'] = $email_data['payment_within'];
                     $where = array( "product_interest_id"=>$individual_data['product_interest_id'] );
                     $where_format = array();
+                    //print_r( $update_case_data ); exit;
                     $wpdb->update( "{$wpdb->prefix}interest_group_case", $update_case_data, $where, $update_format_array = null, $where_format = null );
-                    //print_r( $case_data ); exit;
-                    //$succes_case_insert = insert_interest_case( $case_data , $format_array );
+
                     if( !$email_sent ){
                         $update_group_data = array( "payment_email_sent"=>1 );
                         $where = array( "group_id"=>$interest_confirmed_details[0]['group_id'] );
@@ -1354,12 +1391,28 @@ function mirano_child_setup(){
             return True;
         }
     }
-/**
-* Bestbuy-bestsell Interest Groups Section
-*
-* @param $current_subtab
-* @return Bestbuy-bestsell Interest Groups Section
-*/
+    /** Author: ABU TAHER, Logic-coder IT
+     * calculate_total_price
+     * Param $qty, $unit_price
+     * return total_price = ( $qty * $unit_price )
+     */
+    function calculate_total_price( $qty, $unit_price ){
+        return ( $qty * $unit_price );
+    }
+    /** Author: ABU TAHER, Logic-coder IT
+     * calculate_net_price
+     * Param $total_price, $shipping_price
+     * return net_price = ( $total_price + $shipping_price )
+     */
+    function calculate_net_price( $total_price, $shipping_price ){
+        return ( $total_price + $shipping_price );
+    }
+    /**
+    * Bestbuy-bestsell Interest Groups Section
+    *
+    * @param $current_subtab
+    * @return Bestbuy-bestsell Interest Groups Section
+    */
     add_action( 'bestbuy_bestsell_business_menu_section_settings_interest_groups', 'bestbuy_bestsell_interest_groups_section' ,10, 1 );
     function bestbuy_bestsell_interest_groups_section( $current_subtab ){
         global $build_subtab;
@@ -3544,135 +3597,37 @@ function mirano_child_setup(){
      */
     add_shortcode('bestbuy_bestsell_my_interest_summary', 'bestbuy_bestsell_my_interest_summary');
     function bestbuy_bestsell_my_interest_summary(){
+        $product_interest_id = isset($_GET['product_interest_id']) ? $_GET['product_interest_id'] : '';
         $current_user_id = get_current_user_id();
         $user_info = get_userdata($current_user_id);
         $all_meta_for_user = get_user_meta( $current_user_id );
-        if( empty( $all_meta_for_user['billing_street_house_number'][0] ) ){
-            /*wp_safe_redirect( get_site_url().'/index.php/my-billing-address' );
-            exit;*/
+       // print_r( $all_meta_for_user );
+        if( !$current_user_id ){
+            wp_safe_redirect( get_site_url().'/index.php/authentication' );
+            exit;
         }
+        if( empty( $product_interest_id ))
+        {
+            wp_safe_redirect( get_site_url().'/index.php' );
+            exit;
+        }
+        $valid_user_action = wp_check_valid_user_action( $current_user_id, $product_interest_id, "product_interest");
+        $valid_payment_action = wp_check_valid_payment_action( $product_interest_id );
         ?>
+        <!-- Start: my_interest_summary -->
         <div class="my_interest_summary">
-            <!-- Start: my_address_panel -->
-            <div class="my_address_left_navigation">
-                <div class="my_billing_address">
-                    <h2 class="billing_delivery_address_title"><?php _e( 'Billing address', TEXTDOMAIN );?></h2>
-                    <div class="form_element">
-                        <div style="display:none" id="save_billing_address_success_message" class="alert alert-success save_billing_address_success"></div>
-                        <div class="element_group">
-                            <div class="billing_address_label">
-                                <label><?php echo $all_meta_for_user['billing_first_name'][0]."&nbsp;".$all_meta_for_user['billing_last_name'][0]; ?></label><br/>
-                                <label><?php echo $all_meta_for_user['billing_street_house_number'][0]; ?></label><br/>
-                                <label><?php echo $all_meta_for_user['billing_care_of'][0]; ?></label><br/>
-                                <label><?php echo $all_meta_for_user['billing_zip_code'][0]."&nbsp;".$all_meta_for_user['billing_place'][0]; ?></label><br/>
-                                <label><?php echo $all_meta_for_user['billing_country'][0]; ?></label><br/>
-                            </div>
-                            <div class="change_billing_address_link"><a href="<?php echo get_site_url().'/index.php/my-billing-address'?>" >Change billing address</a></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="my_delivery_address">
-                    <h2 class="billing_delivery_address_title"><?php _e( 'Delivery address', TEXTDOMAIN );?></h2>
-                    <div class="form_element">
-                        <div style="display:none" id="save_delivery_address_success_message" class="alert alert-success save_delivery_address_success"></div>
-                        <div style="display:none" id="save_delivery_address_error_message" class="alert alert-danger save_delivery_address_error"></div>
-                        <div class="element_group">
-                            <div class="billing_address_label">
-                                <label><?php echo $all_meta_for_user['delivery_first_name'][0]."&nbsp;".$all_meta_for_user['delivery_last_name'][0]; ?></label><br/>
-                                <label><?php echo $all_meta_for_user['delivery_street_house_number'][0]; ?></label><br/>
-                                <label><?php echo $all_meta_for_user['delivery_care_of'][0]; ?></label><br/>
-                                <label><?php echo $all_meta_for_user['delivery_zip_code'][0]."&nbsp;".$all_meta_for_user['delivery_place'][0]; ?></label><br/>
-                                <label><?php echo $all_meta_for_user['delivery_country'][0]; ?></label><br/>
-
-                            </div>
-                            <div class="change_delivery_address_link"><a href="<?php echo get_site_url().'/index.php/my-delivery-address'?>" >Change delivery address</a></div>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- End: my_address_panel -->
-            <!-- Start: my_interest_article_summary -->
-            <div class="my_interest_article_summary">
-                <div class="my_article_details"> <!--shop_table wishlist_table-->
-                    <table cellspacing="0" class="article_table summary_table">
-                        <thead>
-                        <tr>
-                            <th class="product-name"><span class="nobr"> <?php _e( 'Article', TEXTDOMAIN ); ?> </span></th>
-                            <th class="product-attributes"><span class="nobr"><?php _e( 'Attributes', TEXTDOMAIN ); ?></span></th>
-                            <th class="product-qty"><span class="nobr"><?php _e( 'Qty', TEXTDOMAIN ); ?></span></th>
-                            <th class="product-unit-price"><span class="nobr"><?php _e( 'Unit Price', TEXTDOMAIN ); ?></span></th>
-                            <th class="product-total-price"><span class="nobr"><?php _e( 'Total Price', TEXTDOMAIN ); ?></span></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php
-                                //$post_thumbnail_id = get_post_thumbnail_id( $my_interest_data->ID );
-                                //$post_thumbnail = get_the_post_thumbnail( $my_interest_data->ID, 'thumbnail' );
-                        //yith-wcwl-row-7
-                        ?>
-                                <tr id="summary_table-row-7">
-                                    <td class="product-name">
-                                        <a href="<?php echo get_site_url().'/product/' //.$my_interest_data->post_name; ?>"  > <?php echo "ABC";//echo $post_thumbnail; ?>
-                                        </a>
-                                    </td>
-                                    <td class="product-attributes">
-                                        <span class="amount"><?php echo "Color:Red";//echo $my_interest_data->interest_qty; ?></span>
-                                    </td>
-                                    <td class="product-qty">
-                                        <span class="amount"><?php echo "200";//echo $my_interest_data->interest_qty; ?></span>
-                                    </td>
-                                    <td class="product-unit-price">
-                                        <span class="amount"><?php echo "20"; //echo $my_interest_data->interest_qty; ?></span>
-
-                                    </td>
-                                    <td class="product-total-price">
-                                        <span class="amount"><?php echo "2000";//echo $my_interest_data->interest_qty; ?></span>
-
-                                    </td>
-                                </tr>
-                        </tbody>
-                    </table>
-                    <table cellspacing="0" class="article_table summary_table">
-                        <thead>
-                        <tr>
-                            <th class="product-name"><span class="nobr"> <?php _e( 'Shipping', TEXTDOMAIN ); ?> </span></th>
-                            <th class="product-name"><span class="nobr">  </span></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-
-                        <tr id="summary_table-row-7">
-                            <td class="shipping-cost">
-                                <?php _e( 'Shipping Cost', TEXTDOMAIN );?>
-                            </td>
-                            <td class="shipping-cost-total">
-                                <?php echo "20"; ?>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <table cellspacing="0" class="article_table summary_table">
-                        <thead>
-                        <tr>
-                            <th class="product-name"><span class="nobr"> <?php _e( 'Total Price', TEXTDOMAIN ); ?> </span></th>
-                            <th class="product-name"><span class="nobr">  </span></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-
-                        <tr id="summary_table-row-7">
-                            <td class="shipping-cost">
-                                <?php _e( 'Total Sum', TEXTDOMAIN );?>
-                            </td>
-                            <td class="shipping-cost-total">
-                                <?php echo "20"; ?>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <!-- Start: my_interest_payment_methods -->
-                <div class="my_interest_payment_methods">
-
+            <form method="post" name="payment_execute" enctype="multipart/form-data">
+            <?php
+            if( $valid_user_action && $valid_payment_action )
+            {
+                $my_interest_details = get_interest_details_by_interest_id( $product_interest_id );
+                $paypal_option_settings = get_option( 'paypal_option_settings' );
+                $cash_on_delivery_option_settings = get_option( 'cash_on_delivery_option_settings' );
+                $invoice_option_settings = get_option( 'invoice_option_settings' );
+            ?>
+                <!-- Start: my_address_left_navigation -->
+                <div class="my_address_left_navigation">
+                    <div class="my_billing_address">
                         <h2 class="billing_delivery_address_title"><?php _e( 'Billing address', TEXTDOMAIN );?></h2>
                         <div class="form_element">
                             <div style="display:none" id="save_billing_address_success_message" class="alert alert-success save_billing_address_success"></div>
@@ -3687,12 +3642,317 @@ function mirano_child_setup(){
                                 <div class="change_billing_address_link"><a href="<?php echo get_site_url().'/index.php/my-billing-address'?>" >Change billing address</a></div>
                             </div>
                         </div>
-                   
-                </div><!-- End: my_interest_payment_methods -->
-            </div><!-- End: my_interest_article_summary -->
+                    </div>
+                    <div class="my_delivery_address">
+                        <h2 class="billing_delivery_address_title"><?php _e( 'Delivery address', TEXTDOMAIN );?></h2>
+                        <div class="form_element">
+                            <div style="display:none" id="save_delivery_address_success_message" class="alert alert-success save_delivery_address_success"></div>
+                            <div style="display:none" id="save_delivery_address_error_message" class="alert alert-danger save_delivery_address_error"></div>
+                            <div class="element_group">
+                                <div class="billing_address_label">
+                                    <label><?php echo $all_meta_for_user['delivery_first_name'][0]."&nbsp;".$all_meta_for_user['delivery_last_name'][0]; ?></label><br/>
+                                    <label><?php echo $all_meta_for_user['delivery_street_house_number'][0]; ?></label><br/>
+                                    <label><?php echo $all_meta_for_user['delivery_care_of'][0]; ?></label><br/>
+                                    <label><?php echo $all_meta_for_user['delivery_zip_code'][0]."&nbsp;".$all_meta_for_user['delivery_place'][0]; ?></label><br/>
+                                    <label><?php echo $all_meta_for_user['delivery_country'][0]; ?></label><br/>
 
-        </div>
+                                </div>
+                                <div class="change_delivery_address_link"><a href="<?php echo get_site_url().'/index.php/my-delivery-address'?>" >Change delivery address</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- End: my_address_panel -->
+                      <!-- Start: my_interest_article_summary -->
+                <div class="my_interest_article_summary">
+                        <div class="my_article_details"> <!--shop_table wishlist_table-->
+                            <table cellspacing="0" class="article_table summary_table">
+                                <thead>
+                                <tr>
+                                    <th class="product-name"><span class="nobr"> <?php _e( 'Article', TEXTDOMAIN ); ?> </span></th>
+                                    <th class="product-attributes"><span class="nobr"><?php _e( 'Attributes', TEXTDOMAIN ); ?></span></th>
+                                    <th class="product-qty"><span class="nobr"><?php _e( 'Qty', TEXTDOMAIN ); ?></span></th>
+                                    <th class="product-unit-price"><span class="nobr"><?php _e( 'Unit Price', TEXTDOMAIN ); ?></span></th>
+                                    <th class="product-total-price"><span class="nobr"><?php _e( 'Total Price', TEXTDOMAIN ); ?></span></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php
+                                $post_thumbnail = get_the_post_thumbnail( $my_interest_details[0]->ID, 'thumbnail' );
+                                ?>
+                                <tr class="summary_table-row-7">
+                                    <td class="product-name">
+                                        <a href="<?php echo get_site_url().'/product/'.$my_interest_details[0]->post_title; ?>"  >
+                                            <?php
+                                                echo $post_thumbnail."<br/>";
+                                                echo $my_interest_details[0]->post_title;
+                                            ?>
+                                        </a>
+                                    </td>
+                                    <td class="product-attributes">
+                                        <span class="amount"><?php echo "Color:Red";//echo $my_interest_data->interest_qty; ?></span>
+                                    </td>
+                                    <td class="product-qty">
+                                        <span class="amount"><?php echo $my_interest_details[0]->qty; ?></span>
+                                    </td>
+                                    <td class="product-unit-price">
+                                        <span class="amount"><?php echo $my_interest_details[0]->unit_price;  ?></span>
+
+                                    </td>
+                                    <td class="product-total-price">
+                                        <span class="amount">
+                                            <?php echo $my_interest_details[0]->total_price.get_currency();  ?>
+                                        </span>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <table cellspacing="0" class="article_table summary_table">
+                                <thead>
+                                <tr>
+                                    <th class="product-name"><span class="nobr"> <?php _e( 'Shipping', TEXTDOMAIN ); ?> </span></th>
+                                    <th class="product-name"><span class="nobr">  </span></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="summary_table-row-7">
+                                    <td class="shipping-cost">
+                                        <?php _e( 'Shipping Cost', TEXTDOMAIN );?>
+                                    </td>
+                                    <td class="shipping-cost-total">
+                                        <?php echo $my_interest_details[0]->shipping_price.get_currency(); ?>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <table cellspacing="0" class="article_table summary_table">
+                                <thead>
+                                <tr>
+                                    <th class="product-name"><span class="nobr"> <?php _e( 'Total Price', TEXTDOMAIN ); ?> </span></th>
+                                    <th class="product-name"><span class="nobr">  </span></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                <tr id="summary_table-row-8">
+                                    <td class="total-cost">
+                                        <?php _e( 'Total Sum', TEXTDOMAIN );?>
+                                    </td>
+                                    <td class="total-sum">
+                                        <?php echo $my_interest_details[0]->net_price.get_currency(); ?>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- Start: my_interest_payment_methods -->
+                        <div class="my_interest_payment_methods">
+                            <h2 class="my_interest_payment_methods_title"><?php _e( 'Payment Method', TEXTDOMAIN );?></h2>
+                            <?php
+                            if( $paypal_option_settings['paypal_enable_disable_payment'] )
+                            {
+                            ?>
+                                <div class="payment_method_paypal">
+                                    <div class="payment_method_paypal_name">
+                                        <div class="input_radio">
+                                            <input type="radio" name="payment_method" class="payment_method" id="paypal" value="paypal"/>
+                                        </div>
+                                        <div class="input_label"><?php echo $paypal_option_settings['paypal_checkout_title']; ?></div>
+                                    </div>
+                                    <div class="payment_method_paypal_logo">
+                                        <img src="<?php echo bloginfo('stylesheet_directory') . '/images/paypal.gif' ?>"/>
+                                    </div>
+                                </div>
+                            <?php
+                            }
+                            if( $cash_on_delivery_option_settings['cash_on_delivery_enable_disable'] )
+                            {
+                            ?>
+                                <div class="payment_method_cash_on_delivery">
+                                    <div class="payment_method_cash_on_delivery_name">
+                                        <div class="input_radio">
+                                            <input type="radio" name="payment_method" class="payment_method" id="cash_on_delivery" value="cash_on_delivery"/>
+                                        </div>
+                                        <div class="input_label"><?php echo $cash_on_delivery_option_settings['cash_on_delivery_title']; ?></div>
+                                    </div>
+                                    <div class="payment_method_cash_on_delivery_logo">
+                                        <img
+                                            src="<?php echo bloginfo('stylesheet_directory') . '/images/cash-on-delivery-icon.png' ?>"/>
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+                            <?php
+                            }
+                            if( $invoice_option_settings['invoice_enable_disable'] )
+                            {
+                            ?>
+                                <div class="payment_method_invoice">
+                                    <div class="payment_method_invoice_name">
+                                        <div class="input_radio">
+                                            <input type="radio" name="payment_method" class="payment_method" id="invoice" value="invoice" />
+                                        </div>
+                                        <div class="input_label"><?php echo $invoice_option_settings['invoice_title'];?></div>
+                                    </div>
+                                    <div class="payment_method_invoice_logo">
+                                        <img src="<?php echo bloginfo('stylesheet_directory').'/images/InvoiceIcon.png'?>" />
+                                    </div>
+                                </div>
+                            <?php
+                            }
+                            ?>
+                        </div><!-- End: my_interest_payment_methods -->
+                </div><!-- End: my_interest_article_summary -->
+                <?php
+                if( empty( $all_meta_for_user['billing_street_house_number'][0] ) || empty( $all_meta_for_user['delivery_street_house_number'][0] ) )
+                {
+                ?>
+                <div class="billing_delivery_address_empty">
+                    <?php _e("Please Update Your Billing & Shipping Address"); ?>
+                    <input type="hidden" name="billing_delivery_address" id="billing_delivery_address" value="0"/>
+                </div>
+                <div class="clear"></div>
+                <?php
+                }else
+                {
+                ?>
+                <input type="hidden" name="billing_delivery_address" id="billing_delivery_address" value="1"/>
+                <?php
+                }
+                ?>
+                <div class="choose_payment_method" id="choose_payment_method">
+                    <?php _e("Please Choose Payment Method"); ?>
+                </div>
+                <div class="clear"></div>
+                <div class="element_next_button">
+                    <p class="submit">
+                        <button name="payment_execute" id="payment_execute" type="submit" class="btn btn-default button button-medium exclusive save_personal_data_btn" disabled >
+                            <span>
+                                <i class="icon-lock left"></i>
+                                <?php _e( 'Next >>', TEXTDOMAIN );?>
+                            </span>
+                        </button>
+                    </p>
+                </div>
+            <?php
+                do_action('bestbuy_bestsell_payment_execute');
+            }
+            else
+            {
+            ?>
+                <div class="interest_sumarry_access_error">
+                    <?php
+                    if( !$valid_user_action )
+                    {
+                        _e("Sorry!!! Seems This Interest Doesn't Belongs To", TEXTDOMAIN); ?>
+                        <a style="color:#25C1CE;"
+                           href="<?php echo get_site_url() . '/index.php/my-interest-lists'; ?> ">
+                            <?php _e("Interest Lists", TEXTDOMAIN); ?>
+                        </a>
+                        <?php _e("For The Logged User", TEXTDOMAIN); ?>
+                        <a style="color:#25C1CE;" href="<?php echo get_site_url() . '/index.php/my-account'; ?> ">
+                            <?php echo $all_meta_for_user['first_name'][0] . "&nbsp;" . $all_meta_for_user['last_name'][0]; ?>
+                        </a>
+                        <?php
+                        _e("Or Interest Campaign Is Expired", TEXTDOMAIN);
+                    }
+                    elseif( !$valid_payment_action )
+                    {
+                        _e("Sorry!!! Seems Something Wrong In Your Payment Link", TEXTDOMAIN);
+                    }
+                    ?>
+                    <?php
+                        echo "<br/>";
+                        _e("For More Details Please", TEXTDOMAIN);
+                    ?>
+                    <a style="color:#25C1CE;" href="<?php echo get_site_url() . '/index.php/contact'; ?> ">
+                        <?php _e("Contact Us", TEXTDOMAIN); ?>
+                    </a>
+                </div>
+            <?php
+            }
+            ?>
+            <input type="hidden" name="product_interest_id" value="<?php echo $product_interest_id; ?>" />
+        </form>
+        </div><!-- End: my_interest_summary -->
     <?php }
+    /*
+     * Bestbuy-bestsell payment_execute
+     * Process and Handle all types of payment processor
+     */
+    add_action( 'bestbuy_bestsell_payment_execute', 'payment_execute' ,10 );
+    function payment_execute(){
+        if( isset($_POST['payment_execute'])){
+            do_action('bestbuy_bestsell_payment_execute_'.$_POST['payment_method'] );
+        }
+    }
+    /*
+    * Bestbuy-bestsell payment_execute_paypal
+    * Process and Handle paypal payment processor
+    */
+    add_action( 'bestbuy_bestsell_payment_execute_paypal', 'payment_execute_paypal' ,15 );
+    function payment_execute_paypal(){
+        echo "Paypal ".$product_interest_id = isset($_POST['product_interest_id']) ? $_POST['product_interest_id'] : '';
+        exit;
+    }
+    /*
+    * Bestbuy-bestsell payment_execute_cash_on_delivery
+    * Process and Handle cash_on_delivery payment processor
+    */
+    add_action( 'bestbuy_bestsell_payment_execute_cash_on_delivery', 'payment_execute_cash_on_delivery' ,15 );
+    function payment_execute_cash_on_delivery(){
+        echo "cash_on_delivery".$product_interest_id = isset($_POST['product_interest_id']) ? $_POST['product_interest_id'] : '';
+        exit;
+    }
+    /*
+   * Bestbuy-bestsell payment_execute_invoice
+   * Process and Handle invoice payment processor
+   */
+    add_action( 'bestbuy_bestsell_payment_execute_invoice', 'payment_execute_invoice' ,15 );
+    function payment_execute_invoice(){
+        echo "invoice".$product_interest_id = isset($_POST['product_interest_id']) ? $_POST['product_interest_id'] : '';
+        exit;
+    }
+    /** Author: ABU TAHER, Logic-coder IT
+     * get_price_by_quantity
+     * Param $interest_qty, $interest_unit_price
+     * Return Total Price For Quantity
+     */
+    function get_price_by_quantity( $interest_qty, $interest_unit_price ){
+        return ( $interest_qty * $interest_unit_price );
+    }
+    /** Author: ABU TAHER, Logic-coder IT
+     * get_interest_details_by_interest_id
+     * Param $product_interest_id
+     * Return Interest Details by id
+     */
+    function get_interest_details_by_interest_id( $product_interest_id ){
+        global $wpdb;
+        $sql_interest_details = " SELECT SQL_CALC_FOUND_ROWS * FROM {$wpdb->prefix}product_interest, {$wpdb->prefix}interest_group_case, {$wpdb->prefix}posts
+        WHERE ( {$wpdb->prefix}product_interest.product_interest_id='".$product_interest_id."' AND {$wpdb->prefix}product_interest.product_id={$wpdb->prefix}posts.ID AND {$wpdb->prefix}interest_group_case.product_interest_id='".$product_interest_id."' )";
+        $results = $wpdb->get_results( $sql_interest_details );
+        return $results;
+    }
+    /** Author: ABU TAHER, Logic-coder IT
+     * wp_check_valid_payment_action
+     * Param $product_interest_id
+     * Return True on Success / False on Failure
+     */
+    function wp_check_valid_payment_action( $product_interest_id ){
+        global $wpdb;
+        $sql_interest_group_details = " SELECT SQL_CALC_FOUND_ROWS * FROM {$wpdb->prefix}product_interest, {$wpdb->prefix}interest_group, {$wpdb->prefix}posts
+        WHERE ( {$wpdb->prefix}product_interest.interest_group_id={$wpdb->prefix}interest_group.group_id AND {$wpdb->prefix}product_interest.product_interest_id='".$product_interest_id."' )
+        AND ( {$wpdb->prefix}interest_group.product_id= {$wpdb->prefix}posts.ID AND {$wpdb->prefix}posts.post_status='publish')
+        AND ( {$wpdb->prefix}product_interest.interest_end_date >= '".time()."'
+	    OR {$wpdb->prefix}product_interest.asa_price_is_reasonable=1 )
+	    AND {$wpdb->prefix}product_interest.payment_confirmation_link_expire >= '".time()."'
+	    AND {$wpdb->prefix}product_interest.interest_confirmed = 1
+	    AND {$wpdb->prefix}product_interest.interest_paid = 0
+	    AND {$wpdb->prefix}product_interest.interest_campaign_closed = 0
+	    AND {$wpdb->prefix}interest_group.payment_email_sent = 1 ";
+        $results = $wpdb->get_results( $sql_interest_group_details );
+        if( sizeof($results) > 0 ){
+            return True;
+        }else{ return False; }
+    }
     /*********  Show interest form for a single product **********/
     /** Author: ABU TAHER, Logic-coder IT
      * Display interest form for single product
@@ -4430,12 +4690,12 @@ function mirano_child_setup(){
     function wp_check_valid_user_action( $current_user_id, $product_interest_id, $check_for ){
         global $wpdb;
         if($check_for == "product_interest"){
-            $results = $wpdb->get_results( "SELECT * FROM wp_product_interest, wp_posts
-						WHERE ( wp_product_interest.product_interest_id ='".$product_interest_id."' AND
-						wp_product_interest.user_id ='".$current_user_id."' ) AND ( wp_product_interest.product_id=
-						wp_posts.ID AND wp_posts.post_status='publish')
-						AND ( wp_product_interest.interest_end_date >= '".time()."'
-						OR wp_product_interest.asa_price_is_reasonable=1)" );
+            $results = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}product_interest, {$wpdb->prefix}posts
+						WHERE ( {$wpdb->prefix}product_interest.product_interest_id ='".$product_interest_id."' AND
+						{$wpdb->prefix}product_interest.user_id ='".$current_user_id."' ) AND ( {$wpdb->prefix}product_interest.product_id=
+						{$wpdb->prefix}posts.ID AND {$wpdb->prefix}posts.post_status='publish')
+						AND ( {$wpdb->prefix}product_interest.interest_end_date >= '".time()."'
+						OR {$wpdb->prefix}product_interest.asa_price_is_reasonable=1)" );
         }
         if( sizeof($results) > 0 ){
             return True;

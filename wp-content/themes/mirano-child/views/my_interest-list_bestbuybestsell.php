@@ -12,7 +12,6 @@ $all_meta_for_user = get_user_meta( $current_user_id );
 if($user_info->roles){
 	$current_user_role = implode(', ', $user_info->roles) ;
 }
-
 if( isset( $_REQUEST['action'] ) && $_REQUEST['action']!="" ){
 	$product_interest_id = $_REQUEST['product_interest_id'];
 	$valid_action = wp_check_valid_user_action( $current_user_id, $product_interest_id, "product_interest"); 

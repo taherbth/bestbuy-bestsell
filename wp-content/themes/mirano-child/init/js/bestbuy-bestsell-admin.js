@@ -6,10 +6,12 @@ jQuery(document).ready(function($){
 	$('.update_interest_unit_price').on('blur', function(e) {
 		
 		var interest_id = e.target.id;
-		var interest_unit_price =  document.getElementById( interest_id ).value;
+		var interest_unit_price_filed_name = "interest_unit_price"+interest_id
+		var interest_unit_price =  document.getElementsByName( interest_unit_price_filed_name );
+
         var data = {
             action: 'update_interest_unit_price',
-            unit_price: interest_unit_price,
+            unit_price: interest_unit_price.item(0).value,
             product_interest_id: interest_id
         };
         // since 2.8 ajaxurl is always defined in the admin header and points to admin-ajax.php
@@ -19,6 +21,24 @@ jQuery(document).ready(function($){
 				document.getElementById( updated_label ).innerHTML="Price Updated"
 			}            
         }); 
+
+	});
+	$('.update_interest_shipping_price').on('blur', function(e) {
+		var interest_id = e.target.id;
+		var interest_shipping_price_filed_name = "interest_shipping_price"+interest_id
+		var interest_shipping_price =  document.getElementsByName( interest_shipping_price_filed_name );
+		var data = {
+			action: 'update_interest_shipping_price',
+			shipping_price: interest_shipping_price.item(0).value,
+			product_interest_id: interest_id
+		};
+		// since 2.8 ajaxurl is always defined in the admin header and points to admin-ajax.php
+		$.post(ajaxurl, data, function( response ) {
+			if( response == 1 ){
+				var updated_label = "shipping_price_update_message"+interest_id
+				document.getElementById( updated_label ).innerHTML="Shipping Price Updated"
+			}
+		});
 
 	});
 

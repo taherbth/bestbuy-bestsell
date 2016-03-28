@@ -83,6 +83,10 @@
 .my_account, .my_addresses, .my_interest_summary{
     width:100%;
 }
+.my_interest_payment_methods{
+    border: 1px solid #eaeaea;
+    overflow: hidden;
+}
 .personal_info{
     width: 40%;
     float:left;
@@ -147,7 +151,7 @@
     padding: 6px !important;
     width: 100%;
 }
-.personal_info_title, .change_password_title,.change_email_title,.billing_delivery_address_title{
+.personal_info_title, .change_password_title,.change_email_title,.billing_delivery_address_title, .my_interest_payment_methods_title{
     color: #404040;
     font-family: arial,helvetica,"DejaVu Sans","Arial Unicode MS","Lucida Sans Unicode",sans-serif;
     font-style: normal;
@@ -176,6 +180,11 @@
     float:left;
     padding-left: 3%;
 }
+.element_next_button{
+    float:right;
+    padding: 3%;
+}
+
 #gender_error_message,
 #first_name_error_message,
 #last_name_error_message,
@@ -303,15 +312,84 @@
 .my_article_details table th, .my_article_details table td {
     /*border-bottom: 1px solid #e5e5e5;
     border-right: 1px solid #e5e5e5;*/
-    padding: 5px;
+    padding: 5px 15px 5px 15px;
 }
 .my_article_details td, .my_article_details th {
     padding: 0;
     border: none;
 }
-.product-total-price, .shipping-cost-total{
+.product-total-price, .shipping-cost-total, .total-sum{
     border-right: 1px solid #e5e5e5 !important;
 }
-.product-attributes, .product-qty, .product-unit-price, .product-total-price, .shipping-cost-total{
+.product-attributes, .product-qty, .product-unit-price{
     text-align: center;
+}
+.product-total-price, .shipping-cost-total, .total-sum{
+    text-align: right;
+}
+.payment_method_paypal{
+    width: 45%;
+    float:left;
+    padding: 15px;
+}
+.payment_method_cash_on_delivery{
+    width: 45%;
+    margin-left: 5%;
+    float:left;
+    padding: 15px;
+}
+.payment_method_invoice{
+    width: 45%;
+    float:left;
+    padding: 15px;
+    padding-top: 5%;
+}
+.payment_method_paypal_name , .payment_method_invoice_name{
+    float: left;
+    width: 25%;
+}
+.input_radio{
+    float: left;
+    margin-right: 5%;
+}
+.input_label{
+    float: left;
+}
+.payment_method_paypal_logo{
+    float: left;
+    width: 50%;
+}
+.payment_method_cash_on_delivery_name{
+    float: left;
+    width: 50%;
+}
+.payment_method_cash_on_delivery_logo, .payment_method_invoice_logo{
+    float: left;
+    width: 50%;
+}
+.payment_method_cash_on_delivery_logo img, .payment_method_paypal_logo img, .payment_method_invoice_logo img{
+    width: 50%;
+    height: 50%;
+}
+.billing_delivery_address_empty{
+    color:red;
+    text-align: left;
+    float: right;
+    padding: 3% 3% 0% 3%;
+}
+.choose_payment_method{
+    color:red;
+    text-align: left;
+    float: right;
+    padding: 1.5% 3% 0% 3%;
+}
+.shipping-cost td, .total-cost td{
+    padding: 25px;
+}
+.shipping-cost, .shipping-cost-total, .total-cost, .total-sum{
+    padding:15px !important;
+}
+.my_interest_payment_methods_title{
+    padding-left:15px !important;
+    padding-right:15px !important;
 }

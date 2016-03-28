@@ -28,7 +28,6 @@ class Bestbuybestsell_Interest extends WP_List_Table {
 			'plural'   => __( 'Interests',TEXTDOMAIN ), //plural name of the listed records
 			'ajax'     => false //does this table support ajax?
 		] );
-
 	}
 		
 	/** Show Action message for Inmid Interest
@@ -336,7 +335,12 @@ $total_qty_column_message = $count_group_interest_qty[0]['total_qty'] ? $count_g
 					<input type="text" name="interest_unit_price'.$item['product_interest_id']. '" id="'.$item['product_interest_id']. '" class="update_interest_unit_price" value="'.$item['interest_unit_price']. '" style="width:110px;" /> 
 					<input type="hidden" id="product_interest_id" name="product_interest_id" value="'. $item['product_interest_id'].'" />';
 			break;
-
+			case 'interest_shipping_price':
+				echo '<span id="shipping_price_update_message'.$item['product_interest_id'].'"></span><br/>';
+				echo '<span>
+					<input type="text" name="interest_shipping_price'.$item['product_interest_id']. '" id="'.$item['product_interest_id']. '" class="update_interest_shipping_price" value="'.$item['interest_shipping_price']. '" style="width:110px;" />
+					<input type="hidden" id="product_interest_id" name="product_interest_id" value="'. $item['product_interest_id'].'" />';
+				break;
 			case 'interest_start_date':
 				echo '<span>';
 					if( $item['asa_price_is_reasonable'] ){
@@ -586,6 +590,7 @@ $total_qty_column_message = $count_group_interest_qty[0]['total_qty'] ? $count_g
 				'interest_attributes'    => __( 'Attributes', TEXTDOMAIN ),
 				'interest_qty'    => __( 'Qty', TEXTDOMAIN ),
 				'interest_unit_price'    => __( 'Interest Unit Price', TEXTDOMAIN ),
+				'interest_shipping_price'    => __( 'Shipping Price', TEXTDOMAIN ),
 				'interest_start_date'    => __( 'Start Date', TEXTDOMAIN ),
 				'interest_end_date'    => __( ' 	End Date', TEXTDOMAIN ),
 				'product_interest_lists_user_actions'    => __( 'Action', TEXTDOMAIN ),
@@ -620,6 +625,7 @@ $total_qty_column_message = $count_group_interest_qty[0]['total_qty'] ? $count_g
 			'login' => array( 'login', false ),
 			'interest_qty' => array( 'interest_qty', false ),
 			'interest_unit_price' => array( 'interest_unit_price', false ),
+			'interest_shipping_price' => array( 'interest_shipping_price', false ),
 			'interest_start_date' => array( 'interest_start_date', false ),
 			'interest_end_date' => array( 'interest_end_date', false ),
 			'group_id' => array( 'group_id', false ),
@@ -1206,7 +1212,6 @@ $total_qty_column_message = $count_group_interest_qty[0]['total_qty'] ? $count_g
 		///echo $sql_interest_group;
 		return $sql_interest_group_result;
 	}
-
 	/** Author: ABU TAHER, Logic-coder IT
 	 * 	Detect when a bulk action is being triggered...
 	*/
@@ -1576,7 +1581,8 @@ $total_qty_column_message = $count_group_interest_qty[0]['total_qty'] ? $count_g
 						</tr>"."\n\n";
 						$message .= $group_price_list_text . "</table>"."\n\n";
 						}else{
-							$message .="<p>The Unit Price For Your Interest Is:".get_currency()." : ".$individual_data['interest_unit_price']."</p>\n";
+							$message .="<p>The Unit Price For Your Interest Is:".get_currency()." : ".$individual_data['interest_unit_price']."</p>";
+							$message .="<p>Shipping Price:".get_currency()." : ".$individual_data['interest_shipping_price']."</p>\n";
 						}
 					}
 				$message .="<p>Your Interest Details:</p>"."\n";

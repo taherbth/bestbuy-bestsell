@@ -399,6 +399,17 @@ jQuery(document).ready(function($){
 			return false;
 		}
 	});
+	$('.payment_method').on('click', function(e) {
+		var payment_method = e.target.id;
+		var billing_delivery_address;
+		if( payment_method ){
+			billing_delivery_address = document.getElementById('billing_delivery_address').value;
+			if( billing_delivery_address ){
+				document.getElementById('payment_execute').disabled = false;
+				document.getElementById('choose_payment_method').style.display = "none";
+			}
+		}
+	});
 });
 
 function validateGender( gender ){
