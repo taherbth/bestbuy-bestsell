@@ -25,6 +25,9 @@ function mirano_child_setup(){
     if ( ! class_exists( 'Bestbuybestsell_Interest' ) ){
         require_once( 'admin/classess/class-bestbuybestsell-interest.php' );
     }
+    if ( ! class_exists( 'Bestbuybestsell_Paypal' ) ){
+        require_once( 'paypal/paypal.class.php' );
+    }
     /*
     * Bestbuy-bestsell Business Menu For Admin Panel
     * Display Admin Menu
@@ -3601,16 +3604,8 @@ function mirano_child_setup(){
         $current_user_id = get_current_user_id();
         $user_info = get_userdata($current_user_id);
         $all_meta_for_user = get_user_meta( $current_user_id );
-       // print_r( $all_meta_for_user );
-        if( !$current_user_id ){
-            wp_safe_redirect( get_site_url().'/index.php/authentication' );
-            exit;
-        }
-        if( empty( $product_interest_id ))
-        {
-            wp_safe_redirect( get_site_url().'/index.php' );
-            exit;
-        }
+        // print_r( $all_meta_for_user );
+        do_action('bestbuy_bestsell_interest_sumarry_access_error', $current_user_id, $product_interest_id );
         $valid_user_action = wp_check_valid_user_action( $current_user_id, $product_interest_id, "product_interest");
         $valid_payment_action = wp_check_valid_payment_action( $product_interest_id );
         ?>
@@ -3837,43 +3832,74 @@ function mirano_child_setup(){
             }
             else
             {
-            ?>
-                <div class="interest_sumarry_access_error">
-                    <?php
-                    if( !$valid_user_action )
-                    {
-                        _e("Sorry!!! Seems This Interest Doesn't Belongs To", TEXTDOMAIN); ?>
-                        <a style="color:#25C1CE;"
-                           href="<?php echo get_site_url() . '/index.php/my-interest-lists'; ?> ">
-                            <?php _e("Interest Lists", TEXTDOMAIN); ?>
-                        </a>
-                        <?php _e("For The Logged User", TEXTDOMAIN); ?>
-                        <a style="color:#25C1CE;" href="<?php echo get_site_url() . '/index.php/my-account'; ?> ">
-                            <?php echo $all_meta_for_user['first_name'][0] . "&nbsp;" . $all_meta_for_user['last_name'][0]; ?>
-                        </a>
-                        <?php
-                        _e("Or Interest Campaign Is Expired", TEXTDOMAIN);
-                    }
-                    elseif( !$valid_payment_action )
-                    {
-                        _e("Sorry!!! Seems Something Wrong In Your Payment Link", TEXTDOMAIN);
-                    }
-                    ?>
-                    <?php
-                        echo "<br/>";
-                        _e("For More Details Please", TEXTDOMAIN);
-                    ?>
-                    <a style="color:#25C1CE;" href="<?php echo get_site_url() . '/index.php/contact'; ?> ">
-                        <?php _e("Contact Us", TEXTDOMAIN); ?>
-                    </a>
-                </div>
-            <?php
+                do_action('bestbuy_bestsell_interest_sumarry_payment_access_error', $valid_user_action , $valid_payment_action, $all_meta_for_user );
             }
             ?>
             <input type="hidden" name="product_interest_id" value="<?php echo $product_interest_id; ?>" />
         </form>
         </div><!-- End: my_interest_summary -->
     <?php }
+    /*
+    * Bestbuy-bestsell bestbuy_bestsell_interest_sumarry_access_error
+    * Raise access error in interest_sumarry  process page
+    */
+    add_action( 'bestbuy_bestsell_interest_sumarry_access_error', 'interest_sumarry_access_error' ,10, 2 );
+    function interest_sumarry_access_error( $current_user_id , $product_interest_id )
+    {
+        if( !$current_user_id ){
+            wp_safe_redirect( get_site_url().'/index.php/authentication' );
+            exit;
+        }
+        if( empty( $product_interest_id ))
+        {
+            wp_safe_redirect( get_site_url().'/index.php' );
+            exit;
+        }
+    }
+    /*
+    * Bestbuy-bestsell bestbuy_bestsell_interest_sumarry_payment_access_error
+    * Raise access error in interest_sumarry_payment process page
+    */
+    add_action( 'bestbuy_bestsell_interest_sumarry_payment_access_error', 'interest_sumarry_payment_access_error' ,10, 3 );
+    function interest_sumarry_payment_access_error( $valid_user_action , $valid_payment_action, $all_meta_for_user )
+    {
+    ?>
+        <div class="interest_sumarry_access_error">
+            <?php
+            if( !$valid_user_action )
+            {
+                _e("Sorry!!! Seems This Interest Doesn't Belongs To", TEXTDOMAIN); ?>
+                <a style="color:#25C1CE;"
+                   href="<?php echo get_site_url() . '/index.php/my-interest-lists'; ?> ">
+                    <?php _e("Interest Lists", TEXTDOMAIN); ?>
+                </a>
+                <?php _e("For The Logged User", TEXTDOMAIN); ?>
+                <a style="color:#25C1CE;" href="<?php echo get_site_url() . '/index.php/my-account'; ?> ">
+                    <?php echo $all_meta_for_user['first_name'][0] . "&nbsp;" . $all_meta_for_user['last_name'][0]; ?>
+                </a>
+                <?php
+                _e("Or Interest Campaign Is Expired", TEXTDOMAIN);
+            }
+            elseif( !$valid_payment_action )
+            {
+                _e("Sorry!!! Seems Something Wrong In Your Payment Link", TEXTDOMAIN);
+            }
+            ?>
+            <?php
+            if( !$valid_user_action || !$valid_payment_action )
+            {
+                echo "<br/>";
+                _e("For More Details Please", TEXTDOMAIN);
+            ?>
+                <a style="color:#25C1CE;" href="<?php echo get_site_url() . '/index.php/contact'; ?> ">
+                    <?php _e("Contact Us", TEXTDOMAIN); ?>
+                </a>
+            <?php
+            }
+            ?>
+        </div>
+    <?php
+    }
     /*
      * Bestbuy-bestsell payment_execute
      * Process and Handle all types of payment processor
@@ -3890,8 +3916,297 @@ function mirano_child_setup(){
     */
     add_action( 'bestbuy_bestsell_payment_execute_paypal', 'payment_execute_paypal' ,15 );
     function payment_execute_paypal(){
-        echo "Paypal ".$product_interest_id = isset($_POST['product_interest_id']) ? $_POST['product_interest_id'] : '';
-        exit;
+        $product_interest_id = isset($_POST['product_interest_id']) ? $_POST['product_interest_id'] : '';
+        $current_user_id = get_current_user_id();
+        $all_meta_for_user = get_user_meta( $current_user_id );
+        $valid_user_action = wp_check_valid_user_action( $current_user_id, $product_interest_id, "product_interest");
+        $valid_payment_action = wp_check_valid_payment_action( $product_interest_id );
+        do_action('bestbuy_bestsell_interest_sumarry_access_error', $current_user_id, $product_interest_id );
+        do_action('bestbuy_bestsell_interest_sumarry_payment_access_error', $valid_user_action , $valid_payment_action, $all_meta_for_user );
+        $my_interest_details = get_interest_details_by_interest_id( $product_interest_id );
+        if( $my_interest_details )
+        {
+            // Paypal Configuration
+            $paypal_option_settings = get_option( 'paypal_option_settings' );
+            //print_r( $paypal_option_settings ); exit;
+            if( $paypal_option_settings['paypal_sandbox'] ==='yes' )
+            {
+                $PayPalMode = 'sandbox';
+                $PayPalApiUsername = 'sdk-three_api1.sdk.com'; //PayPal API Username
+                $PayPalApiPassword = 'QFZCWN5HZM8VBG7Q'; //Paypal API password
+                $PayPalApiSignature = 'A-IzJhZZjhg29XQ2qnhapuwxIDzyAZQ92FRP5dqBzVesOkzbdUONzmOU'; //Paypal API Signature
+            }
+            else
+            {
+                $PayPalMode = 'live'; // sandbox or live
+                $PayPalApiUsername = $paypal_option_settings['paypal_payment_api_user_name']; //PayPal API Username
+                $PayPalApiPassword = $paypal_option_settings['paypal_payment_api_password']; //Paypal API password
+                $PayPalApiSignature = $paypal_option_settings['paypal_payment_api_signature']; //Paypal API Signature
+            }
+            $PayPalCurrencyCode = get_currency(); //Paypal Currency Code
+            $PayPalReturnURL = 'http://localhost/paypal/process.php'; //Point to process.php page
+            $PayPalCancelURL = 'http://localhost/paypal/cancel.php'; //Cancel URL if user clicks cancel
+            // Process Paypal Payment
+            $paypalmode = ($PayPalMode == 'sandbox') ? '.sandbox' : '';
+            //Mainly we need 4 variables from product page Item Name, Item Price, Item Number and Item Quantity.
+            //Please Note : People can manipulate hidden field amounts in form,
+            //In practical world you must fetch actual price from database using item id. Eg:
+            //$ItemPrice = $mysqli->query("SELECT item_price FROM products WHERE id = Product_Number");
+
+            $ItemName = $my_interest_details[0]->post_title; //Item Name
+            $ItemPrice = $my_interest_details[0]->unit_price; //Item Price
+            $ItemNumber = $my_interest_details[0]->qty; //Item Number
+            $ItemDesc = $my_interest_details[0]->post_content; //Item Number
+            $ItemQty = $my_interest_details[0]->qty; // Item Quantity
+            $ItemTotalPrice = $my_interest_details[0]->total_price; //(Item Price x Quantity = Total) Get total amount of product;
+
+            //Other important variables like tax, shipping cost
+            $TotalTaxAmount = 0.00;  //Sum of tax for all items in this order.
+            $HandalingCost = 0.00;  //Handling cost for this order.
+            $InsuranceCost = 0.00;  //shipping insurance cost for this order.
+            $ShippinDiscount = 0.00; //Shipping discount for this order. Specify this as negative number.
+            $ShippinCost = $my_interest_details[0]->shipping_price; //Although you may change the value later, try to pass in a shipping amount that is reasonably accurate.
+
+            //Grand total including all tax, insurance, shipping cost and discount
+            $GrandTotal = ($ItemTotalPrice + $TotalTaxAmount + $HandalingCost + $InsuranceCost + $ShippinCost + $ShippinDiscount);
+
+            //Parameters for SetExpressCheckout, which will be sent to PayPal
+            $ADDROVERRIDE = 0;
+            if( $paypal_option_settings['paypal_address_override'] ==='yes' ){
+                $ADDROVERRIDE = 1;
+            }
+            if( $paypal_option_settings['paypal_shipping_details_send'] ==='yes' ){
+                $SHIPTONAME = $all_meta_for_user['delivery_first_name'][0]."&nbsp;".$all_meta_for_user['delivery_last_name'][0];
+                $SHIPTOSTREET = $all_meta_for_user['delivery_street_house_number'][0];
+                $SHIPTOCITY = $all_meta_for_user['delivery_place'][0];
+                $SHIPTOCOUNTRYCODE = 'SE';
+                $SHIPTOZIP = $all_meta_for_user['delivery_zip_code'][0];
+                $SHIPTOPHONENUM = '7887878';
+            }else{
+                $SHIPTONAME = $all_meta_for_user['billing_first_name'][0]."&nbsp;".$all_meta_for_user['billing_last_name'][0];
+                $SHIPTOSTREET = $all_meta_for_user['billing_street_house_number'][0];
+                $SHIPTOCITY = $all_meta_for_user['billing_place'][0];
+                $SHIPTOCOUNTRYCODE = 'SE';
+                $SHIPTOZIP = $all_meta_for_user['billing_zip_code'][0];
+                $SHIPTOPHONENUM = '789899889';
+            }
+
+            $padata = '&METHOD=SetExpressCheckout' .
+                '&LOCALECODE=' . 'sv_SE' .
+                '&RETURNURL=' . urlencode($PayPalReturnURL) .
+                '&CANCELURL=' . urlencode($PayPalCancelURL) .
+                '&PAYMENTREQUEST_0_PAYMENTACTION=' . urlencode("SALE") .
+                '&L_PAYMENTREQUEST_0_NAME0=' . urlencode($ItemName) .
+                '&L_PAYMENTREQUEST_0_NUMBER0=' . urlencode($ItemNumber) .
+                '&L_PAYMENTREQUEST_0_DESC0=' . urlencode($ItemDesc) .
+                '&L_PAYMENTREQUEST_0_AMT0=' . urlencode($ItemPrice) .
+                '&L_PAYMENTREQUEST_0_QTY0=' . urlencode($ItemQty) .
+                '&SOLUTIONTYPE=' . urlencode("Sole") .
+                '&LANDINGPAGE=' . 'Billing' .
+
+                /*
+                //Additional products (L_PAYMENTREQUEST_0_NAME0 becomes L_PAYMENTREQUEST_0_NAME1 and so on)
+                '&L_PAYMENTREQUEST_0_NAME1='.urlencode($ItemName2).
+                '&L_PAYMENTREQUEST_0_NUMBER1='.urlencode($ItemNumber2).
+                '&L_PAYMENTREQUEST_0_DESC1='.urlencode($ItemDesc2).
+                '&L_PAYMENTREQUEST_0_AMT1='.urlencode($ItemPrice2).
+                '&L_PAYMENTREQUEST_0_QTY1='. urlencode($ItemQty2).
+                */
+
+                //Override the buyer's shipping address stored on PayPal, The buyer cannot edit the overridden address.
+
+                '&ADDROVERRIDE='.$ADDROVERRIDE .
+                '&PAYMENTREQUEST_0_SHIPTONAME='.$SHIPTONAME .
+                '&PAYMENTREQUEST_0_SHIPTOSTREET='.$SHIPTOSTREET .
+                '&PAYMENTREQUEST_0_SHIPTOCITY='.$SHIPTOCITY .
+                '&PAYMENTREQUEST_0_SHIPTOCOUNTRYCODE='.$SHIPTOCOUNTRYCODE .
+                '&PAYMENTREQUEST_0_SHIPTOZIP='.$SHIPTOZIP .
+                '&PAYMENTREQUEST_0_SHIPTOPHONENUM='.$SHIPTOPHONENUM .
+
+
+                '&NOSHIPPING=0' . //set 1 to hide buyer's shipping address, in-case products that does not require shipping
+
+                '&PAYMENTREQUEST_0_ITEMAMT=' . urlencode($ItemTotalPrice) .
+                '&PAYMENTREQUEST_0_TAXAMT=' . urlencode($TotalTaxAmount) .
+                '&PAYMENTREQUEST_0_SHIPPINGAMT=' . urlencode($ShippinCost) .
+                '&PAYMENTREQUEST_0_HANDLINGAMT=' . urlencode($HandalingCost) .
+                '&PAYMENTREQUEST_0_SHIPDISCAMT=' . urlencode($ShippinDiscount) .
+                '&PAYMENTREQUEST_0_INSURANCEAMT=' . urlencode($InsuranceCost) .
+                '&PAYMENTREQUEST_0_AMT=' . urlencode($GrandTotal) .
+                '&PAYMENTREQUEST_0_CURRENCYCODE=' . urlencode($PayPalCurrencyCode) .
+                '&LOCALECODE=GB' . //PayPal pages to match the language on your website.
+                '&LOGOIMG=http://bestbuy-bestsell.com/wp-content/uploads/2015/04/inmid-logo-square.png' . //site logo
+                '&CARTBORDERCOLOR=FFFFFF' . //border color of cart
+                '&ALLOWNOTE=1';
+
+            ############# set session variable we need later for "DoExpressCheckoutPayment" #######
+            $_SESSION['ItemName'] = $ItemName; //Item Name
+            $_SESSION['ItemPrice'] = $ItemPrice; //Item Price
+            $_SESSION['ItemNumber'] = $ItemNumber; //Item Number
+            $_SESSION['ItemDesc'] = $ItemDesc; //Item Number
+            $_SESSION['ItemQty'] = $ItemQty; // Item Quantity
+            $_SESSION['ItemTotalPrice'] = $ItemTotalPrice; //(Item Price x Quantity = Total) Get total amount of product;
+            $_SESSION['TotalTaxAmount'] = $TotalTaxAmount;  //Sum of tax for all items in this order.
+            $_SESSION['HandalingCost'] = $HandalingCost;  //Handling cost for this order.
+            $_SESSION['InsuranceCost'] = $InsuranceCost;  //shipping insurance cost for this order.
+            $_SESSION['ShippinDiscount'] = $ShippinDiscount; //Shipping discount for this order. Specify this as negative number.
+            $_SESSION['ShippinCost'] = $ShippinCost; //Although you may change the value later, try to pass in a shipping amount that is reasonably accurate.
+            $_SESSION['GrandTotal'] = $GrandTotal;
+
+            //We need to execute the "SetExpressCheckOut" method to obtain paypal token
+            $paypal = new Bestbuybestsell_Paypal();
+            $httpParsedResponseAr = $paypal->PPHttpPost('SetExpressCheckout', $padata, $PayPalApiUsername, $PayPalApiPassword, $PayPalApiSignature, $PayPalMode);
+
+            //Respond according to message we receive from Paypal
+            if ("SUCCESS" == strtoupper($httpParsedResponseAr["ACK"]) || "SUCCESSWITHWARNING" == strtoupper($httpParsedResponseAr["ACK"])) {
+
+                //Redirect user to PayPal store with Token received.
+                $paypalurl = 'https://www' . $paypalmode . '.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=' . $httpParsedResponseAr["TOKEN"] . '';
+                header('Location: ' . $paypalurl);
+
+            } else {
+                //Show error message
+                echo '<div style="color:red"><b>Error : </b>' . urldecode($httpParsedResponseAr["L_LONGMESSAGE0"]) . '</div>';
+                echo '<pre>';
+                print_r($httpParsedResponseAr);
+                echo '</pre>';
+            }
+            //Paypal redirects back to this page using ReturnURL, We should receive TOKEN and Payer ID
+            if(isset($_GET["token"]) && isset($_GET["PayerID"]))
+            {
+                //we will be using these two variables to execute the "DoExpressCheckoutPayment"
+                //Note: we haven't received any payment yet.
+
+                $token = $_GET["token"];
+                $payer_id = $_GET["PayerID"];
+
+                //get session variables
+                $ItemName 			= $_SESSION['ItemName']; //Item Name
+                $ItemPrice 			= $_SESSION['ItemPrice'] ; //Item Price
+                $ItemNumber 		= $_SESSION['ItemNumber']; //Item Number
+                $ItemDesc 			= $_SESSION['ItemDesc']; //Item Number
+                $ItemQty 			= $_SESSION['ItemQty']; // Item Quantity
+                $ItemTotalPrice 	= $_SESSION['ItemTotalPrice']; //(Item Price x Quantity = Total) Get total amount of product;
+                $TotalTaxAmount 	= $_SESSION['TotalTaxAmount'] ;  //Sum of tax for all items in this order.
+                $HandalingCost 		= $_SESSION['HandalingCost'];  //Handling cost for this order.
+                $InsuranceCost 		= $_SESSION['InsuranceCost'];  //shipping insurance cost for this order.
+                $ShippinDiscount 	= $_SESSION['ShippinDiscount']; //Shipping discount for this order. Specify this as negative number.
+                $ShippinCost 		= $_SESSION['ShippinCost']; //Although you may change the value later, try to pass in a shipping amount that is reasonably accurate.
+                $GrandTotal 		= $_SESSION['GrandTotal'];
+
+                $padata = 	'&TOKEN='.urlencode($token).
+                    '&PAYERID='.urlencode($payer_id).
+                    '&PAYMENTREQUEST_0_PAYMENTACTION='.urlencode("SALE").
+
+                    //set item info here, otherwise we won't see product details later
+                    '&L_PAYMENTREQUEST_0_NAME0='.urlencode($ItemName).
+                    '&L_PAYMENTREQUEST_0_NUMBER0='.urlencode($ItemNumber).
+                    '&L_PAYMENTREQUEST_0_DESC0='.urlencode($ItemDesc).
+                    '&L_PAYMENTREQUEST_0_AMT0='.urlencode($ItemPrice).
+                    '&L_PAYMENTREQUEST_0_QTY0='. urlencode($ItemQty).
+
+                    /*
+                        //Additional products (L_PAYMENTREQUEST_0_NAME0 becomes L_PAYMENTREQUEST_0_NAME1 and so on)
+                        '&L_PAYMENTREQUEST_0_NAME1='.urlencode($ItemName2).
+                        '&L_PAYMENTREQUEST_0_NUMBER1='.urlencode($ItemNumber2).
+                        '&L_PAYMENTREQUEST_0_DESC1=Description text'.
+                        '&L_PAYMENTREQUEST_0_AMT1='.urlencode($ItemPrice2).
+                        '&L_PAYMENTREQUEST_0_QTY1='. urlencode($ItemQty2).
+                        */
+
+                    '&PAYMENTREQUEST_0_ITEMAMT='.urlencode($ItemTotalPrice).
+                    '&PAYMENTREQUEST_0_TAXAMT='.urlencode($TotalTaxAmount).
+                    '&PAYMENTREQUEST_0_SHIPPINGAMT='.urlencode($ShippinCost).
+                    '&PAYMENTREQUEST_0_HANDLINGAMT='.urlencode($HandalingCost).
+                    '&PAYMENTREQUEST_0_SHIPDISCAMT='.urlencode($ShippinDiscount).
+                    '&PAYMENTREQUEST_0_INSURANCEAMT='.urlencode($InsuranceCost).
+                    '&PAYMENTREQUEST_0_AMT='.urlencode($GrandTotal).
+                    '&PAYMENTREQUEST_0_CURRENCYCODE='.urlencode($PayPalCurrencyCode);
+
+                //We need to execute the "DoExpressCheckoutPayment" at this point to Receive payment from user.
+                $paypal= new Bestbuybestsell_Interest();
+                $httpParsedResponseAr = $paypal->PPHttpPost('DoExpressCheckoutPayment', $padata, $PayPalApiUsername, $PayPalApiPassword, $PayPalApiSignature, $PayPalMode);
+
+                //Check if everything went ok..
+                if("SUCCESS" == strtoupper($httpParsedResponseAr["ACK"]) || "SUCCESSWITHWARNING" == strtoupper($httpParsedResponseAr["ACK"]))
+                {
+
+                    echo '<h2>Success</h2>';
+                    echo 'Your Transaction ID : '.urldecode($httpParsedResponseAr["PAYMENTINFO_0_TRANSACTIONID"]);
+
+                    /*
+                        //Sometimes Payment are kept pending even when transaction is complete.
+                        //hence we need to notify user about it and ask him manually approve the transiction
+                        */
+
+                    if('Completed' == $httpParsedResponseAr["PAYMENTINFO_0_PAYMENTSTATUS"])
+                    {
+                        echo '<div style="color:green">Payment Received! Your product will be sent to you very soon!</div>';
+                    }
+                    elseif('Pending' == $httpParsedResponseAr["PAYMENTINFO_0_PAYMENTSTATUS"])
+                    {
+                        echo '<div style="color:red">Transaction Complete, but payment is still pending! '.
+                            'You need to manually authorize this payment in your <a target="_new" href="http://www.paypal.com">Paypal Account</a></div>';
+                    }
+
+                    // we can retrive transection details using either GetTransactionDetails or GetExpressCheckoutDetails
+                    // GetTransactionDetails requires a Transaction ID, and GetExpressCheckoutDetails requires Token returned by SetExpressCheckOut
+                    $padata = 	'&TOKEN='.urlencode($token);
+                    $paypal= new Bestbuybestsell_Paypal();
+                    $httpParsedResponseAr = $paypal->PPHttpPost('GetExpressCheckoutDetails', $padata, $PayPalApiUsername, $PayPalApiPassword, $PayPalApiSignature, $PayPalMode);
+
+                    if("SUCCESS" == strtoupper($httpParsedResponseAr["ACK"]) || "SUCCESSWITHWARNING" == strtoupper($httpParsedResponseAr["ACK"]))
+                    {
+
+                        echo '<br /><b>Stuff to store in database :</b><br /><pre>';
+                        /*
+                            #### SAVE BUYER INFORMATION IN DATABASE ###
+                            //see (http://www.sanwebe.com/2013/03/basic-php-mysqli-usage) for mysqli usage
+
+                            $buyerName = $httpParsedResponseAr["FIRSTNAME"].' '.$httpParsedResponseAr["LASTNAME"];
+                            $buyerEmail = $httpParsedResponseAr["EMAIL"];
+
+                            //Open a new connection to the MySQL server
+                            $mysqli = new mysqli('host','username','password','database_name');
+
+                            //Output any connection error
+                            if ($mysqli->connect_error) {
+                                die('Error : ('. $mysqli->connect_errno .') '. $mysqli->connect_error);
+                            }
+
+                            $insert_row = $mysqli->query("INSERT INTO BuyerTable
+                            (BuyerName,BuyerEmail,TransactionID,ItemName,ItemNumber, ItemAmount,ItemQTY)
+                            VALUES ('$buyerName','$buyerEmail','$transactionID','$ItemName',$ItemNumber, $ItemTotalPrice,$ItemQTY)");
+
+                            if($insert_row){
+                                print 'Success! ID of last inserted record is : ' .$mysqli->insert_id .'<br />';
+                            }else{
+                                die('Error : ('. $mysqli->errno .') '. $mysqli->error);
+                            }
+
+                            */
+
+                        echo '<pre>';
+                        print_r($httpParsedResponseAr);
+                        echo '</pre>';
+                    } else  {
+                        echo '<div style="color:red"><b>GetTransactionDetails failed:</b>'.urldecode($httpParsedResponseAr["L_LONGMESSAGE0"]).'</div>';
+                        echo '<pre>';
+                        print_r($httpParsedResponseAr);
+                        echo '</pre>';
+
+                    }
+
+                }else {
+                    echo '<div style="color:red"><b>Error : </b>' . urldecode($httpParsedResponseAr["L_LONGMESSAGE0"]) . '</div>';
+                    echo '<pre>';
+                    print_r($httpParsedResponseAr);
+                    echo '</pre>';
+                } // End Payment Process
+            }
+
+        }
+
     }
     /*
     * Bestbuy-bestsell payment_execute_cash_on_delivery
@@ -3899,6 +4214,13 @@ function mirano_child_setup(){
     */
     add_action( 'bestbuy_bestsell_payment_execute_cash_on_delivery', 'payment_execute_cash_on_delivery' ,15 );
     function payment_execute_cash_on_delivery(){
+        $product_interest_id = isset($_POST['product_interest_id']) ? $_POST['product_interest_id'] : '';
+        $current_user_id = get_current_user_id();
+        $all_meta_for_user = get_user_meta( $current_user_id );
+        $valid_user_action = wp_check_valid_user_action( $current_user_id, $product_interest_id, "product_interest");
+        $valid_payment_action = wp_check_valid_payment_action( $product_interest_id );
+        do_action('bestbuy_bestsell_interest_sumarry_access_error', $current_user_id, $product_interest_id );
+        do_action('bestbuy_bestsell_interest_sumarry_payment_access_error', $valid_user_action , $valid_payment_action, $all_meta_for_user );
         echo "cash_on_delivery".$product_interest_id = isset($_POST['product_interest_id']) ? $_POST['product_interest_id'] : '';
         exit;
     }
@@ -3908,6 +4230,13 @@ function mirano_child_setup(){
    */
     add_action( 'bestbuy_bestsell_payment_execute_invoice', 'payment_execute_invoice' ,15 );
     function payment_execute_invoice(){
+        $product_interest_id = isset($_POST['product_interest_id']) ? $_POST['product_interest_id'] : '';
+        $current_user_id = get_current_user_id();
+        $all_meta_for_user = get_user_meta( $current_user_id );
+        $valid_user_action = wp_check_valid_user_action( $current_user_id, $product_interest_id, "product_interest");
+        $valid_payment_action = wp_check_valid_payment_action( $product_interest_id );
+        do_action('bestbuy_bestsell_interest_sumarry_access_error', $current_user_id, $product_interest_id );
+        do_action('bestbuy_bestsell_interest_sumarry_payment_access_error', $valid_user_action , $valid_payment_action, $all_meta_for_user );
         echo "invoice".$product_interest_id = isset($_POST['product_interest_id']) ? $_POST['product_interest_id'] : '';
         exit;
     }
