@@ -10,7 +10,7 @@ class Bestbuybestsell_Paypal {
 			$paypalmode = ($PayPalMode=='sandbox') ? '.sandbox' : '';
 	
 			$API_Endpoint = "https://api-3t".$paypalmode.".paypal.com/nvp";
-			$version = urlencode('123.0');
+			$version = urlencode('124.0');
 		
 			// Set the curl parameters.
 			$ch = curl_init();

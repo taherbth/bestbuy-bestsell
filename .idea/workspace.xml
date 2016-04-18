@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c95e91bb-5f48-4876-ae0a-4755605bfd63" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/uploads/GeoIP.dat" afterPath="$PROJECT_DIR$/wp-content/uploads/GeoIP.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/uploads/GeoIPv6.dat" afterPath="$PROJECT_DIR$/wp-content/uploads/GeoIPv6.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/mirano-child/functions.php" afterPath="$PROJECT_DIR$/wp-content/themes/mirano-child/functions.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/mirano-child/functions_backup.php" afterPath="$PROJECT_DIR$/wp-content/themes/mirano-child/functions_backup.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/mirano-child/paypal/paypal.class.php" afterPath="$PROJECT_DIR$/wp-content/themes/mirano-child/paypal/paypal.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/mirano-child/style.css" afterPath="$PROJECT_DIR$/wp-content/themes/mirano-child/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/mirano-child/woocommerce/content-single-product.php" afterPath="$PROJECT_DIR$/wp-content/themes/mirano-child/woocommerce/content-single-product.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/mirano-child/woocommerce/single-product/price.php" afterPath="$PROJECT_DIR$/wp-content/themes/mirano-child/woocommerce/single-product/price.php" />
     </list>
     <ignored path="bestbuy-bestsell.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,114 +39,129 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="100">
-      <file leaf-file-name="functions.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="functions.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/mirano-child/functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.57272726">
-              <caret line="3990" column="44" selection-start-line="3990" selection-start-column="44" selection-end-line="3990" selection-end-column="44" />
+            <state vertical-scroll-proportion="-4.5079365">
+              <caret line="4786" column="50" selection-start-line="4786" selection-start-column="32" selection-end-line="4786" selection-end-column="50" />
               <folding>
-                <marker date="1459209203368" expanded="true" signature="58532:58847" placeholder="SELECT * FRO... $" />
-                <marker date="1459209203368" expanded="true" signature="63255:63532" placeholder="..." />
-                <marker date="1459209203368" expanded="true" signature="73927:74200" placeholder="..." />
-                <marker date="1459209203368" expanded="true" signature="233987:233996" placeholder="..." />
-                <marker date="1459209203368" expanded="true" signature="238739:238750" placeholder="..." />
-                <marker date="1459209203368" expanded="true" signature="239002:239011" placeholder="..." />
-                <marker date="1459209203368" expanded="true" signature="241753:241762" placeholder="..." />
-                <marker date="1459209203368" expanded="true" signature="242082:242091" placeholder="..." />
-                <marker date="1459209203368" expanded="true" signature="245145:245522" placeholder="SELECT SQL_C... $" />
-                <marker date="1459209203368" expanded="true" signature="245920:246849" placeholder="SELECT SQL_C... $" />
-                <marker date="1459209203368" expanded="true" signature="291565:291904" placeholder="SELECT * FRO... wp_product_interest" />
-                <marker date="1459209203368" expanded="true" signature="292250:292746" placeholder="SELECT * FRO... wp_product_interest" />
-                <marker date="1459209203368" expanded="true" signature="292871:293164" placeholder="SELECT * FRO... wp_product_interest" />
-                <marker date="1459209203368" expanded="true" signature="293643:294154" placeholder="SELECT * FRO... $" />
-                <marker date="1459209203368" expanded="true" signature="294529:294663" placeholder="DELETE FROM " />
-                <marker date="1459209203368" expanded="true" signature="294741:294869" placeholder="DELETE FROM " />
-                <marker date="1459209203368" expanded="true" signature="295328:295625" placeholder="SELECT SQL_C... wp_product_interest" />
-                <marker date="1459209203368" expanded="true" signature="296272:296556" placeholder="SELECT SQL_C... wp_product_interest" />
-                <marker date="1459209203368" expanded="true" signature="297105:297237" placeholder="SELECT SQL_C... wp_product_interest" />
-                <marker date="1459209203368" expanded="true" signature="297740:297879" placeholder="SELECT SQL_C... wp_product_interest" />
-                <marker date="1459209203368" expanded="true" signature="298629:298760" placeholder="SELECT sum( wp_product_interest" />
-                <marker date="1459209203368" expanded="true" signature="298870:299123" placeholder="SELECT SQL_C... wp_product_interest" />
-                <marker date="1459209203368" expanded="true" signature="298988:299121" placeholder="SELECT inter... wp_product_interest" />
-                <marker date="1459209203368" expanded="true" signature="299542:299714" placeholder="SELECT * FRO... wp_product_interest" />
-                <marker date="1459209203368" expanded="true" signature="300046:300281" placeholder="SELECT * FRO... wp_product_interest_meta" />
-                <marker date="1459209203368" expanded="true" signature="300679:300875" placeholder="SELECT sum( wp_product_interest" />
-                <marker date="1459209203368" expanded="true" signature="301242:301406" placeholder="SELECT sum( wp_product_interest" />
-                <marker date="1459209203368" expanded="true" signature="301799:301969" placeholder="SELECT sum( wp_product_interest" />
-                <marker date="1459209203368" expanded="true" signature="302416:302540" placeholder="SELECT sum( wp_product_interest" />
-                <marker date="1459209203368" expanded="true" signature="302641:302772" placeholder="SELECT sum( wp_product_interest" />
-                <marker date="1459209203368" expanded="true" signature="302881:303139" placeholder="SELECT SQL_C... wp_product_interest" />
-                <marker date="1459209203368" expanded="true" signature="303004:303137" placeholder="SELECT inter... wp_product_interest" />
-                <marker date="1459209203368" expanded="true" signature="303606:303729" placeholder="SELECT * FRO... wp_product_interest" />
-                <marker date="1459209203368" expanded="true" signature="304839:305338" placeholder="SELECT SQL_C... wp_product_interest" />
-                <marker date="1459209203368" expanded="true" signature="304955:305060" placeholder="SELECT inter... wp_product_interest" />
-                <marker date="1459209203368" expanded="true" signature="305089:305187" placeholder="SELECT produ... wp_product_interest" />
-                <marker date="1459209203368" expanded="true" signature="305474:305823" placeholder="SELECT SQL_C... wp_product_interest" />
-                <marker date="1459209203368" expanded="true" signature="305578:305673" placeholder="SELECT produ... wp_product_interest" />
-                <marker date="1459209203368" expanded="true" signature="307411:307881" placeholder="SELECT SQL_C... wp_product_interest" />
-                <marker date="1459209203368" expanded="true" signature="307524:307626" placeholder="SELECT inter... wp_product_interest" />
-                <marker date="1459209203368" expanded="true" signature="307655:307750" placeholder="SELECT produ... wp_product_interest" />
-                <marker date="1459209203368" expanded="true" signature="308848:309061" placeholder="SELECT SQL_C... wp_interest_group" />
-                <marker date="1459209203368" expanded="true" signature="309402:309477" placeholder="SELECT SQL_C... wp_interest_group" />
-                <marker date="1459209203368" expanded="true" signature="310307:310409" placeholder="UPDATE wp_pr... " />
-                <marker date="1459209203368" expanded="true" signature="310831:310956" placeholder="UPDATE wp_pr... " />
-                <marker date="1459209203368" expanded="true" signature="311015:311386" placeholder="SELECT SQL_C... wp_product_interest" />
-                <marker date="1459209203368" expanded="true" signature="311831:312025" placeholder="SELECT SQL_C... wp_interest_group" />
-                <marker date="1459209203368" expanded="true" signature="312619:312693" placeholder="DELETE FROM " />
-                <marker date="1459209203368" expanded="true" signature="312964:313096" placeholder="SELECT SQL_C... wp_interest_group" />
-                <marker date="1459209203368" expanded="true" signature="314116:314328" placeholder="UPDATE wp_pr... " />
-                <marker date="1459209203368" expanded="true" signature="314763:314888" placeholder="UPDATE wp_pr... " />
-                <marker date="1459209203368" expanded="true" signature="315139:315287" placeholder="UPDATE wp_pr... " />
-                <marker date="1459209203368" expanded="true" signature="315346:315675" placeholder="SELECT SQL_C... wp_product_interest" />
-                <marker date="1459209203368" expanded="true" signature="316518:316730" placeholder="UPDATE wp_pr... " />
-                <marker date="1459209203368" expanded="true" signature="317165:317290" placeholder="UPDATE wp_pr... " />
-                <marker date="1459209203368" expanded="true" signature="317541:317689" placeholder="UPDATE wp_pr... " />
-                <marker date="1459209203368" expanded="true" signature="317748:318083" placeholder="SELECT SQL_C... wp_product_interest" />
-                <marker date="1459209203368" expanded="true" signature="318840:318918" placeholder="DELETE FROM " />
-                <marker date="1459209203368" expanded="true" signature="319038:319118" placeholder="SELECT * FRO... wp_interest_group_price" />
-                <marker date="1459209203368" expanded="true" signature="319186:319315" placeholder="SELECT SQL_C... wp_interest_group_price" />
-                <marker date="1459209203368" expanded="true" signature="319914:320195" placeholder="SELECT * FRO... wp_interest_group_price" />
-                <marker date="1459209203368" expanded="true" signature="320003:320193" placeholder="SELECT max(n... wp_interest_group_price" />
-                <marker date="1459209203368" expanded="true" signature="320081:320192" placeholder="SELECT group... wp_interest_group_price" />
-                <marker date="1459209203368" expanded="true" signature="320500:320673" placeholder="SELECT * FRO... wp_interest_group_price" />
-                <marker date="1459209203368" expanded="true" signature="320589:320672" placeholder="SELECT min(n... wp_interest_group_price" />
-                <marker date="1459209203368" expanded="true" signature="323929:324117" placeholder="..." />
-                <marker date="1459209203368" expanded="true" signature="324044:324117" placeholder="..." />
-                <marker date="1459209203368" expanded="false" signature="324063:324080" placeholder="..." />
-                <marker date="1459209203368" expanded="true" signature="325313:325492" placeholder="..." />
-                <marker date="1459209203368" expanded="true" signature="325421:325492" placeholder="..." />
-                <marker date="1459209203368" expanded="false" signature="325439:325456" placeholder="..." />
-                <marker date="1459209203368" expanded="true" signature="326906:326997" placeholder="..." />
-                <marker date="1459209203368" expanded="true" signature="326998:327222" placeholder="..." />
-                <marker date="1459209203368" expanded="true" signature="327146:327222" placeholder="..." />
-                <marker date="1459209203368" expanded="false" signature="327164:327181" placeholder="..." />
-                <marker date="1459209203368" expanded="true" signature="328114:328130" placeholder="..." />
-                <marker date="1459209203368" expanded="true" signature="328131:328407" placeholder="..." />
-                <marker date="1459209203368" expanded="true" signature="328309:328401" placeholder="..." />
-                <marker date="1459209203368" expanded="false" signature="328328:328345" placeholder="..." />
-                <marker date="1459209203368" expanded="true" signature="330100:330193" placeholder="..." />
-                <marker date="1459209203368" expanded="true" signature="331727:332054" placeholder="SELECT SQL_C... wp_product_interest" />
-                <marker date="1459209203368" expanded="true" signature="332154:332559" placeholder="SELECT SQL_C... wp_product_interest" />
+                <marker date="1460983202852" expanded="true" signature="58662:58977" placeholder="SELECT * FRO... $" />
+                <marker date="1460983202852" expanded="true" signature="63385:63662" placeholder="..." />
+                <marker date="1460983202852" expanded="true" signature="74057:74330" placeholder="..." />
+                <marker date="1460983202852" expanded="true" signature="234746:234755" placeholder="..." />
+                <marker date="1460983202852" expanded="true" signature="243461:243581" placeholder="..." />
+                <marker date="1460983202852" expanded="true" signature="248283:248660" placeholder="SELECT SQL_C... $" />
+                <marker date="1460983202852" expanded="true" signature="249058:249987" placeholder="SELECT SQL_C... $" />
+                <marker date="1460983202852" expanded="true" signature="295830:296169" placeholder="SELECT * FRO... wp_product_interest" />
+                <marker date="1460983202852" expanded="true" signature="296515:297011" placeholder="SELECT * FRO... wp_product_interest" />
+                <marker date="1460983202852" expanded="true" signature="297136:297429" placeholder="SELECT * FRO... wp_product_interest" />
+                <marker date="1460983202852" expanded="true" signature="297908:298419" placeholder="SELECT * FRO... $" />
+                <marker date="1460983202852" expanded="true" signature="298794:298928" placeholder="DELETE FROM " />
+                <marker date="1460983202852" expanded="true" signature="299006:299134" placeholder="DELETE FROM " />
+                <marker date="1460983202852" expanded="true" signature="299593:299890" placeholder="SELECT SQL_C... wp_product_interest" />
+                <marker date="1460983202852" expanded="true" signature="300537:300821" placeholder="SELECT SQL_C... wp_product_interest" />
+                <marker date="1460983202852" expanded="true" signature="301370:301502" placeholder="SELECT SQL_C... wp_product_interest" />
+                <marker date="1460983202852" expanded="true" signature="302005:302144" placeholder="SELECT SQL_C... wp_product_interest" />
+                <marker date="1460983202852" expanded="true" signature="302894:303025" placeholder="SELECT sum( wp_product_interest" />
+                <marker date="1460983202852" expanded="true" signature="303135:303388" placeholder="SELECT SQL_C... wp_product_interest" />
+                <marker date="1460983202852" expanded="true" signature="303253:303386" placeholder="SELECT inter... wp_product_interest" />
+                <marker date="1460983202852" expanded="true" signature="303807:303979" placeholder="SELECT * FRO... wp_product_interest" />
+                <marker date="1460983202852" expanded="true" signature="304311:304546" placeholder="SELECT * FRO... wp_product_interest_meta" />
+                <marker date="1460983202852" expanded="true" signature="304944:305140" placeholder="SELECT sum( wp_product_interest" />
+                <marker date="1460983202852" expanded="true" signature="305507:305671" placeholder="SELECT sum( wp_product_interest" />
+                <marker date="1460983202852" expanded="true" signature="306064:306234" placeholder="SELECT sum( wp_product_interest" />
+                <marker date="1460983202852" expanded="true" signature="306681:306805" placeholder="SELECT sum( wp_product_interest" />
+                <marker date="1460983202852" expanded="true" signature="306906:307037" placeholder="SELECT sum( wp_product_interest" />
+                <marker date="1460983202852" expanded="true" signature="307146:307404" placeholder="SELECT SQL_C... wp_product_interest" />
+                <marker date="1460983202852" expanded="true" signature="307269:307402" placeholder="SELECT inter... wp_product_interest" />
+                <marker date="1460983202852" expanded="true" signature="307871:307994" placeholder="SELECT * FRO... wp_product_interest" />
+                <marker date="1460983202852" expanded="true" signature="309104:309603" placeholder="SELECT SQL_C... wp_product_interest" />
+                <marker date="1460983202852" expanded="true" signature="309220:309325" placeholder="SELECT inter... wp_product_interest" />
+                <marker date="1460983202852" expanded="true" signature="309354:309452" placeholder="SELECT produ... wp_product_interest" />
+                <marker date="1460983202852" expanded="true" signature="309739:310088" placeholder="SELECT SQL_C... wp_product_interest" />
+                <marker date="1460983202852" expanded="true" signature="309843:309938" placeholder="SELECT produ... wp_product_interest" />
+                <marker date="1460983202852" expanded="true" signature="311676:312146" placeholder="SELECT SQL_C... wp_product_interest" />
+                <marker date="1460983202852" expanded="true" signature="311789:311891" placeholder="SELECT inter... wp_product_interest" />
+                <marker date="1460983202852" expanded="true" signature="311920:312015" placeholder="SELECT produ... wp_product_interest" />
+                <marker date="1460983202852" expanded="true" signature="313113:313326" placeholder="SELECT SQL_C... wp_interest_group" />
+                <marker date="1460983202852" expanded="true" signature="313667:313742" placeholder="SELECT SQL_C... wp_interest_group" />
+                <marker date="1460983202852" expanded="true" signature="314572:314674" placeholder="UPDATE wp_pr... " />
+                <marker date="1460983202852" expanded="true" signature="315096:315221" placeholder="UPDATE wp_pr... " />
+                <marker date="1460983202852" expanded="true" signature="315280:315651" placeholder="SELECT SQL_C... wp_product_interest" />
+                <marker date="1460983202852" expanded="true" signature="316096:316290" placeholder="SELECT SQL_C... wp_interest_group" />
+                <marker date="1460983202852" expanded="true" signature="316884:316958" placeholder="DELETE FROM " />
+                <marker date="1460983202852" expanded="true" signature="317229:317361" placeholder="SELECT SQL_C... wp_interest_group" />
+                <marker date="1460983202852" expanded="true" signature="318381:318593" placeholder="UPDATE wp_pr... " />
+                <marker date="1460983202852" expanded="true" signature="319028:319153" placeholder="UPDATE wp_pr... " />
+                <marker date="1460983202852" expanded="true" signature="319404:319552" placeholder="UPDATE wp_pr... " />
+                <marker date="1460983202852" expanded="true" signature="319611:319940" placeholder="SELECT SQL_C... wp_product_interest" />
+                <marker date="1460983202852" expanded="true" signature="320783:320995" placeholder="UPDATE wp_pr... " />
+                <marker date="1460983202852" expanded="true" signature="321430:321555" placeholder="UPDATE wp_pr... " />
+                <marker date="1460983202852" expanded="true" signature="321806:321954" placeholder="UPDATE wp_pr... " />
+                <marker date="1460983202852" expanded="true" signature="322013:322348" placeholder="SELECT SQL_C... wp_product_interest" />
+                <marker date="1460983202852" expanded="true" signature="323105:323183" placeholder="DELETE FROM " />
+                <marker date="1460983202852" expanded="true" signature="323303:323383" placeholder="SELECT * FRO... wp_interest_group_price" />
+                <marker date="1460983202852" expanded="true" signature="323451:323580" placeholder="SELECT SQL_C... wp_interest_group_price" />
+                <marker date="1460983202852" expanded="true" signature="324179:324460" placeholder="SELECT * FRO... wp_interest_group_price" />
+                <marker date="1460983202852" expanded="true" signature="324268:324458" placeholder="SELECT max(n... wp_interest_group_price" />
+                <marker date="1460983202852" expanded="true" signature="324346:324457" placeholder="SELECT group... wp_interest_group_price" />
+                <marker date="1460983202852" expanded="true" signature="324765:324938" placeholder="SELECT * FRO... wp_interest_group_price" />
+                <marker date="1460983202852" expanded="true" signature="324854:324937" placeholder="SELECT min(n... wp_interest_group_price" />
+                <marker date="1460983202852" expanded="true" signature="328194:328382" placeholder="..." />
+                <marker date="1460983202852" expanded="true" signature="328309:328382" placeholder="..." />
+                <marker date="1460983202852" expanded="false" signature="328328:328345" placeholder="..." />
+                <marker date="1460983202852" expanded="true" signature="329578:329757" placeholder="..." />
+                <marker date="1460983202852" expanded="true" signature="329686:329757" placeholder="..." />
+                <marker date="1460983202852" expanded="false" signature="329704:329721" placeholder="..." />
+                <marker date="1460983202852" expanded="true" signature="331171:331262" placeholder="..." />
+                <marker date="1460983202852" expanded="true" signature="331263:331487" placeholder="..." />
+                <marker date="1460983202852" expanded="true" signature="331411:331487" placeholder="..." />
+                <marker date="1460983202852" expanded="false" signature="331429:331446" placeholder="..." />
+                <marker date="1460983202852" expanded="true" signature="332379:332395" placeholder="..." />
+                <marker date="1460983202852" expanded="true" signature="332396:332672" placeholder="..." />
+                <marker date="1460983202852" expanded="true" signature="332574:332666" placeholder="..." />
+                <marker date="1460983202852" expanded="false" signature="332593:332610" placeholder="..." />
+                <marker date="1460983202852" expanded="true" signature="334365:334458" placeholder="..." />
+                <marker date="1460983202852" expanded="true" signature="335992:336319" placeholder="SELECT SQL_C... wp_product_interest" />
+                <marker date="1460983202852" expanded="true" signature="336419:336824" placeholder="SELECT SQL_C... wp_product_interest" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bestbuy-bestsell.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/mirano-child/init/js/bestbuy-bestsell.js">
+      <file leaf-file-name="content-single-product.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/mirano-child/woocommerce/content-single-product.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="408" column="88" selection-start-line="408" selection-start-column="88" selection-end-line="408" selection-end-column="88" />
-              <folding />
+            <state vertical-scroll-proportion="-2.7936509">
+              <caret line="59" column="70" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="70" />
+              <folding>
+                <element signature="e#1459#1931#0#PHP" expanded="false" />
+                <element signature="e#4630#4653#0#HTML" expanded="true" />
+                <marker date="1460989922529" expanded="true" signature="5627:5654" placeholder="..." />
+                <marker date="1460989922529" expanded="true" signature="5867:5946" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="my_interest-list_bestbuybestsell.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/mirano-child/views/my_interest-list_bestbuybestsell.php">
+      <file leaf-file-name="wc-template-functions.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wp-content/plugins/woocommerce/includes/wc-template-functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="80" column="75" selection-start-line="80" selection-start-column="71" selection-end-line="80" selection-end-column="75" />
+            <state vertical-scroll-proportion="0.29118773">
+              <caret line="788" column="54" selection-start-line="788" selection-start-column="54" selection-end-line="788" selection-end-column="54" />
+              <folding>
+                <marker date="1448670073000" expanded="true" signature="35955:36033" placeholder="SELECT term_... $" />
+                <marker date="1448670073000" expanded="true" signature="45457:45470" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="price.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/mirano-child/woocommerce/single-product/price.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.103448">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -148,8 +170,8 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/mirano-child/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.3333333">
-              <caret line="383" column="16" selection-start-line="383" selection-start-column="16" selection-end-line="383" selection-end-column="16" />
+            <state vertical-scroll-proportion="-5.84127">
+              <caret line="486" column="17" selection-start-line="486" selection-start-column="17" selection-end-line="486" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -158,128 +180,88 @@
       <file leaf-file-name="functions_backup.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/mirano-child/functions_backup.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.9047618">
-              <caret line="3991" column="48" selection-start-line="3991" selection-start-column="31" selection-end-line="3991" selection-end-column="48" />
+            <state vertical-scroll-proportion="-3.8095238">
+              <caret line="2757" column="95" selection-start-line="2757" selection-start-column="77" selection-end-line="2757" selection-end-column="95" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#tr#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#td#0;n#tr#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#td#1;n#tr#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#td#2;n#tr#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#table#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#tr#0;n#table#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#td#0;n#tr#0;n#table#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#td#1;n#tr#0;n#table#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#td#2;n#tr#0;n#table#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#8;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#8;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#8;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#1;n#div#8;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#9;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#9;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#9;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#9;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#3;n#div#9;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#3;n#div#9;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#10;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#10;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#10;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#11;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#11;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#12;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#12;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#13;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#form#0;n#div#13;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#form#0;n#div#13;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#div#14;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#1;n#div#14;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#2;n#div#14;n#!!top" expanded="true" />
-                <marker date="1459199224596" expanded="true" signature="54851:55166" placeholder="SELECT * FRO... $" />
-                <marker date="1459199224596" expanded="true" signature="59261:59538" placeholder="..." />
-                <marker date="1459199224596" expanded="true" signature="69317:69590" placeholder="..." />
-                <marker date="1459199224596" expanded="true" signature="218039:218048" placeholder="..." />
-                <marker date="1459199224596" expanded="true" signature="222515:222526" placeholder="..." />
-                <marker date="1459199224596" expanded="true" signature="222762:222771" placeholder="..." />
-                <marker date="1459199224596" expanded="true" signature="225373:225382" placeholder="..." />
-                <marker date="1459199224596" expanded="true" signature="225678:225687" placeholder="..." />
-                <marker date="1459199224596" expanded="true" signature="228710:229087" placeholder="SELECT SQL_C... $" />
-                <marker date="1459199224596" expanded="true" signature="229485:230414" placeholder="SELECT SQL_C... $" />
-                <marker date="1459199224596" expanded="true" signature="275130:275469" placeholder="SELECT * FRO... wp_product_interest" />
-                <marker date="1459199224596" expanded="true" signature="275815:276311" placeholder="SELECT * FRO... wp_product_interest" />
-                <marker date="1459199224596" expanded="true" signature="276436:276729" placeholder="SELECT * FRO... wp_product_interest" />
-                <marker date="1459199224596" expanded="true" signature="277208:277719" placeholder="SELECT * FRO... $" />
-                <marker date="1459199224596" expanded="true" signature="278094:278228" placeholder="DELETE FROM " />
-                <marker date="1459199224596" expanded="true" signature="278306:278434" placeholder="DELETE FROM " />
-                <marker date="1459199224596" expanded="true" signature="278893:279190" placeholder="SELECT SQL_C... wp_product_interest" />
-                <marker date="1459199224596" expanded="true" signature="279837:280121" placeholder="SELECT SQL_C... wp_product_interest" />
-                <marker date="1459199224596" expanded="true" signature="280670:280802" placeholder="SELECT SQL_C... wp_product_interest" />
-                <marker date="1459199224596" expanded="true" signature="281305:281444" placeholder="SELECT SQL_C... wp_product_interest" />
-                <marker date="1459199224596" expanded="true" signature="282194:282325" placeholder="SELECT sum( wp_product_interest" />
-                <marker date="1459199224596" expanded="true" signature="282435:282688" placeholder="SELECT SQL_C... wp_product_interest" />
-                <marker date="1459199224596" expanded="true" signature="282553:282686" placeholder="SELECT inter... wp_product_interest" />
-                <marker date="1459199224596" expanded="true" signature="283107:283279" placeholder="SELECT * FRO... wp_product_interest" />
-                <marker date="1459199224596" expanded="true" signature="283611:283846" placeholder="SELECT * FRO... wp_product_interest_meta" />
-                <marker date="1459199224596" expanded="true" signature="284244:284440" placeholder="SELECT sum( wp_product_interest" />
-                <marker date="1459199224596" expanded="true" signature="284807:284971" placeholder="SELECT sum( wp_product_interest" />
-                <marker date="1459199224596" expanded="true" signature="285364:285534" placeholder="SELECT sum( wp_product_interest" />
-                <marker date="1459199224596" expanded="true" signature="285981:286105" placeholder="SELECT sum( wp_product_interest" />
-                <marker date="1459199224596" expanded="true" signature="286206:286337" placeholder="SELECT sum( wp_product_interest" />
-                <marker date="1459199224596" expanded="true" signature="286446:286704" placeholder="SELECT SQL_C... wp_product_interest" />
-                <marker date="1459199224596" expanded="true" signature="286569:286702" placeholder="SELECT inter... wp_product_interest" />
-                <marker date="1459199224596" expanded="true" signature="287171:287294" placeholder="SELECT * FRO... wp_product_interest" />
-                <marker date="1459199224596" expanded="true" signature="288404:288903" placeholder="SELECT SQL_C... wp_product_interest" />
-                <marker date="1459199224596" expanded="true" signature="288520:288625" placeholder="SELECT inter... wp_product_interest" />
-                <marker date="1459199224596" expanded="true" signature="288654:288752" placeholder="SELECT produ... wp_product_interest" />
-                <marker date="1459199224596" expanded="true" signature="289039:289388" placeholder="SELECT SQL_C... wp_product_interest" />
-                <marker date="1459199224596" expanded="true" signature="289143:289238" placeholder="SELECT produ... wp_product_interest" />
-                <marker date="1459199224596" expanded="true" signature="290976:291446" placeholder="SELECT SQL_C... wp_product_interest" />
-                <marker date="1459199224596" expanded="true" signature="291089:291191" placeholder="SELECT inter... wp_product_interest" />
-                <marker date="1459199224596" expanded="true" signature="291220:291315" placeholder="SELECT produ... wp_product_interest" />
-                <marker date="1459199224596" expanded="true" signature="292413:292626" placeholder="SELECT SQL_C... wp_interest_group" />
-                <marker date="1459199224596" expanded="true" signature="292967:293042" placeholder="SELECT SQL_C... wp_interest_group" />
-                <marker date="1459199224596" expanded="true" signature="293872:293974" placeholder="UPDATE wp_pr... " />
-                <marker date="1459199224596" expanded="true" signature="294396:294521" placeholder="UPDATE wp_pr... " />
-                <marker date="1459199224596" expanded="true" signature="294580:294951" placeholder="SELECT SQL_C... wp_product_interest" />
-                <marker date="1459199224596" expanded="true" signature="295396:295590" placeholder="SELECT SQL_C... wp_interest_group" />
-                <marker date="1459199224596" expanded="true" signature="296184:296258" placeholder="DELETE FROM " />
-                <marker date="1459199224596" expanded="true" signature="296529:296661" placeholder="SELECT SQL_C... wp_interest_group" />
-                <marker date="1459199224596" expanded="true" signature="297681:297893" placeholder="UPDATE wp_pr... " />
-                <marker date="1459199224596" expanded="true" signature="298328:298453" placeholder="UPDATE wp_pr... " />
-                <marker date="1459199224596" expanded="true" signature="298704:298852" placeholder="UPDATE wp_pr... " />
-                <marker date="1459199224596" expanded="true" signature="298911:299240" placeholder="SELECT SQL_C... wp_product_interest" />
-                <marker date="1459199224596" expanded="true" signature="300083:300295" placeholder="UPDATE wp_pr... " />
-                <marker date="1459199224596" expanded="true" signature="300730:300855" placeholder="UPDATE wp_pr... " />
-                <marker date="1459199224596" expanded="true" signature="301106:301254" placeholder="UPDATE wp_pr... " />
-                <marker date="1459199224596" expanded="true" signature="301313:301648" placeholder="SELECT SQL_C... wp_product_interest" />
-                <marker date="1459199224596" expanded="true" signature="302405:302483" placeholder="DELETE FROM " />
-                <marker date="1459199224596" expanded="true" signature="302603:302683" placeholder="SELECT * FRO... wp_interest_group_price" />
-                <marker date="1459199224596" expanded="true" signature="302751:302880" placeholder="SELECT SQL_C... wp_interest_group_price" />
-                <marker date="1459199224596" expanded="true" signature="303479:303760" placeholder="SELECT * FRO... wp_interest_group_price" />
-                <marker date="1459199224596" expanded="true" signature="303568:303758" placeholder="SELECT max(n... wp_interest_group_price" />
-                <marker date="1459199224596" expanded="true" signature="303646:303757" placeholder="SELECT group... wp_interest_group_price" />
-                <marker date="1459199224596" expanded="true" signature="304065:304238" placeholder="SELECT * FRO... wp_interest_group_price" />
-                <marker date="1459199224596" expanded="true" signature="304154:304237" placeholder="SELECT min(n... wp_interest_group_price" />
-                <marker date="1459199224596" expanded="true" signature="307494:307682" placeholder="..." />
-                <marker date="1459199224596" expanded="true" signature="307609:307682" placeholder="..." />
-                <marker date="1459199224596" expanded="true" signature="307628:307645" placeholder="..." />
-                <marker date="1459199224596" expanded="true" signature="308878:309057" placeholder="..." />
-                <marker date="1459199224596" expanded="true" signature="308986:309057" placeholder="..." />
-                <marker date="1459199224596" expanded="true" signature="309004:309021" placeholder="..." />
-                <marker date="1459199224596" expanded="true" signature="310471:310562" placeholder="..." />
-                <marker date="1459199224596" expanded="true" signature="310563:310787" placeholder="..." />
-                <marker date="1459199224596" expanded="true" signature="310711:310787" placeholder="..." />
-                <marker date="1459199224596" expanded="true" signature="310729:310746" placeholder="..." />
-                <marker date="1459199224596" expanded="true" signature="311679:311695" placeholder="..." />
-                <marker date="1459199224596" expanded="true" signature="311696:311972" placeholder="..." />
-                <marker date="1459199224596" expanded="true" signature="311874:311966" placeholder="..." />
-                <marker date="1459199224596" expanded="true" signature="311893:311910" placeholder="..." />
-                <marker date="1459199224596" expanded="true" signature="313665:313758" placeholder="..." />
-                <marker date="1459199224596" expanded="true" signature="315292:315619" placeholder="SELECT SQL_C... wp_product_interest" />
-                <marker date="1459199224596" expanded="true" signature="315719:316124" placeholder="SELECT SQL_C... wp_product_interest" />
+                <marker date="1460332911301" expanded="true" signature="58661:58976" placeholder="SELECT * FRO... $" />
+                <marker date="1460332911301" expanded="true" signature="63391:63668" placeholder="..." />
+                <marker date="1460332911301" expanded="true" signature="74063:74336" placeholder="..." />
+                <marker date="1460332911301" expanded="true" signature="235083:235092" placeholder="..." />
+                <marker date="1460332911301" expanded="true" signature="248703:249080" placeholder="SELECT SQL_C... $" />
+                <marker date="1460332911301" expanded="true" signature="249478:250407" placeholder="SELECT SQL_C... $" />
+                <marker date="1460332911301" expanded="true" signature="295123:295462" placeholder="SELECT * FRO... wp_product_interest" />
+                <marker date="1460332911301" expanded="true" signature="295808:296304" placeholder="SELECT * FRO... wp_product_interest" />
+                <marker date="1460332911301" expanded="true" signature="296429:296722" placeholder="SELECT * FRO... wp_product_interest" />
+                <marker date="1460332911301" expanded="true" signature="297201:297712" placeholder="SELECT * FRO... $" />
+                <marker date="1460332911301" expanded="true" signature="298087:298221" placeholder="DELETE FROM " />
+                <marker date="1460332911301" expanded="true" signature="298299:298427" placeholder="DELETE FROM " />
+                <marker date="1460332911301" expanded="true" signature="298886:299183" placeholder="SELECT SQL_C... wp_product_interest" />
+                <marker date="1460332911301" expanded="true" signature="299830:300114" placeholder="SELECT SQL_C... wp_product_interest" />
+                <marker date="1460332911301" expanded="true" signature="300663:300795" placeholder="SELECT SQL_C... wp_product_interest" />
+                <marker date="1460332911301" expanded="true" signature="301298:301437" placeholder="SELECT SQL_C... wp_product_interest" />
+                <marker date="1460332911301" expanded="true" signature="302187:302318" placeholder="SELECT sum( wp_product_interest" />
+                <marker date="1460332911301" expanded="true" signature="302428:302681" placeholder="SELECT SQL_C... wp_product_interest" />
+                <marker date="1460332911301" expanded="true" signature="302546:302679" placeholder="SELECT inter... wp_product_interest" />
+                <marker date="1460332911301" expanded="true" signature="303100:303272" placeholder="SELECT * FRO... wp_product_interest" />
+                <marker date="1460332911301" expanded="true" signature="303604:303839" placeholder="SELECT * FRO... wp_product_interest_meta" />
+                <marker date="1460332911301" expanded="true" signature="304237:304433" placeholder="SELECT sum( wp_product_interest" />
+                <marker date="1460332911301" expanded="true" signature="304800:304964" placeholder="SELECT sum( wp_product_interest" />
+                <marker date="1460332911301" expanded="true" signature="305357:305527" placeholder="SELECT sum( wp_product_interest" />
+                <marker date="1460332911301" expanded="true" signature="305974:306098" placeholder="SELECT sum( wp_product_interest" />
+                <marker date="1460332911301" expanded="true" signature="306199:306330" placeholder="SELECT sum( wp_product_interest" />
+                <marker date="1460332911301" expanded="true" signature="306439:306697" placeholder="SELECT SQL_C... wp_product_interest" />
+                <marker date="1460332911301" expanded="true" signature="306562:306695" placeholder="SELECT inter... wp_product_interest" />
+                <marker date="1460332911301" expanded="true" signature="307164:307287" placeholder="SELECT * FRO... wp_product_interest" />
+                <marker date="1460332911301" expanded="true" signature="308397:308896" placeholder="SELECT SQL_C... wp_product_interest" />
+                <marker date="1460332911301" expanded="true" signature="308513:308618" placeholder="SELECT inter... wp_product_interest" />
+                <marker date="1460332911301" expanded="true" signature="308647:308745" placeholder="SELECT produ... wp_product_interest" />
+                <marker date="1460332911301" expanded="true" signature="309032:309381" placeholder="SELECT SQL_C... wp_product_interest" />
+                <marker date="1460332911301" expanded="true" signature="309136:309231" placeholder="SELECT produ... wp_product_interest" />
+                <marker date="1460332911301" expanded="true" signature="310969:311439" placeholder="SELECT SQL_C... wp_product_interest" />
+                <marker date="1460332911301" expanded="true" signature="311082:311184" placeholder="SELECT inter... wp_product_interest" />
+                <marker date="1460332911301" expanded="true" signature="311213:311308" placeholder="SELECT produ... wp_product_interest" />
+                <marker date="1460332911301" expanded="true" signature="312406:312619" placeholder="SELECT SQL_C... wp_interest_group" />
+                <marker date="1460332911301" expanded="true" signature="312960:313035" placeholder="SELECT SQL_C... wp_interest_group" />
+                <marker date="1460332911301" expanded="true" signature="313865:313967" placeholder="UPDATE wp_pr... " />
+                <marker date="1460332911301" expanded="true" signature="314389:314514" placeholder="UPDATE wp_pr... " />
+                <marker date="1460332911301" expanded="true" signature="314573:314944" placeholder="SELECT SQL_C... wp_product_interest" />
+                <marker date="1460332911301" expanded="true" signature="315389:315583" placeholder="SELECT SQL_C... wp_interest_group" />
+                <marker date="1460332911301" expanded="true" signature="316177:316251" placeholder="DELETE FROM " />
+                <marker date="1460332911301" expanded="true" signature="316522:316654" placeholder="SELECT SQL_C... wp_interest_group" />
+                <marker date="1460332911301" expanded="true" signature="317674:317886" placeholder="UPDATE wp_pr... " />
+                <marker date="1460332911301" expanded="true" signature="318321:318446" placeholder="UPDATE wp_pr... " />
+                <marker date="1460332911301" expanded="true" signature="318697:318845" placeholder="UPDATE wp_pr... " />
+                <marker date="1460332911301" expanded="true" signature="318904:319233" placeholder="SELECT SQL_C... wp_product_interest" />
+                <marker date="1460332911301" expanded="true" signature="320076:320288" placeholder="UPDATE wp_pr... " />
+                <marker date="1460332911301" expanded="true" signature="320723:320848" placeholder="UPDATE wp_pr... " />
+                <marker date="1460332911301" expanded="true" signature="321099:321247" placeholder="UPDATE wp_pr... " />
+                <marker date="1460332911301" expanded="true" signature="321306:321641" placeholder="SELECT SQL_C... wp_product_interest" />
+                <marker date="1460332911301" expanded="true" signature="322398:322476" placeholder="DELETE FROM " />
+                <marker date="1460332911301" expanded="true" signature="322596:322676" placeholder="SELECT * FRO... wp_interest_group_price" />
+                <marker date="1460332911301" expanded="true" signature="322744:322873" placeholder="SELECT SQL_C... wp_interest_group_price" />
+                <marker date="1460332911301" expanded="true" signature="323472:323753" placeholder="SELECT * FRO... wp_interest_group_price" />
+                <marker date="1460332911301" expanded="true" signature="323561:323751" placeholder="SELECT max(n... wp_interest_group_price" />
+                <marker date="1460332911301" expanded="true" signature="323639:323750" placeholder="SELECT group... wp_interest_group_price" />
+                <marker date="1460332911301" expanded="true" signature="324058:324231" placeholder="SELECT * FRO... wp_interest_group_price" />
+                <marker date="1460332911301" expanded="true" signature="324147:324230" placeholder="SELECT min(n... wp_interest_group_price" />
+                <marker date="1460332911301" expanded="true" signature="327487:327675" placeholder="..." />
+                <marker date="1460332911301" expanded="true" signature="327602:327675" placeholder="..." />
+                <marker date="1460332911301" expanded="true" signature="327621:327638" placeholder="..." />
+                <marker date="1460332911301" expanded="true" signature="328871:329050" placeholder="..." />
+                <marker date="1460332911301" expanded="true" signature="328979:329050" placeholder="..." />
+                <marker date="1460332911301" expanded="true" signature="328997:329014" placeholder="..." />
+                <marker date="1460332911301" expanded="true" signature="330464:330555" placeholder="..." />
+                <marker date="1460332911301" expanded="true" signature="330556:330780" placeholder="..." />
+                <marker date="1460332911301" expanded="true" signature="330704:330780" placeholder="..." />
+                <marker date="1460332911301" expanded="true" signature="330722:330739" placeholder="..." />
+                <marker date="1460332911301" expanded="true" signature="331672:331688" placeholder="..." />
+                <marker date="1460332911301" expanded="true" signature="331689:331965" placeholder="..." />
+                <marker date="1460332911301" expanded="true" signature="331867:331959" placeholder="..." />
+                <marker date="1460332911301" expanded="true" signature="331886:331903" placeholder="..." />
+                <marker date="1460332911301" expanded="true" signature="333658:333751" placeholder="..." />
+                <marker date="1460332911301" expanded="true" signature="335285:335612" placeholder="SELECT SQL_C... wp_product_interest" />
+                <marker date="1460332911301" expanded="true" signature="335712:336117" placeholder="SELECT SQL_C... wp_product_interest" />
               </folding>
             </state>
           </provider>
@@ -289,7 +271,7 @@
         <entry file="file://$PROJECT_DIR$/wp-content/themes/mirano-child/admin/classess/class-bestbuybestsell-interest.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-0.7586207">
-              <caret line="20" column="30" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="30" />
+              <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
               <folding>
                 <marker date="1458410700735" expanded="true" signature="5309:5441" placeholder="UPDATE ${{$w... " />
                 <marker date="1458410700735" expanded="true" signature="5543:5697" placeholder="UPDATE ${{$w... " />
@@ -352,8 +334,8 @@
       <file leaf-file-name="paypal.class.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/mirano-child/paypal/paypal.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.9047618">
-              <caret line="27" column="96" selection-start-line="27" selection-start-column="83" selection-end-line="27" selection-end-column="96" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="12" column="37" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -392,7 +374,6 @@
         <option value="$PROJECT_DIR$/wp-content/themes/mirano-child/views/my_interest-list_inmid.php" />
         <option value="$PROJECT_DIR$/wp-config.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/mirano/header.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/mirano-child/woocommerce/content-single-product.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/mirano-child/init/js/same_column.html" />
         <option value="$PROJECT_DIR$/wp-content/themes/mirano/header-first.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/mirano-child/billing_address.php" />
@@ -402,11 +383,13 @@
         <option value="$PROJECT_DIR$/wp-content/themes/mirano-child/my_address.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/mirano-child/admin/classess/class-bestbuybestsell-interest.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/mirano-child/init/js/bestbuy-bestsell-admin.js" />
-        <option value="$PROJECT_DIR$/wp-content/themes/mirano-child/style.css" />
         <option value="$PROJECT_DIR$/wp-content/themes/mirano-child/init/js/bestbuy-bestsell.js" />
         <option value="$PROJECT_DIR$/wp-content/themes/mirano-child/paypal/paypal.class.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/mirano-child/functions_backup.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/mirano-child/functions.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/mirano-child/style.css" />
+        <option value="$PROJECT_DIR$/wp-content/themes/mirano-child/woocommerce/single-product/price.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/mirano-child/woocommerce/content-single-product.php" />
       </list>
     </option>
   </component>
@@ -450,6 +433,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -562,26 +547,38 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="themes" />
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bestbuy-bestsell" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bestbuy-bestsell" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="mirano-child" />
+              <option name="myItemId" value="wp-content" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="paypal" />
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="woocommerce" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../paypal" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../inmid_se" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="fileTemplates" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
@@ -632,17 +629,17 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1295" height="744" extended-state="6" />
+    <frame x="65" y="24" width="1295" height="744" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.10040161" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23212852" sideWeight="0.4877651" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33413655" sideWeight="0.4877651" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2313253" sideWeight="0.5122349" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952693" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952693" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -658,16 +655,16 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.10040161" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2313253" sideWeight="0.5122349" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952693" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952693" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28353414" sideWeight="0.4877651" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24257028" sideWeight="0.4877651" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -698,13 +695,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/woocommerce/templates/content-single-product.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="65" column="10" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/plugins/woocommerce/includes/wc-template-hooks.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -731,88 +721,85 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1459209203368" expanded="true" signature="58532:58847" placeholder="SELECT * FRO... $" />
-            <marker date="1459209203368" expanded="true" signature="63255:63532" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="73927:74200" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="233987:233996" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="238739:238750" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="239002:239011" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="241753:241762" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="242082:242091" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="245145:245522" placeholder="SELECT SQL_C... $" />
-            <marker date="1459209203368" expanded="true" signature="245920:246849" placeholder="SELECT SQL_C... $" />
-            <marker date="1459209203368" expanded="true" signature="291565:291904" placeholder="SELECT * FRO... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="292250:292746" placeholder="SELECT * FRO... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="292871:293164" placeholder="SELECT * FRO... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="293643:294154" placeholder="SELECT * FRO... $" />
-            <marker date="1459209203368" expanded="true" signature="294529:294663" placeholder="DELETE FROM " />
-            <marker date="1459209203368" expanded="true" signature="294741:294869" placeholder="DELETE FROM " />
-            <marker date="1459209203368" expanded="true" signature="295328:295625" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="296272:296556" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="297105:297237" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="297740:297879" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="298629:298760" placeholder="SELECT sum( wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="298870:299123" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="298988:299121" placeholder="SELECT inter... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="299542:299714" placeholder="SELECT * FRO... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="300046:300281" placeholder="SELECT * FRO... wp_product_interest_meta" />
-            <marker date="1459209203368" expanded="true" signature="300679:300875" placeholder="SELECT sum( wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="301242:301406" placeholder="SELECT sum( wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="301799:301969" placeholder="SELECT sum( wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="302416:302540" placeholder="SELECT sum( wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="302641:302772" placeholder="SELECT sum( wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="302881:303139" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="303004:303137" placeholder="SELECT inter... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="303606:303729" placeholder="SELECT * FRO... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="304839:305338" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="304955:305060" placeholder="SELECT inter... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="305089:305187" placeholder="SELECT produ... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="305474:305823" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="305578:305673" placeholder="SELECT produ... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="307411:307881" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="307524:307626" placeholder="SELECT inter... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="307655:307750" placeholder="SELECT produ... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="308848:309061" placeholder="SELECT SQL_C... wp_interest_group" />
-            <marker date="1459209203368" expanded="true" signature="309402:309477" placeholder="SELECT SQL_C... wp_interest_group" />
-            <marker date="1459209203368" expanded="true" signature="310307:310409" placeholder="UPDATE wp_pr... " />
-            <marker date="1459209203368" expanded="true" signature="310831:310956" placeholder="UPDATE wp_pr... " />
-            <marker date="1459209203368" expanded="true" signature="311015:311386" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="311831:312025" placeholder="SELECT SQL_C... wp_interest_group" />
-            <marker date="1459209203368" expanded="true" signature="312619:312693" placeholder="DELETE FROM " />
-            <marker date="1459209203368" expanded="true" signature="312964:313096" placeholder="SELECT SQL_C... wp_interest_group" />
-            <marker date="1459209203368" expanded="true" signature="314116:314328" placeholder="UPDATE wp_pr... " />
-            <marker date="1459209203368" expanded="true" signature="314763:314888" placeholder="UPDATE wp_pr... " />
-            <marker date="1459209203368" expanded="true" signature="315139:315287" placeholder="UPDATE wp_pr... " />
-            <marker date="1459209203368" expanded="true" signature="315346:315675" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="316518:316730" placeholder="UPDATE wp_pr... " />
-            <marker date="1459209203368" expanded="true" signature="317165:317290" placeholder="UPDATE wp_pr... " />
-            <marker date="1459209203368" expanded="true" signature="317541:317689" placeholder="UPDATE wp_pr... " />
-            <marker date="1459209203368" expanded="true" signature="317748:318083" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="318840:318918" placeholder="DELETE FROM " />
-            <marker date="1459209203368" expanded="true" signature="319038:319118" placeholder="SELECT * FRO... wp_interest_group_price" />
-            <marker date="1459209203368" expanded="true" signature="319186:319315" placeholder="SELECT SQL_C... wp_interest_group_price" />
-            <marker date="1459209203368" expanded="true" signature="319914:320195" placeholder="SELECT * FRO... wp_interest_group_price" />
-            <marker date="1459209203368" expanded="true" signature="320003:320193" placeholder="SELECT max(n... wp_interest_group_price" />
-            <marker date="1459209203368" expanded="true" signature="320081:320192" placeholder="SELECT group... wp_interest_group_price" />
-            <marker date="1459209203368" expanded="true" signature="320500:320673" placeholder="SELECT * FRO... wp_interest_group_price" />
-            <marker date="1459209203368" expanded="true" signature="320589:320672" placeholder="SELECT min(n... wp_interest_group_price" />
-            <marker date="1459209203368" expanded="true" signature="323929:324117" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="324044:324117" placeholder="..." />
-            <marker date="1459209203368" expanded="false" signature="324063:324080" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="325313:325492" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="325421:325492" placeholder="..." />
-            <marker date="1459209203368" expanded="false" signature="325439:325456" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="326906:326997" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="326998:327222" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="327146:327222" placeholder="..." />
-            <marker date="1459209203368" expanded="false" signature="327164:327181" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="328114:328130" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="328131:328407" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="328309:328401" placeholder="..." />
-            <marker date="1459209203368" expanded="false" signature="328328:328345" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="330100:330193" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="331727:332054" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="332154:332559" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="58662:58977" placeholder="SELECT * FRO... $" />
+            <marker date="1460983202852" expanded="true" signature="63385:63662" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="74057:74330" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="234746:234755" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="243461:243581" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="248283:248660" placeholder="SELECT SQL_C... $" />
+            <marker date="1460983202852" expanded="true" signature="249058:249987" placeholder="SELECT SQL_C... $" />
+            <marker date="1460983202852" expanded="true" signature="295830:296169" placeholder="SELECT * FRO... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="296515:297011" placeholder="SELECT * FRO... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="297136:297429" placeholder="SELECT * FRO... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="297908:298419" placeholder="SELECT * FRO... $" />
+            <marker date="1460983202852" expanded="true" signature="298794:298928" placeholder="DELETE FROM " />
+            <marker date="1460983202852" expanded="true" signature="299006:299134" placeholder="DELETE FROM " />
+            <marker date="1460983202852" expanded="true" signature="299593:299890" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="300537:300821" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="301370:301502" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="302005:302144" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="302894:303025" placeholder="SELECT sum( wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="303135:303388" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="303253:303386" placeholder="SELECT inter... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="303807:303979" placeholder="SELECT * FRO... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="304311:304546" placeholder="SELECT * FRO... wp_product_interest_meta" />
+            <marker date="1460983202852" expanded="true" signature="304944:305140" placeholder="SELECT sum( wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="305507:305671" placeholder="SELECT sum( wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="306064:306234" placeholder="SELECT sum( wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="306681:306805" placeholder="SELECT sum( wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="306906:307037" placeholder="SELECT sum( wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="307146:307404" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="307269:307402" placeholder="SELECT inter... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="307871:307994" placeholder="SELECT * FRO... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="309104:309603" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="309220:309325" placeholder="SELECT inter... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="309354:309452" placeholder="SELECT produ... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="309739:310088" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="309843:309938" placeholder="SELECT produ... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="311676:312146" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="311789:311891" placeholder="SELECT inter... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="311920:312015" placeholder="SELECT produ... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="313113:313326" placeholder="SELECT SQL_C... wp_interest_group" />
+            <marker date="1460983202852" expanded="true" signature="313667:313742" placeholder="SELECT SQL_C... wp_interest_group" />
+            <marker date="1460983202852" expanded="true" signature="314572:314674" placeholder="UPDATE wp_pr... " />
+            <marker date="1460983202852" expanded="true" signature="315096:315221" placeholder="UPDATE wp_pr... " />
+            <marker date="1460983202852" expanded="true" signature="315280:315651" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="316096:316290" placeholder="SELECT SQL_C... wp_interest_group" />
+            <marker date="1460983202852" expanded="true" signature="316884:316958" placeholder="DELETE FROM " />
+            <marker date="1460983202852" expanded="true" signature="317229:317361" placeholder="SELECT SQL_C... wp_interest_group" />
+            <marker date="1460983202852" expanded="true" signature="318381:318593" placeholder="UPDATE wp_pr... " />
+            <marker date="1460983202852" expanded="true" signature="319028:319153" placeholder="UPDATE wp_pr... " />
+            <marker date="1460983202852" expanded="true" signature="319404:319552" placeholder="UPDATE wp_pr... " />
+            <marker date="1460983202852" expanded="true" signature="319611:319940" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="320783:320995" placeholder="UPDATE wp_pr... " />
+            <marker date="1460983202852" expanded="true" signature="321430:321555" placeholder="UPDATE wp_pr... " />
+            <marker date="1460983202852" expanded="true" signature="321806:321954" placeholder="UPDATE wp_pr... " />
+            <marker date="1460983202852" expanded="true" signature="322013:322348" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="323105:323183" placeholder="DELETE FROM " />
+            <marker date="1460983202852" expanded="true" signature="323303:323383" placeholder="SELECT * FRO... wp_interest_group_price" />
+            <marker date="1460983202852" expanded="true" signature="323451:323580" placeholder="SELECT SQL_C... wp_interest_group_price" />
+            <marker date="1460983202852" expanded="true" signature="324179:324460" placeholder="SELECT * FRO... wp_interest_group_price" />
+            <marker date="1460983202852" expanded="true" signature="324268:324458" placeholder="SELECT max(n... wp_interest_group_price" />
+            <marker date="1460983202852" expanded="true" signature="324346:324457" placeholder="SELECT group... wp_interest_group_price" />
+            <marker date="1460983202852" expanded="true" signature="324765:324938" placeholder="SELECT * FRO... wp_interest_group_price" />
+            <marker date="1460983202852" expanded="true" signature="324854:324937" placeholder="SELECT min(n... wp_interest_group_price" />
+            <marker date="1460983202852" expanded="true" signature="328194:328382" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="328309:328382" placeholder="..." />
+            <marker date="1460983202852" expanded="false" signature="328328:328345" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="329578:329757" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="329686:329757" placeholder="..." />
+            <marker date="1460983202852" expanded="false" signature="329704:329721" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="331171:331262" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="331263:331487" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="331411:331487" placeholder="..." />
+            <marker date="1460983202852" expanded="false" signature="331429:331446" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="332379:332395" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="332396:332672" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="332574:332666" placeholder="..." />
+            <marker date="1460983202852" expanded="false" signature="332593:332610" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="334365:334458" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="335992:336319" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="336419:336824" placeholder="SELECT SQL_C... wp_product_interest" />
           </folding>
         </state>
       </provider>
@@ -871,88 +858,85 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1459209203368" expanded="true" signature="58532:58847" placeholder="SELECT * FRO... $" />
-            <marker date="1459209203368" expanded="true" signature="63255:63532" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="73927:74200" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="233987:233996" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="238739:238750" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="239002:239011" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="241753:241762" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="242082:242091" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="245145:245522" placeholder="SELECT SQL_C... $" />
-            <marker date="1459209203368" expanded="true" signature="245920:246849" placeholder="SELECT SQL_C... $" />
-            <marker date="1459209203368" expanded="true" signature="291565:291904" placeholder="SELECT * FRO... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="292250:292746" placeholder="SELECT * FRO... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="292871:293164" placeholder="SELECT * FRO... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="293643:294154" placeholder="SELECT * FRO... $" />
-            <marker date="1459209203368" expanded="true" signature="294529:294663" placeholder="DELETE FROM " />
-            <marker date="1459209203368" expanded="true" signature="294741:294869" placeholder="DELETE FROM " />
-            <marker date="1459209203368" expanded="true" signature="295328:295625" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="296272:296556" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="297105:297237" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="297740:297879" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="298629:298760" placeholder="SELECT sum( wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="298870:299123" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="298988:299121" placeholder="SELECT inter... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="299542:299714" placeholder="SELECT * FRO... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="300046:300281" placeholder="SELECT * FRO... wp_product_interest_meta" />
-            <marker date="1459209203368" expanded="true" signature="300679:300875" placeholder="SELECT sum( wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="301242:301406" placeholder="SELECT sum( wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="301799:301969" placeholder="SELECT sum( wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="302416:302540" placeholder="SELECT sum( wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="302641:302772" placeholder="SELECT sum( wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="302881:303139" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="303004:303137" placeholder="SELECT inter... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="303606:303729" placeholder="SELECT * FRO... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="304839:305338" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="304955:305060" placeholder="SELECT inter... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="305089:305187" placeholder="SELECT produ... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="305474:305823" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="305578:305673" placeholder="SELECT produ... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="307411:307881" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="307524:307626" placeholder="SELECT inter... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="307655:307750" placeholder="SELECT produ... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="308848:309061" placeholder="SELECT SQL_C... wp_interest_group" />
-            <marker date="1459209203368" expanded="true" signature="309402:309477" placeholder="SELECT SQL_C... wp_interest_group" />
-            <marker date="1459209203368" expanded="true" signature="310307:310409" placeholder="UPDATE wp_pr... " />
-            <marker date="1459209203368" expanded="true" signature="310831:310956" placeholder="UPDATE wp_pr... " />
-            <marker date="1459209203368" expanded="true" signature="311015:311386" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="311831:312025" placeholder="SELECT SQL_C... wp_interest_group" />
-            <marker date="1459209203368" expanded="true" signature="312619:312693" placeholder="DELETE FROM " />
-            <marker date="1459209203368" expanded="true" signature="312964:313096" placeholder="SELECT SQL_C... wp_interest_group" />
-            <marker date="1459209203368" expanded="true" signature="314116:314328" placeholder="UPDATE wp_pr... " />
-            <marker date="1459209203368" expanded="true" signature="314763:314888" placeholder="UPDATE wp_pr... " />
-            <marker date="1459209203368" expanded="true" signature="315139:315287" placeholder="UPDATE wp_pr... " />
-            <marker date="1459209203368" expanded="true" signature="315346:315675" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="316518:316730" placeholder="UPDATE wp_pr... " />
-            <marker date="1459209203368" expanded="true" signature="317165:317290" placeholder="UPDATE wp_pr... " />
-            <marker date="1459209203368" expanded="true" signature="317541:317689" placeholder="UPDATE wp_pr... " />
-            <marker date="1459209203368" expanded="true" signature="317748:318083" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="318840:318918" placeholder="DELETE FROM " />
-            <marker date="1459209203368" expanded="true" signature="319038:319118" placeholder="SELECT * FRO... wp_interest_group_price" />
-            <marker date="1459209203368" expanded="true" signature="319186:319315" placeholder="SELECT SQL_C... wp_interest_group_price" />
-            <marker date="1459209203368" expanded="true" signature="319914:320195" placeholder="SELECT * FRO... wp_interest_group_price" />
-            <marker date="1459209203368" expanded="true" signature="320003:320193" placeholder="SELECT max(n... wp_interest_group_price" />
-            <marker date="1459209203368" expanded="true" signature="320081:320192" placeholder="SELECT group... wp_interest_group_price" />
-            <marker date="1459209203368" expanded="true" signature="320500:320673" placeholder="SELECT * FRO... wp_interest_group_price" />
-            <marker date="1459209203368" expanded="true" signature="320589:320672" placeholder="SELECT min(n... wp_interest_group_price" />
-            <marker date="1459209203368" expanded="true" signature="323929:324117" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="324044:324117" placeholder="..." />
-            <marker date="1459209203368" expanded="false" signature="324063:324080" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="325313:325492" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="325421:325492" placeholder="..." />
-            <marker date="1459209203368" expanded="false" signature="325439:325456" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="326906:326997" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="326998:327222" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="327146:327222" placeholder="..." />
-            <marker date="1459209203368" expanded="false" signature="327164:327181" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="328114:328130" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="328131:328407" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="328309:328401" placeholder="..." />
-            <marker date="1459209203368" expanded="false" signature="328328:328345" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="330100:330193" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="331727:332054" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="332154:332559" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="58662:58977" placeholder="SELECT * FRO... $" />
+            <marker date="1460983202852" expanded="true" signature="63385:63662" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="74057:74330" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="234746:234755" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="243461:243581" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="248283:248660" placeholder="SELECT SQL_C... $" />
+            <marker date="1460983202852" expanded="true" signature="249058:249987" placeholder="SELECT SQL_C... $" />
+            <marker date="1460983202852" expanded="true" signature="295830:296169" placeholder="SELECT * FRO... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="296515:297011" placeholder="SELECT * FRO... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="297136:297429" placeholder="SELECT * FRO... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="297908:298419" placeholder="SELECT * FRO... $" />
+            <marker date="1460983202852" expanded="true" signature="298794:298928" placeholder="DELETE FROM " />
+            <marker date="1460983202852" expanded="true" signature="299006:299134" placeholder="DELETE FROM " />
+            <marker date="1460983202852" expanded="true" signature="299593:299890" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="300537:300821" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="301370:301502" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="302005:302144" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="302894:303025" placeholder="SELECT sum( wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="303135:303388" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="303253:303386" placeholder="SELECT inter... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="303807:303979" placeholder="SELECT * FRO... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="304311:304546" placeholder="SELECT * FRO... wp_product_interest_meta" />
+            <marker date="1460983202852" expanded="true" signature="304944:305140" placeholder="SELECT sum( wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="305507:305671" placeholder="SELECT sum( wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="306064:306234" placeholder="SELECT sum( wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="306681:306805" placeholder="SELECT sum( wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="306906:307037" placeholder="SELECT sum( wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="307146:307404" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="307269:307402" placeholder="SELECT inter... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="307871:307994" placeholder="SELECT * FRO... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="309104:309603" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="309220:309325" placeholder="SELECT inter... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="309354:309452" placeholder="SELECT produ... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="309739:310088" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="309843:309938" placeholder="SELECT produ... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="311676:312146" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="311789:311891" placeholder="SELECT inter... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="311920:312015" placeholder="SELECT produ... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="313113:313326" placeholder="SELECT SQL_C... wp_interest_group" />
+            <marker date="1460983202852" expanded="true" signature="313667:313742" placeholder="SELECT SQL_C... wp_interest_group" />
+            <marker date="1460983202852" expanded="true" signature="314572:314674" placeholder="UPDATE wp_pr... " />
+            <marker date="1460983202852" expanded="true" signature="315096:315221" placeholder="UPDATE wp_pr... " />
+            <marker date="1460983202852" expanded="true" signature="315280:315651" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="316096:316290" placeholder="SELECT SQL_C... wp_interest_group" />
+            <marker date="1460983202852" expanded="true" signature="316884:316958" placeholder="DELETE FROM " />
+            <marker date="1460983202852" expanded="true" signature="317229:317361" placeholder="SELECT SQL_C... wp_interest_group" />
+            <marker date="1460983202852" expanded="true" signature="318381:318593" placeholder="UPDATE wp_pr... " />
+            <marker date="1460983202852" expanded="true" signature="319028:319153" placeholder="UPDATE wp_pr... " />
+            <marker date="1460983202852" expanded="true" signature="319404:319552" placeholder="UPDATE wp_pr... " />
+            <marker date="1460983202852" expanded="true" signature="319611:319940" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="320783:320995" placeholder="UPDATE wp_pr... " />
+            <marker date="1460983202852" expanded="true" signature="321430:321555" placeholder="UPDATE wp_pr... " />
+            <marker date="1460983202852" expanded="true" signature="321806:321954" placeholder="UPDATE wp_pr... " />
+            <marker date="1460983202852" expanded="true" signature="322013:322348" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="323105:323183" placeholder="DELETE FROM " />
+            <marker date="1460983202852" expanded="true" signature="323303:323383" placeholder="SELECT * FRO... wp_interest_group_price" />
+            <marker date="1460983202852" expanded="true" signature="323451:323580" placeholder="SELECT SQL_C... wp_interest_group_price" />
+            <marker date="1460983202852" expanded="true" signature="324179:324460" placeholder="SELECT * FRO... wp_interest_group_price" />
+            <marker date="1460983202852" expanded="true" signature="324268:324458" placeholder="SELECT max(n... wp_interest_group_price" />
+            <marker date="1460983202852" expanded="true" signature="324346:324457" placeholder="SELECT group... wp_interest_group_price" />
+            <marker date="1460983202852" expanded="true" signature="324765:324938" placeholder="SELECT * FRO... wp_interest_group_price" />
+            <marker date="1460983202852" expanded="true" signature="324854:324937" placeholder="SELECT min(n... wp_interest_group_price" />
+            <marker date="1460983202852" expanded="true" signature="328194:328382" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="328309:328382" placeholder="..." />
+            <marker date="1460983202852" expanded="false" signature="328328:328345" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="329578:329757" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="329686:329757" placeholder="..." />
+            <marker date="1460983202852" expanded="false" signature="329704:329721" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="331171:331262" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="331263:331487" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="331411:331487" placeholder="..." />
+            <marker date="1460983202852" expanded="false" signature="331429:331446" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="332379:332395" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="332396:332672" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="332574:332666" placeholder="..." />
+            <marker date="1460983202852" expanded="false" signature="332593:332610" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="334365:334458" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="335992:336319" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="336419:336824" placeholder="SELECT SQL_C... wp_product_interest" />
           </folding>
         </state>
       </provider>
@@ -969,88 +953,85 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1459209203368" expanded="true" signature="58532:58847" placeholder="SELECT * FRO... $" />
-            <marker date="1459209203368" expanded="true" signature="63255:63532" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="73927:74200" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="233987:233996" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="238739:238750" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="239002:239011" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="241753:241762" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="242082:242091" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="245145:245522" placeholder="SELECT SQL_C... $" />
-            <marker date="1459209203368" expanded="true" signature="245920:246849" placeholder="SELECT SQL_C... $" />
-            <marker date="1459209203368" expanded="true" signature="291565:291904" placeholder="SELECT * FRO... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="292250:292746" placeholder="SELECT * FRO... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="292871:293164" placeholder="SELECT * FRO... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="293643:294154" placeholder="SELECT * FRO... $" />
-            <marker date="1459209203368" expanded="true" signature="294529:294663" placeholder="DELETE FROM " />
-            <marker date="1459209203368" expanded="true" signature="294741:294869" placeholder="DELETE FROM " />
-            <marker date="1459209203368" expanded="true" signature="295328:295625" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="296272:296556" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="297105:297237" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="297740:297879" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="298629:298760" placeholder="SELECT sum( wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="298870:299123" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="298988:299121" placeholder="SELECT inter... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="299542:299714" placeholder="SELECT * FRO... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="300046:300281" placeholder="SELECT * FRO... wp_product_interest_meta" />
-            <marker date="1459209203368" expanded="true" signature="300679:300875" placeholder="SELECT sum( wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="301242:301406" placeholder="SELECT sum( wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="301799:301969" placeholder="SELECT sum( wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="302416:302540" placeholder="SELECT sum( wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="302641:302772" placeholder="SELECT sum( wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="302881:303139" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="303004:303137" placeholder="SELECT inter... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="303606:303729" placeholder="SELECT * FRO... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="304839:305338" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="304955:305060" placeholder="SELECT inter... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="305089:305187" placeholder="SELECT produ... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="305474:305823" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="305578:305673" placeholder="SELECT produ... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="307411:307881" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="307524:307626" placeholder="SELECT inter... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="307655:307750" placeholder="SELECT produ... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="308848:309061" placeholder="SELECT SQL_C... wp_interest_group" />
-            <marker date="1459209203368" expanded="true" signature="309402:309477" placeholder="SELECT SQL_C... wp_interest_group" />
-            <marker date="1459209203368" expanded="true" signature="310307:310409" placeholder="UPDATE wp_pr... " />
-            <marker date="1459209203368" expanded="true" signature="310831:310956" placeholder="UPDATE wp_pr... " />
-            <marker date="1459209203368" expanded="true" signature="311015:311386" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="311831:312025" placeholder="SELECT SQL_C... wp_interest_group" />
-            <marker date="1459209203368" expanded="true" signature="312619:312693" placeholder="DELETE FROM " />
-            <marker date="1459209203368" expanded="true" signature="312964:313096" placeholder="SELECT SQL_C... wp_interest_group" />
-            <marker date="1459209203368" expanded="true" signature="314116:314328" placeholder="UPDATE wp_pr... " />
-            <marker date="1459209203368" expanded="true" signature="314763:314888" placeholder="UPDATE wp_pr... " />
-            <marker date="1459209203368" expanded="true" signature="315139:315287" placeholder="UPDATE wp_pr... " />
-            <marker date="1459209203368" expanded="true" signature="315346:315675" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="316518:316730" placeholder="UPDATE wp_pr... " />
-            <marker date="1459209203368" expanded="true" signature="317165:317290" placeholder="UPDATE wp_pr... " />
-            <marker date="1459209203368" expanded="true" signature="317541:317689" placeholder="UPDATE wp_pr... " />
-            <marker date="1459209203368" expanded="true" signature="317748:318083" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="318840:318918" placeholder="DELETE FROM " />
-            <marker date="1459209203368" expanded="true" signature="319038:319118" placeholder="SELECT * FRO... wp_interest_group_price" />
-            <marker date="1459209203368" expanded="true" signature="319186:319315" placeholder="SELECT SQL_C... wp_interest_group_price" />
-            <marker date="1459209203368" expanded="true" signature="319914:320195" placeholder="SELECT * FRO... wp_interest_group_price" />
-            <marker date="1459209203368" expanded="true" signature="320003:320193" placeholder="SELECT max(n... wp_interest_group_price" />
-            <marker date="1459209203368" expanded="true" signature="320081:320192" placeholder="SELECT group... wp_interest_group_price" />
-            <marker date="1459209203368" expanded="true" signature="320500:320673" placeholder="SELECT * FRO... wp_interest_group_price" />
-            <marker date="1459209203368" expanded="true" signature="320589:320672" placeholder="SELECT min(n... wp_interest_group_price" />
-            <marker date="1459209203368" expanded="true" signature="323929:324117" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="324044:324117" placeholder="..." />
-            <marker date="1459209203368" expanded="false" signature="324063:324080" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="325313:325492" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="325421:325492" placeholder="..." />
-            <marker date="1459209203368" expanded="false" signature="325439:325456" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="326906:326997" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="326998:327222" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="327146:327222" placeholder="..." />
-            <marker date="1459209203368" expanded="false" signature="327164:327181" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="328114:328130" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="328131:328407" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="328309:328401" placeholder="..." />
-            <marker date="1459209203368" expanded="false" signature="328328:328345" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="330100:330193" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="331727:332054" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="332154:332559" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="58662:58977" placeholder="SELECT * FRO... $" />
+            <marker date="1460983202852" expanded="true" signature="63385:63662" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="74057:74330" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="234746:234755" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="243461:243581" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="248283:248660" placeholder="SELECT SQL_C... $" />
+            <marker date="1460983202852" expanded="true" signature="249058:249987" placeholder="SELECT SQL_C... $" />
+            <marker date="1460983202852" expanded="true" signature="295830:296169" placeholder="SELECT * FRO... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="296515:297011" placeholder="SELECT * FRO... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="297136:297429" placeholder="SELECT * FRO... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="297908:298419" placeholder="SELECT * FRO... $" />
+            <marker date="1460983202852" expanded="true" signature="298794:298928" placeholder="DELETE FROM " />
+            <marker date="1460983202852" expanded="true" signature="299006:299134" placeholder="DELETE FROM " />
+            <marker date="1460983202852" expanded="true" signature="299593:299890" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="300537:300821" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="301370:301502" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="302005:302144" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="302894:303025" placeholder="SELECT sum( wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="303135:303388" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="303253:303386" placeholder="SELECT inter... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="303807:303979" placeholder="SELECT * FRO... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="304311:304546" placeholder="SELECT * FRO... wp_product_interest_meta" />
+            <marker date="1460983202852" expanded="true" signature="304944:305140" placeholder="SELECT sum( wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="305507:305671" placeholder="SELECT sum( wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="306064:306234" placeholder="SELECT sum( wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="306681:306805" placeholder="SELECT sum( wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="306906:307037" placeholder="SELECT sum( wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="307146:307404" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="307269:307402" placeholder="SELECT inter... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="307871:307994" placeholder="SELECT * FRO... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="309104:309603" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="309220:309325" placeholder="SELECT inter... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="309354:309452" placeholder="SELECT produ... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="309739:310088" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="309843:309938" placeholder="SELECT produ... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="311676:312146" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="311789:311891" placeholder="SELECT inter... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="311920:312015" placeholder="SELECT produ... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="313113:313326" placeholder="SELECT SQL_C... wp_interest_group" />
+            <marker date="1460983202852" expanded="true" signature="313667:313742" placeholder="SELECT SQL_C... wp_interest_group" />
+            <marker date="1460983202852" expanded="true" signature="314572:314674" placeholder="UPDATE wp_pr... " />
+            <marker date="1460983202852" expanded="true" signature="315096:315221" placeholder="UPDATE wp_pr... " />
+            <marker date="1460983202852" expanded="true" signature="315280:315651" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="316096:316290" placeholder="SELECT SQL_C... wp_interest_group" />
+            <marker date="1460983202852" expanded="true" signature="316884:316958" placeholder="DELETE FROM " />
+            <marker date="1460983202852" expanded="true" signature="317229:317361" placeholder="SELECT SQL_C... wp_interest_group" />
+            <marker date="1460983202852" expanded="true" signature="318381:318593" placeholder="UPDATE wp_pr... " />
+            <marker date="1460983202852" expanded="true" signature="319028:319153" placeholder="UPDATE wp_pr... " />
+            <marker date="1460983202852" expanded="true" signature="319404:319552" placeholder="UPDATE wp_pr... " />
+            <marker date="1460983202852" expanded="true" signature="319611:319940" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="320783:320995" placeholder="UPDATE wp_pr... " />
+            <marker date="1460983202852" expanded="true" signature="321430:321555" placeholder="UPDATE wp_pr... " />
+            <marker date="1460983202852" expanded="true" signature="321806:321954" placeholder="UPDATE wp_pr... " />
+            <marker date="1460983202852" expanded="true" signature="322013:322348" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="323105:323183" placeholder="DELETE FROM " />
+            <marker date="1460983202852" expanded="true" signature="323303:323383" placeholder="SELECT * FRO... wp_interest_group_price" />
+            <marker date="1460983202852" expanded="true" signature="323451:323580" placeholder="SELECT SQL_C... wp_interest_group_price" />
+            <marker date="1460983202852" expanded="true" signature="324179:324460" placeholder="SELECT * FRO... wp_interest_group_price" />
+            <marker date="1460983202852" expanded="true" signature="324268:324458" placeholder="SELECT max(n... wp_interest_group_price" />
+            <marker date="1460983202852" expanded="true" signature="324346:324457" placeholder="SELECT group... wp_interest_group_price" />
+            <marker date="1460983202852" expanded="true" signature="324765:324938" placeholder="SELECT * FRO... wp_interest_group_price" />
+            <marker date="1460983202852" expanded="true" signature="324854:324937" placeholder="SELECT min(n... wp_interest_group_price" />
+            <marker date="1460983202852" expanded="true" signature="328194:328382" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="328309:328382" placeholder="..." />
+            <marker date="1460983202852" expanded="false" signature="328328:328345" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="329578:329757" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="329686:329757" placeholder="..." />
+            <marker date="1460983202852" expanded="false" signature="329704:329721" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="331171:331262" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="331263:331487" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="331411:331487" placeholder="..." />
+            <marker date="1460983202852" expanded="false" signature="331429:331446" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="332379:332395" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="332396:332672" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="332574:332666" placeholder="..." />
+            <marker date="1460983202852" expanded="false" signature="332593:332610" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="334365:334458" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="335992:336319" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="336419:336824" placeholder="SELECT SQL_C... wp_product_interest" />
           </folding>
         </state>
       </provider>
@@ -1122,13 +1103,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.30679932">
           <caret line="65" column="10" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/woocommerce/includes/wc-template-functions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.036484245">
-          <caret line="811" column="5" selection-start-line="811" selection-start-column="5" selection-end-line="811" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -1237,18 +1211,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/mirano-child/woocommerce/content-single-product.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3139746">
-          <caret line="123" column="101" selection-start-line="123" selection-start-column="87" selection-end-line="123" selection-end-column="101" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/block.rnc">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="8.254486">
           <caret line="230" column="30" selection-start-line="230" selection-start-column="30" selection-end-line="230" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/mirano-child/paypal/paypal.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="37" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
           <folding />
         </state>
       </provider>
@@ -1263,32 +1236,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/mirano-child/views/my_interest-list_bestbuybestsell.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.037671234">
           <caret line="80" column="75" selection-start-line="80" selection-start-column="71" selection-end-line="80" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/mirano-child/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.3333333">
-          <caret line="383" column="16" selection-start-line="383" selection-start-column="16" selection-end-line="383" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/mirano-child/init/js/bestbuy-bestsell.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="408" column="88" selection-start-line="408" selection-start-column="88" selection-end-line="408" selection-end-column="88" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/mirano-child/paypal/paypal.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.9047618">
-          <caret line="27" column="96" selection-start-line="27" selection-start-column="83" selection-end-line="27" selection-end-column="96" />
+        <state vertical-scroll-proportion="0.03588907">
+          <caret line="410" column="9" selection-start-line="410" selection-start-column="9" selection-end-line="410" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -1296,7 +1253,7 @@
     <entry file="file://$PROJECT_DIR$/wp-content/themes/mirano-child/admin/classess/class-bestbuybestsell-interest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.7586207">
-          <caret line="20" column="30" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="30" />
+          <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
           <folding>
             <marker date="1458410700735" expanded="true" signature="5309:5441" placeholder="UPDATE ${{$w... " />
             <marker date="1458410700735" expanded="true" signature="5543:5697" placeholder="UPDATE ${{$w... " />
@@ -1357,219 +1314,216 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/mirano-child/functions_backup.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.9047618">
-          <caret line="3991" column="48" selection-start-line="3991" selection-start-column="31" selection-end-line="3991" selection-end-column="48" />
+        <state vertical-scroll-proportion="-3.8095238">
+          <caret line="2757" column="95" selection-start-line="2757" selection-start-column="77" selection-end-line="2757" selection-end-column="95" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#td#0;n#tr#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#td#1;n#tr#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#td#2;n#tr#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#0;n#table#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#td#0;n#tr#0;n#table#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#td#1;n#tr#0;n#table#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#td#2;n#tr#0;n#table#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#8;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#8;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#8;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#8;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#9;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#9;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#9;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#9;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#3;n#div#9;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#3;n#div#9;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#10;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#10;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#10;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#11;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#11;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#12;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#12;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#13;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#form#0;n#div#13;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#form#0;n#div#13;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#14;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#1;n#div#14;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#2;n#div#14;n#!!top" expanded="true" />
-            <marker date="1459199224596" expanded="true" signature="54851:55166" placeholder="SELECT * FRO... $" />
-            <marker date="1459199224596" expanded="true" signature="59261:59538" placeholder="..." />
-            <marker date="1459199224596" expanded="true" signature="69317:69590" placeholder="..." />
-            <marker date="1459199224596" expanded="true" signature="218039:218048" placeholder="..." />
-            <marker date="1459199224596" expanded="true" signature="222515:222526" placeholder="..." />
-            <marker date="1459199224596" expanded="true" signature="222762:222771" placeholder="..." />
-            <marker date="1459199224596" expanded="true" signature="225373:225382" placeholder="..." />
-            <marker date="1459199224596" expanded="true" signature="225678:225687" placeholder="..." />
-            <marker date="1459199224596" expanded="true" signature="228710:229087" placeholder="SELECT SQL_C... $" />
-            <marker date="1459199224596" expanded="true" signature="229485:230414" placeholder="SELECT SQL_C... $" />
-            <marker date="1459199224596" expanded="true" signature="275130:275469" placeholder="SELECT * FRO... wp_product_interest" />
-            <marker date="1459199224596" expanded="true" signature="275815:276311" placeholder="SELECT * FRO... wp_product_interest" />
-            <marker date="1459199224596" expanded="true" signature="276436:276729" placeholder="SELECT * FRO... wp_product_interest" />
-            <marker date="1459199224596" expanded="true" signature="277208:277719" placeholder="SELECT * FRO... $" />
-            <marker date="1459199224596" expanded="true" signature="278094:278228" placeholder="DELETE FROM " />
-            <marker date="1459199224596" expanded="true" signature="278306:278434" placeholder="DELETE FROM " />
-            <marker date="1459199224596" expanded="true" signature="278893:279190" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459199224596" expanded="true" signature="279837:280121" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459199224596" expanded="true" signature="280670:280802" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459199224596" expanded="true" signature="281305:281444" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459199224596" expanded="true" signature="282194:282325" placeholder="SELECT sum( wp_product_interest" />
-            <marker date="1459199224596" expanded="true" signature="282435:282688" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459199224596" expanded="true" signature="282553:282686" placeholder="SELECT inter... wp_product_interest" />
-            <marker date="1459199224596" expanded="true" signature="283107:283279" placeholder="SELECT * FRO... wp_product_interest" />
-            <marker date="1459199224596" expanded="true" signature="283611:283846" placeholder="SELECT * FRO... wp_product_interest_meta" />
-            <marker date="1459199224596" expanded="true" signature="284244:284440" placeholder="SELECT sum( wp_product_interest" />
-            <marker date="1459199224596" expanded="true" signature="284807:284971" placeholder="SELECT sum( wp_product_interest" />
-            <marker date="1459199224596" expanded="true" signature="285364:285534" placeholder="SELECT sum( wp_product_interest" />
-            <marker date="1459199224596" expanded="true" signature="285981:286105" placeholder="SELECT sum( wp_product_interest" />
-            <marker date="1459199224596" expanded="true" signature="286206:286337" placeholder="SELECT sum( wp_product_interest" />
-            <marker date="1459199224596" expanded="true" signature="286446:286704" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459199224596" expanded="true" signature="286569:286702" placeholder="SELECT inter... wp_product_interest" />
-            <marker date="1459199224596" expanded="true" signature="287171:287294" placeholder="SELECT * FRO... wp_product_interest" />
-            <marker date="1459199224596" expanded="true" signature="288404:288903" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459199224596" expanded="true" signature="288520:288625" placeholder="SELECT inter... wp_product_interest" />
-            <marker date="1459199224596" expanded="true" signature="288654:288752" placeholder="SELECT produ... wp_product_interest" />
-            <marker date="1459199224596" expanded="true" signature="289039:289388" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459199224596" expanded="true" signature="289143:289238" placeholder="SELECT produ... wp_product_interest" />
-            <marker date="1459199224596" expanded="true" signature="290976:291446" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459199224596" expanded="true" signature="291089:291191" placeholder="SELECT inter... wp_product_interest" />
-            <marker date="1459199224596" expanded="true" signature="291220:291315" placeholder="SELECT produ... wp_product_interest" />
-            <marker date="1459199224596" expanded="true" signature="292413:292626" placeholder="SELECT SQL_C... wp_interest_group" />
-            <marker date="1459199224596" expanded="true" signature="292967:293042" placeholder="SELECT SQL_C... wp_interest_group" />
-            <marker date="1459199224596" expanded="true" signature="293872:293974" placeholder="UPDATE wp_pr... " />
-            <marker date="1459199224596" expanded="true" signature="294396:294521" placeholder="UPDATE wp_pr... " />
-            <marker date="1459199224596" expanded="true" signature="294580:294951" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459199224596" expanded="true" signature="295396:295590" placeholder="SELECT SQL_C... wp_interest_group" />
-            <marker date="1459199224596" expanded="true" signature="296184:296258" placeholder="DELETE FROM " />
-            <marker date="1459199224596" expanded="true" signature="296529:296661" placeholder="SELECT SQL_C... wp_interest_group" />
-            <marker date="1459199224596" expanded="true" signature="297681:297893" placeholder="UPDATE wp_pr... " />
-            <marker date="1459199224596" expanded="true" signature="298328:298453" placeholder="UPDATE wp_pr... " />
-            <marker date="1459199224596" expanded="true" signature="298704:298852" placeholder="UPDATE wp_pr... " />
-            <marker date="1459199224596" expanded="true" signature="298911:299240" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459199224596" expanded="true" signature="300083:300295" placeholder="UPDATE wp_pr... " />
-            <marker date="1459199224596" expanded="true" signature="300730:300855" placeholder="UPDATE wp_pr... " />
-            <marker date="1459199224596" expanded="true" signature="301106:301254" placeholder="UPDATE wp_pr... " />
-            <marker date="1459199224596" expanded="true" signature="301313:301648" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459199224596" expanded="true" signature="302405:302483" placeholder="DELETE FROM " />
-            <marker date="1459199224596" expanded="true" signature="302603:302683" placeholder="SELECT * FRO... wp_interest_group_price" />
-            <marker date="1459199224596" expanded="true" signature="302751:302880" placeholder="SELECT SQL_C... wp_interest_group_price" />
-            <marker date="1459199224596" expanded="true" signature="303479:303760" placeholder="SELECT * FRO... wp_interest_group_price" />
-            <marker date="1459199224596" expanded="true" signature="303568:303758" placeholder="SELECT max(n... wp_interest_group_price" />
-            <marker date="1459199224596" expanded="true" signature="303646:303757" placeholder="SELECT group... wp_interest_group_price" />
-            <marker date="1459199224596" expanded="true" signature="304065:304238" placeholder="SELECT * FRO... wp_interest_group_price" />
-            <marker date="1459199224596" expanded="true" signature="304154:304237" placeholder="SELECT min(n... wp_interest_group_price" />
-            <marker date="1459199224596" expanded="true" signature="307494:307682" placeholder="..." />
-            <marker date="1459199224596" expanded="true" signature="307609:307682" placeholder="..." />
-            <marker date="1459199224596" expanded="true" signature="307628:307645" placeholder="..." />
-            <marker date="1459199224596" expanded="true" signature="308878:309057" placeholder="..." />
-            <marker date="1459199224596" expanded="true" signature="308986:309057" placeholder="..." />
-            <marker date="1459199224596" expanded="true" signature="309004:309021" placeholder="..." />
-            <marker date="1459199224596" expanded="true" signature="310471:310562" placeholder="..." />
-            <marker date="1459199224596" expanded="true" signature="310563:310787" placeholder="..." />
-            <marker date="1459199224596" expanded="true" signature="310711:310787" placeholder="..." />
-            <marker date="1459199224596" expanded="true" signature="310729:310746" placeholder="..." />
-            <marker date="1459199224596" expanded="true" signature="311679:311695" placeholder="..." />
-            <marker date="1459199224596" expanded="true" signature="311696:311972" placeholder="..." />
-            <marker date="1459199224596" expanded="true" signature="311874:311966" placeholder="..." />
-            <marker date="1459199224596" expanded="true" signature="311893:311910" placeholder="..." />
-            <marker date="1459199224596" expanded="true" signature="313665:313758" placeholder="..." />
-            <marker date="1459199224596" expanded="true" signature="315292:315619" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459199224596" expanded="true" signature="315719:316124" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460332911301" expanded="true" signature="58661:58976" placeholder="SELECT * FRO... $" />
+            <marker date="1460332911301" expanded="true" signature="63391:63668" placeholder="..." />
+            <marker date="1460332911301" expanded="true" signature="74063:74336" placeholder="..." />
+            <marker date="1460332911301" expanded="true" signature="235083:235092" placeholder="..." />
+            <marker date="1460332911301" expanded="true" signature="248703:249080" placeholder="SELECT SQL_C... $" />
+            <marker date="1460332911301" expanded="true" signature="249478:250407" placeholder="SELECT SQL_C... $" />
+            <marker date="1460332911301" expanded="true" signature="295123:295462" placeholder="SELECT * FRO... wp_product_interest" />
+            <marker date="1460332911301" expanded="true" signature="295808:296304" placeholder="SELECT * FRO... wp_product_interest" />
+            <marker date="1460332911301" expanded="true" signature="296429:296722" placeholder="SELECT * FRO... wp_product_interest" />
+            <marker date="1460332911301" expanded="true" signature="297201:297712" placeholder="SELECT * FRO... $" />
+            <marker date="1460332911301" expanded="true" signature="298087:298221" placeholder="DELETE FROM " />
+            <marker date="1460332911301" expanded="true" signature="298299:298427" placeholder="DELETE FROM " />
+            <marker date="1460332911301" expanded="true" signature="298886:299183" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460332911301" expanded="true" signature="299830:300114" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460332911301" expanded="true" signature="300663:300795" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460332911301" expanded="true" signature="301298:301437" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460332911301" expanded="true" signature="302187:302318" placeholder="SELECT sum( wp_product_interest" />
+            <marker date="1460332911301" expanded="true" signature="302428:302681" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460332911301" expanded="true" signature="302546:302679" placeholder="SELECT inter... wp_product_interest" />
+            <marker date="1460332911301" expanded="true" signature="303100:303272" placeholder="SELECT * FRO... wp_product_interest" />
+            <marker date="1460332911301" expanded="true" signature="303604:303839" placeholder="SELECT * FRO... wp_product_interest_meta" />
+            <marker date="1460332911301" expanded="true" signature="304237:304433" placeholder="SELECT sum( wp_product_interest" />
+            <marker date="1460332911301" expanded="true" signature="304800:304964" placeholder="SELECT sum( wp_product_interest" />
+            <marker date="1460332911301" expanded="true" signature="305357:305527" placeholder="SELECT sum( wp_product_interest" />
+            <marker date="1460332911301" expanded="true" signature="305974:306098" placeholder="SELECT sum( wp_product_interest" />
+            <marker date="1460332911301" expanded="true" signature="306199:306330" placeholder="SELECT sum( wp_product_interest" />
+            <marker date="1460332911301" expanded="true" signature="306439:306697" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460332911301" expanded="true" signature="306562:306695" placeholder="SELECT inter... wp_product_interest" />
+            <marker date="1460332911301" expanded="true" signature="307164:307287" placeholder="SELECT * FRO... wp_product_interest" />
+            <marker date="1460332911301" expanded="true" signature="308397:308896" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460332911301" expanded="true" signature="308513:308618" placeholder="SELECT inter... wp_product_interest" />
+            <marker date="1460332911301" expanded="true" signature="308647:308745" placeholder="SELECT produ... wp_product_interest" />
+            <marker date="1460332911301" expanded="true" signature="309032:309381" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460332911301" expanded="true" signature="309136:309231" placeholder="SELECT produ... wp_product_interest" />
+            <marker date="1460332911301" expanded="true" signature="310969:311439" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460332911301" expanded="true" signature="311082:311184" placeholder="SELECT inter... wp_product_interest" />
+            <marker date="1460332911301" expanded="true" signature="311213:311308" placeholder="SELECT produ... wp_product_interest" />
+            <marker date="1460332911301" expanded="true" signature="312406:312619" placeholder="SELECT SQL_C... wp_interest_group" />
+            <marker date="1460332911301" expanded="true" signature="312960:313035" placeholder="SELECT SQL_C... wp_interest_group" />
+            <marker date="1460332911301" expanded="true" signature="313865:313967" placeholder="UPDATE wp_pr... " />
+            <marker date="1460332911301" expanded="true" signature="314389:314514" placeholder="UPDATE wp_pr... " />
+            <marker date="1460332911301" expanded="true" signature="314573:314944" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460332911301" expanded="true" signature="315389:315583" placeholder="SELECT SQL_C... wp_interest_group" />
+            <marker date="1460332911301" expanded="true" signature="316177:316251" placeholder="DELETE FROM " />
+            <marker date="1460332911301" expanded="true" signature="316522:316654" placeholder="SELECT SQL_C... wp_interest_group" />
+            <marker date="1460332911301" expanded="true" signature="317674:317886" placeholder="UPDATE wp_pr... " />
+            <marker date="1460332911301" expanded="true" signature="318321:318446" placeholder="UPDATE wp_pr... " />
+            <marker date="1460332911301" expanded="true" signature="318697:318845" placeholder="UPDATE wp_pr... " />
+            <marker date="1460332911301" expanded="true" signature="318904:319233" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460332911301" expanded="true" signature="320076:320288" placeholder="UPDATE wp_pr... " />
+            <marker date="1460332911301" expanded="true" signature="320723:320848" placeholder="UPDATE wp_pr... " />
+            <marker date="1460332911301" expanded="true" signature="321099:321247" placeholder="UPDATE wp_pr... " />
+            <marker date="1460332911301" expanded="true" signature="321306:321641" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460332911301" expanded="true" signature="322398:322476" placeholder="DELETE FROM " />
+            <marker date="1460332911301" expanded="true" signature="322596:322676" placeholder="SELECT * FRO... wp_interest_group_price" />
+            <marker date="1460332911301" expanded="true" signature="322744:322873" placeholder="SELECT SQL_C... wp_interest_group_price" />
+            <marker date="1460332911301" expanded="true" signature="323472:323753" placeholder="SELECT * FRO... wp_interest_group_price" />
+            <marker date="1460332911301" expanded="true" signature="323561:323751" placeholder="SELECT max(n... wp_interest_group_price" />
+            <marker date="1460332911301" expanded="true" signature="323639:323750" placeholder="SELECT group... wp_interest_group_price" />
+            <marker date="1460332911301" expanded="true" signature="324058:324231" placeholder="SELECT * FRO... wp_interest_group_price" />
+            <marker date="1460332911301" expanded="true" signature="324147:324230" placeholder="SELECT min(n... wp_interest_group_price" />
+            <marker date="1460332911301" expanded="true" signature="327487:327675" placeholder="..." />
+            <marker date="1460332911301" expanded="true" signature="327602:327675" placeholder="..." />
+            <marker date="1460332911301" expanded="true" signature="327621:327638" placeholder="..." />
+            <marker date="1460332911301" expanded="true" signature="328871:329050" placeholder="..." />
+            <marker date="1460332911301" expanded="true" signature="328979:329050" placeholder="..." />
+            <marker date="1460332911301" expanded="true" signature="328997:329014" placeholder="..." />
+            <marker date="1460332911301" expanded="true" signature="330464:330555" placeholder="..." />
+            <marker date="1460332911301" expanded="true" signature="330556:330780" placeholder="..." />
+            <marker date="1460332911301" expanded="true" signature="330704:330780" placeholder="..." />
+            <marker date="1460332911301" expanded="true" signature="330722:330739" placeholder="..." />
+            <marker date="1460332911301" expanded="true" signature="331672:331688" placeholder="..." />
+            <marker date="1460332911301" expanded="true" signature="331689:331965" placeholder="..." />
+            <marker date="1460332911301" expanded="true" signature="331867:331959" placeholder="..." />
+            <marker date="1460332911301" expanded="true" signature="331886:331903" placeholder="..." />
+            <marker date="1460332911301" expanded="true" signature="333658:333751" placeholder="..." />
+            <marker date="1460332911301" expanded="true" signature="335285:335612" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460332911301" expanded="true" signature="335712:336117" placeholder="SELECT SQL_C... wp_product_interest" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/mirano-child/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.84127">
+          <caret line="486" column="17" selection-start-line="486" selection-start-column="17" selection-end-line="486" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/mirano-child/functions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57272726">
-          <caret line="3990" column="44" selection-start-line="3990" selection-start-column="44" selection-end-line="3990" selection-end-column="44" />
+        <state vertical-scroll-proportion="-4.5079365">
+          <caret line="4786" column="50" selection-start-line="4786" selection-start-column="32" selection-end-line="4786" selection-end-column="50" />
           <folding>
-            <marker date="1459209203368" expanded="true" signature="58532:58847" placeholder="SELECT * FRO... $" />
-            <marker date="1459209203368" expanded="true" signature="63255:63532" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="73927:74200" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="233987:233996" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="238739:238750" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="239002:239011" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="241753:241762" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="242082:242091" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="245145:245522" placeholder="SELECT SQL_C... $" />
-            <marker date="1459209203368" expanded="true" signature="245920:246849" placeholder="SELECT SQL_C... $" />
-            <marker date="1459209203368" expanded="true" signature="291565:291904" placeholder="SELECT * FRO... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="292250:292746" placeholder="SELECT * FRO... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="292871:293164" placeholder="SELECT * FRO... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="293643:294154" placeholder="SELECT * FRO... $" />
-            <marker date="1459209203368" expanded="true" signature="294529:294663" placeholder="DELETE FROM " />
-            <marker date="1459209203368" expanded="true" signature="294741:294869" placeholder="DELETE FROM " />
-            <marker date="1459209203368" expanded="true" signature="295328:295625" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="296272:296556" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="297105:297237" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="297740:297879" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="298629:298760" placeholder="SELECT sum( wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="298870:299123" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="298988:299121" placeholder="SELECT inter... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="299542:299714" placeholder="SELECT * FRO... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="300046:300281" placeholder="SELECT * FRO... wp_product_interest_meta" />
-            <marker date="1459209203368" expanded="true" signature="300679:300875" placeholder="SELECT sum( wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="301242:301406" placeholder="SELECT sum( wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="301799:301969" placeholder="SELECT sum( wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="302416:302540" placeholder="SELECT sum( wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="302641:302772" placeholder="SELECT sum( wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="302881:303139" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="303004:303137" placeholder="SELECT inter... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="303606:303729" placeholder="SELECT * FRO... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="304839:305338" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="304955:305060" placeholder="SELECT inter... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="305089:305187" placeholder="SELECT produ... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="305474:305823" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="305578:305673" placeholder="SELECT produ... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="307411:307881" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="307524:307626" placeholder="SELECT inter... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="307655:307750" placeholder="SELECT produ... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="308848:309061" placeholder="SELECT SQL_C... wp_interest_group" />
-            <marker date="1459209203368" expanded="true" signature="309402:309477" placeholder="SELECT SQL_C... wp_interest_group" />
-            <marker date="1459209203368" expanded="true" signature="310307:310409" placeholder="UPDATE wp_pr... " />
-            <marker date="1459209203368" expanded="true" signature="310831:310956" placeholder="UPDATE wp_pr... " />
-            <marker date="1459209203368" expanded="true" signature="311015:311386" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="311831:312025" placeholder="SELECT SQL_C... wp_interest_group" />
-            <marker date="1459209203368" expanded="true" signature="312619:312693" placeholder="DELETE FROM " />
-            <marker date="1459209203368" expanded="true" signature="312964:313096" placeholder="SELECT SQL_C... wp_interest_group" />
-            <marker date="1459209203368" expanded="true" signature="314116:314328" placeholder="UPDATE wp_pr... " />
-            <marker date="1459209203368" expanded="true" signature="314763:314888" placeholder="UPDATE wp_pr... " />
-            <marker date="1459209203368" expanded="true" signature="315139:315287" placeholder="UPDATE wp_pr... " />
-            <marker date="1459209203368" expanded="true" signature="315346:315675" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="316518:316730" placeholder="UPDATE wp_pr... " />
-            <marker date="1459209203368" expanded="true" signature="317165:317290" placeholder="UPDATE wp_pr... " />
-            <marker date="1459209203368" expanded="true" signature="317541:317689" placeholder="UPDATE wp_pr... " />
-            <marker date="1459209203368" expanded="true" signature="317748:318083" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="318840:318918" placeholder="DELETE FROM " />
-            <marker date="1459209203368" expanded="true" signature="319038:319118" placeholder="SELECT * FRO... wp_interest_group_price" />
-            <marker date="1459209203368" expanded="true" signature="319186:319315" placeholder="SELECT SQL_C... wp_interest_group_price" />
-            <marker date="1459209203368" expanded="true" signature="319914:320195" placeholder="SELECT * FRO... wp_interest_group_price" />
-            <marker date="1459209203368" expanded="true" signature="320003:320193" placeholder="SELECT max(n... wp_interest_group_price" />
-            <marker date="1459209203368" expanded="true" signature="320081:320192" placeholder="SELECT group... wp_interest_group_price" />
-            <marker date="1459209203368" expanded="true" signature="320500:320673" placeholder="SELECT * FRO... wp_interest_group_price" />
-            <marker date="1459209203368" expanded="true" signature="320589:320672" placeholder="SELECT min(n... wp_interest_group_price" />
-            <marker date="1459209203368" expanded="true" signature="323929:324117" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="324044:324117" placeholder="..." />
-            <marker date="1459209203368" expanded="false" signature="324063:324080" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="325313:325492" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="325421:325492" placeholder="..." />
-            <marker date="1459209203368" expanded="false" signature="325439:325456" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="326906:326997" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="326998:327222" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="327146:327222" placeholder="..." />
-            <marker date="1459209203368" expanded="false" signature="327164:327181" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="328114:328130" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="328131:328407" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="328309:328401" placeholder="..." />
-            <marker date="1459209203368" expanded="false" signature="328328:328345" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="330100:330193" placeholder="..." />
-            <marker date="1459209203368" expanded="true" signature="331727:332054" placeholder="SELECT SQL_C... wp_product_interest" />
-            <marker date="1459209203368" expanded="true" signature="332154:332559" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="58662:58977" placeholder="SELECT * FRO... $" />
+            <marker date="1460983202852" expanded="true" signature="63385:63662" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="74057:74330" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="234746:234755" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="243461:243581" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="248283:248660" placeholder="SELECT SQL_C... $" />
+            <marker date="1460983202852" expanded="true" signature="249058:249987" placeholder="SELECT SQL_C... $" />
+            <marker date="1460983202852" expanded="true" signature="295830:296169" placeholder="SELECT * FRO... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="296515:297011" placeholder="SELECT * FRO... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="297136:297429" placeholder="SELECT * FRO... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="297908:298419" placeholder="SELECT * FRO... $" />
+            <marker date="1460983202852" expanded="true" signature="298794:298928" placeholder="DELETE FROM " />
+            <marker date="1460983202852" expanded="true" signature="299006:299134" placeholder="DELETE FROM " />
+            <marker date="1460983202852" expanded="true" signature="299593:299890" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="300537:300821" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="301370:301502" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="302005:302144" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="302894:303025" placeholder="SELECT sum( wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="303135:303388" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="303253:303386" placeholder="SELECT inter... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="303807:303979" placeholder="SELECT * FRO... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="304311:304546" placeholder="SELECT * FRO... wp_product_interest_meta" />
+            <marker date="1460983202852" expanded="true" signature="304944:305140" placeholder="SELECT sum( wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="305507:305671" placeholder="SELECT sum( wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="306064:306234" placeholder="SELECT sum( wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="306681:306805" placeholder="SELECT sum( wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="306906:307037" placeholder="SELECT sum( wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="307146:307404" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="307269:307402" placeholder="SELECT inter... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="307871:307994" placeholder="SELECT * FRO... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="309104:309603" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="309220:309325" placeholder="SELECT inter... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="309354:309452" placeholder="SELECT produ... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="309739:310088" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="309843:309938" placeholder="SELECT produ... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="311676:312146" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="311789:311891" placeholder="SELECT inter... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="311920:312015" placeholder="SELECT produ... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="313113:313326" placeholder="SELECT SQL_C... wp_interest_group" />
+            <marker date="1460983202852" expanded="true" signature="313667:313742" placeholder="SELECT SQL_C... wp_interest_group" />
+            <marker date="1460983202852" expanded="true" signature="314572:314674" placeholder="UPDATE wp_pr... " />
+            <marker date="1460983202852" expanded="true" signature="315096:315221" placeholder="UPDATE wp_pr... " />
+            <marker date="1460983202852" expanded="true" signature="315280:315651" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="316096:316290" placeholder="SELECT SQL_C... wp_interest_group" />
+            <marker date="1460983202852" expanded="true" signature="316884:316958" placeholder="DELETE FROM " />
+            <marker date="1460983202852" expanded="true" signature="317229:317361" placeholder="SELECT SQL_C... wp_interest_group" />
+            <marker date="1460983202852" expanded="true" signature="318381:318593" placeholder="UPDATE wp_pr... " />
+            <marker date="1460983202852" expanded="true" signature="319028:319153" placeholder="UPDATE wp_pr... " />
+            <marker date="1460983202852" expanded="true" signature="319404:319552" placeholder="UPDATE wp_pr... " />
+            <marker date="1460983202852" expanded="true" signature="319611:319940" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="320783:320995" placeholder="UPDATE wp_pr... " />
+            <marker date="1460983202852" expanded="true" signature="321430:321555" placeholder="UPDATE wp_pr... " />
+            <marker date="1460983202852" expanded="true" signature="321806:321954" placeholder="UPDATE wp_pr... " />
+            <marker date="1460983202852" expanded="true" signature="322013:322348" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="323105:323183" placeholder="DELETE FROM " />
+            <marker date="1460983202852" expanded="true" signature="323303:323383" placeholder="SELECT * FRO... wp_interest_group_price" />
+            <marker date="1460983202852" expanded="true" signature="323451:323580" placeholder="SELECT SQL_C... wp_interest_group_price" />
+            <marker date="1460983202852" expanded="true" signature="324179:324460" placeholder="SELECT * FRO... wp_interest_group_price" />
+            <marker date="1460983202852" expanded="true" signature="324268:324458" placeholder="SELECT max(n... wp_interest_group_price" />
+            <marker date="1460983202852" expanded="true" signature="324346:324457" placeholder="SELECT group... wp_interest_group_price" />
+            <marker date="1460983202852" expanded="true" signature="324765:324938" placeholder="SELECT * FRO... wp_interest_group_price" />
+            <marker date="1460983202852" expanded="true" signature="324854:324937" placeholder="SELECT min(n... wp_interest_group_price" />
+            <marker date="1460983202852" expanded="true" signature="328194:328382" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="328309:328382" placeholder="..." />
+            <marker date="1460983202852" expanded="false" signature="328328:328345" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="329578:329757" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="329686:329757" placeholder="..." />
+            <marker date="1460983202852" expanded="false" signature="329704:329721" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="331171:331262" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="331263:331487" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="331411:331487" placeholder="..." />
+            <marker date="1460983202852" expanded="false" signature="331429:331446" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="332379:332395" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="332396:332672" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="332574:332666" placeholder="..." />
+            <marker date="1460983202852" expanded="false" signature="332593:332610" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="334365:334458" placeholder="..." />
+            <marker date="1460983202852" expanded="true" signature="335992:336319" placeholder="SELECT SQL_C... wp_product_interest" />
+            <marker date="1460983202852" expanded="true" signature="336419:336824" placeholder="SELECT SQL_C... wp_product_interest" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/mirano-child/woocommerce/single-product/price.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.103448">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/mirano-child/woocommerce/content-single-product.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.7936509">
+          <caret line="59" column="70" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="70" />
+          <folding>
+            <element signature="e#1459#1931#0#PHP" expanded="false" />
+            <element signature="e#4630#4653#0#HTML" expanded="true" />
+            <marker date="1460989922529" expanded="true" signature="5627:5654" placeholder="..." />
+            <marker date="1460989922529" expanded="true" signature="5867:5946" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/woocommerce/includes/wc-template-functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29118773">
+          <caret line="788" column="54" selection-start-line="788" selection-start-column="54" selection-end-line="788" selection-end-column="54" />
+          <folding>
+            <marker date="1448670073000" expanded="true" signature="35955:36033" placeholder="SELECT term_... $" />
+            <marker date="1448670073000" expanded="true" signature="45457:45470" placeholder="..." />
           </folding>
         </state>
       </provider>

@@ -393,3 +393,96 @@
     padding-left:15px !important;
     padding-right:15px !important;
 }
+.payment_success_shipping_address{
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #333;
+    display: block;
+    font-size: 13px;
+    line-height: 1.42857;
+    margin: 0 0 10px;
+    padding: 9.5px;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+.interest_form_div{
+    float: left;
+    margin: 0 0 60px;
+    padding-left: 30px;
+    width: 70%;
+}
+.product_interest_form {
+    border: 1px solid #eaeaea;
+    overflow: hidden;
+    width: 80%;
+    padding-bottom: 30px;
+}
+.product_interest_form_title{
+    color: #404040;
+    font-family: arial,helvetica,"DejaVu Sans","Arial Unicode MS","Lucida Sans Unicode",sans-serif;
+    font-style: normal;
+    text-decoration: none;
+    background-color: #f3f3f3;
+    font-size: 12px;
+    line-height: 14px;
+    margin: 0 0 10px;
+    overflow: hidden;
+    padding: 7px 10px;
+}
+.interest_fill_form_div{
+    width:100% !important;
+}
+.single-product-image{
+    width:30% !important;
+}
+.element_label_interest_form{
+    float:left;
+    width:24%;
+    margin: 0 2% 0 20%;
+    text-align: right;
+}
+.element_value_interest_form{
+    width:50%;
+    float:left;
+}
+.element_value_interest_form input[type="text"]{
+    width: 100%;
+}
+.element_value_interest_form select , textarea{
+   border: 1px solid #ddd !important;
+   display: block;
+   padding: 6px !important;
+   width: 100%;
+}
+.element_group_interest{
+    padding-bottom: 40px;
+}
+.when_plan_to_purchase{
+    text-align: center;
+    font-weight: bold;
+    width:75%;
+}
+.eller{
+    text-align: center;
+    font-weight: bold;
+    width:75%;
+}
+.element_value_interest_form textarea, input[type="text"]{
+    margin-bottom: 10px !important;
+}
+.element_value_interest_form input[type="checkbox"], input[type="radio"]{
+    margin-right: 10px;
+}
+.interest_form_error{
+    margin: 1.5%;
+}
+.interest_success{
+    float:left;
+    margin-top: 5%;
+}
+.element_interest_save_button{
+    float: right;
+    padding-right: 20%;
+    margin-top: 2%;
+}

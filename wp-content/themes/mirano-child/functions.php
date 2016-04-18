@@ -11,7 +11,13 @@
 show_admin_bar( false );
 
 add_action('after_setup_theme', 'mirano_child_setup' , 11);
-
+function register_session(){
+    if( !session_id() )
+    {
+        session_start();
+    }
+}
+add_action('init','register_session');
 function mirano_child_setup(){
     /*Add your Hooks , Filters and Theme Support after This*/
     define('BESTBUY_BESTSELL_DIR', get_stylesheet_directory_uri());
@@ -3361,8 +3367,8 @@ function mirano_child_setup(){
                         </div>
                         <div class="element_value">
                             <select name="billing_country" id="billing_country">
-                                <option value="Sweden" <?php if( $all_meta_for_user['billing_country'][0]=='Sweden' ){ ?> selected="selected"<?php } ?> ><?php _e( 'Sweden', TEXTDOMAIN );?></option>
-                                <option value="Bangladesh" <?php if( $all_meta_for_user['billing_gender'][0]=='Bangladesh' ){ ?> selected="selected"<?php } ?>><?php _e( 'Bangladesh', TEXTDOMAIN );?></option>
+                                <option value="SE" <?php if( $all_meta_for_user['billing_country'][0]=='SE' ){ ?> selected="selected"<?php } ?> ><?php _e( 'Sweden', TEXTDOMAIN );?></option>
+                                <option value="BD" <?php if( $all_meta_for_user['billing_gender'][0]=='BD' ){ ?> selected="selected"<?php } ?>><?php _e( 'Bangladesh', TEXTDOMAIN );?></option>
                             </select>
                         </div>
                     </div>
@@ -3915,7 +3921,14 @@ function mirano_child_setup(){
     * Process and Handle paypal payment processor
     */
     add_action( 'bestbuy_bestsell_payment_execute_paypal', 'payment_execute_paypal' ,15 );
-    function payment_execute_paypal(){
+    function payment_execute_paypal()
+    {
+        global $current_user;
+        if (!session_id())
+        {
+            session_start();
+        }
+        get_currentuserinfo();
         $product_interest_id = isset($_POST['product_interest_id']) ? $_POST['product_interest_id'] : '';
         $current_user_id = get_current_user_id();
         $all_meta_for_user = get_user_meta( $current_user_id );
@@ -3944,18 +3957,14 @@ function mirano_child_setup(){
                 $PayPalApiSignature = $paypal_option_settings['paypal_payment_api_signature']; //Paypal API Signature
             }
             $PayPalCurrencyCode = get_currency(); //Paypal Currency Code
-            $PayPalReturnURL = 'http://localhost/paypal/process.php'; //Point to process.php page
-            $PayPalCancelURL = 'http://localhost/paypal/cancel.php'; //Cancel URL if user clicks cancel
+            $PayPalReturnURL = get_site_url().'/index.php/payment-success'; //Point to process.php page
+            $PayPalCancelURL = get_site_url(); //Cancel URL if user clicks cancel
             // Process Paypal Payment
             $paypalmode = ($PayPalMode == 'sandbox') ? '.sandbox' : '';
-            //Mainly we need 4 variables from product page Item Name, Item Price, Item Number and Item Quantity.
-            //Please Note : People can manipulate hidden field amounts in form,
-            //In practical world you must fetch actual price from database using item id. Eg:
-            //$ItemPrice = $mysqli->query("SELECT item_price FROM products WHERE id = Product_Number");
 
             $ItemName = $my_interest_details[0]->post_title; //Item Name
             $ItemPrice = $my_interest_details[0]->unit_price; //Item Price
-            $ItemNumber = $my_interest_details[0]->qty; //Item Number
+            $ItemNumber = 'P1234'."( Case no: ".$my_interest_details[0]->case_no." )"; //Item Number
             $ItemDesc = $my_interest_details[0]->post_content; //Item Number
             $ItemQty = $my_interest_details[0]->qty; // Item Quantity
             $ItemTotalPrice = $my_interest_details[0]->total_price; //(Item Price x Quantity = Total) Get total amount of product;
@@ -3971,26 +3980,37 @@ function mirano_child_setup(){
             $GrandTotal = ($ItemTotalPrice + $TotalTaxAmount + $HandalingCost + $InsuranceCost + $ShippinCost + $ShippinDiscount);
 
             //Parameters for SetExpressCheckout, which will be sent to PayPal
+            //If you prefer that confirmed addresses be used, then do not set ADDROVERRIDE.
+            // https://developer.paypal.com/docs/classic/express-checkout/integration-guide/ECCustomizing/
             $ADDROVERRIDE = 0;
-            if( $paypal_option_settings['paypal_address_override'] ==='yes' ){
+            $EMAIL = $current_user->user_email;
+            if( $paypal_option_settings['paypal_address_override'] === 'yes' ){
                 $ADDROVERRIDE = 1;
+                $SHIPTONAME = $all_meta_for_user['delivery_first_name'][0]." ".$all_meta_for_user['delivery_last_name'][0];
+                $SHIPTOSTREET = "C/O: ".$all_meta_for_user['delivery_care_of'][0];
+                $SHIPTOSTREET2 = $all_meta_for_user['delivery_street_house_number'][0];
+                $SHIPTOCITY = $all_meta_for_user['delivery_place'][0];
+                $SHIPTOCOUNTRYCODE = $all_meta_for_user['delivery_country'][0];
+                $SHIPTOZIP = $all_meta_for_user['delivery_zip_code'][0];
+                $SHIPTOPHONENUM = $all_meta_for_user['mobile_number'][0];
             }
-            if( $paypal_option_settings['paypal_shipping_details_send'] ==='yes' ){
+            else{
+                $SHIPTONAME = $all_meta_for_user['billing_first_name'][0]."&nbsp;".$all_meta_for_user['billing_last_name'][0];
+                $SHIPTOSTREET = "C/O: ".$all_meta_for_user['billing_care_of'][0];
+                $SHIPTOSTREET2 = $all_meta_for_user['billing_street_house_number'][0];
+                $SHIPTOCITY = $all_meta_for_user['billing_place'][0];
+                $SHIPTOCOUNTRYCODE = $all_meta_for_user['delivery_country'][0];
+                $SHIPTOZIP = $all_meta_for_user['billing_zip_code'][0];
+                $SHIPTOPHONENUM = $all_meta_for_user['mobile_number'][0];
+            }
+         /*   if( $paypal_option_settings['paypal_shipping_details_send'] ==='yes' ){
                 $SHIPTONAME = $all_meta_for_user['delivery_first_name'][0]."&nbsp;".$all_meta_for_user['delivery_last_name'][0];
                 $SHIPTOSTREET = $all_meta_for_user['delivery_street_house_number'][0];
                 $SHIPTOCITY = $all_meta_for_user['delivery_place'][0];
                 $SHIPTOCOUNTRYCODE = 'SE';
                 $SHIPTOZIP = $all_meta_for_user['delivery_zip_code'][0];
                 $SHIPTOPHONENUM = '7887878';
-            }else{
-                $SHIPTONAME = $all_meta_for_user['billing_first_name'][0]."&nbsp;".$all_meta_for_user['billing_last_name'][0];
-                $SHIPTOSTREET = $all_meta_for_user['billing_street_house_number'][0];
-                $SHIPTOCITY = $all_meta_for_user['billing_place'][0];
-                $SHIPTOCOUNTRYCODE = 'SE';
-                $SHIPTOZIP = $all_meta_for_user['billing_zip_code'][0];
-                $SHIPTOPHONENUM = '789899889';
-            }
-
+            }*/
             $padata = '&METHOD=SetExpressCheckout' .
                 '&LOCALECODE=' . 'sv_SE' .
                 '&RETURNURL=' . urlencode($PayPalReturnURL) .
@@ -4004,28 +4024,25 @@ function mirano_child_setup(){
                 '&SOLUTIONTYPE=' . urlencode("Sole") .
                 '&LANDINGPAGE=' . 'Billing' .
 
-                /*
-                //Additional products (L_PAYMENTREQUEST_0_NAME0 becomes L_PAYMENTREQUEST_0_NAME1 and so on)
-                '&L_PAYMENTREQUEST_0_NAME1='.urlencode($ItemName2).
-                '&L_PAYMENTREQUEST_0_NUMBER1='.urlencode($ItemNumber2).
-                '&L_PAYMENTREQUEST_0_DESC1='.urlencode($ItemDesc2).
-                '&L_PAYMENTREQUEST_0_AMT1='.urlencode($ItemPrice2).
-                '&L_PAYMENTREQUEST_0_QTY1='. urlencode($ItemQty2).
-                */
-
-                //Override the buyer's shipping address stored on PayPal, The buyer cannot edit the overridden address.
-
                 '&ADDROVERRIDE='.$ADDROVERRIDE .
                 '&PAYMENTREQUEST_0_SHIPTONAME='.$SHIPTONAME .
                 '&PAYMENTREQUEST_0_SHIPTOSTREET='.$SHIPTOSTREET .
+                '&PAYMENTREQUEST_0_SHIPTOSTREET2='.$SHIPTOSTREET2 .
                 '&PAYMENTREQUEST_0_SHIPTOCITY='.$SHIPTOCITY .
                 '&PAYMENTREQUEST_0_SHIPTOCOUNTRYCODE='.$SHIPTOCOUNTRYCODE .
                 '&PAYMENTREQUEST_0_SHIPTOZIP='.$SHIPTOZIP .
                 '&PAYMENTREQUEST_0_SHIPTOPHONENUM='.$SHIPTOPHONENUM .
+                '&EMAIL='.$EMAIL .
+                /*'&ADDROVERRIDE=1'.
+                '&PAYMENTREQUEST_0_SHIPTONAME=ABU TAHER'.
+                '&PAYMENTREQUEST_0_SHIPTOSTREET=C/O: Rashel Hasan'.
+                '&PAYMENTREQUEST_0_SHIPTOSTREET2=Risnneleden 49'.
+                '&PAYMENTREQUEST_0_SHIPTOCITY=Stockholm'.
+                '&PAYMENTREQUEST_0_SHIPTOCOUNTRYCODE=SE'.
+                '&PAYMENTREQUEST_0_SHIPTOZIP=14344'.
+                '&PAYMENTREQUEST_0_SHIPTOPHONENUM=408-967-4444'.*/
 
-
-                '&NOSHIPPING=0' . //set 1 to hide buyer's shipping address, in-case products that does not require shipping
-
+                '&NOSHIPPING=0' .
                 '&PAYMENTREQUEST_0_ITEMAMT=' . urlencode($ItemTotalPrice) .
                 '&PAYMENTREQUEST_0_TAXAMT=' . urlencode($TotalTaxAmount) .
                 '&PAYMENTREQUEST_0_SHIPPINGAMT=' . urlencode($ShippinCost) .
@@ -4034,12 +4051,13 @@ function mirano_child_setup(){
                 '&PAYMENTREQUEST_0_INSURANCEAMT=' . urlencode($InsuranceCost) .
                 '&PAYMENTREQUEST_0_AMT=' . urlencode($GrandTotal) .
                 '&PAYMENTREQUEST_0_CURRENCYCODE=' . urlencode($PayPalCurrencyCode) .
-                '&LOCALECODE=GB' . //PayPal pages to match the language on your website.
+                '&LOCALECODE=sv_SE' .
                 '&LOGOIMG=http://bestbuy-bestsell.com/wp-content/uploads/2015/04/inmid-logo-square.png' . //site logo
                 '&CARTBORDERCOLOR=FFFFFF' . //border color of cart
                 '&ALLOWNOTE=1';
 
             ############# set session variable we need later for "DoExpressCheckoutPayment" #######
+            $_SESSION['product_interest_id'] = $product_interest_id;
             $_SESSION['ItemName'] = $ItemName; //Item Name
             $_SESSION['ItemPrice'] = $ItemPrice; //Item Price
             $_SESSION['ItemNumber'] = $ItemNumber; //Item Number
@@ -4071,142 +4089,189 @@ function mirano_child_setup(){
                 print_r($httpParsedResponseAr);
                 echo '</pre>';
             }
-            //Paypal redirects back to this page using ReturnURL, We should receive TOKEN and Payer ID
-            if(isset($_GET["token"]) && isset($_GET["PayerID"]))
-            {
-                //we will be using these two variables to execute the "DoExpressCheckoutPayment"
-                //Note: we haven't received any payment yet.
-
-                $token = $_GET["token"];
-                $payer_id = $_GET["PayerID"];
-
-                //get session variables
-                $ItemName 			= $_SESSION['ItemName']; //Item Name
-                $ItemPrice 			= $_SESSION['ItemPrice'] ; //Item Price
-                $ItemNumber 		= $_SESSION['ItemNumber']; //Item Number
-                $ItemDesc 			= $_SESSION['ItemDesc']; //Item Number
-                $ItemQty 			= $_SESSION['ItemQty']; // Item Quantity
-                $ItemTotalPrice 	= $_SESSION['ItemTotalPrice']; //(Item Price x Quantity = Total) Get total amount of product;
-                $TotalTaxAmount 	= $_SESSION['TotalTaxAmount'] ;  //Sum of tax for all items in this order.
-                $HandalingCost 		= $_SESSION['HandalingCost'];  //Handling cost for this order.
-                $InsuranceCost 		= $_SESSION['InsuranceCost'];  //shipping insurance cost for this order.
-                $ShippinDiscount 	= $_SESSION['ShippinDiscount']; //Shipping discount for this order. Specify this as negative number.
-                $ShippinCost 		= $_SESSION['ShippinCost']; //Although you may change the value later, try to pass in a shipping amount that is reasonably accurate.
-                $GrandTotal 		= $_SESSION['GrandTotal'];
-
-                $padata = 	'&TOKEN='.urlencode($token).
-                    '&PAYERID='.urlencode($payer_id).
-                    '&PAYMENTREQUEST_0_PAYMENTACTION='.urlencode("SALE").
-
-                    //set item info here, otherwise we won't see product details later
-                    '&L_PAYMENTREQUEST_0_NAME0='.urlencode($ItemName).
-                    '&L_PAYMENTREQUEST_0_NUMBER0='.urlencode($ItemNumber).
-                    '&L_PAYMENTREQUEST_0_DESC0='.urlencode($ItemDesc).
-                    '&L_PAYMENTREQUEST_0_AMT0='.urlencode($ItemPrice).
-                    '&L_PAYMENTREQUEST_0_QTY0='. urlencode($ItemQty).
-
-                    /*
-                        //Additional products (L_PAYMENTREQUEST_0_NAME0 becomes L_PAYMENTREQUEST_0_NAME1 and so on)
-                        '&L_PAYMENTREQUEST_0_NAME1='.urlencode($ItemName2).
-                        '&L_PAYMENTREQUEST_0_NUMBER1='.urlencode($ItemNumber2).
-                        '&L_PAYMENTREQUEST_0_DESC1=Description text'.
-                        '&L_PAYMENTREQUEST_0_AMT1='.urlencode($ItemPrice2).
-                        '&L_PAYMENTREQUEST_0_QTY1='. urlencode($ItemQty2).
-                        */
-
-                    '&PAYMENTREQUEST_0_ITEMAMT='.urlencode($ItemTotalPrice).
-                    '&PAYMENTREQUEST_0_TAXAMT='.urlencode($TotalTaxAmount).
-                    '&PAYMENTREQUEST_0_SHIPPINGAMT='.urlencode($ShippinCost).
-                    '&PAYMENTREQUEST_0_HANDLINGAMT='.urlencode($HandalingCost).
-                    '&PAYMENTREQUEST_0_SHIPDISCAMT='.urlencode($ShippinDiscount).
-                    '&PAYMENTREQUEST_0_INSURANCEAMT='.urlencode($InsuranceCost).
-                    '&PAYMENTREQUEST_0_AMT='.urlencode($GrandTotal).
-                    '&PAYMENTREQUEST_0_CURRENCYCODE='.urlencode($PayPalCurrencyCode);
-
-                //We need to execute the "DoExpressCheckoutPayment" at this point to Receive payment from user.
-                $paypal= new Bestbuybestsell_Interest();
-                $httpParsedResponseAr = $paypal->PPHttpPost('DoExpressCheckoutPayment', $padata, $PayPalApiUsername, $PayPalApiPassword, $PayPalApiSignature, $PayPalMode);
-
-                //Check if everything went ok..
-                if("SUCCESS" == strtoupper($httpParsedResponseAr["ACK"]) || "SUCCESSWITHWARNING" == strtoupper($httpParsedResponseAr["ACK"]))
-                {
-
-                    echo '<h2>Success</h2>';
-                    echo 'Your Transaction ID : '.urldecode($httpParsedResponseAr["PAYMENTINFO_0_TRANSACTIONID"]);
-
-                    /*
-                        //Sometimes Payment are kept pending even when transaction is complete.
-                        //hence we need to notify user about it and ask him manually approve the transiction
-                        */
-
-                    if('Completed' == $httpParsedResponseAr["PAYMENTINFO_0_PAYMENTSTATUS"])
-                    {
-                        echo '<div style="color:green">Payment Received! Your product will be sent to you very soon!</div>';
-                    }
-                    elseif('Pending' == $httpParsedResponseAr["PAYMENTINFO_0_PAYMENTSTATUS"])
-                    {
-                        echo '<div style="color:red">Transaction Complete, but payment is still pending! '.
-                            'You need to manually authorize this payment in your <a target="_new" href="http://www.paypal.com">Paypal Account</a></div>';
-                    }
-
-                    // we can retrive transection details using either GetTransactionDetails or GetExpressCheckoutDetails
-                    // GetTransactionDetails requires a Transaction ID, and GetExpressCheckoutDetails requires Token returned by SetExpressCheckOut
-                    $padata = 	'&TOKEN='.urlencode($token);
-                    $paypal= new Bestbuybestsell_Paypal();
-                    $httpParsedResponseAr = $paypal->PPHttpPost('GetExpressCheckoutDetails', $padata, $PayPalApiUsername, $PayPalApiPassword, $PayPalApiSignature, $PayPalMode);
-
-                    if("SUCCESS" == strtoupper($httpParsedResponseAr["ACK"]) || "SUCCESSWITHWARNING" == strtoupper($httpParsedResponseAr["ACK"]))
-                    {
-
-                        echo '<br /><b>Stuff to store in database :</b><br /><pre>';
-                        /*
-                            #### SAVE BUYER INFORMATION IN DATABASE ###
-                            //see (http://www.sanwebe.com/2013/03/basic-php-mysqli-usage) for mysqli usage
-
-                            $buyerName = $httpParsedResponseAr["FIRSTNAME"].' '.$httpParsedResponseAr["LASTNAME"];
-                            $buyerEmail = $httpParsedResponseAr["EMAIL"];
-
-                            //Open a new connection to the MySQL server
-                            $mysqli = new mysqli('host','username','password','database_name');
-
-                            //Output any connection error
-                            if ($mysqli->connect_error) {
-                                die('Error : ('. $mysqli->connect_errno .') '. $mysqli->connect_error);
-                            }
-
-                            $insert_row = $mysqli->query("INSERT INTO BuyerTable
-                            (BuyerName,BuyerEmail,TransactionID,ItemName,ItemNumber, ItemAmount,ItemQTY)
-                            VALUES ('$buyerName','$buyerEmail','$transactionID','$ItemName',$ItemNumber, $ItemTotalPrice,$ItemQTY)");
-
-                            if($insert_row){
-                                print 'Success! ID of last inserted record is : ' .$mysqli->insert_id .'<br />';
-                            }else{
-                                die('Error : ('. $mysqli->errno .') '. $mysqli->error);
-                            }
-
-                            */
-
-                        echo '<pre>';
-                        print_r($httpParsedResponseAr);
-                        echo '</pre>';
-                    } else  {
-                        echo '<div style="color:red"><b>GetTransactionDetails failed:</b>'.urldecode($httpParsedResponseAr["L_LONGMESSAGE0"]).'</div>';
-                        echo '<pre>';
-                        print_r($httpParsedResponseAr);
-                        echo '</pre>';
-
-                    }
-
-                }else {
-                    echo '<div style="color:red"><b>Error : </b>' . urldecode($httpParsedResponseAr["L_LONGMESSAGE0"]) . '</div>';
-                    echo '<pre>';
-                    print_r($httpParsedResponseAr);
-                    echo '</pre>';
-                } // End Payment Process
-            }
-
         }
 
+    }
+    /*
+    * Bestbuy-bestsell payment_success_paypal
+    * Process and Handle payment_success_paypal
+    */
+    add_shortcode('bestbuy_bestsell_payment_success', 'bestbuy_bestsell_payment_success_paypal');
+    function bestbuy_bestsell_payment_success_paypal(){
+        if( !session_id()) {
+            session_start();
+        }
+        // Paypal Configuration
+        $paypal_option_settings = get_option( 'paypal_option_settings' );
+        $current_user_id = get_current_user_id();
+        $all_meta_for_user = get_user_meta( $current_user_id );
+        //print_r( $paypal_option_settings ); exit;
+        if( $paypal_option_settings['paypal_sandbox'] ==='yes' )
+        {
+            $PayPalMode = 'sandbox';
+            $PayPalApiUsername = 'sdk-three_api1.sdk.com'; //PayPal API Username
+            $PayPalApiPassword = 'QFZCWN5HZM8VBG7Q'; //Paypal API password
+            $PayPalApiSignature = 'A-IzJhZZjhg29XQ2qnhapuwxIDzyAZQ92FRP5dqBzVesOkzbdUONzmOU'; //Paypal API Signature
+        }
+        else
+        {
+            $PayPalMode = 'live'; // sandbox or live
+            $PayPalApiUsername = $paypal_option_settings['paypal_payment_api_user_name']; //PayPal API Username
+            $PayPalApiPassword = $paypal_option_settings['paypal_payment_api_password']; //Paypal API password
+            $PayPalApiSignature = $paypal_option_settings['paypal_payment_api_signature']; //Paypal API Signature
+        }
+        $PayPalCurrencyCode = get_currency(); //Paypal Currency Code
+        $PayPalReturnURL = get_site_url().'/index.php/payment-success'; //Point to process.php page
+        $PayPalCancelURL = get_site_url(); //Cancel URL if user clicks cancel
+        // Process Paypal Payment
+        $paypalmode = ($PayPalMode == 'sandbox') ? '.sandbox' : '';
+        //Paypal redirects back to this page using ReturnURL, We should receive TOKEN and Payer ID
+        if( isset( $_GET["token"] ) && isset( $_GET["PayerID"] ) )
+        {
+            //we will be using these two variables to execute the "DoExpressCheckoutPayment"
+            //Note: we haven't received any payment yet.
+            $token = $_GET["token"];
+            $payer_id = $_GET["PayerID"];
+            $PayPalCurrencyCode = get_currency();
+            //get session variables
+            $product_interest_id = $_SESSION['product_interest_id']; //Item Name
+            $ItemName 			= $_SESSION['ItemName']; //Item Name
+            $ItemPrice 			= $_SESSION['ItemPrice'] ; //Item Price
+            $ItemNumber 		= $_SESSION['ItemNumber']; //Item Number
+            $ItemDesc 			= $_SESSION['ItemDesc']; //Item Number
+            $ItemQty 			= $_SESSION['ItemQty']; // Item Quantity
+            $ItemTotalPrice 	= $_SESSION['ItemTotalPrice']; //(Item Price x Quantity = Total) Get total amount of product;
+            $TotalTaxAmount 	= $_SESSION['TotalTaxAmount'] ;  //Sum of tax for all items in this order.
+            $HandalingCost 		= $_SESSION['HandalingCost'];  //Handling cost for this order.
+            $InsuranceCost 		= $_SESSION['InsuranceCost'];  //shipping insurance cost for this order.
+            $ShippinDiscount 	= $_SESSION['ShippinDiscount']; //Shipping discount for this order. Specify this as negative number.
+            $ShippinCost 		= $_SESSION['ShippinCost']; //Although you may change the value later, try to pass in a shipping amount that is reasonably accurate.
+            $GrandTotal 		= $_SESSION['GrandTotal'];
+
+            $padata = 	'&TOKEN='.urlencode($token).
+                '&PAYERID='.urlencode($payer_id).
+                '&PAYMENTREQUEST_0_PAYMENTACTION='.urlencode("SALE").
+                //set item info here, otherwise we won't see product details later
+                '&L_PAYMENTREQUEST_0_NAME0='.urlencode($ItemName).
+                '&L_PAYMENTREQUEST_0_NUMBER0='.urlencode($ItemNumber).
+                '&L_PAYMENTREQUEST_0_DESC0='.urlencode($ItemDesc).
+                '&L_PAYMENTREQUEST_0_AMT0='.urlencode($ItemPrice).
+                '&L_PAYMENTREQUEST_0_QTY0='. urlencode($ItemQty).
+
+                /*
+                    //Additional products (L_PAYMENTREQUEST_0_NAME0 becomes L_PAYMENTREQUEST_0_NAME1 and so on)
+                    '&L_PAYMENTREQUEST_0_NAME1='.urlencode($ItemName2).
+                    '&L_PAYMENTREQUEST_0_NUMBER1='.urlencode($ItemNumber2).
+                    '&L_PAYMENTREQUEST_0_DESC1=Description text'.
+                    '&L_PAYMENTREQUEST_0_AMT1='.urlencode($ItemPrice2).
+                    '&L_PAYMENTREQUEST_0_QTY1='. urlencode($ItemQty2).                    */
+
+                '&PAYMENTREQUEST_0_ITEMAMT='.urlencode($ItemTotalPrice).
+                '&PAYMENTREQUEST_0_TAXAMT='.urlencode($TotalTaxAmount).
+                '&PAYMENTREQUEST_0_SHIPPINGAMT='.urlencode($ShippinCost).
+                '&PAYMENTREQUEST_0_HANDLINGAMT='.urlencode($HandalingCost).
+                '&PAYMENTREQUEST_0_SHIPDISCAMT='.urlencode($ShippinDiscount).
+                '&PAYMENTREQUEST_0_INSURANCEAMT='.urlencode($InsuranceCost).
+                '&PAYMENTREQUEST_0_AMT='.urlencode($GrandTotal).
+                '&PAYMENTREQUEST_0_CURRENCYCODE='.urlencode($PayPalCurrencyCode);
+
+            //We need to execute the "DoExpressCheckoutPayment" at this point to Receive payment from user.
+            $paypal = new Bestbuybestsell_Paypal();
+            $httpParsedResponseAr = $paypal->PPHttpPost('DoExpressCheckoutPayment', $padata, $PayPalApiUsername, $PayPalApiPassword, $PayPalApiSignature, $PayPalMode);
+            //Check if everything went ok..
+            if("SUCCESS" == strtoupper($httpParsedResponseAr["ACK"]) || "SUCCESSWITHWARNING" == strtoupper($httpParsedResponseAr["ACK"]))
+            {
+
+                //echo 'Your Transaction ID : '.urldecode($httpParsedResponseAr["PAYMENTINFO_0_TRANSACTIONID"]);
+                /*
+                    //Sometimes Payment are kept pending even when transaction is complete.
+                    //hence we need to notify user about it and ask him manually approve the transiction
+                */
+                $payment_success_data['interest_campaign_closed'] = '1';
+                $payment_success_data['interest_paid_by'] = 'paypal_express_checkout';
+
+                if('Completed' == $httpParsedResponseAr["PAYMENTINFO_0_PAYMENTSTATUS"])
+                {
+                    $payment_success_data['interest_paid'] = '1';
+                ?>
+                <div style='color:green'>
+                    <?php _e("Payment Received! Your product will be sent to you very soon!", TEXTDOMAIN); ?>
+                </div>
+                <?php
+                }
+                elseif('Pending' == $httpParsedResponseAr["PAYMENTINFO_0_PAYMENTSTATUS"])
+                {
+                ?>
+                    <div style='color:red'>
+                        <?php _e('Transaction Complete, but payment is still pending! You need to manually authorize this payment in your'); ?>
+                        <a target="_new" href="http://www.paypal.com"><?php _e('Paypal Account'); ?> </a>
+                    </div>
+                <?php
+                }
+
+                // we can retrive transection details using either GetTransactionDetails or GetExpressCheckoutDetails
+                // GetTransactionDetails requires a Transaction ID, and GetExpressCheckoutDetails requires Token returned by SetExpressCheckOut
+                $padata = 	'&TOKEN='.urlencode($token);
+                $paypal= new Bestbuybestsell_Paypal();
+                $httpParsedResponseAr = $paypal->PPHttpPost('GetExpressCheckoutDetails', $padata, $PayPalApiUsername, $PayPalApiPassword, $PayPalApiSignature, $PayPalMode);
+                if("SUCCESS" == strtoupper($httpParsedResponseAr["ACK"]) || "SUCCESSWITHWARNING" == strtoupper($httpParsedResponseAr["ACK"]))
+                {
+                    $payment_success_data['interest_paid_transaction_id'] = $httpParsedResponseAr['PAYMENTREQUEST_0_TRANSACTIONID'];
+                    #### SAVE BUYER INFORMATION IN DATABASE ###
+                    //see (http://www.sanwebe.com/2013/03/basic-php-mysqli-usage) for mysqli usage
+                    //$buyerName = $httpParsedResponseAr["FIRSTNAME"].' '.$httpParsedResponseAr["LASTNAME"];
+                    //$buyerEmail = $httpParsedResponseAr["EMAIL"];
+                    //print_r($httpParsedResponseAr);
+                    do_action('payment_success_data_insert', $payment_success_data,$product_interest_id);
+                ?>
+                <div class="payment_success_shipping_address">
+                    <h3><?php _e('Ship To');?>:</h3>
+                <?php
+                    echo $all_meta_for_user['delivery_first_name'][0]." ".$all_meta_for_user['delivery_last_name'][0];
+                    echo "<br/>C/O: ".$all_meta_for_user['delivery_care_of'][0];
+                    echo "<br/>". $all_meta_for_user['delivery_street_house_number'][0];
+                    echo "<br/>". $all_meta_for_user['delivery_zip_code'][0]." ".$all_meta_for_user['delivery_place'][0];
+                    echo "<br/>". $all_meta_for_user['delivery_country'][0];
+                ?>
+                </div>
+                <?php
+                }
+                else
+                {
+                ?>
+                <div style='color:red'><b>
+                    <?php _e('GetTransactionDetails failed').':</b>'.urldecode($httpParsedResponseAr["L_LONGMESSAGE0"]); ?>
+                </div>
+                <?php
+                echo '<pre>';
+                //print_r($httpParsedResponseAr);
+                echo '</pre>';
+                }
+
+            }else {
+                ?>
+                <div style='color:red'><b>
+                        <?php _e('Error').':</b>'.urldecode($httpParsedResponseAr["L_LONGMESSAGE0"]); ?>
+                </div>
+                <?php
+                echo '<pre>';
+                //print_r($httpParsedResponseAr);
+                echo '</pre>';
+            } // End Payment Process
+        }
+    }
+    /*
+    * Bestbuy-bestsell payment_success_data_insert
+    * Process and Handle payment_success_data_insert
+    */
+    add_action('payment_success_data_insert', 'payment_success_data_insert', 10, 2);
+    function payment_success_data_insert( $payment_success_data, $product_interest_id )
+    {
+        global $wpdb;
+        $where = array( "product_interest_id"=>$product_interest_id );
+        $where_format = array();
+        //print_r( $payment_success_data );
+        return $wpdb->update( 'wp_product_interest', $payment_success_data, $where, $format_array = null, $where_format = null );
     }
     /*
     * Bestbuy-bestsell payment_execute_cash_on_delivery
@@ -4344,23 +4409,27 @@ function mirano_child_setup(){
             array(	'label' => __('När planerar du köpet?' ,TEXTDOMAIN ),
                 'name'=>'when_plan_to_purchase',
                 'id'=>'when_plan_to_purchase',
+                'class'=>'when_plan_to_purchase',
                 'type'=>'label'
             ),
             array(	'label' => __('Så fort priset är rimligt', TEXTDOMAIN ),
                 'name'=>'asa_price_is_reasonable',
                 'id'=>'asa_price_is_reasonable',
                 'type'=>'checkbox',
+                'mandatory'=>'',
                 'checked' => $checked
             ),
             array(	'label' => __('Eller' , TEXTDOMAIN  ),
                 'name'=>'or',
                 'id'=>'or',
+                'class'=>'eller',
                 'type'=>'label'
             ),
             array(	'label' => __('Från' , TEXTDOMAIN  ),
                 'name'=>'interest_start_date',
                 'id'=>'interest_start_date',
                 'type'=>'text',
+                'mandatory'=>'*',
                 'value' => $interest_start_date_deafult,
                 'attribute' => 'readonly',
                 'disabled' => $disabled
@@ -4369,6 +4438,7 @@ function mirano_child_setup(){
                 'name'=>'interest_date_range',
                 'id'=>'interest_date_range',
                 'type'=>'select',
+                'mandatory'=>'*',
                 'disabled' => $disabled,
                 'options' => array(	array( 'label' =>__('15 Dagar' , TEXTDOMAIN  ),  'value' => '15' ),
                     array( 'label' =>__('30 Dagar' , TEXTDOMAIN  ),  'value' => '30'),
@@ -4381,6 +4451,7 @@ function mirano_child_setup(){
                 'name'=>'interest_qty',
                 'id'=>'interest_qty',
                 'type'=>'text',
+                'mandatory'=>'*',
                 'value' =>$wp_interest_form_data['interest_qty'],
                 'attribute' => ''
             )
@@ -4406,12 +4477,21 @@ function mirano_child_setup(){
                 'name'=>'interest_notes',
                 'id'=>'interest_notes',
                 'type'=>'textarea',
+                'mandatory'=>'',
                 'placeholder' =>__('förklaring: egna önskemål om produktens utseende, ålder m.m', TEXTDOMAIN ),
                 'value' => $wp_interest_form_data['interest_notes']
             )
         );
-
-        if($all_meta_for_user['company_or_private_person'][0]==='company'){
+        array_push( $interest_form, array(	'label' => __('Auktoritativ Person' , TEXTDOMAIN  ),
+                'name'=>'authorative_person',
+                'id'=>'authorative_person',
+                'type'=>'text',
+                'mandatory'=>'*',
+                'value' =>$wp_interest_form_data['authorative_person'],
+                'attribute' => ''
+            )
+        );
+        /*if($all_meta_for_user['company_or_private_person'][0]==='company'){
             $authorative_person_options = array( array( 'label' =>__('Min själv', TEXTDOMAIN ), 'value' => 'My Self' ) );
             if( !$all_meta_for_user['authorative_person_one_first_name'][0] ){
                 array_push( $authorative_person_options, array( 'label' =>__('Ny adda', TEXTDOMAIN ), 'value' => 'add_authorative_person' ) );
@@ -4436,7 +4516,7 @@ function mirano_child_setup(){
                 )
             );
             $checked = '';
-            if( isset( $wp_interest_form_data['exclusive_purchase_rights'] ) && $wp_interest_form_data['exclusive_purchase_rights']  ) {
+          if( isset( $wp_interest_form_data['exclusive_purchase_rights'] ) && $wp_interest_form_data['exclusive_purchase_rights']  ) {
                 $checked= 'checked';
             }
             array_push( $interest_form, array(	'label' => __('Give inmid exclusive rights to purchase this product', TEXTDOMAIN ),
@@ -4446,11 +4526,12 @@ function mirano_child_setup(){
                     'checked' => $checked
                 )
             );
-        }
+        }*/
         array_push( $interest_form, 	array( 	'label' => __('Återkommande Köp' , TEXTDOMAIN  ),
                 'name'=>'interest_recuring_purchase',
                 'id'=>'interest_recuring_purchase',
                 'type'=>'select',
+                'mandatory'=>'',
                 'options' =>array(	array( 'label' =>__('Månadsvis' , TEXTDOMAIN  ),  'value' =>  __('Månadsvis' , TEXTDOMAIN  ) ),
                     array( 'label' =>__('Varje 2 Månad' , TEXTDOMAIN  ),  'value' => __('Varje 2 Månad' , TEXTDOMAIN  ) ),
                     array( 'label' =>__('Varje 3 Månad' , TEXTDOMAIN  ),  'value' => __('Varje 3 Månad' , TEXTDOMAIN  ) ),
@@ -4468,7 +4549,7 @@ function mirano_child_setup(){
                 )
             )
         );
-        array_push( $interest_form, 	array(	'label' => __('Prenumerera här produkten' , TEXTDOMAIN  ),
+        /*array_push( $interest_form, 	array(	'label' => __('Prenumerera här produkten' , TEXTDOMAIN  ),
                 'name'=>'subscribe_this_product',
                 'id'=>'subscribe_this_product',
                 'type'=>'select',
@@ -4488,7 +4569,7 @@ function mirano_child_setup(){
                 'display' => 'none',
                 'value' => $wp_interest_form_data['subscribe_this_product']
             )
-        );
+        );*/
         return $interest_form;
     }
 
@@ -4703,6 +4784,7 @@ function mirano_child_setup(){
         $wp_interest_form_data['interest_date_range'] = stripslashes_deep($_POST['interest_date_range']);
         $wp_interest_form_data['interest_qty'] = stripslashes_deep($_POST['interest_qty']);
         $wp_interest_form_data['interest_notes'] = stripslashes_deep($_POST['interest_notes']);
+        $wp_interest_form_data['authorative_person'] = stripslashes_deep($_POST['authorative_person']);
         $wp_interest_form_data['interest_recuring_purchase'] = stripslashes_deep($_POST['interest_recuring_purchase']);
         //$wp_interest_form_data['subscribe_this_product'] = stripslashes_deep($_POST['subscribe_this_product']);
         // Form validation For all types of user
@@ -4759,7 +4841,11 @@ function mirano_child_setup(){
             }
         }
         //Form Validation >> User role company
-        if($current_user_role=="company"){
+        // Validate interest Qty
+        if( empty( $wp_interest_form_data['authorative_person'] ) ){
+            $product_interest_validation_errors->add('empty_authorative_person', __('Authorative person should not be empty!!!', TEXTDOMAIN ) );
+        }
+       /* if($current_user_role=="company"){
             //$authorative_person = stripslashes_deep($_POST['authorative_person']);
             if( isset( $_POST['exclusive_purchase_rights'] ) && $_POST['exclusive_purchase_rights'] ){
                 $wp_interest_form_data['exclusive_purchase_rights'] = 1;
@@ -4811,7 +4897,7 @@ function mirano_child_setup(){
                     $product_interest_validation_errors->add('empty_authorative_person_three_email', __('Authoritative person E-mail can&rsquo;t be empty!!!', TEXTDOMAIN ) );
                 }
             }
-        }
+        }*/
     }
     function product_interest_insert( $product_id ){
         // Prepare Data to insert in wp_product_interest: Table and wp_product_interest_meta:Table
@@ -4860,12 +4946,12 @@ function mirano_child_setup(){
             $product_interest_meta_update_id = wp_product_interest_meta_update( $product_interest_id, $wp_interest_form_data, $product_attr );
         }
         if( $product_interest_insert_id  ){
-            echo '<div class="notice">Congratulations!!! Product '.$wp_interest_form_data['product_name'].' was successfully added to your interest list! <span class="close"></span></div>';
+            echo '<div class="interest_success alert alert-success">Congratulations!!! Product '.$wp_interest_form_data['product_name'].' was successfully added to your interest list! <span class="close"></span></div>';
         }elseif( $product_interest_update_id || $product_interest_meta_update_id ){
-            echo '<div class="notice">Congratulations!!! Product '.$wp_interest_form_data['product_name'].' was successfully updated to your interest list! <span class="close"></span></div>';
+            echo '<div class="interest_success alert alert-success">Congratulations!!! Product '.$wp_interest_form_data['product_name'].' was successfully updated to your interest list! <span class="close"></span></div>';
         }
         if ( $my_interest_meta_data[0]->interest_confirmed  ){
-            echo '<div class="notice">Sorry!!! You Don&rsquo;t Have Permission To This Action As You Already Confirmed Your Purchase Interest</div>';
+            echo '<div class="interest_success alert alert-danger">Sorry!!! You Don&rsquo;t Have Permission To This Action As You Already Confirmed Your Purchase Interest</div>';
         }
 
         if( $product_interest_id ){
