@@ -12,7 +12,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 ?>
 <?php
-global $road_opt, $road_secondimage;
+global $road_opt, $road_secondimage, $cmp;
 global $interest_form, $show_this_div, $interest_start_date_time_as_text, $product_interest_validation_errors, $interest_meta_array, $format_array, $wp_interest_form_data, $current_user_id;
 
 ?>
@@ -59,8 +59,9 @@ global $interest_form, $show_this_div, $interest_start_date_time_as_text, $produ
 						 */
 						do_action( 'woocommerce_single_product_summary' );
 						/*********  Show Product Status : CMP, CIQ, Status, PPQ **********/
-						do_action('inmid_product_status');
-						/*********  Show interest form for a single product **********/
+						//do_action('bestbuy_bestsell_product_status');
+						do_action('bestbuy_bestsell_product_status_cmp');
+					/*********  Show interest form for a single product **********/
 						do_action('bestbuy_bestsell_product_interest_form');
 					?>
 				</div><!-- .summary -->
@@ -90,26 +91,36 @@ global $interest_form, $show_this_div, $interest_start_date_time_as_text, $produ
 								}
 							}
 						}
-
+						$cmp = 100;
+						if( $cmp )
+						{
+						?>
+							<div class="cmp_div">
+								<a id="tool_tip_design" class="tooltip_product_cmp" title="<?php _e('Current Market Price. But we can give you more lower price if CIQ( Current Interest Quantity )  is higher', TEXTDOMAIN); ?>" >
+									<span style="font-weight:bold;">
+									<div style="text-align:center;">
+										<input class="btn btn-default button button-medium exclusive"  type="button" name="add_to_cart_interest" value="<?php _e('CMP: ', TEXTDOMAIN); echo $cmp."&nbsp;".get_currency();?>" >
+									</div>
+								</a>
+							</div>
+							<?php
+						}
 						?>
 						<!--<div class="clear"> </div>-->
-						<?php if ( sizeof( $product_interest_validation_errors->get_error_messages() ) <= 0 && empty( $product_interest_id ) ) 		 {
+						<?php if ( sizeof( $product_interest_validation_errors->get_error_messages() ) <= 0 && empty( $product_interest_id ) )
+						{
 							$today_date = date('Y-m-d');
 							if( !$my_interest_meta_data[0]->asa_price_is_reasonable){
 								$interest_start_date_deafult = date('Y-m-d', strtotime($today_date. ' + 14 days'));
 							}
-							?>
-							<!--<div class="clear">   </div>-->
-
-							<?php
 							if( $current_user_id ){ ?>
 								<div id="add_to_cart_interest_div" >
-									<input class="add_to_cart_interest_div"  type="button" name="add_to_cart_interest" value="I&rsquo;m Interested" >
+									<input class="btn btn-default button button-medium exclusive"  type="button" name="add_to_cart_interest" value="<?php _e('Get Lowest Price'); ?>" >
 								</div>
 							<?php } else{ ?>
 								<div id="add_to_cart_interest_div__" >
 									<a href="<?php echo get_site_url().'/index.php/authentication'?>">
-										<input class="add_to_cart_interest_div"  type="button" name="add_to_cart_interest" value="I&rsquo;m Interested" >
+										<input class="add_to_cart_interest_div"  type="button" name="add_to_cart_interest" value="<?php _e('Get Lowest Price'); ?>" >
 									</a>
 								</div>
 							<?php }

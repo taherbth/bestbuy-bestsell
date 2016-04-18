@@ -5610,6 +5610,7 @@ function mirano_child_setup(){
      */
     add_action('bestbuy_bestsell_product_status', 'bestbuy_bestsell_product_status_CIQ' , 5 );
     function bestbuy_bestsell_product_status_CIQ( ){
+        global $ciq_to_display_visitor;
         $product_meta_values = get_post_meta( get_the_ID(), "", "" );
         $ciq_to_display_visitor = 0;
         $inmid_ciq = $product_meta_values['inmid_ciq'][0];
@@ -5623,17 +5624,6 @@ function mirano_child_setup(){
             $ciq_to_display_visitor = $count_interest_qty[0]->total_qty;
         }
         $ciq_to_display_visitor += $inmid_ciq;
-
-        $ciq_output = '<div class="product_ciq">
-			<a id="tool_tip_design" class="tooltip_product_ciq" title="' . __('Current Interest Quantity', TEXTDOMAIN) .'" >
-			<span style="font-weight:bold;">'. __('CIQ', TEXTDOMAIN).' : </span>';
-
-        if( $ciq_to_display_visitor ){
-            $ciq_output .= $ciq_to_display_visitor;
-            $ciq_output .= __(' St' , TEXTDOMAIN );
-        }
-        $ciq_output .= '</a></div>';
-        echo $ciq_output;
     }
 
     /*********  Show Product Status : PPQ **********/
@@ -5644,7 +5634,7 @@ function mirano_child_setup(){
      * Acquiring: If no group price set for this product
      * return PPQ Status Message
      */
-    add_action('bestbuy_bestsell_product_status', 'bestbuy_bestsell_product_status_PPQ' , 10 );
+    add_action('bestbuy_bestsell_product_status__', 'bestbuy_bestsell_product_status_PPQ' , 10 );
     function bestbuy_bestsell_product_status_PPQ( ){
         $current_user_id = get_current_user_id();
         if( isset( $_REQUEST['product_interest_id'] ) && !empty( $_REQUEST['product_interest_id'] ) && !empty( $current_user_id ) ){
@@ -5671,7 +5661,7 @@ function mirano_child_setup(){
     2. Campaign MMQ Reached ( If sum(	interest_qty ) is greater or equal to minimum_target_sells for this product whatever paid or unpaid )
      * return Status = Under Evaluation / MMQ Reached  Message
      */
-    add_action('bestbuy_bestsell_product_status', 'bestbuy_bestsell_product_status_MMQ' , 15 );
+    add_action('bestbuy_bestsell_product_status__', 'bestbuy_bestsell_product_status_MMQ' , 15 );
     function bestbuy_bestsell_product_status_MMQ( ){
         $current_user_id = get_current_user_id();
         if( isset( $_REQUEST['product_interest_id'] ) && !empty( $_REQUEST['product_interest_id'] ) && !empty( $current_user_id  ) ){
@@ -5699,15 +5689,9 @@ function mirano_child_setup(){
      */
     add_action('bestbuy_bestsell_product_status_cmp', 'bestbuy_bestsell_product_status_cmp',20  );
     function bestbuy_bestsell_product_status_cmp( ){
+        global $cmp;
         $product_meta_values = get_post_meta( get_the_ID() , "", "" );
         $cmp = $product_meta_values['current_market_price'][0];
-        $cmp_output = '';
-        if( $cmp ){
-            $cmp_output = '<div class="product_cmp" style="margin-top:20px;">
-		<a id="tool_tip_design" class="tooltip_product_cmp" title="'. __('Current Market Price. But INMID can give you more lower price if number of interest higher', TEXTDOMAIN). '"  >
-		<span style="font-weight:bold;">'. __('CMP', TEXTDOMAIN). ': </span>' . $cmp. 'SEK </a></div>';
-        }
-        echo $cmp_output;
     }
     /*********  Show Product Status : CMP Button **********/
     /** Author: ABU TAHER, Logic-coder IT

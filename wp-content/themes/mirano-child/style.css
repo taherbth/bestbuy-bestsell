@@ -483,6 +483,21 @@
 }
 .element_interest_save_button{
     float: right;
-    padding-right: 20%;
+    padding-right: 8%;
     margin-top: 2%;
+}
+.tooltip_product_ciq {
+    color: #14bfcc;
+    float: left;
+    font-family: Montserrat,Arial,Helvetica,sans-serif;
+    font-size: 24px;
+    line-height: 25px;
+    margin: 0;
+}
+.cmp_div{
+    float: left;
+    margin-right: 1%;
+}
+.add_to_cart_interest_div{
+    float: left;
 }

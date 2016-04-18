@@ -12,8 +12,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 global $product;
-
+/*********  Show Product Status : CMP, CIQ, Status, PPQ **********/
+do_action('bestbuy_bestsell_product_status');
+global $ciq_to_display_visitor;
 ?>
+
 <div class="price-box" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-	<p class="price"><?php _e('CIQ'); echo ": ".$product->get_price_html(); ?></p>
+	<p class="price">
+		<a id="tool_tip_design" class="tooltip_product_ciq" title="<?php _e('Current Interest Quantity', TEXTDOMAIN);?>" >
+		<?php _e('CIQ'); echo ": ".$ciq_to_display_visitor; ?></a></p>
 </div>
